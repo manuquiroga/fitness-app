@@ -1,13 +1,12 @@
 package FoodModels;
 
-import java.io.FileOutputStream;
-import java.io.ObjectOutputStream;
-import java.io.Serializable;
+import java.io.*;
 
 import Interfaces.IToFile;
 import Interfaces.IToJSON;
-import Interfaces.JSONException;
-import Interfaces.JSONObject;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 
 public class Food implements IToJSON, IToFile, Serializable {
@@ -22,12 +21,16 @@ public class Food implements IToJSON, IToFile, Serializable {
 
     //constructors:
 
-    public Food(int id, String name, double calories, double servingSize, foodType foodType) {
+
+    public Food(int id, String name, double calories, double protein, double fat, double carbohydrates, double servingSize, FoodModels.foodType foodType) {
         this.id = id;
         this.name = name;
         this.calories = calories;
+        this.protein = protein;
+        this.fat = fat;
+        this.carbohydrates = carbohydrates;
         this.servingSize = servingSize;
-        this.foodType = (FoodModels.foodType) foodType;
+        this.foodType = foodType;
     }
 
     public Food() {
@@ -56,6 +59,18 @@ public class Food implements IToJSON, IToFile, Serializable {
         return foodType;
     }
 
+    public double getProtein() {
+        return protein;
+    }
+
+    public double getFat() {
+        return fat;
+    }
+
+    public double getCarbohydrates() {
+        return carbohydrates;
+    }
+
     @Override
     public JSONObject toJSON() throws JSONException {
         
@@ -72,7 +87,7 @@ public class Food implements IToJSON, IToFile, Serializable {
     }
 
     @Override
-    public void toFile() {
+    public void toFile() throws JSONException, IOException {
         JSONObject json = this.toJSON();
         FileOutputStream foodsFile = new FileOutputStream("foods.dat");
         ObjectOutputStream foodsStream = new ObjectOutputStream(foodsFile);

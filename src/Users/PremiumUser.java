@@ -18,7 +18,7 @@ public class PremiumUser extends User{
     //equals, hashCode, compareTo, toString
 
     //Methods:
-
+    /*
     public ArrayList<Food> modifyDiet()
     {
         return diet;
@@ -28,6 +28,6 @@ public class PremiumUser extends User{
     {
         return diet;
     }
-
+*/
 
 }

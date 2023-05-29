@@ -1,13 +1,12 @@
 package Users;
 
-import java.io.FileOutputStream;
-import java.io.ObjectOutputStream;
-import java.io.Serializable;
-
 import Interfaces.IToFile;
 import Interfaces.IToJSON;
-import Interfaces.JSONException;
-import Interfaces.JSONObject;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+
+import java.io.*;
 
 public class User implements IToJSON, IToFile, Serializable {
     private String name;
@@ -78,7 +77,7 @@ public class User implements IToJSON, IToFile, Serializable {
     }
 
     @Override
-    public void toFile() { 
+    public void toFile() throws JSONException, IOException, NotSerializableException {
         JSONObject json = this.toJSON();
         FileOutputStream usersFile = new FileOutputStream("users.dat");
         ObjectOutputStream usersStream = new ObjectOutputStream(usersFile);

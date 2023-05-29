@@ -13,7 +13,7 @@ public class AdminUser extends User{
 
     //Methods:
 
-    public User getSpecificUser(int id)
+   /* public User getSpecificUser(int id)
     {
         return aux;
     }
@@ -21,5 +21,5 @@ public class AdminUser extends User{
     public void showAllUsers()
     {
 
-    }
+    }*/
 }

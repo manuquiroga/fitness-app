@@ -2,8 +2,9 @@ package Users;
 
 import FoodModels.Food;
 import Interfaces.IToJSON;
-import Interfaces.JSONException;
-import Interfaces.JSONObject;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
