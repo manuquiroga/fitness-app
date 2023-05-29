@@ -11,7 +11,6 @@ public class Food implements IToJSON {
     private double protein;
     private double fat;
     private double carbohydrates;
-    private ArrayList<String> ingredients;
     private double servingSize;
     private foodType foodType;
 
@@ -23,7 +22,6 @@ public class Food implements IToJSON {
         this.calories = calories;
         this.servingSize = servingSize;
         this.foodType = (FoodModels.foodType) foodType;
-        ingredients=new ArrayList<>();
     }
 
     public Food() {
