@@ -1,10 +1,15 @@
 package Users;
 
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
+
+import Interfaces.IToFile;
 import Interfaces.IToJSON;
 import Interfaces.JSONException;
 import Interfaces.JSONObject;
 
-public class User implements IToJSON {
+public class User implements IToJSON, IToFile, Serializable {
     private String name;
     private String password;
     private String email;
@@ -70,5 +75,15 @@ public class User implements IToJSON {
         json.put("id", id);
         json.put("userData", userData.toJSON());
         return json;
+    }
+
+    @Override
+    public void toFile() { 
+        JSONObject json = this.toJSON();
+        FileOutputStream usersFile = new FileOutputStream("users.dat");
+        ObjectOutputStream usersStream = new ObjectOutputStream(usersFile);
+        usersStream.writeObject(json);
+        usersStream.close();
+        usersFile.close();
     }
 }

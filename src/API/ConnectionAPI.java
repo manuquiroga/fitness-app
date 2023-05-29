@@ -27,7 +27,6 @@ public class ConnectionAPI{
             String response = readResponse(responseStream);
             return response;
 
-            // Aquí puedes procesar el JSON según tus necesidades
         } catch (IOException e) {
             System.err.println(e.getMessage());
         }
