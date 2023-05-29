@@ -10,6 +10,7 @@ public class Food implements IToJSON {
     private double calories;
     private double protein;
     private double fat;
+    private double carbohydrates;
     private ArrayList<String> ingredients;
     private double servingSize;
     private foodType foodType;
