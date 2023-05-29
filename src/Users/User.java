@@ -1,6 +1,8 @@
 package Users;
 
-public class User {
+import Interfaces.IToJSON;
+
+public class User implements IToJSON {
     private String name;
     private String password;
     private String email;

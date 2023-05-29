@@ -1,24 +1,26 @@
 package FoodModels;
 
+import Interfaces.IToJSON;
+
 import java.util.ArrayList;
 
-public class Food {
+public class Food implements IToJSON {
     private int id;
     private String name;
     private double calories;
+    private double protein;
+    private double fat;
     private ArrayList<String> ingredients;
     private double servingSize;
-    private NutritionalValue nutritionalValue;
     private foodType foodType;
 
     //constructors:
 
-    public Food(int id, String name, double calories, double servingSize, NutritionalValue nutritionalValue, Enum foodType) {
+    public Food(int id, String name, double calories, double servingSize, foodType foodType) {
         this.id = id;
         this.name = name;
         this.calories = calories;
         this.servingSize = servingSize;
-        this.nutritionalValue = nutritionalValue;
         this.foodType = (FoodModels.foodType) foodType;
         ingredients=new ArrayList<>();
     }
@@ -43,10 +45,6 @@ public class Food {
 
     public double getServingSize() {
         return servingSize;
-    }
-
-    public NutritionalValue getNutritionalValue() {
-        return nutritionalValue;
     }
 
     public foodType getFoodType() {

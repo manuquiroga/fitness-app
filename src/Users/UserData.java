@@ -1,10 +1,11 @@
 package Users;
 
 import FoodModels.Food;
+import Interfaces.IToJSON;
 
 import java.util.ArrayList;
 
-public class UserData {
+public class UserData implements IToJSON {
     private int age;
     private double weight;
     private double desiredWeight;
