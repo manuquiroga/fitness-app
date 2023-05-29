@@ -1,6 +1,8 @@
 package Users;
 
 import Interfaces.IToJSON;
+import Interfaces.JSONException;
+import Interfaces.JSONObject;
 
 public class User implements IToJSON {
     private String name;
@@ -57,5 +59,16 @@ public class User implements IToJSON {
                 "id: " + id + '\n' +
                 "userData: " + userData.toString() +
                 '}';
+    }
+
+    @Override
+    public JSONObject toJSON() throws JSONException {
+        JSONObject json = new JSONObject();
+        json.put("name", name);
+        json.put("password", password);
+        json.put("email", email);
+        json.put("id", id);
+        json.put("userData", userData.toJSON());
+        return json;
     }
 }

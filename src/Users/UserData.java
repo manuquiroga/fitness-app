@@ -2,6 +2,8 @@ package Users;
 
 import FoodModels.Food;
 import Interfaces.IToJSON;
+import Interfaces.JSONException;
+import Interfaces.JSONObject;
 
 import java.util.ArrayList;
 
@@ -10,19 +12,19 @@ public class UserData implements IToJSON {
     private double weight;
     private double desiredWeight;
     private int height;
-    private char gender;
+    private String sex;
     private ArrayList<Food> diet;
     private PhysicalActivity physicalActivity;
 
 
     //constructors:
 
-    public UserData(int age, double weight, double desiredWeight, int height, char gender, PhysicalActivity physicalActivity) {
+    public UserData(int age, double weight, double desiredWeight, int height, String sex, PhysicalActivity physicalActivity) {
         this.age = age;
         this.weight = weight;
         this.desiredWeight = desiredWeight;
         this.height = height;
-        this.gender = gender;
+        this.sex = sex;
         this.physicalActivity = physicalActivity;
         diet=new ArrayList<Food>();
     }
@@ -48,8 +50,8 @@ public class UserData implements IToJSON {
         return height;
     }
 
-    public char getGender() {
-        return gender;
+    public String getSex() {
+        return sex;
     }
 
     public Enum getPhysicalActivity() {
@@ -66,7 +68,7 @@ public class UserData implements IToJSON {
                 "weight: " + weight + '\n' +
                 "desiredWeight: " + desiredWeight + '\n' +
                 "height: " + height + '\n' +
-                "gender: " + gender + '\n' +
+                "sex: " + sex + '\n' +
                 "physicalActivity: " + physicalActivity +
                 '}';
     }
@@ -76,5 +78,23 @@ public class UserData implements IToJSON {
 
     public void updateData(){
 
+    }
+
+    @Override
+    public JSONObject toJSON() throws JSONException {
+        
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("age", age);
+        jsonObject.put("weight", weight);
+        jsonObject.put("desiredWeight", desiredWeight);
+        jsonObject.put("height", height);
+        jsonObject.put("sex", sex);
+        jsonObject.put("physicalActivity", physicalActivity);
+        JSONArray jsonArray = new JSONArray();
+        for (Food food : diet) {
+            jsonArray.put(food.toJSON());
+        }
+        jsonObject.put("diet", jsonArray);
+        return jsonObject;
     }
 }

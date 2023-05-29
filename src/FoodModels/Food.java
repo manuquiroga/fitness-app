@@ -1,6 +1,8 @@
 package FoodModels;
 
 import Interfaces.IToJSON;
+import Interfaces.JSONException;
+import Interfaces.JSONObject;
 
 import java.util.ArrayList;
 
@@ -48,6 +50,21 @@ public class Food implements IToJSON {
 
     public foodType getFoodType() {
         return foodType;
+    }
+
+    @Override
+    public JSONObject toJSON() throws JSONException {
+        
+        JSONObject json = new JSONObject();
+        json.put("id", id);
+        json.put("name", name);
+        json.put("calories", calories);
+        json.put("servingSize", servingSize);
+        json.put("foodType", foodType);
+        json.put("protein", protein);
+        json.put("fat", fat);
+        json.put("carbohydrates", carbohydrates);
+        return json;
     }
 
     //equals, hashCode, compareTo, toString
