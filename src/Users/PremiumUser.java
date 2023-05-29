@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class PremiumUser extends User{
 
 
-    //Builders:
+    //constructors:
     public PremiumUser(String name, String password, String email, int id, UserData userData) {
         super(name, password, email, id, userData);
     }

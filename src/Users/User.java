@@ -8,7 +8,7 @@ public class User {
     private UserData userData;
 
 
-    //Builders:
+    //constructors:
     public User(String name, String password, String email, int id, UserData userData) {
         this.name = name;
         this.password = password;

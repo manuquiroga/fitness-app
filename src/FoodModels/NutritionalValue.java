@@ -6,12 +6,12 @@ public class NutritionalValue {
     private double proteinG;
     private double sodiumMg;
     private double potassiumMg;
-    private double cholesterolMg
+    private double cholesterolMg;
     private double carbohydratesG;
     private double fiberG;
     private double sugarG;
 
-    //Builders:
+    //constructors:
     public NutritionalValue(double fatTotalG, double fatSaturatedG, double proteinG, double sodiumMg, double potassiumMg, double cholesterolMg, double carbohydratesG, double fiberG, double sugarG) {
         this.fatTotalG = fatTotalG;
         this.fatSaturatedG = fatSaturatedG;

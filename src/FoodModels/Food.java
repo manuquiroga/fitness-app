@@ -11,7 +11,7 @@ public class Food {
     private NutritionalValue nutritionalValue;
     private foodType foodType;
 
-    //Builders:
+    //constructors:
 
     public Food(int id, String name, double calories, double servingSize, NutritionalValue nutritionalValue, Enum foodType) {
         this.id = id;

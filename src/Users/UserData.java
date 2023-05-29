@@ -14,7 +14,7 @@ public class UserData {
     private PhysicalActivity physicalActivity;
 
 
-    //Builders:
+    //constructors:
 
     public UserData(int age, double weight, double desiredWeight, int height, char gender, PhysicalActivity physicalActivity) {
         this.age = age;

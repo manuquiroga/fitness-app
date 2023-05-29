@@ -3,7 +3,7 @@ package Users;
 public class AdminUser extends User{
 
 
-    //Builders:
+    //constructors:
     public AdminUser(String name, String password, String email, int id, UserData userData) {
         super(name, password, email, id, userData);
     }
