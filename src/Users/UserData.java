@@ -98,4 +98,8 @@ public class UserData implements IToJSON {
         jsonObject.put("diet", jsonArray);
         return jsonObject;
     }
+
+    public void addFood(Food food) {
+        diet.add(food);
+    }
 }

@@ -4,7 +4,6 @@ import java.io.*;
 
 import Interfaces.IToFile;
 import Interfaces.IToJSON;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -21,16 +20,15 @@ public class Food implements IToJSON, IToFile, Serializable {
 
     //constructors:
 
-
-    public Food(int id, String name, double calories, double protein, double fat, double carbohydrates, double servingSize, FoodModels.foodType foodType) {
+    public Food(int id, String name, double calories, double protein, double fat, double carbohydrates, double servingSize, foodType foodType) {
         this.id = id;
         this.name = name;
         this.calories = calories;
+        this.servingSize = servingSize;
+        this.foodType = (FoodModels.foodType) foodType;
         this.protein = protein;
         this.fat = fat;
         this.carbohydrates = carbohydrates;
-        this.servingSize = servingSize;
-        this.foodType = foodType;
     }
 
     public Food() {
@@ -59,18 +57,6 @@ public class Food implements IToJSON, IToFile, Serializable {
         return foodType;
     }
 
-    public double getProtein() {
-        return protein;
-    }
-
-    public double getFat() {
-        return fat;
-    }
-
-    public double getCarbohydrates() {
-        return carbohydrates;
-    }
-
     @Override
     public JSONObject toJSON() throws JSONException {
         
@@ -89,11 +75,10 @@ public class Food implements IToJSON, IToFile, Serializable {
     @Override
     public void toFile() throws JSONException, IOException {
         JSONObject json = this.toJSON();
-        FileOutputStream foodsFile = new FileOutputStream("foods.dat");
-        ObjectOutputStream foodsStream = new ObjectOutputStream(foodsFile);
-        foodsStream.writeObject(json);
-        foodsStream.close();
-        foodsFile.close();
+
+        PrintWriter out = new PrintWriter("foods.dat");
+        out.println(json.toString());
+        out.close();
     }
 
     //equals, hashCode, compareTo, toString

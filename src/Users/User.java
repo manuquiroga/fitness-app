@@ -77,12 +77,11 @@ public class User implements IToJSON, IToFile, Serializable {
     }
 
     @Override
-    public void toFile() throws JSONException, IOException, NotSerializableException {
+    public void toFile() throws JSONException, IOException{
         JSONObject json = this.toJSON();
-        FileOutputStream usersFile = new FileOutputStream("users.dat");
-        ObjectOutputStream usersStream = new ObjectOutputStream(usersFile);
-        usersStream.writeObject(json);
-        usersStream.close();
-        usersFile.close();
+
+        PrintWriter out = new PrintWriter("users.dat");
+        out.println(json.toString());
+        out.close();
     }
 }
