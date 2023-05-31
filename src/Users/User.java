@@ -8,7 +8,7 @@ import org.json.JSONObject;
 
 import java.io.*;
 
-public class User implements IToJSON, IToFile, Serializable {
+public class User implements IToJSON, IToFile {
     private String name;
     private String password;
     private String email;
@@ -76,12 +76,4 @@ public class User implements IToJSON, IToFile, Serializable {
         return json;
     }
 
-    @Override
-    public void toFile() throws JSONException, IOException{
-        JSONObject json = this.toJSON();
-
-        PrintWriter out = new PrintWriter("users.dat");
-        out.println(json.toString());
-        out.close();
-    }
 }
