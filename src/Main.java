@@ -18,7 +18,7 @@ public class Main {
         UserData userData = new UserData(32, 75, 80, 175, "male", PhysicalActivity.MODERATE);
         userData.addFood(food);
         User user = new User("name", "password", "email", 1, userData);
-
-
     }
+
+
 }
