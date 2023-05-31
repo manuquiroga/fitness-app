@@ -40,4 +40,5 @@ public class JSONHandler {
         {
             System.err.println("Wrong formulated JSON");
         }
+        return foodList;
 }
