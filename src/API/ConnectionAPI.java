@@ -24,8 +24,7 @@ public class ConnectionAPI{
             connection.setRequestProperty("X-Api-Key", apiKey);
 
             InputStream responseStream = connection.getInputStream();
-            String response = readResponse(responseStream);
-            return response;
+            return readResponse(responseStream);
 
         } catch (IOException e) {
             System.err.println(e.getMessage());

@@ -76,4 +76,8 @@ public class User implements IToJSON, IToFile {
         return json;
     }
 
+    @Override
+    public void toFile() throws JSONException, IOException {
+
+    }
 }

@@ -100,6 +100,11 @@ public class Food implements IToJSON, IToFile {
         return json;
     }
 
+    @Override
+    public void toFile() throws JSONException, IOException {
+
+    }
+
     //equals, hashCode, compareTo, toString
 
     //Methods:
