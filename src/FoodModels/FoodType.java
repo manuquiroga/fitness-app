@@ -1,6 +1,6 @@
 package FoodModels;
 
-public enum foodType {
+public enum FoodType {
 
     BREAKFAST, MEAL, SNACK
 }

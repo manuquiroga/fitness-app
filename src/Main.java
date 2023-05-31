@@ -1,5 +1,4 @@
 import API.ConnectionAPI;
-import Collections.GenericTreeMap;
 import FoodModels.Food;
 import FoodModels.foodType;
 import Users.PhysicalActivity;
@@ -15,16 +14,10 @@ import java.io.NotSerializableException;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        GenericTreeMap<Integer, String> gt= new GenericTreeMap<>();
-        gt.put(4, "Hola");
-        gt.put(6, "s");
-        gt.put(1, "d");
-        gt.put(2, "f");
-
-        System.out.println(gt.containsValue("s"));
-        System.out.println(gt.containsValue("kj"));
-        System.out.println(gt.removeByKey(2));
-        System.out.println(gt.toString());
+        Food food = new Food(1, "asd", 3, 4, 5, 6, 8, foodType.BREAKFAST, false, false, false);
+        UserData userData = new UserData(32, 75, 80, 175, "male", PhysicalActivity.MODERATE);
+        userData.addFood(food);
+        User user = new User("name", "password", "email", 1, userData);
     }
 
 

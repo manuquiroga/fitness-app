@@ -1,7 +1,5 @@
 package FoodModels;
 
-import java.io.*;
-
 import Interfaces.IToFile;
 import Interfaces.IToJSON;
 import org.json.JSONException;
@@ -16,7 +14,7 @@ public class Food implements IToJSON, IToFile {
     private double fat;
     private double carbohydrates;
     private double servingSize;
-    private foodType foodType;
+    private FoodType foodType;
 
     private boolean isVegan;
     private boolean isCeliac;
@@ -24,7 +22,7 @@ public class Food implements IToJSON, IToFile {
 
     //constructors:
 
-    public Food(int id, String name, double calories, double protein, double fat, double carbohydrates, double servingSize, FoodModels.foodType foodType, boolean isVegan, boolean isCeliac, boolean isVegetarian) {
+    public Food(int id, String name, double calories, double protein, double fat, double carbohydrates, double servingSize, FoodType foodType, boolean isVegan, boolean isCeliac, boolean isVegetarian) {
         this.id = id;
         this.name = name;
         this.calories = calories;
@@ -81,8 +79,55 @@ public class Food implements IToJSON, IToFile {
         return servingSize;
     }
 
-    public foodType getFoodType() {
+    public FoodType getFoodType() {
         return foodType;
+    }
+
+    //Setters:
+
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setCalories(double calories) {
+        this.calories = calories;
+    }
+
+    public void setProtein(double protein) {
+        this.protein = protein;
+    }
+
+    public void setFat(double fat) {
+        this.fat = fat;
+    }
+
+    public void setCarbohydrates(double carbohydrates) {
+        this.carbohydrates = carbohydrates;
+    }
+
+    public void setServingSize(double servingSize) {
+        this.servingSize = servingSize;
+    }
+
+    public void setFoodType(FoodType foodType) {
+        this.foodType = foodType;
+    }
+
+    public void setVegan(boolean vegan) {
+        isVegan = vegan;
+    }
+
+    public void setCeliac(boolean celiac) {
+        isCeliac = celiac;
+    }
+
+    public void setVegetarian(boolean vegetarian) {
+        isVegetarian = vegetarian;
     }
 
     @Override
@@ -93,7 +138,7 @@ public class Food implements IToJSON, IToFile {
         json.put("name", name);
         json.put("calories", calories);
         json.put("servingSize", servingSize);
-        json.put("foodType", foodType);
+        json.put("FoodType", foodType.name());
         json.put("protein", protein);
         json.put("fat", fat);
         json.put("carbohydrates", carbohydrates);
@@ -108,5 +153,16 @@ public class Food implements IToJSON, IToFile {
     //equals, hashCode, compareTo, toString
 
     //Methods:
+
+    public void setFoodType(String foodType)
+    {
+        if(foodType.equals("MEAL")){
+            setFoodType(FoodType.MEAL);
+        } else if (foodType.equals("BREAKFAST")) {
+            setFoodType(FoodType.BREAKFAST);
+        } else if (foodType.equals("SNACK")) {
+            setFoodType(FoodType.SNACK);
+        }
+    }
     //None
 }
