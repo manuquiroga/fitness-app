@@ -62,8 +62,10 @@ public class SignUp extends JFrame implements ActionListener{
                 System.out.println(user);
 
                 String subject = "Welcome to Nutribros";
-                String body = SendEmail.welcomeText();
+                String body = SendEmail.welcomeText(name);
                 SendEmail.send(email, subject, body);
+
+                //TODO: forgot password
 
             } catch (IncorrectEmailFormatException ex) {
                 System.err.println("Email error: " + ex.getMessage());

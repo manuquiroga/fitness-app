@@ -15,10 +15,11 @@ public class Home extends JFrame implements ActionListener {
 
         JButton signButton = new JButton("Sign Up");
         signButton.setBounds(135,110,150,50);
+        signButton.setFocusable(false);
 
         JButton loginButton = new JButton("Log In");
         loginButton.setBounds(135,170,150,50);
-
+        loginButton.setFocusable(false);
         signButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
