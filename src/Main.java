@@ -1,6 +1,5 @@
 import API.ConnectionAPI;
 import FoodModels.Food;
-import FoodModels.foodType;
 import Users.PhysicalActivity;
 import Users.User;
 import Users.UserData;

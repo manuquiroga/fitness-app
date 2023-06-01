@@ -146,7 +146,7 @@ public class Food implements IToJSON, IToFile {
     }
 
     @Override
-    public void toFile() throws JSONException, IOException {
+    public void toFile() throws JSONException{
 
     }
 
