@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2910e345-db14-4f9f-b4c7-3856289f3311" name="Changes" comment="Added and implemented the java-mail jar and lib. Added functions of sendMail, and DataValidation class for validations">
+    <list default="true" id="2910e345-db14-4f9f-b4c7-3856289f3311" name="Changes" comment="Changed the welcome text method and set the log and sign buttons not focusable">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Handlers/SendEmail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Handlers/SendEmail.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/UI/Home.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/Home.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/UI/SignUp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/SignUp.java" afterDir="false" />
     </list>
@@ -47,6 +46,9 @@
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="Exceptions" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\quiro\Documents\GitHub\tp-lab3\src\UI" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -100,7 +102,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685650938398</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Changed the welcome text method and set the log and sign buttons not focusable">
+      <created>1685656384037</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1685656384037</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -120,6 +129,7 @@
     <MESSAGE value="GenericTreeMap" />
     <MESSAGE value="login ui test" />
     <MESSAGE value="Added and implemented the java-mail jar and lib. Added functions of sendMail, and DataValidation class for validations" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added and implemented the java-mail jar and lib. Added functions of sendMail, and DataValidation class for validations" />
+    <MESSAGE value="Changed the welcome text method and set the log and sign buttons not focusable" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed the welcome text method and set the log and sign buttons not focusable" />
   </component>
 </project>

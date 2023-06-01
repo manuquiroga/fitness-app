@@ -15,6 +15,7 @@ public class SignUp extends JFrame implements ActionListener{
     public SignUp() {
         JFrame frame=new JFrame("Nutribros");//creating instance of JFrame
         frame.getContentPane().setBackground(new Color(41, 42, 54));
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         JLabel NameLabel = new JLabel("Full Name:");
         NameLabel.setForeground(Color.WHITE);

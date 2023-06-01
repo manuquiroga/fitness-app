@@ -10,8 +10,12 @@ import java.awt.event.ActionListener;
 public class Home extends JFrame implements ActionListener {
 
     public static void main(String[] args) {
-        JFrame frame=new JFrame("Nutribros");//creating instance of JFrame
+        JFrame frame=new JFrame("Nutribros");
+        ImageIcon logo = new ImageIcon("src/UI/weightlifter.png");
         frame.getContentPane().setBackground(new Color(41, 42, 54));
+
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
 
         JButton signButton = new JButton("Sign Up");
         signButton.setBounds(135,110,150,50);
@@ -30,9 +34,11 @@ public class Home extends JFrame implements ActionListener {
 
         frame.add(signButton);
         frame.add(loginButton);
+        frame.setIconImage(logo.getImage());
+
         frame.setResizable(false);
         frame.setSize(420,420);//400 width and 500 height
-        frame.setLayout(null);//using no layout managers
+        frame.setLayout(null);
         frame.setVisible(true);//making the frame visible
     }
     @Override
