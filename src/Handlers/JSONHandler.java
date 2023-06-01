@@ -1,7 +1,6 @@
-package API;
+package Handlers;
 
 import FoodModels.Food;
-import FoodModels.FoodType;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;

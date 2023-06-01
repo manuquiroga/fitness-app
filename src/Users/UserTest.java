@@ -1,16 +1,20 @@
 package Users;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class UserTest {
     private String name;
     private String email;
     private String password;
 
-    public UserTest(String name, String email, String password) {
+    public UserTest(String name, String email, String password){
         this.name = name;
         this.email = email;
         this.password = password;
     }
 
+    //getters, setters
     public String getName() {
         return name;
     }
@@ -37,6 +41,8 @@ public class UserTest {
 
     public UserTest() {
     }
+
+
 
     @Override
     public String toString() {

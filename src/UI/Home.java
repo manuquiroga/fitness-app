@@ -1,6 +1,6 @@
 package UI;
 
-import Users.UserTest;
+
 
 import javax.swing.*;
 import java.awt.*;
@@ -23,7 +23,7 @@ public class Home extends JFrame implements ActionListener {
             @Override
             public void actionPerformed(ActionEvent e) {
                 frame.setVisible(false);
-                Login.main();
+                SignUp login = new SignUp();
             }
         });
 

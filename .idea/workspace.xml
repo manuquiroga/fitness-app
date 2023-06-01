@@ -4,10 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2910e345-db14-4f9f-b4c7-3856289f3311" name="Changes" comment="login ui test">
-      <change afterPath="$PROJECT_DIR$/src/UI/Home.java" afterDir="false" />
+    <list default="true" id="2910e345-db14-4f9f-b4c7-3856289f3311" name="Changes" comment="fixed the not serializable JSON, and other methods. main class changes are for testing">
+      <change afterPath="$PROJECT_DIR$/src/Exceptions/IncorrectEmailFormatException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Exceptions/NameTooShortException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Exceptions/WeakPasswordException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Handlers/DataValidation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Handlers/SendEmail.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/UI/SignUp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/Login.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TPLAB3.iml" beforeDir="false" afterPath="$PROJECT_DIR$/TPLAB3.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/API/ConnectionAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Handlers/ConnectionAPI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/API/FileHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Handlers/FileHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/API/JSONHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Handlers/JSONHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UI/Home.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/Home.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UI/Login.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Users/UserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/UserTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,16 +45,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Rodrigo/Desktop/TP3/tp-lab3&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/Users/quiro/Documents/GitHub/tp-lab3/jaf-1.1.1",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2"
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="Exceptions" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
