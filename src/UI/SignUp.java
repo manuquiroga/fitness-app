@@ -11,6 +11,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import static Handlers.DataValidation.checkData;
 
@@ -22,6 +24,8 @@ public class SignUp extends JFrame implements ActionListener{
         frame.getContentPane().setBackground(new Color(41, 42, 54));
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+
+
         //Name label and field
         JLabel NameLabel = new JLabel("Full Name:");
         NameLabel.setForeground(Color.WHITE);
@@ -29,7 +33,9 @@ public class SignUp extends JFrame implements ActionListener{
         JTextField NameField = new JTextField();
         NameLabel.setBounds(35, 40, 80, 30);
         NameField.setBounds(115, 40, 250, 30);
-        frame.add(NameLabel); frame.add(NameField);
+
+        JLabel NameQuestionLabel = CreateIconLabel("src/UI/Resources/question.png", "The name must have between 6 and 20 characters", 370, 40, 30, 30);
+        frame.add(NameLabel); frame.add(NameField); frame.add(NameQuestionLabel);
 
         //Email label and field
         JLabel EmailLabel = new JLabel("Email:");
@@ -145,6 +151,39 @@ public class SignUp extends JFrame implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
 
+    }
+
+    public JLabel CreateIconLabel(String iconPath, String labelText, int x, int y, int w, int h){
+        ImageIcon Icon = new ImageIcon(iconPath);
+        Image scaledImage = Icon.getImage().getScaledInstance(28, 28, Image.SCALE_SMOOTH);
+        ImageIcon scaledIcon = new ImageIcon(scaledImage);
+
+        JLabel IconLabel = new JLabel(scaledIcon);
+        IconLabel.setBounds(x, y, w, h);
+        IconLabel.addMouseListener(new MouseAdapter() {
+            private JDialog dialog;
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                dialog = new JDialog();
+                dialog.setUndecorated(true);
+                dialog.setLayout(new BorderLayout());
+                dialog.add(new JLabel(labelText), BorderLayout.CENTER);
+                dialog.pack();
+                dialog.setLocationRelativeTo(IconLabel);
+                dialog.setVisible(true);
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                if (dialog != null) {
+                    dialog.dispose();
+                    dialog = null;
+                }
+            }
+        });
+
+        return IconLabel;
     }
 }
 
