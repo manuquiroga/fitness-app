@@ -11,7 +11,7 @@ public class Home extends JFrame implements ActionListener {
 
     public static void main(String[] args) {
         JFrame frame=new JFrame("Nutribros");
-        ImageIcon logo = new ImageIcon("src/UI/weightlifter.png");
+        ImageIcon logo = new ImageIcon("src/UI/Resources/weightlifter.png");
         frame.getContentPane().setBackground(new Color(41, 42, 54));
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
