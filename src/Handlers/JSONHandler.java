@@ -1,6 +1,9 @@
 package Handlers;
 
 import FoodModels.Food;
+import Users.PhysicalActivity;
+import Users.User;
+import Users.UserData;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -8,6 +11,23 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 public class JSONHandler {
+
+    private static Food foodConverter (JSONObject aux) throws JSONException{
+
+        Food food = new Food();
+        food.setName(aux.getString("name"));
+        food.setFoodType(aux.getString("foodType"));
+        food.setId(aux.getInt("id"));
+        food.setCalories(aux.getDouble("calories"));
+        food.setProtein(aux.getDouble("protein"));
+        food.setCarbohydrates(aux.getDouble("carbohydrates"));
+        food.setFat(aux.getDouble("fat"));
+        food.setVegan(aux.getBoolean("isVegan"));
+        food.setCeliac(aux.getBoolean("isCeliac"));
+        food.setVegetarian(aux.getBoolean("isVegetarian"));
+
+        return food;
+    }
 
     public static ArrayList<Food> readFoodFile() {
         String jsonResponse = FileHandler.read("food");
@@ -20,23 +40,54 @@ public class JSONHandler {
 
             for (int i = 0; i < jsonArrayFood.length(); i++) {
                 JSONObject joFromFoodsArray = jsonArrayFood.getJSONObject(i);
-                Food food = new Food();
-                food.setName(joFromFoodsArray.getString("name"));
-                food.setFoodType(joFromFoodsArray.getString("foodType"));
-                food.setId(joFromFoodsArray.getInt("id"));
-                food.setCalories(joFromFoodsArray.getDouble("calories"));
-                food.setProtein(joFromFoodsArray.getDouble("protein"));
-                food.setCarbohydrates(joFromFoodsArray.getDouble("carbohydrates"));
-                food.setFat(joFromFoodsArray.getDouble("fat"));
-                food.setVegan(joFromFoodsArray.getBoolean("isVegan"));
-                food.setCeliac(joFromFoodsArray.getBoolean("isCeliac"));
-                food.setVegetarian(joFromFoodsArray.getBoolean("isVegetarian"));
-                foodList.add(food);
+                foodList.add(foodConverter(joFromFoodsArray));
             }
 
         } catch (JSONException e) {
-            System.err.println("Wrong formulated JSON");
+            System.err.println("Wrong formulated JSON"+e.getCause());
         }
         return foodList;
     }
+
+    public static ArrayList<User> readUserFile() {
+        String jsonResponse = FileHandler.read("user");
+
+        ArrayList<User> userList = new ArrayList<>();
+
+        try {
+            JSONObject jsonObjectUser = new JSONObject(jsonResponse);
+            JSONArray jsonArrayUser = jsonObjectUser.getJSONArray("Users");
+
+            for (int i = 0; i < jsonArrayUser.length(); i++) {
+                JSONObject joFromUsersArray = jsonArrayUser.getJSONObject(i);
+                User user = new User();
+                user.setId(joFromUsersArray.getInt("id"));
+                user.setName(joFromUsersArray.getString("name"));
+                user.setEmail(joFromUsersArray.getString("email"));
+                user.setPassword(joFromUsersArray.getString("password"));
+                UserData userData = new UserData();
+                JSONObject joUserData = joFromUsersArray.getJSONObject("user data");
+                userData.setAge(joUserData.getInt("age"));
+                userData.setSex(joUserData.getString("sex"));
+                userData.setHeight(joUserData.getInt("height"));
+                userData.setWeight(joUserData.getInt("weight"));
+                userData.setDesiredWeight(joUserData.getInt("desiredWeight"));
+                userData.setPhysicalActivity(joUserData.getString("physicalActivity"));
+                ArrayList<Food> dietList = new ArrayList<>();
+                JSONArray jaDietArray = joUserData.getJSONArray("diet");
+                for (int j = 0; j < jaDietArray.length(); j++) {
+                    JSONObject joFood = jaDietArray.getJSONObject(j);
+                    dietList.add(foodConverter(joFood));
+                }
+                userData.setDiet(dietList);
+                user.setUserData(userData);
+                userList.add(user);
+            }
+
+        } catch (JSONException e) {
+            System.err.println("Wrong formulated JSON"+e.getCause());
+        }
+        return userList;
+    }
 }
+

@@ -55,9 +55,46 @@ public class UserData implements IToJSON {
         return sex;
     }
 
-    public Enum getPhysicalActivity() {
+    public PhysicalActivity getPhysicalActivity() {
         return physicalActivity;
     }
+
+    //Setters
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public void setWeight(double weight) {
+        this.weight = weight;
+    }
+
+    public void setDesiredWeight(double desiredWeight) {
+        this.desiredWeight = desiredWeight;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+
+    public void setDiet(ArrayList<Food> diet) {
+        this.diet = diet;
+    }
+
+    public void setPhysicalActivity(String physicalActivity) {
+        if (physicalActivity.equals("NONE")){
+            this.physicalActivity = PhysicalActivity.NONE;
+        }else if (physicalActivity.equals("MODERATE")){
+            this.physicalActivity = PhysicalActivity.MODERATE;
+        }else {
+            this.physicalActivity = PhysicalActivity.ACTIVE;
+        }
+    }
+
 
     //toString
 
@@ -90,7 +127,7 @@ public class UserData implements IToJSON {
         jsonObject.put("desiredWeight", desiredWeight);
         jsonObject.put("height", height);
         jsonObject.put("sex", sex);
-        jsonObject.put("physicalActivity", physicalActivity);
+        jsonObject.put("physicalActivity", physicalActivity.name());
         JSONArray jsonArray = new JSONArray();
         for (Food food : diet) {
             jsonArray.put(food.toJSON());
