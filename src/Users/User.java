@@ -8,7 +8,7 @@ import org.json.JSONObject;
 
 import java.io.*;
 
-public class User implements IToJSON, IToFile {
+public class User implements IToJSON, IToFile, Comparable {
     private String name;
     private String password;
     private String email;
@@ -76,6 +76,45 @@ public class User implements IToJSON, IToFile {
 
     //equals, hashcode, compareTo, toString
 
+    @Override
+    public boolean equals(Object obj)
+    {
+        boolean rta=false;
+        if(obj!=null)
+        {
+            if(obj instanceof User)
+            {
+                User aux=(User) obj;
+                if(getId()==aux.getId())
+                {
+                    rta=true;
+                }
+            }
+        }
+        return rta;
+    }
+
+    @Override
+    public int compareTo(Object obj)
+    {
+        int rta=0;
+        if(obj instanceof User)
+        {
+            User aux=(User) obj;
+            if(getUserData().getAge()>aux.getUserData().getAge())
+            {
+                rta=1;
+            }else{
+                rta=-1;
+            }
+        }
+        return rta;
+    }
+
+    @Override
+    public int hashCode() {
+        return 1;
+    }
 
     @Override
     public String toString() {

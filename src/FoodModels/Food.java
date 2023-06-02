@@ -6,7 +6,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 
-public class Food implements IToJSON, IToFile {
+public class Food implements IToJSON, IToFile, Comparable {
     private int id;
     private String name;
     private double calories;
@@ -114,8 +114,14 @@ public class Food implements IToJSON, IToFile {
         this.servingSize = servingSize;
     }
 
-    public void setFoodType(FoodType foodType) {
-        this.foodType = foodType;
+    public void setFoodType(String foodType) {
+        if(foodType.equals("MEAL")){
+            this.foodType=FoodType.MEAL;
+        } else if (foodType.equals("BREAKFAST")) {
+            this.foodType=FoodType.BREAKFAST;
+        } else if (foodType.equals("SNACK")) {
+            this.foodType=FoodType.SNACK;
+        }
     }
 
     public void setVegan(boolean vegan) {
@@ -151,18 +157,48 @@ public class Food implements IToJSON, IToFile {
     }
 
     //equals, hashCode, compareTo, toString
+    @Override
+    public boolean equals (Object obj){
+        boolean rta=false;
+        if(obj!=null)
+        {
+            if(obj instanceof Food)
+            {
+                Food aux=(Food) obj;
+                if(getId()==aux.getId())
+                {
+                    rta=true;
+                }
+            }
+        }
+        return rta;
+    }
+
+    @Override
+    public int compareTo(Object obj)
+    {
+        int rta=0;
+        if(obj!=null)
+        {
+            if(obj instanceof Food)
+            {
+                Food aux=(Food)obj;
+                if(getCalories()>aux.getCalories())
+                {
+                    rta=1;
+                }else{
+                    rta=-1;
+                }
+            }
+        }
+        return rta;
+    }
+
+    @Override
+    public int hashCode() {
+        return 1;
+    }
 
     //Methods:
-
-    public void setFoodType(String foodType)
-    {
-        if(foodType.equals("MEAL")){
-            setFoodType(FoodType.MEAL);
-        } else if (foodType.equals("BREAKFAST")) {
-            setFoodType(FoodType.BREAKFAST);
-        } else if (foodType.equals("SNACK")) {
-            setFoodType(FoodType.SNACK);
-        }
-    }
     //None
 }
