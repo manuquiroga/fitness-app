@@ -1,5 +1,10 @@
 package Handlers;
 
+import Exceptions.IncorrectEmailFormatException;
+import Exceptions.NameTooShortException;
+import Exceptions.WeakPasswordException;
+
+import javax.swing.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -55,5 +60,28 @@ public class DataValidation {
             }
         }
         return isSafe;
+    }
+
+    public static boolean checkData(String name, String email, String password) throws NameTooShortException, IncorrectEmailFormatException, WeakPasswordException {
+        boolean val = false;
+        if(!DataValidation.name(name)){
+            JOptionPane.showMessageDialog(null, "Name too short");
+            throw new NameTooShortException("The name has to be at least "+ DataValidation.getMinCharName() + " characters long");
+        }
+        else if(!DataValidation.email(email)){
+            JOptionPane.showMessageDialog(null, "Email bad format");
+            throw new IncorrectEmailFormatException("The email format is wrong");
+        }
+        else if(!DataValidation.password(password)){
+            JOptionPane.showMessageDialog(null, "Weak password");
+            throw new WeakPasswordException("Password needs to be at least "+
+                    DataValidation.getMinCharPass() +
+                    " and contain at least 1 number and 1 uppercase"); //redactar mejor
+
+        }
+        else{
+            val = true;
+        }
+        return val;
     }
 }
