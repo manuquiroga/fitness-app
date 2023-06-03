@@ -7,7 +7,7 @@
     <list default="true" id="2910e345-db14-4f9f-b4c7-3856289f3311" name="Changes" comment="Added equals, hashCode and compareTo methods to every class that need them">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Handlers/DataValidation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Handlers/DataValidation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/SignUp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/SignUp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Handlers/FileHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Handlers/FileHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user.json" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -156,15 +156,6 @@
           <properties class="java.nio.file.NoSuchFileException" package="java.nio.file" />
           <option name="timeStamp" value="1" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/Handlers/FileHandler.java</url>
-          <line>13</line>
-          <properties class="Handlers.FileHandler" method="saveInFile">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

@@ -103,12 +103,12 @@ public class DataValidation {
         else if(!DataValidation.password(password)){
             throw new WeakPasswordException("Password needs to be at least "+
                     DataValidation.getMinCharPass() +
-                    " and contain at least 1 number and 1 uppercase"); //redactar mejor
+                    " and contain at least 1 number and 1 uppercase"); //redactar mejor //TODO: ASK FOR FORGIVENESS
         }
         else{
             val = true;
         }
-        return val;
+        return val;//TODO: ASK FOR FORGIVENESS
     }
 
     public static boolean checkUserDataBounds(int age,double weight, int height) throws DataOutOfBoundsException{
