@@ -28,22 +28,22 @@ public class DataValidation {
         return name.length() >= MIN_NAME_CHARACTERS;
     }
     public static boolean ageMin (int age){
-        return age < MIN_AGE;
+        return age > MIN_AGE;
     }
 
     public static boolean ageMax (int age){
-        return age > MAX_AGE;
+        return age < MAX_AGE;
     }
     public static boolean weightMin(double weight){
-        return weight < MIN_WEIGHT;
+        return weight > MIN_WEIGHT;
     }
 
     public static boolean weightMax(double weight){
-        return weight > MAX_WEIGHT;
+        return weight < MAX_WEIGHT;
     }
 
     public static boolean heightMin (int height){
-        return height < MIN_HEIGHT;
+        return height > MIN_HEIGHT;
     }
 
     public static boolean heightMax (int height){
@@ -126,6 +126,6 @@ public class DataValidation {
         } else if (!DataValidation.heightMax(height)) {
             throw new DataOutOfBoundsException("Pass the height limit");
         }
-        return val;
+        return val; //redactar mejor
     }
 }

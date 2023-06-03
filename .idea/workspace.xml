@@ -5,10 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2910e345-db14-4f9f-b4c7-3856289f3311" name="Changes" comment="Added equals, hashCode and compareTo methods to every class that need them">
-      <change afterPath="$PROJECT_DIR$/src/Exceptions/DataOutOfBoundsException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Exceptions/UnderAgeException.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Handlers/DataValidation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Handlers/DataValidation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UI/SignUp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/SignUp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user.json" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,9 +27,6 @@
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
-  </component>
-  <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2QDCY1QdMTk1lxiFr2Om76azWa0" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -151,5 +148,24 @@
     <MESSAGE value="Added logo" />
     <MESSAGE value="Added equals, hashCode and compareTo methods to every class that need them" />
     <option name="LAST_COMMIT_MESSAGE" value="Added equals, hashCode and compareTo methods to every class that need them" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.nio.file.NoSuchFileException" package="java.nio.file" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/Handlers/FileHandler.java</url>
+          <line>13</line>
+          <properties class="Handlers.FileHandler" method="saveInFile">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

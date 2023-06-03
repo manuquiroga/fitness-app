@@ -1,4 +1,5 @@
 package UI;
+import Exceptions.DataOutOfBoundsException;
 import Handlers.FileHandler;
 import Handlers.JSONHandler;
 import Handlers.SendEmail;
@@ -34,7 +35,6 @@ public class SignUp extends JFrame implements ActionListener{
     private static final Color WALTERWHITE = Color.WHITE;
 
     public SignUp() {
-        //age, sex,
 
         JFrame frame=new JFrame("Nutribros");//creating instance of JFrame
         frame.getContentPane().setBackground(new Color(41, 42, 54));
@@ -157,25 +157,26 @@ public class SignUp extends JFrame implements ActionListener{
             double desiredWeight = Double.parseDouble(DesiredWeightField.getText());
             int height = Integer.parseInt(HeightField.getText());
             int age = Integer.parseInt(AgeField.getText());
-
             int id=0;
+
             try{
                 if(FileHandler.existsFile("user")) {
                     id = JSONHandler.countItemsInUserJSON() + 1;
                 }
             }
-            catch (FileNotFoundException ex) {
+            catch (FileNotFoundException ex ) {
                 System.err.println(ex.getMessage());
             } catch (IOException ex) {
-                throw new RuntimeException(ex);
+                System.err.println(ex.getMessage());
             }
 
             try{
                 DataValidation.checkData(name, email, password);
-                //DataValidation.checkUserDataBounds();
+                DataValidation.checkUserDataBounds(age, weight, height);
                 UserData userData = new UserData(age, weight, desiredWeight, height, sex, physicalActivity);
                 User user = new User(name, password, email, id, userData);
                 JSONHandler.userToFile(user);
+
                 System.out.println(user);
 
                 String subject = "Welcome to Nutribros";
@@ -186,12 +187,19 @@ public class SignUp extends JFrame implements ActionListener{
 
             } catch (IncorrectEmailFormatException ex) {
                 System.err.println("Email error: " + ex.getMessage());
+                JOptionPane.showMessageDialog(null, ex.getMessage());
             } catch (NameTooShortException ex) {
                 System.err.println("Name error: " + ex.getMessage());
+                JOptionPane.showMessageDialog(null, ex.getMessage());
             } catch (WeakPasswordException ex) {
                 System.err.println("Password error: " + ex.getMessage());
+                JOptionPane.showMessageDialog(null, ex.getMessage());
             } catch (JSONException ex) {
                 System.err.println("File error: " + ex.getMessage());
+                JOptionPane.showMessageDialog(null, ex.getMessage());
+            } catch (DataOutOfBoundsException ex) {
+                System.err.println("Data error: " + ex.getMessage());
+                JOptionPane.showMessageDialog(null, ex.getMessage());
             }
 
         });
