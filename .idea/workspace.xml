@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2910e345-db14-4f9f-b4c7-3856289f3311" name="Changes" comment="Added logo">
+    <list default="true" id="2910e345-db14-4f9f-b4c7-3856289f3311" name="Changes" comment="Added equals, hashCode and compareTo methods to every class that need them">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Handlers/DataValidation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Handlers/DataValidation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Collections/GenericTreeMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Collections/GenericTreeMap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Handlers/FileHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Handlers/FileHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Handlers/JSONHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Handlers/JSONHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/UI/SignUp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/SignUp.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -116,7 +118,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685657720823</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Added equals, hashCode and compareTo methods to every class that need them">
+      <created>1685720223577</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1685720223577</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -138,6 +147,7 @@
     <MESSAGE value="Added and implemented the java-mail jar and lib. Added functions of sendMail, and DataValidation class for validations" />
     <MESSAGE value="Changed the welcome text method and set the log and sign buttons not focusable" />
     <MESSAGE value="Added logo" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added logo" />
+    <MESSAGE value="Added equals, hashCode and compareTo methods to every class that need them" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added equals, hashCode and compareTo methods to every class that need them" />
   </component>
 </project>

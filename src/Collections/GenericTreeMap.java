@@ -1,34 +1,40 @@
 package Collections;
 
+import Users.User;
+
 import java.util.Map;
 import java.util.TreeMap;
 
-public class GenericTreeMap<K, V> {
-    private Map<K, V> treeMap;
+public class GenericTreeMap<K, V extends User> {
+    private TreeMap<K, V> genericTreeMap;
 
     public GenericTreeMap() {
-        treeMap = new TreeMap<>();
+        genericTreeMap = new TreeMap<>();
     }
 
     public void put(K k, V v){
-        treeMap.put(k,v);
+        if(!genericTreeMap.containsKey(k))
+        {
+            genericTreeMap.put(k,v);
+        }
+
     }
 
     public V removeByKey(K k){
-        return treeMap.remove(k);
+        return genericTreeMap.remove(k);
     }
 
     public V searchByKey(K k){
-        return treeMap.get(k);
+        return genericTreeMap.get(k);
     }
 
     public boolean containsValue(V v) {
-        return treeMap.containsValue(v);
+        return genericTreeMap.containsValue(v);
     }
 
     public String toString(){
         String s = "";
-        for (Map.Entry<K, V> entry : treeMap.entrySet()){
+        for (Map.Entry<K, V> entry : genericTreeMap.entrySet()){
             s += "[K=" + entry.getKey() + ", V=" + entry.getValue() + "]\n";
         }
          return s;

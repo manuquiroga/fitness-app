@@ -1,11 +1,14 @@
 package UI;
+import Handlers.JSONHandler;
 import Handlers.SendEmail;
 import Exceptions.IncorrectEmailFormatException;
 import Exceptions.NameTooShortException;
 import Exceptions.WeakPasswordException;
 import Handlers.DataValidation;
 import Users.PhysicalActivity;
+import Users.User;
 import Users.UserTest;
+import org.json.JSONException;
 
 import javax.swing.*;
 import java.awt.*;
@@ -13,6 +16,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.FileNotFoundException;
 
 import static Handlers.DataValidation.checkData;
 
@@ -105,6 +109,10 @@ public class SignUp extends JFrame implements ActionListener{
         frame.add(ActivityLabel); frame.add(ActivityCombo);
 
         //TODO:
+        //create calendar to save age variable
+        //set userData values
+
+        //TODO:
         JLabel DateLabel = new JLabel("Birth Date:");
 
 
@@ -117,10 +125,20 @@ public class SignUp extends JFrame implements ActionListener{
             String name = NameField.getText();
             String email = (EmailField.getText());
             String password = (PasswordField.getText());
+            //TODO: when userData is set, uncomment the try below this comment line
+            /*int id=0;
+             try{
+                id=JSONHandler.countItemsInUserJSON()+1;
+            } catch (FileNotFoundException ex)
+            {
+                System.err.println(ex.getMessage());
+            }*/
 
             try{
                 DataValidation.checkData(name, email, password);
                 UserTest user = new UserTest(name, email, password);
+                //User userAdd = new User(name, password, email, id, userData);
+                //JSONHandler.userToFile(userAdd);
                 System.out.println(user);
 
                 String subject = "Welcome to Nutribros";

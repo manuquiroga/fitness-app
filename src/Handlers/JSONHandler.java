@@ -8,6 +8,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.util.ArrayList;
 
 public class JSONHandler {
@@ -89,5 +91,26 @@ public class JSONHandler {
         }
         return userList;
     }
+
+    public static void userToFile(User user)throws JSONException
+    {
+        JSONObject jsonObject = new JSONObject();
+        jsonObject=user.toJSON();
+        FileHandler.saveInFile(jsonObject, "user");
+    }
+
+    public static void foodToFile(Food food)throws JSONException
+    {
+        JSONObject jsonObject = new JSONObject();
+        jsonObject=food.toJSON();
+        FileHandler.saveInFile(jsonObject, "food");
+    }
+
+    public static int countItemsInUserJSON() throws FileNotFoundException {
+
+        ArrayList<User> userList = readUserFile();
+        return userList.size();
+    }
+
 }
 
