@@ -9,9 +9,11 @@ import java.awt.event.ActionListener;
 
 public class Home extends JFrame implements ActionListener {
 
+    private static final String LOGO_ICON_PATH = "src/UI/Resources/weightlifter.png";
+
     public static void main(String[] args) {
         JFrame frame=new JFrame("Nutribros");
-        ImageIcon logo = new ImageIcon("src/UI/Resources/weightlifter.png");
+        ImageIcon logo = new ImageIcon(LOGO_ICON_PATH);
         frame.getContentPane().setBackground(new Color(41, 42, 54));
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -27,7 +29,7 @@ public class Home extends JFrame implements ActionListener {
         signButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.setVisible(false);
+                frame.dispose();
                 SignUp login = new SignUp();
             }
         });

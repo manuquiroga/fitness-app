@@ -17,18 +17,27 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.FileNotFoundException;
+import java.util.Arrays;
+import java.util.TimerTask;
 
 import static Handlers.DataValidation.checkData;
 
 public class SignUp extends JFrame implements ActionListener{
+
+    private static final String QUESTION_MARK_ICON_PATH = "src/UI/Resources/question.png";
+    private static final String LOGO_ICON_PATH = "src/UI/Resources/weightlifter.png";
+    private static final String NAME_LIMITS_INFO = "The name must have between 6 and 20 characters";
+    private static final String PASSWORD_LIMITS_INFO = "The password must have at least 8 characters, a number and a capital letter";
+    private static final String ACTIVITY_INFO = "You should put physical activity aside.\n NONE is if you work from home or if you are a student.\n MODERATE is for example a job where you lift boxes.\n ACTIVE is for example an active job as a cyclist postman";
+
+
     public SignUp() {
         //age(datepicker), sex,
 
         JFrame frame=new JFrame("Nutribros");//creating instance of JFrame
         frame.getContentPane().setBackground(new Color(41, 42, 54));
+        ImageIcon logo = new ImageIcon(LOGO_ICON_PATH); frame.setIconImage(logo.getImage());
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-
 
         //Name label and field
         JLabel NameLabel = new JLabel("Full Name:");
@@ -38,7 +47,7 @@ public class SignUp extends JFrame implements ActionListener{
         NameLabel.setBounds(35, 40, 80, 30);
         NameField.setBounds(115, 40, 250, 30);
 
-        JLabel NameQuestionLabel = CreateIconLabel("src/UI/Resources/question.png", "The name must have between 6 and 20 characters", 370, 40, 30, 30);
+        JLabel NameQuestionLabel = CreateIconLabel(QUESTION_MARK_ICON_PATH, NAME_LIMITS_INFO , 370, 40, 30, 30);
         frame.add(NameLabel); frame.add(NameField); frame.add(NameQuestionLabel);
 
         //Email label and field
@@ -50,7 +59,6 @@ public class SignUp extends JFrame implements ActionListener{
         EmailField.setBounds(115, 90, 250, 30);
         frame.add(EmailLabel); frame.add(EmailField);
 
-
         //Password label and field
         JLabel PasswordLabel = new JLabel("Password:");
         PasswordLabel.setForeground(Color.WHITE);
@@ -58,7 +66,9 @@ public class SignUp extends JFrame implements ActionListener{
         JPasswordField PasswordField = new JPasswordField();
         PasswordLabel.setBounds(35, 140, 80, 30);
         PasswordField.setBounds(115, 140, 250, 30);
-        frame.add(PasswordLabel); frame.add(PasswordField);
+
+        JLabel PasswordQuestionLabel = CreateIconLabel(QUESTION_MARK_ICON_PATH, PASSWORD_LIMITS_INFO,370, 140, 30, 30);
+        frame.add(PasswordLabel); frame.add(PasswordField); frame.add(PasswordQuestionLabel);
 
         //Weight and height label and field
         JLabel WeightLabel = new JLabel("Weight:");
@@ -106,7 +116,9 @@ public class SignUp extends JFrame implements ActionListener{
         JComboBox ActivityCombo = new JComboBox(Activities);
         ActivityLabel.setBounds(35, 340, 80, 30);
         ActivityCombo.setBounds(115, 340, 250, 30);
-        frame.add(ActivityLabel); frame.add(ActivityCombo);
+
+        JLabel ActivityQuestionLabel = CreateIconLabel(QUESTION_MARK_ICON_PATH, ACTIVITY_INFO,370, 340, 30, 30);
+        frame.add(ActivityLabel); frame.add(ActivityCombo); frame.add(ActivityQuestionLabel);
 
         //TODO:
         //create calendar to save age variable
@@ -124,7 +136,7 @@ public class SignUp extends JFrame implements ActionListener{
 
             String name = NameField.getText();
             String email = (EmailField.getText());
-            String password = (PasswordField.getText());
+            String password = Arrays.toString((PasswordField.getPassword()));
             //TODO: when userData is set, uncomment the try below this comment line
             /*int id=0;
              try{
@@ -145,7 +157,7 @@ public class SignUp extends JFrame implements ActionListener{
                 String body = SendEmail.welcomeText(name);
                 SendEmail.send(email, subject, body);
 
-                //TODO: forgot password
+                //TODO: (ponele) forgot password
 
             } catch (IncorrectEmailFormatException ex) {
                 System.err.println("Email error: " + ex.getMessage());
@@ -178,6 +190,7 @@ public class SignUp extends JFrame implements ActionListener{
 
         JLabel IconLabel = new JLabel(scaledIcon);
         IconLabel.setBounds(x, y, w, h);
+
         IconLabel.addMouseListener(new MouseAdapter() {
             private JDialog dialog;
 
