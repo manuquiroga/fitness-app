@@ -1,8 +1,6 @@
 package Handlers;
 
-import Exceptions.IncorrectEmailFormatException;
-import Exceptions.NameTooShortException;
-import Exceptions.WeakPasswordException;
+import Exceptions.*;
 
 import javax.swing.*;
 import java.util.regex.Matcher;
@@ -11,7 +9,13 @@ import java.util.regex.Pattern;
 public class DataValidation {
     private static final int MIN_PASSWORD_CHARACTERS = 8;
     private static final int MIN_NAME_CHARACTERS = 6;
+    private static final int MIN_AGE = 13;
+    private static final int MAX_AGE = 95;
+    private static  final double MIN_WEIGHT = 25;
+    private static final double MAX_WEIGHT = 500;
+    private static final int MIN_HEIGHT = 80;
 
+    private static final int MAX_HEIGHT = 240;
     public static int getMinCharPass(){
         return MIN_PASSWORD_CHARACTERS;
     }
@@ -22,6 +26,28 @@ public class DataValidation {
 
     public static boolean name(String name){
         return name.length() >= MIN_NAME_CHARACTERS;
+    }
+    public static boolean ageMin (int age){
+        return age < MIN_AGE;
+    }
+
+    public static boolean ageMax (int age){
+        return age > MAX_AGE;
+    }
+    public static boolean weightMin(double weight){
+        return weight < MIN_WEIGHT;
+    }
+
+    public static boolean weightMax(double weight){
+        return weight > MAX_WEIGHT;
+    }
+
+    public static boolean heightMin (int height){
+        return height < MIN_HEIGHT;
+    }
+
+    public static boolean heightMax (int height){
+        return height < MAX_HEIGHT;
     }
 
     public static boolean email(String email){
@@ -65,22 +91,36 @@ public class DataValidation {
     public static boolean checkData(String name, String email, String password) throws NameTooShortException, IncorrectEmailFormatException, WeakPasswordException {
         boolean val = false;
         if(!DataValidation.name(name)){
-            JOptionPane.showMessageDialog(null, "Name too short");
             throw new NameTooShortException("The name has to be at least "+ DataValidation.getMinCharName() + " characters long");
         }
         else if(!DataValidation.email(email)){
-            JOptionPane.showMessageDialog(null, "Email bad format");
             throw new IncorrectEmailFormatException("The email format is wrong");
         }
         else if(!DataValidation.password(password)){
-            JOptionPane.showMessageDialog(null, "Weak password");
             throw new WeakPasswordException("Password needs to be at least "+
                     DataValidation.getMinCharPass() +
                     " and contain at least 1 number and 1 uppercase"); //redactar mejor
-
         }
         else{
             val = true;
+        }
+        return val;
+    }
+
+    public static boolean checkUserDataBounds(int age,double weight, int height) throws DataOutOfBoundsException{
+        boolean val = false;
+        if(!DataValidation.ageMin(age)){
+            throw new DataOutOfBoundsException("Under age");
+        } else if (!DataValidation.ageMax(age)) {
+            throw new DataOutOfBoundsException("Pass the age limit");
+        } else if (!DataValidation.weightMin(weight)) {
+            throw new DataOutOfBoundsException("Under weight");
+        } else if (!DataValidation.weightMax(weight)) {
+            throw new DataOutOfBoundsException("Pass the weight limit");
+        } else if (!DataValidation.heightMin(height)) {
+            throw new DataOutOfBoundsException("Under height");
+        } else if (!DataValidation.heightMax(height)) {
+            throw new DataOutOfBoundsException("Pass the height limit");
         }
         return val;
     }
