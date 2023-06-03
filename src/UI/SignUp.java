@@ -1,4 +1,5 @@
 package UI;
+import Handlers.FileHandler;
 import Handlers.JSONHandler;
 import Handlers.SendEmail;
 import Exceptions.IncorrectEmailFormatException;
@@ -17,6 +18,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.TimerTask;
 
@@ -158,10 +160,14 @@ public class SignUp extends JFrame implements ActionListener{
 
             int id=0;
             try{
-                id=JSONHandler.countItemsInUserJSON()+1;
+                if(FileHandler.existsFile("user")) {
+                    id = JSONHandler.countItemsInUserJSON() + 1;
+                }
             }
             catch (FileNotFoundException ex) {
                 System.err.println(ex.getMessage());
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
             }
 
             try{
