@@ -58,7 +58,7 @@ public class JSONHandler {
 
         try {
             JSONObject jsonObjectUser = new JSONObject(jsonResponse);
-            JSONArray jsonArrayUser = jsonObjectUser.getJSONArray("Users");
+            JSONArray jsonArrayUser = jsonObjectUser.getJSONArray("data");
 
             for (int i = 0; i < jsonArrayUser.length(); i++) {
                 JSONObject joFromUsersArray = jsonArrayUser.getJSONObject(i);
@@ -68,7 +68,7 @@ public class JSONHandler {
                 user.setEmail(joFromUsersArray.getString("email"));
                 user.setPassword(joFromUsersArray.getString("password"));
                 UserData userData = new UserData();
-                JSONObject joUserData = joFromUsersArray.getJSONObject("user data");
+                JSONObject joUserData = joFromUsersArray.getJSONObject("userData");
                 userData.setAge(joUserData.getInt("age"));
                 userData.setSex(joUserData.getString("sex"));
                 userData.setHeight(joUserData.getInt("height"));

@@ -116,15 +116,15 @@ public class DataValidation {
         if(!DataValidation.ageMin(age)){
             throw new DataOutOfBoundsException("Under age");
         } else if (!DataValidation.ageMax(age)) {
-            throw new DataOutOfBoundsException("Pass the age limit");
+            throw new DataOutOfBoundsException("Over the age limit");
         } else if (!DataValidation.weightMin(weight)) {
             throw new DataOutOfBoundsException("Under weight");
         } else if (!DataValidation.weightMax(weight)) {
-            throw new DataOutOfBoundsException("Pass the weight limit");
+            throw new DataOutOfBoundsException("Over the weight limit");
         } else if (!DataValidation.heightMin(height)) {
             throw new DataOutOfBoundsException("Under height");
         } else if (!DataValidation.heightMax(height)) {
-            throw new DataOutOfBoundsException("Pass the height limit");
+            throw new DataOutOfBoundsException("Over the height limit");
         }
         return val; //redactar mejor
     }
