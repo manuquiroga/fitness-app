@@ -1,5 +1,6 @@
 package Handlers;
 
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -34,5 +35,15 @@ public class FileHandler {
             e.printStackTrace();
         }
         return content;
+    }
+
+    public static boolean existsFile(String fileName) throws IOException {
+        File file = new File(fileName+".json");
+
+        if(file.exists())
+        {
+            return true;
+        }
+        return false;
     }
 }
