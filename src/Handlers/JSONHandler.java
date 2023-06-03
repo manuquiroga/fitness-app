@@ -94,15 +94,14 @@ public class JSONHandler {
 
     public static void userToFile(User user)throws JSONException
     {
-        JSONObject jsonObject = new JSONObject();
-        jsonObject=user.toJSON();
+        JSONObject jsonObject=user.toJSON();
         FileHandler.saveInFile(jsonObject, "user");
     }
 
     public static void foodToFile(Food food)throws JSONException
     {
-        JSONObject jsonObject = new JSONObject();
-        jsonObject=food.toJSON();
+        JSONObject jsonObject =food.toJSON();
+
         FileHandler.saveInFile(jsonObject, "food");
     }
 

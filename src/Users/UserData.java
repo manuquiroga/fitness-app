@@ -20,13 +20,13 @@ public class UserData implements IToJSON {
 
     //constructors:
 
-    public UserData(int age, double weight, double desiredWeight, int height, String sex, PhysicalActivity physicalActivity) {
+    public UserData(int age, double weight, double desiredWeight, int height, String sex, String physicalActivity) {
         this.age = age;
         this.weight = weight;
         this.desiredWeight = desiredWeight;
         this.height = height;
         this.sex = sex;
-        this.physicalActivity = physicalActivity;
+        setPhysicalActivity(physicalActivity);
         diet=new ArrayList<Food>();
     }
 
