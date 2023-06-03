@@ -7,7 +7,7 @@ import Exceptions.WeakPasswordException;
 import Handlers.DataValidation;
 import Users.PhysicalActivity;
 import Users.User;
-import Users.UserTest;
+import Users.UserData;
 import org.json.JSONException;
 
 import javax.swing.*;
@@ -29,10 +29,10 @@ public class SignUp extends JFrame implements ActionListener{
     private static final String NAME_LIMITS_INFO = "The name must have between 6 and 20 characters";
     private static final String PASSWORD_LIMITS_INFO = "The password must have at least 8 characters, a number and a capital letter";
     private static final String ACTIVITY_INFO = "You should put physical activity aside.\n NONE is if you work from home or if you are a student.\n MODERATE is for example a job where you lift boxes.\n ACTIVE is for example an active job as a cyclist postman";
-
+    private static final Color WALTERWHITE = Color.WHITE;
 
     public SignUp() {
-        //age(datepicker), sex,
+        //age, sex,
 
         JFrame frame=new JFrame("Nutribros");//creating instance of JFrame
         frame.getContentPane().setBackground(new Color(41, 42, 54));
@@ -41,7 +41,7 @@ public class SignUp extends JFrame implements ActionListener{
 
         //Name label and field
         JLabel NameLabel = new JLabel("Full Name:");
-        NameLabel.setForeground(Color.WHITE);
+        NameLabel.setForeground(WALTERWHITE);
 
         JTextField NameField = new JTextField();
         NameLabel.setBounds(35, 40, 80, 30);
@@ -52,7 +52,7 @@ public class SignUp extends JFrame implements ActionListener{
 
         //Email label and field
         JLabel EmailLabel = new JLabel("Email:");
-        EmailLabel.setForeground(Color.WHITE);
+        EmailLabel.setForeground(WALTERWHITE);
 
         JTextField EmailField = new JTextField();
         EmailLabel.setBounds(35, 90, 80, 30);
@@ -61,7 +61,7 @@ public class SignUp extends JFrame implements ActionListener{
 
         //Password label and field
         JLabel PasswordLabel = new JLabel("Password:");
-        PasswordLabel.setForeground(Color.WHITE);
+        PasswordLabel.setForeground(WALTERWHITE);
 
         JPasswordField PasswordField = new JPasswordField();
         PasswordLabel.setBounds(35, 140, 80, 30);
@@ -72,7 +72,7 @@ public class SignUp extends JFrame implements ActionListener{
 
         //Weight and height label and field
         JLabel WeightLabel = new JLabel("Weight:");
-        WeightLabel.setForeground(Color.WHITE);
+        WeightLabel.setForeground(WALTERWHITE);
 
         JTextField WeightField = new JTextField();
         WeightLabel.setBounds(35, 190, 80, 30);
@@ -84,80 +84,99 @@ public class SignUp extends JFrame implements ActionListener{
         frame.add(WeightLabel); frame.add(WeightField); frame.add(WeightLabelKG);
 
         JLabel HeightLabel = new JLabel("Height:");
-        HeightLabel.setForeground(Color.WHITE);
+        HeightLabel.setForeground(WALTERWHITE);
 
         JTextField HeightField = new JTextField();
         HeightLabel.setBounds(35, 240, 80, 30);
         HeightField.setBounds(115, 240, 225, 30);
 
         JLabel HeightLabelCM = new JLabel("cm");
-        HeightLabelCM.setForeground(Color.WHITE);
+        HeightLabelCM.setForeground(WALTERWHITE);
         HeightLabelCM.setBounds(345, 240, 20, 30);
         frame.add(HeightLabel); frame.add(HeightField); frame.add(HeightLabelCM);
 
         //Desired Weight label and field
         JLabel DesiredWeightLabel = new JLabel("Desired Weight:");
-        DesiredWeightLabel.setForeground(Color.WHITE);
+        DesiredWeightLabel.setForeground(WALTERWHITE);
 
         JTextField DesiredWeightField = new JTextField();
         DesiredWeightLabel.setBounds(35, 290, 80, 30);
         DesiredWeightField.setBounds(115, 290, 225, 30);
 
         JLabel DesiredWeightLabelKG = new JLabel("kg");
-        DesiredWeightLabelKG.setForeground(Color.WHITE);
+        DesiredWeightLabelKG.setForeground(WALTERWHITE);
         DesiredWeightLabelKG.setBounds(345, 290, 20, 30);
         frame.add(DesiredWeightLabel); frame.add(DesiredWeightField); frame.add(DesiredWeightLabelKG);
 
         //Physical activity Combo box and label
         JLabel ActivityLabel = new JLabel("Activity:");
-        ActivityLabel.setForeground(Color.WHITE);
+        ActivityLabel.setForeground(WALTERWHITE);
 
-        String[] Activities = {PhysicalActivity.NONE.toString(), PhysicalActivity.MODERATE.toString(), PhysicalActivity.ACTIVE.toString()};
-        JComboBox ActivityCombo = new JComboBox(Activities);
+        String[] activities = {PhysicalActivity.NONE.toString(), PhysicalActivity.MODERATE.toString(), PhysicalActivity.ACTIVE.toString()};
+        JComboBox ActivityCombo = new JComboBox(activities);
         ActivityLabel.setBounds(35, 340, 80, 30);
         ActivityCombo.setBounds(115, 340, 250, 30);
 
         JLabel ActivityQuestionLabel = CreateIconLabel(QUESTION_MARK_ICON_PATH, ACTIVITY_INFO,370, 340, 30, 30);
         frame.add(ActivityLabel); frame.add(ActivityCombo); frame.add(ActivityQuestionLabel);
 
-        //TODO:
-        //create calendar to save age variable
-        //set userData values
+        //age label and field
+        JLabel AgeLabel = new JLabel("Age:");
+        AgeLabel.setForeground(WALTERWHITE);
 
-        //TODO:
-        JLabel DateLabel = new JLabel("Birth Date:");
+        JTextField AgeField = new JTextField();
+        AgeLabel.setBounds(35, 390, 80, 30);
+        AgeField.setBounds(115, 390, 250, 30);
+        frame.add(AgeField); frame.add(AgeLabel);
 
+        //Gender combo and label
+        JLabel GenderLabel = new JLabel("Gender:");
+        GenderLabel.setForeground(WALTERWHITE);
+
+        String[] genders = {"MALE", "FEMALE"};
+        JComboBox GenderCombo = new JComboBox(genders);
+        GenderLabel.setBounds(35, 440, 80, 30);
+        GenderCombo.setBounds(115, 440, 250, 30);
+        frame.add(GenderLabel); frame.add(GenderCombo);
+        //TODO: (ponele) link to gender choice
 
 
         JButton signButton=new JButton("Submit");//creating instance of JButton
-        signButton.setBounds(135,440,150, 40);//x axis, y axis, width, height
+        signButton.setBounds(135,510,150, 40);//x axis, y axis, width, height
 
         signButton.addActionListener(e -> {
 
             String name = NameField.getText();
             String email = (EmailField.getText());
-            String password = Arrays.toString((PasswordField.getPassword()));
-            //TODO: when userData is set, uncomment the try below this comment line
-            /*int id=0;
-             try{
+            String password = (PasswordField.getText());
+            String sex = (String) GenderCombo.getSelectedItem();
+            String physicalActivity = (String) ActivityCombo.getSelectedItem();
+            double weight = Double.parseDouble(WeightField.getText());
+            double desiredWeight = Double.parseDouble(DesiredWeightField.getText());
+            int height = Integer.parseInt(HeightField.getText());
+            int age = Integer.parseInt(AgeField.getText());
+
+            int id=0;
+            try{
                 id=JSONHandler.countItemsInUserJSON()+1;
-            } catch (FileNotFoundException ex)
-            {
+            }
+            catch (FileNotFoundException ex) {
                 System.err.println(ex.getMessage());
-            }*/
+            }
 
             try{
                 DataValidation.checkData(name, email, password);
-                UserTest user = new UserTest(name, email, password);
-                //User userAdd = new User(name, password, email, id, userData);
-                //JSONHandler.userToFile(userAdd);
+                //DataValidation.checkUserDataBounds();
+                UserData userData = new UserData(age, weight, desiredWeight, height, sex, physicalActivity);
+                User user = new User(name, password, email, id, userData);
+                JSONHandler.userToFile(user);
                 System.out.println(user);
 
                 String subject = "Welcome to Nutribros";
                 String body = SendEmail.welcomeText(name);
-                SendEmail.send(email, subject, body);
+                //SendEmail.send(email, subject, body);
 
-                //TODO: (ponele) forgot password
+
 
             } catch (IncorrectEmailFormatException ex) {
                 System.err.println("Email error: " + ex.getMessage());
@@ -165,13 +184,15 @@ public class SignUp extends JFrame implements ActionListener{
                 System.err.println("Name error: " + ex.getMessage());
             } catch (WeakPasswordException ex) {
                 System.err.println("Password error: " + ex.getMessage());
+            } catch (JSONException ex) {
+                System.err.println("File error: " + ex.getMessage());
             }
 
         });
 
         frame.add(signButton);//adding button in JFrame
         frame.setResizable(false);
-        frame.setSize(420,560);
+        frame.setSize(420,630);
         frame.setLayout(null);//using no layout managers
         frame.setVisible(true);//making the frame visible
     }

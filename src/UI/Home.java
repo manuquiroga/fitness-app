@@ -12,7 +12,7 @@ public class Home extends JFrame implements ActionListener {
     private static final String LOGO_ICON_PATH = "src/UI/Resources/weightlifter.png";
 
     public static void main(String[] args) {
-        JFrame frame=new JFrame("Nutribros");
+        JFrame frame=new JFrame("Nutribros Login");
         ImageIcon logo = new ImageIcon(LOGO_ICON_PATH);
         frame.getContentPane().setBackground(new Color(41, 42, 54));
 
@@ -30,7 +30,15 @@ public class Home extends JFrame implements ActionListener {
             @Override
             public void actionPerformed(ActionEvent e) {
                 frame.dispose();
-                SignUp login = new SignUp();
+                SignUp sign = new SignUp();
+            }
+        });
+
+        loginButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.dispose();
+                Login log = new Login();
             }
         });
 

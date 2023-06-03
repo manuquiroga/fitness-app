@@ -62,6 +62,10 @@ public class DataValidation {
         return isSafe;
     }
 
+    //TODO: public static boolean checkLoginData(){
+    //
+    //    }
+
     public static boolean checkData(String name, String email, String password) throws NameTooShortException, IncorrectEmailFormatException, WeakPasswordException {
         boolean val = false;
         if(!DataValidation.name(name)){
