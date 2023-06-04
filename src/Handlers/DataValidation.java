@@ -1,8 +1,12 @@
 package Handlers;
 
 import Exceptions.*;
+import Users.User;
 
 import javax.swing.*;
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -11,77 +15,79 @@ public class DataValidation {
     private static final int MIN_NAME_CHARACTERS = 6;
     private static final int MIN_AGE = 13;
     private static final int MAX_AGE = 95;
-    private static  final double MIN_WEIGHT = 25;
+    private static final double MIN_WEIGHT = 25;
     private static final double MAX_WEIGHT = 500;
     private static final int MIN_HEIGHT = 80;
 
     private static final int MAX_HEIGHT = 240;
-    public static int getMinCharPass(){
+
+    public static int getMinCharPass() {
         return MIN_PASSWORD_CHARACTERS;
     }
 
-    public static int getMinCharName(){
+    public static int getMinCharName() {
         return MIN_NAME_CHARACTERS;
     }
 
-    public static boolean name(String name){
+    public static boolean name(String name) {
         return name.length() >= MIN_NAME_CHARACTERS;
     }
-    public static boolean ageMin (int age){
+
+    public static boolean ageMin(int age) {
         return age > MIN_AGE;
     }
 
-    public static boolean ageMax (int age){
+    public static boolean ageMax(int age) {
         return age < MAX_AGE;
     }
-    public static boolean weightMin(double weight){
+
+    public static boolean weightMin(double weight) {
         return weight > MIN_WEIGHT;
     }
 
-    public static boolean weightMax(double weight){
+    public static boolean weightMax(double weight) {
         return weight < MAX_WEIGHT;
     }
 
-    public static boolean heightMin (int height){
+    public static boolean heightMin(int height) {
         return height > MIN_HEIGHT;
     }
 
-    public static boolean heightMax (int height){
+    public static boolean heightMax(int height) {
         return height < MAX_HEIGHT;
     }
 
-    public static boolean email(String email){
+    public static boolean email(String email) {
         String emailRegex = "^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$";
         Pattern emailPat = Pattern.compile(emailRegex, Pattern.CASE_INSENSITIVE);
         Matcher matcher = emailPat.matcher(email);
         return matcher.find();
     }
 
-    public static boolean password(String password){
+    public static boolean password(String password) {
         boolean val = false;
-        if(password.length() >= MIN_PASSWORD_CHARACTERS){
-            if(checkPass(password)){
+        if (password.length() >= MIN_PASSWORD_CHARACTERS) {
+            if (checkPass(password)) {
                 val = true;
             }
         }
         return val;
     }
 
-    private static boolean checkPass(String password){
+    private static boolean checkPass(String password) {
         boolean hasNum = false;
         boolean hasCap = false;
         boolean isSafe = false;
         char c;
 
-        for (int i = 0; i<password.length() && !isSafe; i++){
+        for (int i = 0; i < password.length() && !isSafe; i++) {
             c = password.charAt(i);
-            if(Character.isDigit(c)){
+            if (Character.isDigit(c)) {
                 hasNum = true;
-            }
-            else if (Character.isUpperCase(c)){
+            } else if (Character.isUpperCase(c)) {
                 hasCap = true;
             }
-            if(hasNum && hasCap){
+            if (hasNum && hasCap) {
                 isSafe = true;
             }
         }
@@ -92,6 +98,37 @@ public class DataValidation {
     //
     //    }
 
+    public static boolean checkLoginData(String email, String password) throws IOException {
+        boolean rta=false;
+        ArrayList<User> userList=new ArrayList<>();
+        if(FileHandler.existsFile("user"))
+        {
+            userList=JSONHandler.readUserFile();
+            for(int i=0;i<userList.size();i++)
+            {
+                if (userList.get(i).getEmail().equals(email) && userList.get(i).getPassword().equals(password)) {
+                    rta = true;
+                    break;
+                }
+            }
+        }
+        return rta;
+    }
+
+    //Otra forma de hacerlo pero no chequea que sean del mismo usuario, solo que esten dentro del string
+    public static boolean checkUser(String email, String password) throws IOException {
+        boolean rta=false;
+        if(FileHandler.existsFile("user"))
+        {
+            String content=FileHandler.read("user");
+            if(content.contains(email) && content.contains(password))
+            {
+                rta=true;
+            }
+        }
+        return rta;
+    }
+
     public static boolean checkData(String name, String email, String password) throws NameTooShortException, IncorrectEmailFormatException, WeakPasswordException {
         boolean val = false;
         if(!DataValidation.name(name)){
@@ -101,14 +138,14 @@ public class DataValidation {
             throw new IncorrectEmailFormatException("The email format is wrong");
         }
         else if(!DataValidation.password(password)){
-            throw new WeakPasswordException("Password needs to be at least "+
+            throw new WeakPasswordException("Password needs to have minimum "+
                     DataValidation.getMinCharPass() +
-                    " and contain at least 1 number and 1 uppercase"); //redactar mejor //TODO: ASK FOR FORGIVENESS
+                    " characters and contain at least 1 number and 1 uppercase");
         }
         else{
             val = true;
         }
-        return val;//TODO: ASK FOR FORGIVENESS
+        return val;
     }
 
     public static boolean checkUserDataBounds(int age,double weight, int height) throws DataOutOfBoundsException{
@@ -126,6 +163,6 @@ public class DataValidation {
         } else if (!DataValidation.heightMax(height)) {
             throw new DataOutOfBoundsException("Over the height limit");
         }
-        return val; //redactar mejor
+        return val;
     }
 }

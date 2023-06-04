@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -88,4 +90,7 @@ public class FileHandler {
         File file = new File(fileName+".json");
         return file.exists();
     }
+
+
+
 }
