@@ -94,13 +94,9 @@ public class DataValidation {
         return isSafe;
     }
 
-    //TODO: public static boolean checkLoginData(){
-    //
-    //    }
-
     public static boolean checkLoginData(String email, String password) throws IOException {
         boolean rta=false;
-        ArrayList<User> userList=new ArrayList<>();
+        ArrayList<User> userList;
         if(FileHandler.existsFile("user"))
         {
             userList=JSONHandler.readUserFile();
