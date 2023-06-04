@@ -94,35 +94,41 @@ public class DataValidation {
         return isSafe;
     }
 
-    public static boolean checkLoginData(String email, String password) throws IOException {
-        boolean rta=false;
+    public static boolean checkLoginData(String email, String password) throws IncorrectPasswordException{
+        boolean val=false;
         ArrayList<User> userList;
-        if(FileHandler.existsFile("user"))
-        {
-            userList=JSONHandler.readUserFile();
-            for(int i=0;i<userList.size();i++)
+        try {
+            if(FileHandler.existsFile("user"))
             {
-                if (userList.get(i).getEmail().equals(email) && userList.get(i).getPassword().equals(password)) {
-                    rta = true;
-                    break;
+                userList=JSONHandler.readUserFile();
+                for (User user : userList) {
+                    if (user.getEmail().equalsIgnoreCase(email) && user.getPassword().equals(password)) {
+                        val = true;
+                        break;
+                    }
+                }
+                if(!val){
+                    throw new IncorrectPasswordException("Incorrect email or password");
                 }
             }
+        } catch (IOException e) {
+            System.err.println("File error: "+e.getMessage());
         }
-        return rta;
+        return val;
     }
 
     //Otra forma de hacerlo pero no chequea que sean del mismo usuario, solo que esten dentro del string
     public static boolean checkUser(String email, String password) throws IOException {
-        boolean rta=false;
+        boolean val=false;
         if(FileHandler.existsFile("user"))
         {
             String content=FileHandler.read("user");
             if(content.contains(email) && content.contains(password))
             {
-                rta=true;
+                val=true;
             }
         }
-        return rta;
+        return val;
     }
 
     public static boolean checkData(String name, String email, String password) throws NameTooShortException, IncorrectEmailFormatException, WeakPasswordException {

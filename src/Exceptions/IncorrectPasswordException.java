@@ -3,8 +3,8 @@ package Exceptions;
 public class IncorrectPasswordException extends Exception{
 
 
-    public IncorrectPasswordException(int tries) {
-        super("Your password was incorrect, try again. You have "+ tries + " remaining");
+    public IncorrectPasswordException(String s) {
+        super(s);
     }
 
     public void closeApp(){

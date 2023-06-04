@@ -1,6 +1,7 @@
 package UI;
 
 import Exceptions.IncorrectEmailFormatException;
+import Exceptions.IncorrectPasswordException;
 import Exceptions.NameTooShortException;
 import Exceptions.WeakPasswordException;
 import Handlers.DataValidation;
@@ -8,6 +9,7 @@ import Handlers.SendEmail;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
 import java.util.Arrays;
 
 public class Login extends JFrame{
@@ -41,12 +43,21 @@ public class Login extends JFrame{
         logButton.setBounds(135,180,150, 40);
 
         logButton.addActionListener(e -> {
-            frame.dispose();
+
             String email = (EmailField.getText());
             String password = Arrays.toString((PasswordField.getPassword()));
 
             //TODO: verify correct email/password
-            Menu menu = new Menu();
+            try {
+                if(DataValidation.checkLoginData(email,password)){
+                    frame.dispose();
+                    Menu menu = new Menu();
+                }
+            } catch (IncorrectPasswordException ex) {
+                System.err.println("Incorrect data: " + ex.getMessage());
+                JOptionPane.showMessageDialog(null, ex.getMessage());
+            }
+
         });
 
         frame.add(logButton);
