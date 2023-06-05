@@ -18,27 +18,33 @@ public class JSONHandler {
 
         Food food = new Food();
         food.setName(aux.getString("name"));
-        food.setFoodType(aux.getString("foodType"));
+        food.setFoodType(aux.getString("type"));
         food.setId(aux.getInt("id"));
+        food.setServingSize_g(aux.getInt("servingSize_g"));
         food.setCalories(aux.getDouble("calories"));
-        food.setProtein(aux.getDouble("protein"));
-        food.setCarbohydrates(aux.getDouble("carbohydrates"));
-        food.setFat(aux.getDouble("fat"));
+        food.setProteins_g(aux.getDouble("proteins_g"));
+        food.setCarbohydrates_g(aux.getDouble("carbohydrates_g"));
+        food.setFats_g(aux.getDouble("fats_g"));
         food.setVegan(aux.getBoolean("isVegan"));
         food.setCeliac(aux.getBoolean("isCeliac"));
         food.setVegetarian(aux.getBoolean("isVegetarian"));
+
+        JSONArray jaIngredients = aux.getJSONArray("ingredients");
+        for (int j = 0; j < jaIngredients.length(); j++) {
+            food.addIngredient(jaIngredients.getString(j));
+        }
 
         return food;
     }
 
     public static ArrayList<Food> readFoodFile() {
-        String jsonResponse = FileHandler.read("food");
+        String jsonResponse = FileHandler.read("foods");
 
         ArrayList<Food> foodList = new ArrayList<>();
 
         try {
             JSONObject jsonObjectFood = new JSONObject(jsonResponse);
-            JSONArray jsonArrayFood = jsonObjectFood.getJSONArray("Foods");
+            JSONArray jsonArrayFood = jsonObjectFood.getJSONArray("foods");
 
             for (int i = 0; i < jsonArrayFood.length(); i++) {
                 JSONObject joFromFoodsArray = jsonArrayFood.getJSONObject(i);

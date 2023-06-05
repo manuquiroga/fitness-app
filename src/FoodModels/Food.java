@@ -5,51 +5,61 @@ import Interfaces.IToJSON;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 
-public class Food implements IToJSON, IToFile, Comparable {
+
+public class Food implements IToJSON, Comparable {
     private int id;
     private String name;
     private double calories;
-    private double protein;
-    private double fat;
-    private double carbohydrates;
-    private double servingSize;
+    private double proteins_g;
+    private double fats_g;
+    private double carbohydrates_g;
+    private double servingSize_g;
     private FoodType foodType;
-
+    private ArrayList<String> ingredients;
     private boolean isVegan;
     private boolean isCeliac;
     private boolean isVegetarian;
 
     //constructors:
 
-    public Food(int id, String name, double calories, double protein, double fat, double carbohydrates, double servingSize, FoodType foodType, boolean isVegan, boolean isCeliac, boolean isVegetarian) {
+    public Food(int id, String name, double calories, double proteins_g, double fats_g, double carbohydrates_g, double servingSize_g, FoodType foodType, boolean isVegan, boolean isCeliac, boolean isVegetarian) {
         this.id = id;
         this.name = name;
         this.calories = calories;
-        this.protein = protein;
-        this.fat = fat;
-        this.carbohydrates = carbohydrates;
-        this.servingSize = servingSize;
+        this.proteins_g = proteins_g;
+        this.fats_g = fats_g;
+        this.carbohydrates_g = carbohydrates_g;
+        this.servingSize_g = servingSize_g;
         this.foodType = foodType;
         this.isVegan = isVegan;
         this.isCeliac = isCeliac;
         this.isVegetarian = isVegetarian;
+        this.ingredients = new ArrayList<>();
     }
 
     public Food() {
+        this.ingredients = new ArrayList<>();
     }
 
     //Getters:
-    public double getProtein() {
-        return protein;
+
+    public void addIngredient(String ingredient){
+        if(ingredient != null){
+            ingredients.add(ingredient);
+        }
+    }
+    public double getproteins_g() {
+        return proteins_g;
     }
 
-    public double getFat() {
-        return fat;
+    public double getfats_g() {
+        return fats_g;
     }
 
-    public double getCarbohydrates() {
-        return carbohydrates;
+    public double getCarbohydrates_g() {
+        return carbohydrates_g;
     }
 
     public boolean isVegan() {
@@ -75,8 +85,8 @@ public class Food implements IToJSON, IToFile, Comparable {
         return calories;
     }
 
-    public double getServingSize() {
-        return servingSize;
+    public double getServingSize_g() {
+        return servingSize_g;
     }
 
     public FoodType getFoodType() {
@@ -98,20 +108,20 @@ public class Food implements IToJSON, IToFile, Comparable {
         this.calories = calories;
     }
 
-    public void setProtein(double protein) {
-        this.protein = protein;
+    public void setProteins_g(double proteins_g) {
+        this.proteins_g = proteins_g;
     }
 
-    public void setFat(double fat) {
-        this.fat = fat;
+    public void setFats_g(double fats_g) {
+        this.fats_g = fats_g;
     }
 
-    public void setCarbohydrates(double carbohydrates) {
-        this.carbohydrates = carbohydrates;
+    public void setCarbohydrates_g(double carbohydrates_g) {
+        this.carbohydrates_g = carbohydrates_g;
     }
 
-    public void setServingSize(double servingSize) {
-        this.servingSize = servingSize;
+    public void setServingSize_g(double servingSize_g) {
+        this.servingSize_g = servingSize_g;
     }
 
     public void setFoodType(String foodType) {
@@ -143,18 +153,14 @@ public class Food implements IToJSON, IToFile, Comparable {
         json.put("id", id);
         json.put("name", name);
         json.put("calories", calories);
-        json.put("servingSize", servingSize);
+        json.put("servingSize_g", servingSize_g);
         json.put("FoodType", foodType.name());
-        json.put("protein", protein);
-        json.put("fat", fat);
-        json.put("carbohydrates", carbohydrates);
+        json.put("proteins_g", proteins_g);
+        json.put("fats_g", fats_g);
+        json.put("carbohydrates_g", carbohydrates_g);
         return json;
     }
 
-    @Override
-    public void toFile() throws JSONException{
-
-    }
 
     //equals, hashCode, compareTo, toString
     @Override
@@ -199,6 +205,26 @@ public class Food implements IToJSON, IToFile, Comparable {
         return 1;
     }
 
+    @Override
+    public String toString() {
+        return "\nFood{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", calories=" + calories +
+                ", proteins_g=" + proteins_g +
+                ", fats_g=" + fats_g +
+                ", carbohydrates_g=" + carbohydrates_g +
+                ", servingSize_g=" + servingSize_g +
+                ", foodType=" + foodType +
+                ", ingredients=" + ingredients +
+                ", isVegan=" + isVegan +
+                ", isCeliac=" + isCeliac +
+                ", isVegetarian=" + isVegetarian +
+                '}' ;
+    }
+
     //Methods:
+
+
     //None
 }

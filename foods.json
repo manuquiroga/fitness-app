@@ -1,6 +1,7 @@
 {
   "foods": [
     {
+      "id": 1,
       "name": "Veggie Omelet",
       "servingSize_g": 150,
       "ingredients": ["Eggs", "Bell peppers", "Onions", "Spinach"],
@@ -14,6 +15,7 @@
       "isCeliac": false
     },
     {
+      "id": 2,
       "name": "Grilled Chicken Salad",
       "servingSize_g": 200,
       "ingredients": ["Grilled chicken", "Lettuce", "Tomatoes", "Cucumbers", "Olives"],
@@ -27,6 +29,7 @@
       "isCeliac": true
     },
     {
+      "id": 3,
       "name": "Quinoa Stir-Fry",
       "servingSize_g": 200,
       "ingredients": ["Quinoa", "Mixed vegetables", "Tofu", "Soy sauce"],
@@ -40,6 +43,7 @@
       "isCeliac": true
     },
     {
+      "id": 4,
       "name": "Smoked Salmon Bagel",
       "servingSize_g": 150,
       "ingredients": ["Smoked salmon", "Bagel", "Cream cheese", "Red onions"],
@@ -53,6 +57,7 @@
       "isCeliac": true
     },
     {
+      "id": 5,
       "name": "Greek Salad",
       "servingSize_g": 200,
       "ingredients": ["Lettuce", "Cucumbers", "Tomatoes", "Red onions", "Feta cheese", "Olives"],
@@ -66,6 +71,7 @@
       "isCeliac": true
     },
     {
+      "id": 6,
       "name": "Vegan Burrito Bowl",
       "servingSize_g": 300,
       "ingredients": ["Brown rice", "Black beans", "Corn", "Avocado", "Salsa", "Lime"],
@@ -79,6 +85,7 @@
       "isCeliac": true
     },
     {
+      "id": 7,
       "name": "Banana Nut Smoothie",
       "servingSize_g": 250,
       "ingredients": ["Banana", "Almond milk", "Peanut butter", "Chia seeds"],
@@ -92,6 +99,7 @@
       "isCeliac": true
     },
     {
+      "id": 8,
       "name": "Caprese Salad",
       "servingSize_g": 150,
       "ingredients": ["Tomatoes", "Fresh mozzarella", "Basil", "Balsamic glaze"],
@@ -105,6 +113,7 @@
       "isCeliac": true
     },
     {
+      "id": 9,
       "name": "Stuffed Bell Peppers",
       "servingSize_g": 250,
       "ingredients": ["Ground beef", "Bell peppers", "Rice", "Tomato sauce", "Cheese"],
@@ -118,6 +127,7 @@
       "isCeliac": true
     },
     {
+      "id": 10,
       "name": "Berry Yogurt Parfait",
       "servingSize_g": 200,
       "ingredients": ["Greek yogurt", "Mixed berries", "Granola", "Honey"],
@@ -131,6 +141,7 @@
       "isCeliac": true
     },
     {
+      "id": 11,
       "name": "Mediterranean Wrap",
       "servingSize_g": 300,
       "ingredients": ["Grilled chicken", "Hummus", "Cucumbers", "Tomatoes", "Lettuce", "Whole wheat tortilla"],
@@ -144,6 +155,7 @@
       "isCeliac": false
     },
     {
+      "id": 12,
       "name": "Vegan Lentil Curry",
       "servingSize_g": 250,
       "ingredients": ["Lentils", "Coconut milk", "Tomatoes", "Spinach", "Curry powder"],
@@ -157,6 +169,7 @@
       "isCeliac": true
     },
     {
+      "id": 13,
       "name": "Egg White Omelet",
       "servingSize_g": 150,
       "ingredients": ["Egg whites", "Spinach", "Mushrooms", "Tomatoes"],
@@ -170,6 +183,7 @@
       "isCeliac": true
     },
     {
+      "id": 14,
       "name": "Chicken Caesar Salad",
       "servingSize_g": 200,
       "ingredients": ["Grilled chicken", "Romaine lettuce", "Parmesan cheese", "Croutons", "Caesar dressing"],
@@ -183,6 +197,7 @@
       "isCeliac": true
     },
     {
+      "id": 15,
       "name": "Vegetable Stir-Fry",
       "servingSize_g": 250,
       "ingredients": ["Mixed vegetables", "Tofu", "Soy sauce", "Brown rice"],
@@ -196,6 +211,7 @@
       "isCeliac": true
     },
     {
+      "id": 16,
       "name": "Avocado Toast",
       "servingSize_g": 100,
       "ingredients": ["Whole wheat bread", "Avocado", "Tomato slices", "Red pepper flakes"],
@@ -209,6 +225,7 @@
       "isCeliac": false
     },
     {
+      "id": 17,
       "name": "Tofu Stir-Fry",
       "servingSize_g": 250,
       "ingredients": ["Tofu", "Broccoli", "Carrots", "Soy sauce", "Rice noodles"],
@@ -222,6 +239,7 @@
       "isCeliac": true
     },
     {
+      "id": 18,
       "name": "Salmon with Quinoa",
       "servingSize_g": 200,
       "ingredients": ["Salmon fillet", "Quinoa", "Asparagus", "Lemon"],
@@ -235,6 +253,7 @@
       "isCeliac": true
     },
     {
+      "id": 19,
       "name": "Blueberry Protein Smoothie",
       "servingSize_g": 250,
       "ingredients": ["Blueberries", "Protein powder", "Almond milk", "Spinach"],
@@ -248,6 +267,7 @@
       "isCeliac": true
     },
     {
+      "id": 20,
       "name": "Peanut Butter Banana Smoothie",
       "servingSize_g": 300,
       "ingredients": ["Banana", "Peanut butter", "Milk", "Greek yogurt"],
@@ -261,6 +281,7 @@
       "isCeliac": true
     },
     {
+      "id": 21,
       "name": "Loaded Baked Potato",
       "servingSize_g": 200,
       "ingredients": ["Potato", "Cheddar cheese", "Sour cream", "Bacon bits", "Green onions"],
@@ -274,6 +295,7 @@
       "isCeliac": true
     },
     {
+      "id": 22,
       "name": "Chicken Alfredo Pasta",
       "servingSize_g": 250,
       "ingredients": ["Chicken breast", "Fettuccine pasta", "Alfredo sauce", "Parmesan cheese"],
@@ -287,6 +309,7 @@
       "isCeliac": false
     },
     {
+      "id": 23,
       "name": "Breakfast Burrito",
       "servingSize_g": 300,
       "ingredients": ["Scrambled eggs", "Sausage", "Cheese", "Bell peppers", "Tortilla"],
@@ -300,6 +323,7 @@
       "isCeliac": true
     },
     {
+      "id": 24,
       "name": "Steak and Sweet Potato Mash",
       "servingSize_g": 300,
       "ingredients": ["Steak", "Sweet potato", "Broccoli", "Butter"],
@@ -313,6 +337,7 @@
       "isCeliac": true
     },
     {
+      "id": 25,
       "name": "Eggs Benedict",
       "servingSize_g": 200,
       "ingredients": ["English muffin", "Poached eggs", "Ham", "Hollandaise sauce"],
@@ -326,6 +351,7 @@
       "isCeliac": false
     },
     {
+      "id": 26,
       "name": "Beef and Broccoli Stir-Fry",
       "servingSize_g": 300,
       "ingredients": ["Beef sirloin", "Broccoli", "Soy sauce", "Garlic", "Rice"],
@@ -339,6 +365,7 @@
       "isCeliac": true
     },
     {
+      "id": 27,
       "name": "Loaded Nachos",
       "servingSize_g": 250,
       "ingredients": ["Tortilla chips", "Ground beef", "Cheddar cheese", "Tomatoes", "Black beans", "Guacamole", "Sour cream"],
@@ -352,6 +379,7 @@
       "isCeliac": true
     },
     {
+      "id": 28,
       "name": "Banana Nut Pancakes",
       "servingSize_g": 200,
       "ingredients": ["Bananas", "Flour", "Milk", "Eggs", "Walnuts"],
@@ -365,6 +393,7 @@
       "isCeliac": false
     },
     {
+      "id": 29,
       "name": "Cheeseburger with Fries",
       "servingSize_g": 300,
       "ingredients": ["Beef patty", "Cheese", "Burger bun", "Lettuce", "Tomato", "Pickles", "French fries"],
@@ -378,6 +407,7 @@
       "isCeliac": false
     },
     {
+      "id": 30,
       "name": "Chicken and Waffles",
       "servingSize_g": 300,
       "ingredients": ["Fried chicken", "Waffles", "Maple syrup", "Butter"],
@@ -391,6 +421,7 @@
       "isCeliac": false
     },
     {
+      "id": 31,
       "name": "BBQ Ribs with Coleslaw",
       "servingSize_g": 400,
       "ingredients": ["Pork ribs", "BBQ sauce", "Cabbage", "Carrots", "Mayonnaise"],
@@ -404,6 +435,7 @@
       "isCeliac": true
     },
     {
+      "id": 32,
       "name": "Oreo Milkshake",
       "servingSize_g": 300,
       "ingredients": ["Oreo cookies", "Milk", "Vanilla ice cream", "Whipped cream"],
@@ -417,6 +449,7 @@
       "isCeliac": true
     },
     {
+      "id": 33,
       "name": "Loaded Veggie Wrap",
       "servingSize_g": 300,
       "ingredients": ["Whole wheat wrap", "Avocado", "Hummus", "Mixed greens", "Cucumber", "Bell peppers"],
@@ -430,6 +463,7 @@
       "isCeliac": true
     },
     {
+      "id": 34,
       "name": "Pesto Pasta with Shrimp",
       "servingSize_g": 300,
       "ingredients": ["Penne pasta", "Shrimp", "Basil pesto", "Cherry tomatoes", "Parmesan cheese"],
@@ -443,6 +477,7 @@
       "isCeliac": false
     },
     {
+      "id": 35,
       "name": "Peanut Chicken Satay",
       "servingSize_g": 300,
       "ingredients": ["Chicken skewers", "Peanut sauce", "Cucumber salad"],
@@ -456,6 +491,7 @@
       "isCeliac": true
     },
     {
+      "id": 36,
       "name": "Tuna Melt Sandwich",
       "servingSize_g": 250,
       "ingredients": ["Tuna", "Cheddar cheese", "Bread", "Mayonnaise", "Tomato"],
@@ -469,6 +505,7 @@
       "isCeliac": false
     },
     {
+      "id": 37,
       "name": "Chocolate Chip Pancakes",
       "servingSize_g": 200,
       "ingredients": ["Flour", "Milk", "Eggs", "Chocolate chips"],
@@ -482,6 +519,7 @@
       "isCeliac": false
     },
     {
+      "id": 38,
       "name": "Beef and Bean Chili",
       "servingSize_g": 300,
       "ingredients": ["Ground beef", "Kidney beans", "Tomatoes", "Onions", "Chili powder"],
@@ -495,6 +533,7 @@
       "isCeliac": true
     },
     {
+      "id": 39,
       "name": "Chicken Caesar Salad",
       "servingSize_g": 300,
       "ingredients": ["Chicken breast", "Romaine lettuce", "Parmesan cheese", "Croutons", "Caesar dressing"],
@@ -508,6 +547,7 @@
       "isCeliac": true
     },
     {
+      "id": 40,
       "name": "Blueberry Muffins",
       "servingSize_g": 150,
       "ingredients": ["Flour", "Blueberries", "Sugar", "Milk", "Butter"],
@@ -521,6 +561,7 @@
       "isCeliac": false
     },
     {
+      "id": 41,
       "name": "Berry Blast Smoothie",
       "servingSize_g": 300,
       "ingredients": ["Mixed berries", "Greek yogurt", "Almond milk", "Honey"],
@@ -534,19 +575,7 @@
       "isCeliac": true
     },
     {
-      "name": "Quinoa Stuffed Bell Peppers",
-      "servingSize_g": 200,
-      "ingredients": ["Quinoa", "Bell peppers", "Black beans", "Corn", "Tomatoes"],
-      "calories": 350,
-      "proteins_g": 12,
-      "fats_g": 8,
-      "carbohydrates_g": 60,
-      "type": "MEAL",
-      "isVegetarian": true,
-      "isVegan": true,
-      "isCeliac": true
-    },
-    {
+      "id": 42,
       "name": "Chicken Parmesan",
       "servingSize_g": 250,
       "ingredients": ["Chicken breast", "Bread crumbs", "Tomato sauce", "Mozzarella cheese"],
@@ -560,6 +589,7 @@
       "isCeliac": false
     },
     {
+      "id": 43,
       "name": "Pesto Zoodles",
       "servingSize_g": 200,
       "ingredients": ["Zucchini", "Basil pesto", "Cherry tomatoes", "Pine nuts"],
@@ -573,6 +603,7 @@
       "isCeliac": true
     },
     {
+      "id": 44,
       "name": "Honey Glazed Salmon",
       "servingSize_g": 150,
       "ingredients": ["Salmon fillet", "Honey", "Soy sauce", "Garlic", "Ginger"],
@@ -586,6 +617,7 @@
       "isCeliac": true
     },
     {
+      "id": 45,
       "name": "Peanut Butter Energy Balls",
       "servingSize_g": 50,
       "ingredients": ["Dates", "Peanut butter", "Rolled oats", "Chia seeds", "Honey"],
@@ -599,6 +631,7 @@
       "isCeliac": true
     },
     {
+      "id": 46,
       "name": "Stuffed Portobello Mushrooms",
       "servingSize_g": 200,
       "ingredients": ["Portobello mushrooms", "Spinach", "Feta cheese", "Breadcrumbs"],
@@ -612,6 +645,7 @@
       "isCeliac": true
     },
     {
+      "id": 47,
       "name": "Spaghetti Aglio e Olio",
       "servingSize_g": 200,
       "ingredients": ["Spaghetti", "Garlic", "Olive oil", "Chili flakes", "Parsley"],
@@ -625,6 +659,7 @@
       "isCeliac": false
     },
     {
+      "id": 48,
       "name": "Mediterranean Salad",
       "servingSize_g": 200,
       "ingredients": ["Mixed greens", "Cherry tomatoes", "Cucumber", "Kalamata olives", "Feta cheese"],
@@ -638,6 +673,7 @@
       "isCeliac": true
     },
     {
+      "id": 49,
       "name": "Chicken Avocado Wrap",
       "servingSize_g": 250,
       "ingredients": ["Grilled chicken", "Avocado", "Lettuce", "Tomato", "Whole wheat wrap"],
@@ -651,6 +687,7 @@
       "isCeliac": false
     },
     {
+      "id": 50,
       "name": "Vegetable Stir-Fry",
       "servingSize_g": 200,
       "ingredients": ["Broccoli", "Carrots", "Bell peppers", "Snap peas", "Soy sauce"],
@@ -664,19 +701,7 @@
       "isCeliac": true
     },
     {
-      "name": "Steak and Sweet Potato Wedges",
-      "servingSize_g": 300,
-      "ingredients": ["Beef steak", "Sweet potatoes", "Olive oil", "Rosemary", "Garlic"],
-      "calories": 450,
-      "proteins_g": 30,
-      "fats_g": 18,
-      "carbohydrates_g": 40,
-      "type": "MEAL",
-      "isVegetarian": false,
-      "isVegan": false,
-      "isCeliac": true
-    },
-    {
+      "id": 51,
       "name": "Chickpea Curry",
       "servingSize_g": 250,
       "ingredients": ["Chickpeas", "Coconut milk", "Tomatoes", "Onions", "Curry powder"],
@@ -690,6 +715,7 @@
       "isCeliac": true
     },
     {
+      "id": 52,
       "name": "Caprese Salad",
       "servingSize_g": 200,
       "ingredients": ["Tomatoes", "Fresh mozzarella", "Basil leaves", "Balsamic glaze"],
@@ -703,6 +729,7 @@
       "isCeliac": true
     },
     {
+      "id": 53,
       "name": "Tofu and Vegetable Stir-Fry",
       "servingSize_g": 250,
       "ingredients": ["Tofu", "Broccoli", "Carrots", "Bell peppers", "Soy sauce"],
@@ -716,6 +743,7 @@
       "isCeliac": true
     },
     {
+      "id": 54,
       "name": "Mexican Quinoa Salad",
       "servingSize_g": 200,
       "ingredients": ["Quinoa", "Black beans", "Corn", "Bell peppers", "Avocado", "Lime juice"],
@@ -729,6 +757,7 @@
       "isCeliac": true
     },
     {
+      "id": 55,
       "name": "Teriyaki Salmon",
       "servingSize_g": 200,
       "ingredients": ["Salmon fillet", "Teriyaki sauce", "Broccoli", "Rice"],
@@ -742,6 +771,7 @@
       "isCeliac": true
     },
     {
+      "id": 56,
       "name": "Vegan Lentil Soup",
       "servingSize_g": 250,
       "ingredients": ["Lentils", "Carrots", "Celery", "Onions", "Vegetable broth"],
@@ -755,6 +785,7 @@
       "isCeliac": true
     },
     {
+      "id": 57,
       "name": "Greek Yogurt Parfait",
       "servingSize_g": 200,
       "ingredients": ["Greek yogurt", "Granola", "Mixed berries", "Honey"],
@@ -768,6 +799,7 @@
       "isCeliac": true
     },
     {
+      "id": 58,
       "name": "Turkey Meatballs",
       "servingSize_g": 200,
       "ingredients": ["Ground turkey", "Breadcrumbs", "Onion", "Garlic", "Italian herbs"],
@@ -781,6 +813,7 @@
       "isCeliac": true
     },
     {
+      "id": 59,
       "name": "Protein Power Balls",
       "servingSize_g": 50,
       "ingredients": ["Almond butter", "Protein powder", "Rolled oats", "Honey"],
@@ -794,6 +827,7 @@
       "isCeliac": true
     },
     {
+      "id": 60,
       "name": "Hummus and Veggie Sticks",
       "servingSize_g": 100,
       "ingredients": ["Chickpeas", "Tahini", "Lemon juice", "Carrots", "Cucumber", "Bell peppers"],
@@ -807,6 +841,7 @@
       "isCeliac": true
     },
     {
+      "id": 61,
       "name": "Greek Yogurt with Berries",
       "servingSize_g": 150,
       "ingredients": ["Greek yogurt", "Mixed berries", "Honey"],
@@ -820,6 +855,7 @@
       "isCeliac": true
     },
     {
+      "id": 62,
       "name": "Avocado Toast",
       "servingSize_g": 100,
       "ingredients": ["Whole wheat bread", "Avocado", "Lemon juice", "Cherry tomatoes"],
@@ -833,6 +869,7 @@
       "isCeliac": false
     },
     {
+      "id": 63,
       "name": "Energy Bars",
       "servingSize_g": 50,
       "ingredients": ["Dates", "Almonds", "Cashews", "Cacao powder", "Coconut oil"],
@@ -846,6 +883,7 @@
       "isCeliac": true
     },
     {
+      "id": 64,
       "name": "Cheese and Crackers",
       "servingSize_g": 100,
       "ingredients": ["Cheddar cheese", "Whole wheat crackers", "Grapes"],
@@ -859,6 +897,7 @@
       "isCeliac": false
     },
     {
+      "id": 65,
       "name": "Trail Mix",
       "servingSize_g": 30,
       "ingredients": ["Almonds", "Cashews", "Pumpkin seeds", "Dried cranberries", "Dark chocolate chips"],
@@ -872,6 +911,7 @@
       "isCeliac": true
     },
     {
+      "id": 66,
       "name": "Veggie Sushi Rolls",
       "servingSize_g": 200,
       "ingredients": ["Sushi rice", "Nori seaweed", "Carrots", "Cucumber", "Avocado"],
@@ -885,6 +925,7 @@
       "isCeliac": true
     },
     {
+      "id": 67,
       "name": "Rice Cakes with Peanut Butter",
       "servingSize_g": 60,
       "ingredients": ["Rice cakes", "Peanut butter", "Banana slices"],
@@ -898,6 +939,7 @@
       "isCeliac": true
     },
     {
+      "id": 68,
       "name": "Quinoa Salad with Chickpeas",
       "servingSize_g": 150,
       "ingredients": ["Quinoa", "Chickpeas", "Cucumber", "Cherry tomatoes", "Lemon vinaigrette"],
@@ -911,6 +953,7 @@
       "isCeliac": true
     },
     {
+      "id": 69,
       "name": "Oatmeal Raisin Cookies",
       "servingSize_g": 50,
       "ingredients": ["Oats", "Raisins", "Almond butter", "Maple syrup"],
@@ -924,6 +967,7 @@
       "isCeliac": true
     },
     {
+      "id": 70,
       "name": "Baked Kale Chips",
       "servingSize_g": 30,
       "ingredients": ["Kale leaves", "Olive oil", "Sea salt"],
@@ -937,6 +981,7 @@
       "isCeliac": true
     },
     {
+      "id": 71,
       "name": "Cottage Cheese with Pineapple",
       "servingSize_g": 150,
       "ingredients": ["Cottage cheese", "Pineapple chunks"],
@@ -950,6 +995,7 @@
       "isCeliac": true
     },
     {
+      "id": 72,
       "name": "Stuffed Bell Peppers",
       "servingSize_g": 200,
       "ingredients": ["Bell peppers", "Quinoa", "Black beans", "Corn", "Tomato sauce"],
@@ -963,6 +1009,7 @@
       "isCeliac": true
     },
     {
+      "id": 73,
       "name": "Smoothie Bowl",
       "servingSize_g": 200,
       "ingredients": ["Frozen mixed berries", "Banana", "Almond milk", "Granola", "Chia seeds"],
@@ -976,6 +1023,7 @@
       "isCeliac": true
     },
     {
+      "id": 74,
       "name": "Turkey Roll-Ups",
       "servingSize_g": 150,
       "ingredients": ["Sliced turkey breast", "Hummus", "Spinach leaves"],
@@ -989,6 +1037,7 @@
       "isCeliac": true
     },
     {
+      "id": 75,
       "name": "Fruit and Nut Yogurt Parfait",
       "servingSize_g": 200,
       "ingredients": ["Greek yogurt", "Mixed berries", "Almonds", "Walnuts", "Honey"],
@@ -1002,6 +1051,7 @@
       "isCeliac": true
     },
     {
+      "id": 76,
       "name": "Cauliflower Buffalo Bites",
       "servingSize_g": 150,
       "ingredients": ["Cauliflower florets", "Buffalo sauce", "Greek yogurt dip"],
@@ -1015,6 +1065,7 @@
       "isCeliac": true
     },
     {
+      "id": 77,
       "name": "Chia Pudding",
       "servingSize_g": 150,
       "ingredients": ["Chia seeds", "Almond milk", "Maple syrup", "Fresh berries"],
