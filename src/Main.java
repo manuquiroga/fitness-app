@@ -12,6 +12,7 @@ public class Main {
 
         ArrayList<User> users = JSONHandler.readUserFile();
         System.out.println(users.get(0).getUserData().calculateBMR());
+        System.out.println(users.get(0));
     }
 
 

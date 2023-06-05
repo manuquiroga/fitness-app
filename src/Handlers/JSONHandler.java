@@ -1,7 +1,6 @@
 package Handlers;
 
 import FoodModels.Food;
-import Users.PhysicalActivity;
 import Users.User;
 import Users.UserData;
 import org.json.JSONArray;
@@ -9,7 +8,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.util.ArrayList;
 
 public class JSONHandler {

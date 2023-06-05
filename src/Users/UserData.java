@@ -95,11 +95,11 @@ public class UserData implements IToJSON {
     }
 
     public void setObjective(String objective) {
-        if (objective.equals("Lose weight")){
+        if (objective.equals("Lose weight") || objective.equals("LOSE_WEIGHT")){
             this.objective = Objective.LOSE_WEIGHT;
-        }else if (objective.equals("Maintain weight")){
+        }else if (objective.equals("Maintain weight") || objective.equals("MAINTAIN_WEIGHT")){
             this.objective = Objective.MAINTAIN_WEIGHT;
-        }else if (objective.equals("Gain weight")){
+        }else if (objective.equals("Gain weight") || objective.equals("GAIN_WEIGHT")){
             this.objective = Objective.GAIN_WEIGHT;
         }
     }
