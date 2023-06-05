@@ -1,6 +1,3 @@
 package Users;
 
-public enum PhysicalActivity {
-
-    NONE, MODERATE, ACTIVE
-}
+public enum PhysicalActivity { NONE, MODERATE, ACTIVE }

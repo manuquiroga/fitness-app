@@ -7,7 +7,9 @@
     <list default="true" id="2910e345-db14-4f9f-b4c7-3856289f3311" name="Changes" comment="Added equals, hashCode and compareTo methods to every class that need them">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Handlers/DataValidation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Handlers/DataValidation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/SignUp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/SignUp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UI/Home.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/Home.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UI/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/Login.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Users/PhysicalActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/PhysicalActivity.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -155,6 +157,24 @@
           <properties class="java.nio.file.NoSuchFileException" package="java.nio.file" />
           <option name="timeStamp" value="1" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/Handlers/JSONHandler.java</url>
+          <line>53</line>
+          <properties class="Handlers.JSONHandler" method="readUserFile">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/Handlers/DataValidation.java</url>
+          <line>96</line>
+          <properties class="Handlers.DataValidation" method="checkLoginData">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

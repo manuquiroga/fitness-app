@@ -153,6 +153,7 @@ public class SignUp extends JFrame implements ActionListener{
             String password = (PasswordField.getText());
             String sex = (String) GenderCombo.getSelectedItem();
             String physicalActivity = (String) ActivityCombo.getSelectedItem();
+
             double weight = Double.parseDouble(WeightField.getText());
             double desiredWeight = Double.parseDouble(DesiredWeightField.getText());
             int height = Integer.parseInt(HeightField.getText());

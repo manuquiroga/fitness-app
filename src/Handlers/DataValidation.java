@@ -107,6 +107,7 @@ public class DataValidation {
                         val = true;
                         break;
                     }
+                    break;
                 }
                 if(!val){
                     throw new IncorrectPasswordException("Incorrect email or password");
