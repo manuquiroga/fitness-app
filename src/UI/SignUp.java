@@ -7,6 +7,7 @@ import Exceptions.IncorrectEmailFormatException;
 import Exceptions.NameTooShortException;
 import Exceptions.WeakPasswordException;
 import Handlers.DataValidation;
+import Users.Objective;
 import Users.PhysicalActivity;
 import Users.User;
 import Users.UserData;
@@ -97,18 +98,15 @@ public class SignUp extends JFrame implements ActionListener{
         HeightLabelCM.setBounds(345, 240, 20, 30);
         frame.add(HeightLabel); frame.add(HeightField); frame.add(HeightLabelCM);
 
-        //Desired Weight label and field
-        JLabel DesiredWeightLabel = new JLabel("Desired Weight:");
-        DesiredWeightLabel.setForeground(WALTERWHITE);
+        //Objective combo box and label
+        JLabel ObjectiveLabel = new JLabel("Objective:");
+        ObjectiveLabel.setForeground(WALTERWHITE);
 
-        JTextField DesiredWeightField = new JTextField();
-        DesiredWeightLabel.setBounds(35, 290, 80, 30);
-        DesiredWeightField.setBounds(115, 290, 225, 30);
-
-        JLabel DesiredWeightLabelKG = new JLabel("kg");
-        DesiredWeightLabelKG.setForeground(WALTERWHITE);
-        DesiredWeightLabelKG.setBounds(345, 290, 20, 30);
-        frame.add(DesiredWeightLabel); frame.add(DesiredWeightField); frame.add(DesiredWeightLabelKG);
+        String[] objectives = {"Lose weight", "Maintain weight", "Gain weight"};
+        JComboBox ObjectiveCombo = new JComboBox(objectives);
+        ObjectiveLabel.setBounds(35, 290, 80, 30);
+        ObjectiveCombo.setBounds(115, 290, 250, 30);
+        frame.add(ObjectiveLabel); frame.add(ObjectiveCombo);
 
         //Physical activity Combo box and label
         JLabel ActivityLabel = new JLabel("Activity:");
@@ -153,44 +151,27 @@ public class SignUp extends JFrame implements ActionListener{
             String password = (PasswordField.getText());
             String sex = (String) GenderCombo.getSelectedItem();
             String physicalActivity = (String) ActivityCombo.getSelectedItem();
+            String objective = (String) ObjectiveCombo.getSelectedItem();
+            int id= DataValidation.newID();
 
 
-
-            int id=0;
-
-            try{
-                if(FileHandler.existsFile("user")) {
-                    id = JSONHandler.countItemsInUserJSON() + 1;
-                }
-            }
-            catch (FileNotFoundException ex ) {
-                System.err.println(ex.getMessage());
-            } catch (IOException ex) {
-                System.err.println(ex.getMessage());
-            }
 
             try{
                 DataValidation.checkData(name, email, password);
-                DataValidation.checkDataDigit(HeightField, AgeField, WeightField, DesiredWeightField);
+                DataValidation.checkDataDigit(HeightField, AgeField, WeightField);
 
                 double weight = Double.parseDouble(WeightField.getText());
-                double desiredWeight = Double.parseDouble(DesiredWeightField.getText());
                 int height = Integer.parseInt(HeightField.getText());
                 int age = Integer.parseInt(AgeField.getText());
 
                 DataValidation.checkUserDataBounds(age, weight, height);
 
-                UserData userData = new UserData(age, weight, desiredWeight, height, sex, physicalActivity);
+                UserData userData = new UserData(age, weight, objective, height, sex, physicalActivity);
                 User user = new User(name, password, email, id, userData);
                 JSONHandler.userToFile(user);
-
                 System.out.println(user);
 
-                String subject = "Welcome to Nutribros";
-                String body = SendEmail.welcomeText(name);
-                //SendEmail.send(email, subject, body);
-
-
+                //SendEmail.send(email, SendEmail.getSubject(), SendEmail.welcomeText(name));
 
             }catch (IncorrectEmailFormatException ex) {
                 System.err.println("Email error: " + ex.getMessage());

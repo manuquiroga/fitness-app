@@ -4,10 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2910e345-db14-4f9f-b4c7-3856289f3311" name="Changes" comment="Added &quot;id&quot; key to foods.json foods, and modified other keys">
+    <list default="true" id="2910e345-db14-4f9f-b4c7-3856289f3311" name="Changes" comment="fixed the checkDataInteger and checkDataDouble. Changed the two methods for checkDataDigit using regex">
+      <change afterPath="$PROJECT_DIR$/src/Users/Objective.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Handlers/DataValidation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Handlers/DataValidation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Handlers/JSONHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Handlers/JSONHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Handlers/SendEmail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Handlers/SendEmail.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/UI/SignUp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/SignUp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Users/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Users/UserData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/UserData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user.json" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,6 +25,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -137,7 +145,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685977849844</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="fixed the checkDataInteger and checkDataDouble. Changed the two methods for checkDataDigit using regex">
+      <created>1685978997966</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1685978997966</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -162,7 +177,8 @@
     <MESSAGE value="Added equals, hashCode and compareTo methods to every class that need them" />
     <MESSAGE value="foods.json added (80 foods). fixed the login check data form (password was saved as an array, not as a String)" />
     <MESSAGE value="Added &quot;id&quot; key to foods.json foods, and modified other keys" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added &quot;id&quot; key to foods.json foods, and modified other keys" />
+    <MESSAGE value="fixed the checkDataInteger and checkDataDouble. Changed the two methods for checkDataDigit using regex" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed the checkDataInteger and checkDataDouble. Changed the two methods for checkDataDigit using regex" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

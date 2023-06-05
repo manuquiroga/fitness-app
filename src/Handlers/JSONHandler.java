@@ -79,7 +79,7 @@ public class JSONHandler {
                 userData.setSex(joUserData.getString("sex"));
                 userData.setHeight(joUserData.getInt("height"));
                 userData.setWeight(joUserData.getInt("weight"));
-                userData.setDesiredWeight(joUserData.getInt("desiredWeight"));
+                userData.setObjective(joUserData.getString("objective"));
                 userData.setPhysicalActivity(joUserData.getString("physicalActivity"));
                 ArrayList<Food> dietList = new ArrayList<>();
                 JSONArray jaDietArray = joUserData.getJSONArray("diet");

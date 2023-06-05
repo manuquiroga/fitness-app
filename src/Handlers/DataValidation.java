@@ -6,6 +6,7 @@ import Users.User;
 import javax.swing.*;
 import java.awt.geom.Arc2D;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.regex.Matcher;
@@ -93,6 +94,22 @@ public class DataValidation {
             }
         }
         return isSafe;
+    }
+
+    public static int newID(){
+        int id = 0;
+        try{
+            if(FileHandler.existsFile("user")) {
+                id = JSONHandler.countItemsInUserJSON() + 1;
+            }
+        }
+        catch (FileNotFoundException ex ) {
+            System.err.println("File not found error: "+ex.getMessage());
+        }
+        catch (IOException ex) {
+            System.err.println("IO Error: "+ex.getMessage());
+        }
+        return id;
     }
 
     public static boolean checkLoginData(String email, String password) throws IncorrectPasswordException{

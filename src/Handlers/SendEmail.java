@@ -9,6 +9,7 @@ public class SendEmail {
 
     private static final String SENDER_EMAIL = "nutribros.email@gmail.com";
     private static final String SENDER_APPLICATION_PASSWORD = "vzfhvkueoertdana";
+
     public static void send(String recipient, String subject, String body){
 
         //Email server properties
@@ -52,5 +53,9 @@ public class SendEmail {
 
     public static String welcomeText(String name){
         return name + ", thank you for joining the Nutribros platform, any questions you may have can be reported to this email";
+    }
+
+    public static String getSubject(){
+        return "Welcome to Nutribros";
     }
 }
