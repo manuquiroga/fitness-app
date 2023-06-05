@@ -110,7 +110,6 @@ public class UserData implements IToJSON {
     @Override
     public String toString() {
         return "UserData{" + '\n' +
-                super.toString() + '\n' +
                 "age: " + age + '\n' +
                 "weight: " + weight + '\n' +
                 "objective: " + objective + '\n' +
@@ -138,10 +137,6 @@ public class UserData implements IToJSON {
             case ACTIVE -> bmr *= 1.5;
         }
         return bmr;
-    }
-
-    public void updateData(){
-
     }
 
     @Override

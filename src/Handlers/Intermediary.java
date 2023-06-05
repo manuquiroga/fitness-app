@@ -1,3 +1,4 @@
+
 package Handlers;
 
 import FoodModels.Food;
@@ -9,8 +10,10 @@ import java.util.Map;
 import java.util.TreeMap;
 
 public class Intermediary {
+
+    /*
     private TreeMap<String,User> userTreeMap;
-    private TreeMap<Integer,Food> foodTreeMap;
+    private ArrayList<Food> foodTreeMap;
 
 
     //User
@@ -53,4 +56,5 @@ public class Intermediary {
         }
         return stringBuilder.toString();
     }
+    */
 }
