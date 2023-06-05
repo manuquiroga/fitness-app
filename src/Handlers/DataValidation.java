@@ -152,18 +152,14 @@ public class DataValidation {
         return val;
     }
 
-    public static void checkDataInteger(JTextField heightField,JTextField ageField) throws NumberFormatException{
-        String heightValue = heightField.getText();
-        String ageValue = ageField.getText();
-        Integer.parseInt(heightValue);
-        Integer.parseInt(ageValue);
-    }
-
-    public static void checkDataDouble(JTextField weightField, JTextField desiredWeightField)throws NumberFormatException{
-        String weightValue = weightField.getText();
-        String desiredWeightValue = desiredWeightField.getText();
-        Double.parseDouble(weightValue);
-        Double.parseDouble(desiredWeightValue);
+    public static void checkDataDigit(JTextField... fields) throws NumberFormatException{
+        String regex = "\\d+";
+        for (JTextField field:fields) {
+            String value = field.getText();
+            if(!value.matches(regex)){
+                throw new NumberFormatException("Age, weight, height and desired weight fields can only accept digits");
+            }
+        }
     }
 
     public static boolean checkUserDataBounds(int age,double weight, int height) throws DataOutOfBoundsException{

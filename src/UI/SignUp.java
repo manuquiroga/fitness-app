@@ -154,10 +154,8 @@ public class SignUp extends JFrame implements ActionListener{
             String sex = (String) GenderCombo.getSelectedItem();
             String physicalActivity = (String) ActivityCombo.getSelectedItem();
 
-            double weight = Double.parseDouble(WeightField.getText());
-            double desiredWeight = Double.parseDouble(DesiredWeightField.getText());
-            int height = Integer.parseInt(HeightField.getText());
-            int age = Integer.parseInt(AgeField.getText());
+
+
             int id=0;
 
             try{
@@ -173,9 +171,15 @@ public class SignUp extends JFrame implements ActionListener{
 
             try{
                 DataValidation.checkData(name, email, password);
+                DataValidation.checkDataDigit(HeightField, AgeField, WeightField, DesiredWeightField);
+
+                double weight = Double.parseDouble(WeightField.getText());
+                double desiredWeight = Double.parseDouble(DesiredWeightField.getText());
+                int height = Integer.parseInt(HeightField.getText());
+                int age = Integer.parseInt(AgeField.getText());
+
                 DataValidation.checkUserDataBounds(age, weight, height);
-                DataValidation.checkDataDouble(WeightField,DesiredWeightField);
-                DataValidation.checkDataInteger(HeightField,AgeField);
+
                 UserData userData = new UserData(age, weight, desiredWeight, height, sex, physicalActivity);
                 User user = new User(name, password, email, id, userData);
                 JSONHandler.userToFile(user);
