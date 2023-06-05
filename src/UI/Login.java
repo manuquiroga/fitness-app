@@ -45,7 +45,7 @@ public class Login extends JFrame{
         logButton.addActionListener(e -> {
 
             String email = (EmailField.getText());
-            String password = Arrays.toString((PasswordField.getPassword()));
+            String password = PasswordField.getText();
 
             //TODO: verify correct email/password
             try {
