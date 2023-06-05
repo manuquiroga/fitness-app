@@ -4,6 +4,7 @@ import Exceptions.*;
 import Users.User;
 
 import javax.swing.*;
+import java.awt.geom.Arc2D;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -149,6 +150,20 @@ public class DataValidation {
             val = true;
         }
         return val;
+    }
+
+    public static void checkDataInteger(JTextField heightField,JTextField ageField) throws NumberFormatException{
+        String heightValue = heightField.getText();
+        String ageValue = ageField.getText();
+        Integer.parseInt(heightValue);
+        Integer.parseInt(ageValue);
+    }
+
+    public static void checkDataDouble(JTextField weightField, JTextField desiredWeightField)throws NumberFormatException{
+        String weightValue = weightField.getText();
+        String desiredWeightValue = desiredWeightField.getText();
+        Double.parseDouble(weightValue);
+        Double.parseDouble(desiredWeightValue);
     }
 
     public static boolean checkUserDataBounds(int age,double weight, int height) throws DataOutOfBoundsException{

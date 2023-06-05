@@ -174,6 +174,8 @@ public class SignUp extends JFrame implements ActionListener{
             try{
                 DataValidation.checkData(name, email, password);
                 DataValidation.checkUserDataBounds(age, weight, height);
+                DataValidation.checkDataDouble(WeightField,DesiredWeightField);
+                DataValidation.checkDataInteger(HeightField,AgeField);
                 UserData userData = new UserData(age, weight, desiredWeight, height, sex, physicalActivity);
                 User user = new User(name, password, email, id, userData);
                 JSONHandler.userToFile(user);
@@ -186,7 +188,7 @@ public class SignUp extends JFrame implements ActionListener{
 
 
 
-            } catch (IncorrectEmailFormatException ex) {
+            }catch (IncorrectEmailFormatException ex) {
                 System.err.println("Email error: " + ex.getMessage());
                 JOptionPane.showMessageDialog(null, ex.getMessage());
             } catch (NameTooShortException ex) {
@@ -201,6 +203,9 @@ public class SignUp extends JFrame implements ActionListener{
             } catch (DataOutOfBoundsException ex) {
                 System.err.println("Data error: " + ex.getMessage());
                 JOptionPane.showMessageDialog(null, ex.getMessage());
+            }catch (NumberFormatException ex){
+                System.err.println("Data Type error: " + ex.getMessage());
+                JOptionPane.showMessageDialog(null,ex.getMessage());
             }
 
         });
