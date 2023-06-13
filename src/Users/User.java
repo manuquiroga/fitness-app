@@ -17,7 +17,7 @@ import java.util.Set;
 
 public class User implements IToJSON, Comparable {
 
-    private final int CALORIE_DEFICIT = 300;
+    private final int CALORIE_DEFICIT = 350;
     private final int CALORIE_SURPLUS = 500;
     private final int MAX_MEAL_QUANTITY = 9;
     private final int MIN_MEAL_QUANTITY = 4;
@@ -164,48 +164,75 @@ public class User implements IToJSON, Comparable {
     }
 
     //ask for a string depending on whether you are celiac, vegan or vegetarian. the words will be limited to the user (classic, vegan, vegetarian, celiac), we also limit the meal quantity number
-    public void generateDiet(int mealsQuantity, String dietType) {
+    
+    public void generateDiet(int mealsQuantity, String type){
+        ArrayList<Food> allFoods = new ArrayList<>();
+        ArrayList<Food> foodArrayList;
 
-    }
+        int calculateSnackCount = mealsQuantity - 3;
+        int caloriesObjective = getCaloriesObjective();
+        int actualCalories;
+        
+        switch (type.toLowerCase()){
+            case "classic" -> allFoods = JSONHandler.readFoodFile();
+            case "vegan" -> allFoods = getVeganFoods();
+            case "vegetarian" -> allFoods = getVegetarianFoods();
+            case "celiac" -> allFoods = getCeliacFoods();
+            //TODO default -> throw new WrongFoodTypeException();
+            //TODO: celiac-vegetarian and celiac-vegan diets
+        }
 
-    public void getClassicDiet(int mealsQuantity){
-        ArrayList<Food> allFoods = JSONHandler.readFoodFile();
         ArrayList<Food> breakfasts = getBreakfastList(allFoods);
         ArrayList<Food> meals = getMealList(allFoods);
         ArrayList<Food> snacks = getSnackList(allFoods);
 
 
-        int caloriesObjective = getCaloriesObjective();
-        int actualCalories = 0;
-        Set<Food> foodSet = new HashSet<>();
 
-        int breakfastCount = 0, mealCount = 0, snackCount = 0;
+
+        int breakfastCount, mealCount, snackCount;
 
         do{
-            for (int i= 0; i<mealsQuantity; i++){
-                Random random = new Random();
-                ArrayList<Integer> randomIndex = generateRandomIndexArray(mealsQuantity, (allFoods.size()-1));
-                int calculateSnackCount = mealsQuantity - 3; //3 is total of meals + breakfast
+            actualCalories = 0; breakfastCount= 0; mealCount= 0; snackCount = 0;
+            foodArrayList = new ArrayList<>();
 
-                random.nextInt(allFoods.size()-1);
+            ArrayList<Integer> randomBreakfastIndex = generateRandomIndexArray(mealsQuantity, (breakfasts.size()-1));
+            ArrayList<Integer> randomMealIndex = generateRandomIndexArray(mealsQuantity, (meals.size()-1));
+            ArrayList<Integer> randomSnackIndex = generateRandomIndexArray(mealsQuantity, (snacks.size()-1));
+
+
+            for (int i= 0; i<mealsQuantity; i++){
+
+                 //3 is total of meals + breakfast
+
                 if(breakfastCount < 1){
-                    foodSet.add(breakfasts.get(randomIndex.get(i)));
+                    Food aux = breakfasts.get(randomBreakfastIndex.get(i));
+                    actualCalories += aux.getCalories();
+
+                    foodArrayList.add(aux);
                     breakfastCount++;
+
                 }else if(mealCount < 2){
-                    foodSet.add(meals.get(randomIndex.get(i)));
+                    Food aux = meals.get(randomMealIndex.get(i));
+                    actualCalories += aux.getCalories();
+
+                    foodArrayList.add(aux);
                     mealCount++;
+
                 }else if(snackCount < calculateSnackCount ){
-                    foodSet.add(snacks.get(randomIndex.get(i)));
+                    Food aux = snacks.get(randomSnackIndex.get(i));
+                    actualCalories += aux.getCalories();
+
+                    foodArrayList.add(aux);
                     snackCount++;
                 }
             }
 
-        } while(caloriesObjective > actualCalories); //TODO: this
+        } while(caloriesObjective >= actualCalories && (actualCalories-caloriesObjective) <= 80);
 
+        userData.setDiet(foodArrayList);
     }
-    public void getVegetarianDiet(){
+    public ArrayList<Food> getVegetarianFoods(){
         ArrayList<Food> allFoods = JSONHandler.readFoodFile();
-        int randomIndex = (int) (Math.random() % (allFoods.size()-1));
 
         ArrayList<Food> vegetarianFoods = new ArrayList<>();
         for (Food food:allFoods) {
@@ -214,11 +241,11 @@ public class User implements IToJSON, Comparable {
             }
         }
 
-        int caloriesObjective = getCaloriesObjective();
+        return vegetarianFoods;
     }
-    public void getVeganDiet(){
+    public ArrayList<Food> getVeganFoods(){
         ArrayList<Food> allFoods = JSONHandler.readFoodFile();
-        int randomIndex = (int) (Math.random() % (allFoods.size()-1));
+
         ArrayList<Food> veganFoods = new ArrayList<>();
         for (Food food:allFoods) {
             if(food.isVegan()){
@@ -226,11 +253,11 @@ public class User implements IToJSON, Comparable {
             }
         }
 
-        int caloriesObjective = getCaloriesObjective();
+        return veganFoods;
     }
-    public void getCeliacDiet(){
+    public ArrayList<Food> getCeliacFoods(){
         ArrayList<Food> allFoods = JSONHandler.readFoodFile();
-        int randomIndex = (int) (Math.random() % (allFoods.size()-1));
+
         ArrayList<Food> celiacFoods = new ArrayList<>();
         for (Food food:allFoods) {
             if(food.isCeliac()){
@@ -238,7 +265,7 @@ public class User implements IToJSON, Comparable {
             }
         }
 
-        int caloriesObjective = getCaloriesObjective();
+        return celiacFoods;
     }
 
     private ArrayList<Food> getBreakfastList(ArrayList<Food> allFoods){
@@ -250,7 +277,6 @@ public class User implements IToJSON, Comparable {
         }
         return breakfasts;
     }
-
     private ArrayList<Food> getSnackList(ArrayList<Food> allFoods){
         ArrayList<Food> snacks = new ArrayList<>();
         for (Food food:allFoods) {

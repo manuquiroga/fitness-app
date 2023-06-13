@@ -115,7 +115,8 @@ public class UserData implements IToJSON {
                 "objective: " + objective + '\n' +
                 "height: " + height + '\n' +
                 "sex: " + sex + '\n' +
-                "physicalActivity: " + physicalActivity +
+                "physicalActivity: " + physicalActivity + '\n' +
+                "diet: " + diet.toString() + '\n' +
                 '}';
     }
 
@@ -123,12 +124,13 @@ public class UserData implements IToJSON {
     //Methods:
 
     public int calculateBMR(){
+        //Harris-Bennedict Equation
         int bmr = 0;
         if(sex.equalsIgnoreCase("MALE")){
-            bmr = 66 + (int) (13.75 * weight) + (5 * height) + (int) (6.75 * age);
+            bmr = 88 + (int) (13.4 * weight) + (int) (4.8 * height) + (int) (5.7 * age);
         }
         else if (sex.equalsIgnoreCase("FEMALE")) {
-            bmr = 665 + (int) (9.56 * weight) + (int) (1.85 * height) + (int) (4.68 * age);
+            bmr = 448 + (int) (9.24 * weight) + (3 * height) + (int) (4.3 * age); //
         }
 
         switch (physicalActivity){
