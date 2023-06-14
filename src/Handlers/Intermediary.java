@@ -1,6 +1,7 @@
 
 package Handlers;
 
+import Collections.GenericMap;
 import FoodModels.Food;
 import Users.User;
 
@@ -11,50 +12,39 @@ import java.util.TreeMap;
 
 public class Intermediary {
 
-    /*
-    private TreeMap<String,User> userTreeMap;
-    private ArrayList<Food> foodTreeMap;
+
+    private GenericMap<String,User> userMap;
+    private GenericMap<Integer, Food> foodMap;
 
 
     //User
-    public void addUserToTreeMap (User user){
-        if(!userTreeMap.containsKey(user.getEmail())){
-            userTreeMap.put(user.getEmail(),user);
+    public void addUserToMap (User user){
+        if(!userMap.containsKey(user.getEmail()) && !userMap.containsValue(user)){
+            userMap.put(user.getEmail(),user);
         }
     }
 
-    //public void updateUser (User user)
+    public void updateUser (String email, User user){
+        User aux=null;
+        if(userMap.containsKey(user.getEmail()))
+        {
+            aux=userMap.removeByKey(email);
+            userMap.put(user.getEmail(), user);
+        }
+    }
 
     //public deactivateUser()
 
-    public String showTreeUsers(){
-        ArrayList<Map.Entry<String,User>> usersArray = new ArrayList<>(userTreeMap.entrySet());
-        StringBuilder stringBuilder = new StringBuilder();
-        for (Map.Entry<String,User> entry:usersArray) {
-            stringBuilder.append(entry.getKey());
-            stringBuilder.append(", ");
-            stringBuilder.append(entry.getValue());
-        }
-        return stringBuilder.toString();
-    }
+    public String showMapUsers(){return userMap.toString();}
 
     //Food
 
-    public void addFoodToTreeMap (Food food){
-        if (!foodTreeMap.containsKey(food)){
-            foodTreeMap.put(food.getId(),food);
+    public void addFoodToMap (Food food){
+        if (!foodMap.containsKey(food.getId()) && !foodMap.containsValue(food)){
+            foodMap.put(food.getId(),food);
         }
     }
 
-    public String showTreeFood (){
-        ArrayList<Map.Entry<Integer,Food>> foodArray = new ArrayList<>(foodTreeMap.entrySet());
-        StringBuilder stringBuilder = new StringBuilder();
-        for (Map.Entry<Integer,Food> entry:foodArray) {
-            stringBuilder.append(entry.getKey());
-            stringBuilder.append(", ");
-            stringBuilder.append(entry.getValue());
-        }
-        return stringBuilder.toString();
-    }
-    */
+    public String showTreeFood (){return foodMap.toString();}
+
 }
