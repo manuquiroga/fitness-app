@@ -196,4 +196,23 @@ public class DataValidation {
         }
         return val;
     }
+
+    //TODO: change
+    public static User getUserFromLogin(String email, String password){
+        ArrayList<User> userList;
+        try {
+            if(FileHandler.existsFile("user"))
+            {
+                userList=JSONHandler.readUserFile();
+                for (User user : userList) {
+                    if (user.getEmail().equalsIgnoreCase(email) && user.getPassword().equals(password)) {
+                        return user;
+                    }
+                }
+            }
+        } catch (IOException e) {
+            System.err.println("File error: "+e.getMessage());
+        }
+        return null;
+    }
 }

@@ -12,7 +12,7 @@ public class Home extends JFrame implements ActionListener {
     public static void main(String[] args) {
         JFrame frame=new JFrame("Nutribros Login");
         ImageIcon logo = new ImageIcon(LOGO_ICON_PATH);
-        frame.getContentPane().setBackground(new Color(41, 42, 54));
+        frame.getContentPane().setBackground(new Color(40, 40, 40));
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -45,7 +45,7 @@ public class Home extends JFrame implements ActionListener {
         frame.setIconImage(logo.getImage());
 
         frame.setResizable(false);
-        frame.setSize(420,420);//400 width and 500 height
+        frame.setSize(420,420);
         frame.setLayout(null);
         frame.setVisible(true);//making the frame visible
     }

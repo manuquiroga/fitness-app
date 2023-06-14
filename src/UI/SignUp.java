@@ -38,7 +38,7 @@ public class SignUp extends JFrame implements ActionListener{
     public SignUp() {
 
         JFrame frame=new JFrame("Nutribros");//creating instance of JFrame
-        frame.getContentPane().setBackground(new Color(41, 42, 54));
+        frame.getContentPane().setBackground(new Color(40, 40, 40));
         ImageIcon logo = new ImageIcon(LOGO_ICON_PATH); frame.setIconImage(logo.getImage());
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -174,7 +174,7 @@ public class SignUp extends JFrame implements ActionListener{
                 //SendEmail.send(email, SendEmail.getSubject(), SendEmail.welcomeText(name));
 
                 frame.dispose();
-                Menu menu = new Menu();
+                Login login = new Login();
 
             }catch (IncorrectEmailFormatException ex) {
                 System.err.println("Email error: " + ex.getMessage());

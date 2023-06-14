@@ -6,8 +6,10 @@ import Exceptions.NameTooShortException;
 import Exceptions.WeakPasswordException;
 import Handlers.DataValidation;
 import Handlers.SendEmail;
+import Users.User;
 
 import javax.swing.*;
+import javax.xml.crypto.Data;
 import java.awt.*;
 import java.io.IOException;
 import java.util.Arrays;
@@ -17,7 +19,7 @@ public class Login extends JFrame{
 
     public Login(){
         JFrame frame=new JFrame("Nutribros");//creating instance of JFrame
-        frame.getContentPane().setBackground(new Color(41, 42, 54));
+        frame.getContentPane().setBackground(new Color(40, 40, 40));
         ImageIcon logo = new ImageIcon(LOGO_ICON_PATH); frame.setIconImage(logo.getImage());
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -47,11 +49,11 @@ public class Login extends JFrame{
             String email = (EmailField.getText());
             String password = PasswordField.getText();
 
-            //TODO: verify correct email/password
+            //TODO: verify correct email/password, get user from info
             try {
                 if(DataValidation.checkLoginData(email,password)){
                     frame.dispose();
-                    Menu menu = new Menu();
+                    Menu menu = new Menu(DataValidation.getUserFromLogin(email,password)); //change
                 }
             } catch (IncorrectPasswordException ex) {
                 System.err.println("Incorrect data: " + ex.getMessage());

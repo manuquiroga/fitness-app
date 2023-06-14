@@ -34,6 +34,9 @@ public class UserData implements IToJSON {
     }
 
     //Getters:
+    public ArrayList<Food> getDiet(){
+        return diet;
+    }
 
     public int getAge() {
         return age;
