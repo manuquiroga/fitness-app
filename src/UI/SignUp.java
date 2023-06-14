@@ -173,6 +173,9 @@ public class SignUp extends JFrame implements ActionListener{
 
                 //SendEmail.send(email, SendEmail.getSubject(), SendEmail.welcomeText(name));
 
+                frame.dispose();
+                Menu menu = new Menu();
+
             }catch (IncorrectEmailFormatException ex) {
                 System.err.println("Email error: " + ex.getMessage());
                 JOptionPane.showMessageDialog(null, ex.getMessage());

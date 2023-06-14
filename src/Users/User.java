@@ -169,9 +169,11 @@ public class User implements IToJSON, Comparable {
         ArrayList<Food> allFoods = new ArrayList<>();
         ArrayList<Food> foodArrayList;
 
+        int breakfastCount, mealCount, snackCount;
         int calculateSnackCount = mealsQuantity - 3;
         int caloriesObjective = getCaloriesObjective();
         int actualCalories;
+        boolean dif;
         
         switch (type.toLowerCase()){
             case "classic" -> allFoods = JSONHandler.readFoodFile();
@@ -185,11 +187,6 @@ public class User implements IToJSON, Comparable {
         ArrayList<Food> breakfasts = getBreakfastList(allFoods);
         ArrayList<Food> meals = getMealList(allFoods);
         ArrayList<Food> snacks = getSnackList(allFoods);
-
-
-
-
-        int breakfastCount, mealCount, snackCount;
 
         do{
             actualCalories = 0; breakfastCount= 0; mealCount= 0; snackCount = 0;
@@ -227,7 +224,8 @@ public class User implements IToJSON, Comparable {
                 }
             }
 
-        } while(caloriesObjective >= actualCalories && (actualCalories-caloriesObjective) <= 80);
+            dif = ((actualCalories-caloriesObjective) <= 80 && (actualCalories-caloriesObjective) >= 0);
+        } while(!dif);
 
         userData.setDiet(foodArrayList);
     }
