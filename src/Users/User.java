@@ -19,9 +19,6 @@ public class User implements IToJSON, Comparable {
 
     private final int CALORIE_DEFICIT = 350;
     private final int CALORIE_SURPLUS = 500;
-    private final int MAX_MEAL_QUANTITY = 9;
-    private final int MIN_MEAL_QUANTITY = 4;
-
     private String name;
     private String password;
     private String email;
