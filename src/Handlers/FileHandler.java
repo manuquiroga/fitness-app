@@ -41,7 +41,20 @@ public class FileHandler {
         }
     } */
 
-    public static void saveInFile(JSONObject jsonObject, String fileName) {
+    public static void rewriteFile(JSONObject object, String file) {
+        try {
+            FileWriter newFile = new FileWriter(file + ".json");
+            newFile.write(object.toString());
+            newFile.flush();
+            newFile.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+        public static void saveInFile(JSONObject jsonObject, String fileName) {
         try {
             JSONObject fileData;
             fileName = fileName.concat(".json");

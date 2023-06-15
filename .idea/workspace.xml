@@ -4,8 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2910e345-db14-4f9f-b4c7-3856289f3311" name="Changes" comment="added GenericMap and Intermediary methods">
+    <list default="true" id="2910e345-db14-4f9f-b4c7-3856289f3311" name="Changes" comment="changed signatures">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Collections/GenericMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Collections/GenericMap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Handlers/FileHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Handlers/FileHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Handlers/Intermediary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Handlers/Intermediary.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Handlers/JSONHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Handlers/JSONHandler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -171,7 +175,21 @@
       <option name="project" value="LOCAL" />
       <updated>1686754174552</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="added GenericMap and Intermediary methods">
+      <created>1686853738360</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1686853738360</updated>
+    </task>
+    <task id="LOCAL-00018" summary="changed signatures">
+      <created>1686853823269</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1686853823269</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -201,7 +219,8 @@
     <MESSAGE value="fixed something" />
     <MESSAGE value="made progress in generateDiet method" />
     <MESSAGE value="added GenericMap and Intermediary methods" />
-    <option name="LAST_COMMIT_MESSAGE" value="added GenericMap and Intermediary methods" />
+    <MESSAGE value="changed signatures" />
+    <option name="LAST_COMMIT_MESSAGE" value="changed signatures" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

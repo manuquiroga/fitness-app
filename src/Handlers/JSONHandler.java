@@ -101,12 +101,22 @@ public class JSONHandler {
         JSONObject jsonObject=user.toJSON();
         FileHandler.saveInFile(jsonObject, "user");
     }
+    public static void rewriteUserFile(User user)throws JSONException
+    {
+        JSONObject jsonObject=user.toJSON();
+        FileHandler.rewriteFile(jsonObject, "user");
+    }
 
     public static void foodToFile(Food food)throws JSONException
     {
         JSONObject jsonObject =food.toJSON();
 
         FileHandler.saveInFile(jsonObject, "food");
+    }
+    public static void rewriteFoodFile(Food food)throws JSONException
+    {
+        JSONObject jsonObject=food.toJSON();
+        FileHandler.rewriteFile(jsonObject, "food");
     }
 
     public static int countItemsInUserJSON() throws FileNotFoundException {

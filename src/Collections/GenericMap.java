@@ -1,12 +1,14 @@
 package Collections;
 
+import Handlers.JSONHandler;
+import Interfaces.IToJSON;
 import Users.User;
+import org.json.JSONException;
+import org.json.JSONObject;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.*;
 
-public class GenericMap<K, V > {
+public class GenericMap<K, V extends IToJSON> {
     private Map<K, V> genericMap;
 
     public GenericMap() {
@@ -40,5 +42,12 @@ public class GenericMap<K, V > {
         }
          return s;
     }
+
+    public List<V> toList()
+    {
+        return genericMap.values().stream().toList();
+    }
+
+
 
 }
