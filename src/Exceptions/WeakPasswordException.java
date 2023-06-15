@@ -1,6 +1,6 @@
 package Exceptions;
 
-public class WeakPasswordException extends Throwable {
+public class WeakPasswordException extends Exception {
     public WeakPasswordException(String s) {
         super(s);
     }
