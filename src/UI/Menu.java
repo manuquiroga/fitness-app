@@ -1,6 +1,8 @@
 package UI;
 
 import FoodModels.Food;
+import UI.Renderers.FontRenderer;
+import UI.Renderers.LabelRenderer;
 import Users.User;
 import Users.UserData;
 
@@ -9,16 +11,19 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.ArrayList;
-import java.util.PriorityQueue;
 
 public class Menu extends JFrame {
 
     private static final String LOGO_ICON_PATH = "src/UI/Resources/weightlifter.png";
+    private static final String ALREADY_EATEN_ICON_PATH = "src/UI/Resources/aprobado.png";
+    private static final String SHOW_FOOD_INFO_ICON_PATH = "src/UI/Resources/dieta.png";
     private static final Color DEFAULT_BACKGROUND_COLOR = new Color(40, 40, 40);
     private static final FontRenderer TABLE_FONT = new FontRenderer(new Font("Book Antiqua", Font.BOLD, 18));
     public static void main(String[] args) {
-        UserData userData = new UserData(23, 50, "GAIN_WEIGHT", 160, "female", "NONE");
+        UserData userData = new UserData(23, 50, "LOSE_WEIGHT", 160, "female", "NONE");
         User user = new User("m", "Prueba123456", "mq@gmail.com", 10, userData);
 
         Menu menu = new Menu(user);
@@ -98,6 +103,8 @@ public class Menu extends JFrame {
     }
 
     private JPanel getJPanelDiet(User user, int rows){
+        int rowHeight = 440/rows;
+
         JPanel DietCreatedPanel = new JPanel();
         DietCreatedPanel.setBounds(0,0,745, 480);
         DietCreatedPanel.setBackground(DEFAULT_BACKGROUND_COLOR);
@@ -114,28 +121,101 @@ public class Menu extends JFrame {
 
 
 
+
         for(int row = 0; row < rows; row++){
+
+
             String foodType = userDiet.get(row).getFoodType().toString();
             int servingSize = (int) userDiet.get(row).getServingSize_g();
             String foodName = userDiet.get(row).getName();
+
+            int buttonY = 0;
+
+            switch (rows){
+                case 3: buttonY = (row)*(rowHeight)+ 35; break;
+                case 4: buttonY = (row)*(rowHeight)+ 25; break;
+                case 5: buttonY = (row)*(rowHeight)+ 15; break;
+                case 6: buttonY = (row)*(rowHeight)+ 5; break;
+                case 7: buttonY = (row)*(rowHeight); break;
+            }
+
+            JLabel ShowFoodInfo = getIconLabel(SHOW_FOOD_INFO_ICON_PATH, "Show food info", rows);
+            JLabel AlreadyEaten = getIconLabel(ALREADY_EATEN_ICON_PATH, "Click if eaten", rows);
+
+            ShowFoodInfo.setBounds(470, buttonY, 60, 60);
+            AlreadyEaten.setBounds(540, buttonY, 60, 60);
+
+            FoodTable.add(ShowFoodInfo); FoodTable.add(AlreadyEaten);
+
+            //LabelRenderer ShowFoodInfoLabelRenderer = new LabelRenderer(ShowFoodInfo);
+            //LabelRenderer AlreadyEatenLabelRenderer = new LabelRenderer(AlreadyEaten);
+
+            //FoodTable.getColumnModel().getColumn(0).setCellRenderer(ShowFoodInfoLabelRenderer);
+            //FoodTable.getColumnModel().getColumn(0).setCellRenderer(AlreadyEatenLabelRenderer);
 
             model.setValueAt("   " + foodType + ": " + servingSize + "g " + foodName, row, 0);
         }
 
         FoodTable.setDefaultRenderer(Object.class, TABLE_FONT);
         //todo: change row color if row%2==0
-        FoodTable.setBounds(0, 0, 645, 480);
+        FoodTable.setBounds(0, 0, 645, 440);
         FoodTable.setBackground(new Color(226, 226, 226));
         FoodTable.setAutoscrolls(false);
         FoodTable.setFocusable(false);
 
 
-        int rowHeight = 440/rows;
+
         FoodTable.setRowHeight(rowHeight);
         DietCreatedPanel.add(FoodTable);
 
         return DietCreatedPanel;
     }
+
+    private JLabel getIconLabel(String iconPath, String labelText, int rows){
+        ImageIcon Icon = new ImageIcon(iconPath);
+        int w=0, h=0;
+        switch (rows){
+            case 3: case 4: w = 60; h=60; break;
+            case 5: w = 50; h=50; break;
+            case 6: case 7: w = 40; h=40; break;
+        }
+
+        Image scaledImage = Icon.getImage().getScaledInstance(w, h, Image.SCALE_SMOOTH);
+        ImageIcon scaledIcon = new ImageIcon(scaledImage);
+
+        JLabel IconLabel = new JLabel(scaledIcon);
+
+        IconLabel.addMouseListener(new MouseAdapter() {
+            private JDialog dialog;
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                dialog = new JDialog();
+                dialog.setUndecorated(true);
+                dialog.setLayout(new BorderLayout());
+                dialog.add(new JLabel(labelText), BorderLayout.CENTER);
+                dialog.pack();
+                dialog.setLocationRelativeTo(IconLabel);
+                dialog.setVisible(true);
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                if (dialog != null) {
+                    dialog.dispose();
+                    dialog = null;
+                }
+            }
+
+            @Override
+            public void mouseClicked(MouseEvent e) {
+
+            }
+        });
+
+        return IconLabel;
+    }
+
     private Integer[] getArrayFromArrayList(User user){
         ArrayList<Integer> quantities= new ArrayList<>();
         for (int i = user.getUserData().getObjective().getMinMeals(); i <= user.getUserData().getObjective().getMaxMeals(); i++){
