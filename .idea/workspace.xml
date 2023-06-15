@@ -4,11 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2910e345-db14-4f9f-b4c7-3856289f3311" name="Changes" comment="Started coding the main menu. added button to create diet">
-      <change afterPath="$PROJECT_DIR$/src/UI/FontRenderer.java" afterDir="false" />
+    <list default="true" id="2910e345-db14-4f9f-b4c7-3856289f3311" name="Changes" comment="made progress in generateDiet method">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/UI/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/Menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Users/Objective.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/Objective.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UI/SignUp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/SignUp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Users/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/User.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,8 +19,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Enum" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -167,21 +168,7 @@
       <option name="project" value="LOCAL" />
       <updated>1686004056284</updated>
     </task>
-    <task id="LOCAL-00016" summary="fixed again diet method. the error was the while condition">
-      <created>1686751613369</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1686751613369</updated>
-    </task>
-    <task id="LOCAL-00017" summary="Started coding the main menu. added button to create diet">
-      <created>1686756507849</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1686756507849</updated>
-    </task>
-    <option name="localTasksCounter" value="18" />
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -210,9 +197,7 @@
     <MESSAGE value="changed desiredWeight for enum Objective, created function to calculate BMR" />
     <MESSAGE value="fixed something" />
     <MESSAGE value="made progress in generateDiet method" />
-    <MESSAGE value="fixed again diet method. the error was the while condition" />
-    <MESSAGE value="Started coding the main menu. added button to create diet" />
-    <option name="LAST_COMMIT_MESSAGE" value="Started coding the main menu. added button to create diet" />
+    <option name="LAST_COMMIT_MESSAGE" value="made progress in generateDiet method" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -221,6 +206,15 @@
           <properties class="java.nio.file.NoSuchFileException" package="java.nio.file" />
           <option name="timeStamp" value="1" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/Users/User.java</url>
+          <line>167</line>
+          <properties class="Users.User" method="generateDiet">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
