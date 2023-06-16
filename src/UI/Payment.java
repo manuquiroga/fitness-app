@@ -17,6 +17,8 @@ public class Payment extends JFrame {
         setBounds(0, 0, 400, 480);
         getContentPane().setBackground(new Color(40, 40, 40));
         setLayout(null);
+        setResizable(false);
+
 
         numberField = new JTextField();
         cvField = new JTextField();
@@ -42,6 +44,10 @@ public class Payment extends JFrame {
         unlockButton.setBounds(100,350,200,30);
         unlockButton.setFocusable(false);
 
+        JButton goBackButton = new JButton("I am poor");
+        goBackButton.setBounds(100,390,200,30);
+        goBackButton.setFocusable(false);
+
         unlockButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -55,9 +61,14 @@ public class Payment extends JFrame {
                 }catch (IncorrectCardNumberException ex){
                     JOptionPane.showMessageDialog(null,ex.getMessage());
                 }
-
-
                 setVisible(false);
+            }
+        });
+
+        goBackButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
             }
         });
 
@@ -68,6 +79,7 @@ public class Payment extends JFrame {
         add(lblName);
         add(nameField);
         add(unlockButton);
+        add(goBackButton);
 
         setVisible(true);
     }

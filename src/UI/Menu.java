@@ -26,6 +26,7 @@ public class Menu extends JFrame {
     private static final String LOGO_ICON_PATH = "src/UI/Resources/weightlifter.png";
     private static final String ALREADY_EATEN_ICON_PATH = "src/UI/Resources/aprobado.png";
     private static final String SHOW_FOOD_INFO_ICON_PATH = "src/UI/Resources/dieta.png";
+    private static final String PROFILE_ICON_PATH = "src/UI/Resources/usuario.png";
     private static final Color DEFAULT_BACKGROUND_COLOR = new Color(40, 40, 40);
     private static final FontRenderer TABLE_FONT = new FontRenderer(new Font("Book Antiqua", Font.BOLD, 18));
 
@@ -58,11 +59,12 @@ public class Menu extends JFrame {
 
         JPanel CreateDietPanel = new JPanel();
         CreateDietPanel.setBounds(0,0,645, 480);
-        CreateDietPanel.setBackground(new Color(226,226,226));
+        CreateDietPanel.setBackground(new Color(64, 63, 63));
         CreateDietPanel.setLayout(null);
 
         JLabel Info = new JLabel("You dont have any diet created yet");
         Info.setBounds( 222, 100, 200, 30);
+        Info.setForeground(Color.WHITE);
 
         String[] types = {"CLASSIC", "CELIAC", "VEGAN", "VEGETARIAN"};
         JComboBox DietType = new JComboBox(types);
@@ -70,7 +72,6 @@ public class Menu extends JFrame {
         DietType.setFocusable(false);
 
         Integer[] quantities = getArrayFromArrayList(user);
-        
         JComboBox MealQuantity = new JComboBox(quantities);
         MealQuantity.setBounds( 222, 200, 200, 30);
         MealQuantity.setFocusable(false);
@@ -78,6 +79,17 @@ public class Menu extends JFrame {
         JButton CreateDietButton = new JButton("Generate diet");
         CreateDietButton.setBounds( 222, 250, 200, 30);
         CreateDietButton.setFocusable(false);
+
+
+        ImageIcon Icon = new ImageIcon(PROFILE_ICON_PATH);
+        Image scaledImage = Icon.getImage().getScaledInstance(60, 60, Image.SCALE_SMOOTH);
+        ImageIcon scaledIcon = new ImageIcon(scaledImage);
+
+        JButton profileButton = new JButton(scaledIcon);
+        profileButton.setBounds(60,20,100,100);
+        profileButton.setFocusable(false);
+        profileButton.setBackground(new Color(242, 202, 90));
+        MenuOptions.add(profileButton);
 
         CreateDietPanel.add(Info); CreateDietPanel.add(DietType); CreateDietPanel.add(MealQuantity);CreateDietPanel.add(CreateDietButton);
 
@@ -100,6 +112,14 @@ public class Menu extends JFrame {
 
                 JPanel DietCreatedPanel = getJPanelDiet(user, user.getUserData().getDiet().size());
                 UserDiet.add(DietCreatedPanel);
+            }
+        });
+
+        profileButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.dispose();
+                Profile profile = new Profile(user, intermediary);
             }
         });
 
@@ -168,12 +188,14 @@ public class Menu extends JFrame {
         }
 
         FoodTable.setDefaultRenderer(Object.class, TABLE_FONT);
-        //todo: change row color if row%2==0
         FoodTable.setBounds(0, 0, 645, 440);
-        FoodTable.setBackground(new Color(226, 226, 226));
+        FoodTable.setForeground(Color.WHITE);
+        FoodTable.setRowSelectionAllowed(false);
+        FoodTable.setColumnSelectionAllowed(false);
+        FoodTable.setGridColor(DEFAULT_BACKGROUND_COLOR);
+        FoodTable.setBackground(new Color(64, 63, 63));
         FoodTable.setAutoscrolls(false);
         FoodTable.setFocusable(false);
-
 
 
         FoodTable.setRowHeight(rowHeight);

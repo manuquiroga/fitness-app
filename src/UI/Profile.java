@@ -42,6 +42,7 @@ public class Profile extends JFrame{
         ImageIcon logo = new ImageIcon("src/UI/Resources/weightlifter.png"); setIconImage(logo.getImage());
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(null);
+        setResizable(false);
 
         nameField = new JTextField();
         emailField = new JTextField();
@@ -51,52 +52,62 @@ public class Profile extends JFrame{
 
         JLabel lblName = new JLabel("Name:");
         lblName.setForeground(Color.WHITE);
-        lblName.setBounds(50, 30, 100, 30);
+        lblName.setBounds(50, 90, 100, 30);
 
         JLabel lblEmail = new JLabel("Email:");
         lblEmail.setForeground(Color.WHITE);
-        lblEmail.setBounds(50,70, 100, 30);
+        lblEmail.setBounds(50,130, 100, 30);
 
         JLabel lblPassword = new JLabel("Password:");
         lblPassword.setForeground(Color.WHITE);
-        lblPassword.setBounds(50,110, 100, 30);
+        lblPassword.setBounds(50,170, 100, 30);
 
         JLabel lblWeight = new JLabel("Weight:");
         lblWeight.setForeground(Color.WHITE);
-        lblWeight.setBounds(50,150, 100, 30);
+        lblWeight.setBounds(50,210, 100, 30);
 
         JLabel lblHeight = new JLabel("Height:");
         lblHeight.setForeground(Color.WHITE);
-        lblHeight.setBounds(50,190, 100, 30);
+        lblHeight.setBounds(50,250, 100, 30);
 
         nameField.setText(user.getName());
-        nameField.setBounds(135, 30, 200, 30);
+        nameField.setBounds(135, 90, 200, 30);
 
         emailField.setText(user.getEmail());
-        emailField.setBounds(135,70,200,30);
+        emailField.setBounds(135,130,200,30);
 
         passwordField.setText(user.getPassword());
-        passwordField.setBounds(135,110,200,30);
+        passwordField.setBounds(135,170,200,30);
 
         weightField.setText(String.valueOf((int) user.getUserData().getWeight()));
-        weightField.setBounds(135,150,200,30);
+        weightField.setBounds(135,210,200,30);
 
         heightField.setText(String.valueOf(user.getUserData().getHeight()));
-        heightField.setBounds(135,190,200,30);
+        heightField.setBounds(135,250,200,30);
 
         JButton unlockFieldButton = new JButton("Unlock Fields");
-        unlockFieldButton.setBounds(100,350,200,30);
+        unlockFieldButton.setBounds(100,340,200,30);
         unlockFieldButton.setFocusable(false);
+        unlockFieldButton.setToolTipText("This will allow you to modify your data");
 
         JButton saveDataButton = new JButton("Save data");
-        saveDataButton.setBounds(100,350,200,30);
+        saveDataButton.setBounds(100,340,200,30);
         saveDataButton.setFocusable(false);
+        unlockFieldButton.setToolTipText("Save your data");
 
         JButton getPremiumButton = new JButton("Get Premium");
-        getPremiumButton.setBounds(100,300,200,30);
+        getPremiumButton.setFont(new Font("Book Antiqua", Font.BOLD, 18));
+        getPremiumButton.setBounds(50,20,285,50);
         getPremiumButton.setFocusable(false);
+        getPremiumButton.setBackground(new Color(242, 202, 90));
 
-        JButton goBackButton = new JButton("back");
+//        ImageIcon Icon = new ImageIcon("src/UI/Resources/volver-flecha.png");
+//        Image scaledImage = Icon.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
+//        ImageIcon scaledIcon = new ImageIcon(scaledImage);
+
+        JButton goBackButton = new JButton("Back to menu");
+        goBackButton.setBounds(100,380,200,30);
+        goBackButton.setFocusable(false);
 
         if(!(user instanceof PremiumUser)){
             add(getPremiumButton);
@@ -142,6 +153,14 @@ public class Profile extends JFrame{
             }
         });
 
+        goBackButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+                Menu menu = new Menu(user, intermediary);
+            }
+        });
+
         getPremiumButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -160,6 +179,7 @@ public class Profile extends JFrame{
         add(lblHeight);
         add(heightField);
         add(unlockFieldButton);
+        add(goBackButton);
 
         nameField.setEnabled(false);
         emailField.setEnabled(false);
