@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2910e345-db14-4f9f-b4c7-3856289f3311" name="Changes" comment="deleted LabelRenderer.java and changed colors">
+    <list default="true" id="2910e345-db14-4f9f-b4c7-3856289f3311" name="Changes" comment="changes in the menu, added icon labels in every cell of the DietTable that are going to work as buttons.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FoodModels/Food.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FoodModels/Food.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/FoodInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/FoodInfo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/UI/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/Menu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -174,14 +172,7 @@
       <option name="project" value="LOCAL" />
       <updated>1686865083233</updated>
     </task>
-    <task id="LOCAL-00017" summary="deleted LabelRenderer.java and changed colors">
-      <created>1686878767162</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1686878767162</updated>
-    </task>
-    <option name="localTasksCounter" value="18" />
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -211,8 +202,7 @@
     <MESSAGE value="fixed something" />
     <MESSAGE value="made progress in generateDiet method" />
     <MESSAGE value="changes in the menu, added icon labels in every cell of the DietTable that are going to work as buttons." />
-    <MESSAGE value="deleted LabelRenderer.java and changed colors" />
-    <option name="LAST_COMMIT_MESSAGE" value="deleted LabelRenderer.java and changed colors" />
+    <option name="LAST_COMMIT_MESSAGE" value="changes in the menu, added icon labels in every cell of the DietTable that are going to work as buttons." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

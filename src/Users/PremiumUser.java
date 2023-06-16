@@ -6,10 +6,12 @@ import java.util.ArrayList;
 
 public class PremiumUser extends User{
 
+    private int numberOfDietsGenerated;
 
     //constructors:
-    public PremiumUser(String name, String password, String email, int id, UserData userData) {
+    public PremiumUser(String name, String password, String email, int id, UserData userData, int numberOfDietsGenerated) {
         super(name, password, email, id, userData);
+        this.numberOfDietsGenerated=numberOfDietsGenerated;
     }
 
     public PremiumUser() {
@@ -18,16 +20,6 @@ public class PremiumUser extends User{
     //equals, hashCode, compareTo, toString
 
     //Methods:
-    /*
-    public ArrayList<Food> modifyDiet()
-    {
-        return diet;
-    }
 
-    public ArrayList<Food> notIncludeInDiet(StringBuilder notInclude)
-    {
-        return diet;
-    }
-*/
 
 }

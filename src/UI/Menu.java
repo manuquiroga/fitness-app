@@ -93,6 +93,8 @@ public class Menu extends JFrame {
             }
         });
 
+
+
         frame.add(MenuOptions);
         frame.add(UserDiet);
         frame.setResizable(false);
