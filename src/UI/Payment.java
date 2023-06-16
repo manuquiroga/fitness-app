@@ -7,14 +7,14 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Payment extends JPanel {
+public class Payment extends JFrame {
     private JTextField numberField;
     private JTextField cvField;
     private JTextField nameField;
 
     public Payment(){
         setBounds(0, 0, 400, 480);
-        setBackground(new Color(40, 40, 40));
+        getContentPane().setBackground(new Color(40, 40, 40));
         setLayout(null);
 
         numberField = new JTextField();
@@ -54,6 +54,14 @@ public class Payment extends JPanel {
                 setVisible(false);
             }
         });
+
+        add(lblNumber);
+        add(numberField);
+        add(lblCV);
+        add(cvField);
+        add(lblName);
+        add(nameField);
+        add(unlockButton);
 
         setVisible(true);
     }

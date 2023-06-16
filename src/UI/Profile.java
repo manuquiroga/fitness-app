@@ -5,6 +5,7 @@ import Exceptions.NameTooShortException;
 import Exceptions.WeakPasswordException;
 import Handlers.DataValidation;
 import Handlers.Intermediary;
+import Users.PremiumUser;
 import Users.User;
 import Users.UserData;
 import org.json.JSONException;
@@ -24,7 +25,7 @@ public class Profile extends JFrame{
 
     public static void main(String[] args) {
         UserData userData = new UserData(23, 50, "LOSE_WEIGHT", 160, "female", "NONE");
-        User us = new User("m", "Prueba123456", "mq@gmail.com", 10, userData);
+        User us = new User("manuel", "Prueba123456", "mq@gmail.com", 10, userData);
         us.generateDiet(4, "vegan");
         Intermediary intermediary = new Intermediary();
         intermediary.addUserToMap(us);
@@ -77,7 +78,7 @@ public class Profile extends JFrame{
         passwordField.setText(user.getPassword());
         passwordField.setBounds(135,110,200,30);
 
-        weightField.setText(String.valueOf(user.getUserData().getWeight()));
+        weightField.setText(String.valueOf((int) user.getUserData().getWeight()));
         weightField.setBounds(135,150,200,30);
 
         heightField.setText(String.valueOf(user.getUserData().getHeight()));
@@ -91,7 +92,17 @@ public class Profile extends JFrame{
         saveDataButton.setBounds(100,350,200,30);
         saveDataButton.setFocusable(false);
 
+        JButton getPremiumButton = new JButton("Get Premium");
+        getPremiumButton.setBounds(100,300,200,30);
+        getPremiumButton.setFocusable(false);
+
         JButton goBackButton = new JButton("back");
+
+        if(!(user instanceof PremiumUser)){
+            add(getPremiumButton);
+        }
+
+
 
         unlockFieldButton.addActionListener(new ActionListener() {
             @Override
@@ -111,7 +122,7 @@ public class Profile extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 String oldEmail = user.getEmail();
-                User newUser = refactorUserFields(nameField, emailField, passwordField, weightField, heightField, user);
+                User newUser = refactorUserFields(nameField, emailField, passwordField, weightField, heightField);
                 try {
                     intermediary.updateUser(oldEmail, newUser);
                     user = newUser;
@@ -128,6 +139,13 @@ public class Profile extends JFrame{
                 passwordField.setEnabled(false);
                 weightField.setEnabled(false);
                 heightField.setEnabled(false);
+            }
+        });
+
+        getPremiumButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Payment payment = new Payment();
             }
         });
 
@@ -152,8 +170,8 @@ public class Profile extends JFrame{
         setVisible(true);
     }
 
-    private User refactorUserFields(JTextField nameField,JTextField emailField,JTextField passwordField,JTextField weightField,JTextField heightField,User user) {
-        User aux = new User();
+    private User refactorUserFields(JTextField nameField,JTextField emailField,JTextField passwordField,JTextField weightField,JTextField heightField) {
+        User aux = user;
         try {
             String name = nameField.getText();
             String email = emailField.getText();
@@ -162,10 +180,9 @@ public class Profile extends JFrame{
             aux.setName(name);
             aux.setEmail(email);
             aux.setPassword(password);
-            aux.setUserData(user.getUserData());
 
             DataValidation.checkDataDigit(weightField, heightField);
-            int weight = Integer.parseInt(weightField.getText());
+            double weight = Double.parseDouble(weightField.getText());
             int height = Integer.parseInt(heightField.getText());
 
             aux.getUserData().setWeight(weight);
