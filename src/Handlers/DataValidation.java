@@ -201,4 +201,45 @@ public class DataValidation {
         }
         return null;
     }
+
+    public static void checkCardData(String cardNumber,String cvv,String name) throws IncorrectCardNumberException{
+
+        if (!checkCardNumber(cardNumber) || !cvv.matches("\\d{3,4}") || (!name.matches("^[a-zA-Z]+\\s[a-zA-Z]+(\\s[a-zA-Z]+)?$") && name.replaceAll("\\s", "").length() > 24)){
+            throw new IncorrectCardNumberException();
+        }
+
+    }
+
+    private static boolean checkCardNumber(String cardNumber) {
+        // Eliminar los espacios en blanco y caracteres especiales
+        cardNumber = cardNumber.replaceAll("\\s+", "");
+
+        // Verificar que la cadena de entrada contenga solo dígitos
+        if (!cardNumber.matches("\\d+")) {
+            return false;
+        }
+
+        // Convertir la cadena de entrada en un arreglo de dígitos
+        int[] digits = new int[cardNumber.length()];
+        for (int i = 0; i < cardNumber.length(); i++) {
+            digits[i] = Character.getNumericValue(cardNumber.charAt(i));
+        }
+
+        // Aplicar el algoritmo de Luhn
+        for (int i = digits.length - 2; i >= 0; i -= 2) {
+            int digitDouble = digits[i] * 2;
+            if (digitDouble > 9) {
+                digitDouble = digitDouble % 10 + 1;
+            }
+            digits[i] = digitDouble;
+        }
+
+        int plus = 0;
+        for (int aux : digits) {
+            plus += aux;
+        }
+
+        // La tarjeta es válida si la suma es divisible por 10
+        return plus % 10 == 0;
+    }
 }

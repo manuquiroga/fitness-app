@@ -1,5 +1,6 @@
 package UI;
 
+import Exceptions.IncorrectCardNumberException;
 import Handlers.DataValidation;
 
 import javax.swing.*;
@@ -49,7 +50,12 @@ public class Payment extends JFrame {
                 String cvv = cvField.getText();
                 String name = nameField.getText();
 
-                //DataValidation.checkCardData(number, cvv, name)
+                try{
+                    DataValidation.checkCardData(number, cvv, name);
+                }catch (IncorrectCardNumberException ex){
+                    JOptionPane.showMessageDialog(null,ex.getMessage());
+                }
+
 
                 setVisible(false);
             }

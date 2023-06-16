@@ -50,7 +50,7 @@ public class Intermediary {
     public void deleteUser(String email, User user) throws JSONException {
         User aux=null;
         JSONObject joAux=new JSONObject();
-        if(userMap.containsKey(user.getEmail()))
+        if((!userMap.containsKey(user.getEmail())) && userMap.containsKey(email))
         {
             aux=userMap.removeByKey(email);
             joAux=userToJSON();
