@@ -11,7 +11,6 @@ public class FoodInfo extends JFrame {
     private static final String LOGO_ICON_PATH = "src/UI/Resources/weightlifter.png";
     private static final Color DEFAULT_BACKGROUND_COLOR = new Color(40, 40, 40);
     private static final Font TABLE_FONT = new Font("Book Antiqua", Font.BOLD, 18);
-
     private static final Color WALTERWHITE = Color.WHITE;
 
     public FoodInfo(Food food){

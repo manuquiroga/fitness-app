@@ -17,6 +17,10 @@ public class Intermediary {
     private GenericMap<String,User> userMap;
     private GenericMap<Integer, Food> foodMap;
 
+    public Intermediary(){
+        userMap = new GenericMap<String,User>();
+        foodMap = new GenericMap<Integer, Food>();
+    }
 
     //User
     public void addUserToMap (User user){

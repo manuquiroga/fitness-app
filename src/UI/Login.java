@@ -5,6 +5,7 @@ import Exceptions.IncorrectPasswordException;
 import Exceptions.NameTooShortException;
 import Exceptions.WeakPasswordException;
 import Handlers.DataValidation;
+import Handlers.Intermediary;
 import Handlers.SendEmail;
 import Users.User;
 
@@ -17,7 +18,7 @@ import java.util.Arrays;
 public class Login extends JFrame{
     private static final String LOGO_ICON_PATH = "src/UI/Resources/weightlifter.png";
 
-    public Login(){
+    public Login(Intermediary intermediary){
         JFrame frame=new JFrame("Nutribros");//creating instance of JFrame
         frame.getContentPane().setBackground(new Color(40, 40, 40));
         ImageIcon logo = new ImageIcon(LOGO_ICON_PATH); frame.setIconImage(logo.getImage());
@@ -53,7 +54,7 @@ public class Login extends JFrame{
             try {
                 if(DataValidation.checkLoginData(email,password)){
                     frame.dispose();
-                    Menu menu = new Menu(DataValidation.getUserFromLogin(email,password)); //change
+                    Menu menu = new Menu(DataValidation.getUserFromLogin(email,password), intermediary); //change
                 }
             } catch (IncorrectPasswordException ex) {
                 System.err.println("Incorrect data: " + ex.getMessage());

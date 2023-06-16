@@ -1,12 +1,9 @@
 package UI;
 import Exceptions.DataOutOfBoundsException;
-import Handlers.FileHandler;
-import Handlers.JSONHandler;
-import Handlers.SendEmail;
+import Handlers.*;
 import Exceptions.IncorrectEmailFormatException;
 import Exceptions.NameTooShortException;
 import Exceptions.WeakPasswordException;
-import Handlers.DataValidation;
 import Users.Objective;
 import Users.PhysicalActivity;
 import Users.User;
@@ -35,7 +32,7 @@ public class SignUp extends JFrame implements ActionListener{
     private static final String ACTIVITY_INFO = "You should put physical activity aside.\n NONE is if you work from home or if you are a student.\n MODERATE is for example a job where you lift boxes.\n ACTIVE is for example an active job as a cyclist postman";
     private static final Color WALTERWHITE = Color.WHITE;
 
-    public SignUp() {
+    public SignUp(Intermediary intermediary) {
 
         JFrame frame=new JFrame("Nutribros");//creating instance of JFrame
         frame.getContentPane().setBackground(new Color(40, 40, 40));
@@ -174,7 +171,7 @@ public class SignUp extends JFrame implements ActionListener{
                 //SendEmail.send(email, SendEmail.getSubject(), SendEmail.welcomeText(name));
 
                 frame.dispose();
-                Login login = new Login();
+                Login login = new Login(intermediary);
 
             }catch (IncorrectEmailFormatException ex) {
                 System.err.println("Email error: " + ex.getMessage());

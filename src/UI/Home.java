@@ -1,5 +1,7 @@
 package UI;
 
+import Handlers.Intermediary;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -10,6 +12,11 @@ public class Home extends JFrame implements ActionListener {
     private static final String LOGO_ICON_PATH = "src/UI/Resources/weightlifter.png";
 
     public static void main(String[] args) {
+        Intermediary intermediary = new Intermediary();
+        Home home = new Home(intermediary);
+    }
+
+    public Home(Intermediary intermediary) {
         JFrame frame=new JFrame("Nutribros Login");
         ImageIcon logo = new ImageIcon(LOGO_ICON_PATH);
         frame.getContentPane().setBackground(new Color(40, 40, 40));
@@ -28,7 +35,7 @@ public class Home extends JFrame implements ActionListener {
             @Override
             public void actionPerformed(ActionEvent e) {
                 frame.dispose();
-                SignUp sign = new SignUp();
+                SignUp sign = new SignUp(intermediary);
             }
         });
 
@@ -36,7 +43,7 @@ public class Home extends JFrame implements ActionListener {
             @Override
             public void actionPerformed(ActionEvent e) {
                 frame.dispose();
-                Login log = new Login();
+                Login log = new Login(intermediary);
             }
         });
 

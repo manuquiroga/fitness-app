@@ -6,6 +6,7 @@ import Exceptions.NameTooShortException;
 import Exceptions.WeakPasswordException;
 import FoodModels.Food;
 import Handlers.DataValidation;
+import Handlers.Intermediary;
 import UI.Renderers.FontRenderer;
 import Users.User;
 import Users.UserData;
@@ -29,12 +30,7 @@ public class Menu extends JFrame {
     private static final FontRenderer TABLE_FONT = new FontRenderer(new Font("Book Antiqua", Font.BOLD, 18));
 
 
-    public static void main(String[] args) {
-        UserData userData = new UserData(21, 70, "GAIN_WEIGHT", 174, "male", "NONE");
-        User user = new User("m", "Prueba123456", "mq@gmail.com", 10, userData);
-        Menu menu = new Menu(user);
-    }
-    public Menu(User user){
+    public Menu(User user, Intermediary intermediary){
 
         JFrame frame=new JFrame("Nutribros");//creating instance of JFrame
         frame.getContentPane().setBackground(DEFAULT_BACKGROUND_COLOR);
@@ -239,22 +235,5 @@ public class Menu extends JFrame {
         }
         return quantities.toArray(new Integer[0]);
     }
-    private User refactorUserFields(JTextField name,JTextField email,JTextField password,User user) {
-        User aux = new User();
-        try {
-            DataValidation.checkData(name.getText(),email.getText(),password.getText());
-            aux.setName(name.getText());
-            aux.setEmail(email.getText());
-            aux.setPassword(password.getText());
-            aux.setUserData(user.getUserData());
-            aux.setId(user.getId());
-        } catch (WeakPasswordException ex) {
-            JOptionPane.showMessageDialog(null,ex.getMessage());
-        } catch (IncorrectEmailFormatException ex) {
-            JOptionPane.showMessageDialog(null,ex.getMessage());
-        } catch (NameTooShortException ex) {
-            JOptionPane.showMessageDialog(null,ex.getMessage());
-        }
-        return aux;
-    }
+
 }

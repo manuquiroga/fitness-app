@@ -8,7 +8,7 @@ import org.json.JSONObject;
 
 import java.util.*;
 
-public class GenericMap<K, V extends IToJSON> {
+public class GenericMap<K, V> {
     private Map<K, V> genericMap;
 
     public GenericMap() {
