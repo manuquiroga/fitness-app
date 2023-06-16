@@ -2,7 +2,6 @@ package UI;
 
 import FoodModels.Food;
 import UI.Renderers.FontRenderer;
-import UI.Renderers.LabelRenderer;
 import Users.User;
 import Users.UserData;
 
@@ -23,10 +22,11 @@ public class Menu extends JFrame {
     private static final String SHOW_FOOD_INFO_ICON_PATH = "src/UI/Resources/dieta.png";
     private static final Color DEFAULT_BACKGROUND_COLOR = new Color(40, 40, 40);
     private static final FontRenderer TABLE_FONT = new FontRenderer(new Font("Book Antiqua", Font.BOLD, 18));
-    public static void main(String[] args) {
-        UserData userData = new UserData(23, 50, "LOSE_WEIGHT", 160, "female", "NONE");
-        User user = new User("m", "Prueba123456", "mq@gmail.com", 10, userData);
 
+
+    public static void main(String[] args) {
+        UserData userData = new UserData(21, 70, "GAIN_WEIGHT", 174, "male", "NONE");
+        User user = new User("m", "Prueba123456", "mq@gmail.com", 10, userData);
         Menu menu = new Menu(user);
     }
     public Menu(User user){
@@ -82,11 +82,11 @@ public class Menu extends JFrame {
 
         //ActionListeners
         CreateDietButton.addActionListener(new ActionListener() {
+
             @Override
             public void actionPerformed(ActionEvent e) {
                 CreateDietPanel.setVisible(false);
                 user.generateDiet((Integer) MealQuantity.getSelectedItem(), (String) DietType.getSelectedItem()); //fix
-                System.out.println(user.getUserData().toString());
 
                 JPanel DietCreatedPanel = getJPanelDiet(user, user.getUserData().getDiet().size());
                 UserDiet.add(DietCreatedPanel);
@@ -129,6 +129,7 @@ public class Menu extends JFrame {
             String foodType = userDiet.get(row).getFoodType().toString();
             int servingSize = (int) userDiet.get(row).getServingSize_g();
             String foodName = userDiet.get(row).getName();
+            Food food = userDiet.get(row);
 
             int buttonY = 0;
 
@@ -142,6 +143,20 @@ public class Menu extends JFrame {
 
             JLabel ShowFoodInfo = getIconLabel(SHOW_FOOD_INFO_ICON_PATH, "Show food info", rows);
             JLabel AlreadyEaten = getIconLabel(ALREADY_EATEN_ICON_PATH, "Click if eaten", rows);
+            ShowFoodInfo.addMouseListener(new MouseAdapter(){
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    FoodInfo fi = new FoodInfo(food);
+                }
+
+            });
+
+            AlreadyEaten.addMouseListener(new MouseAdapter(){
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    JOptionPane.showMessageDialog(null, "This feature will be added in version 2.0");
+                }
+            });
 
             ShowFoodInfo.setBounds(470, buttonY, 60, 60);
             AlreadyEaten.setBounds(540, buttonY, 60, 60);
@@ -203,10 +218,7 @@ public class Menu extends JFrame {
                 }
             }
 
-            @Override
-            public void mouseClicked(MouseEvent e) {
 
-            }
         });
 
         return IconLabel;

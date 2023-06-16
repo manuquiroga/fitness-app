@@ -93,6 +93,10 @@ public class Food implements IToJSON, Comparable {
         return foodType;
     }
 
+    public ArrayList<String> getIngredients(){
+        return ingredients;
+    }
+
     //Setters:
 
 
