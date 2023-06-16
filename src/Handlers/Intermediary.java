@@ -22,6 +22,7 @@ public class Intermediary {
         foodMap = new GenericMap<Integer, Food>();
     }
 
+
     //User
     public void addUserToMap (User user){
         if(!userMap.containsKey(user.getEmail()) && !userMap.containsValue(user)){
@@ -30,13 +31,18 @@ public class Intermediary {
     }
 
     public void updateUser (String email, User user) throws JSONException {
-        User aux=null;
         JSONObject joAux=new JSONObject();
-        if(userMap.containsKey(user.getEmail()))
-        {
-            aux=userMap.removeByKey(email);
+        if(!email.equals(user.getEmail())) {
+            if (!userMap.containsKey(user.getEmail()) && userMap.containsKey(email)) {
+                userMap.removeByKey(email);
+                userMap.put(user.getEmail(), user);
+                joAux = userToJSON();
+                FileHandler.rewriteFile(joAux, "user");
+            }
+        }else if(userMap.containsKey(email)){
+            userMap.removeByKey(email);
             userMap.put(user.getEmail(), user);
-            joAux=userToJSON();
+            joAux = userToJSON();
             FileHandler.rewriteFile(joAux, "user");
         }
     }
