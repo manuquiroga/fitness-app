@@ -136,20 +136,6 @@ public class DataValidation {
         return val;
     }
 
-    //Otra forma de hacerlo pero no chequea que sean del mismo usuario, solo que esten dentro del string
-    public static boolean checkUser(String email, String password) throws IOException {
-        boolean val=false;
-        if(FileHandler.existsFile("user"))
-        {
-            String content=FileHandler.read("user");
-            if(content.contains(email) && content.contains(password))
-            {
-                val=true;
-            }
-        }
-        return val;
-    }
-
     public static boolean checkData(String name, String email, String password) throws NameTooShortException, IncorrectEmailFormatException, WeakPasswordException {
         boolean val = false;
         if(!DataValidation.name(name)){

@@ -2,7 +2,6 @@ package UI;
 
 import FoodModels.Food;
 import UI.Renderers.FontRenderer;
-import UI.Renderers.LabelRenderer;
 import Users.User;
 import Users.UserData;
 
@@ -92,6 +91,8 @@ public class Menu extends JFrame {
                 UserDiet.add(DietCreatedPanel);
             }
         });
+
+
 
         frame.add(MenuOptions);
         frame.add(UserDiet);

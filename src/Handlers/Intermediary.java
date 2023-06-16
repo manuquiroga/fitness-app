@@ -58,6 +58,17 @@ public class Intermediary {
         }
     }
 
+    public void deleteFood(int id, Food food) throws JSONException {
+        Food aux=null;
+        JSONObject joAux=new JSONObject();
+        if(foodMap.containsKey(food.getId()))
+        {
+            aux=foodMap.removeByKey(id);
+            joAux=userToJSON();
+            FileHandler.rewriteFile(joAux, "food");
+        }
+    }
+
     public String showTreeFood (){return foodMap.toString();}
 
     public JSONObject userToJSON() throws JSONException {
@@ -81,5 +92,5 @@ public class Intermediary {
         return jo;
     }
 
-    //TODO: remove food from file
+
 }
