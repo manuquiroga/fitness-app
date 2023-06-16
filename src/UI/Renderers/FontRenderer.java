@@ -6,6 +6,10 @@ import java.awt.Font;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableCellRenderer;
 
+/**
+ * This class is used to change the font of the texts inside a JTable
+ **/
+
 public class FontRenderer extends DefaultTableCellRenderer {
     private Font font;
 

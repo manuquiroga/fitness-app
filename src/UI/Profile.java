@@ -20,19 +20,21 @@ public class Profile extends JFrame{
     private JTextField weightField;
     private JTextField heightField;
     private JPasswordField passwordField;
+    private User user;
 
     public static void main(String[] args) {
         UserData userData = new UserData(23, 50, "LOSE_WEIGHT", 160, "female", "NONE");
-        User user = new User("m", "Prueba123456", "mq@gmail.com", 10, userData);
-        user.generateDiet(4, "vegan");
+        User us = new User("m", "Prueba123456", "mq@gmail.com", 10, userData);
+        us.generateDiet(4, "vegan");
         Intermediary intermediary = new Intermediary();
-        intermediary.addUserToMap(user);
-        Profile profile = new Profile(user, intermediary);
+        intermediary.addUserToMap(us);
+        Profile profile = new Profile(us, intermediary);
         System.out.println(intermediary.showMapUsers());
     }
 
-    public Profile(User user, Intermediary intermediary) throws HeadlessException {
+    public Profile(User u, Intermediary intermediary) throws HeadlessException {
 
+        this.user = u;
         setTitle("User Profile");
         setBounds(0, 0, 400, 480);
         getContentPane().setBackground(new Color(40, 40, 40));
@@ -112,6 +114,7 @@ public class Profile extends JFrame{
                 User newUser = refactorUserFields(nameField, emailField, passwordField, weightField, heightField, user);
                 try {
                     intermediary.updateUser(oldEmail, newUser);
+                    user = newUser;
                     System.out.println(intermediary.showMapUsers());
                 } catch (JSONException ex) {
                     System.err.println(ex.getMessage());
@@ -162,7 +165,7 @@ public class Profile extends JFrame{
             aux.setUserData(user.getUserData());
 
             DataValidation.checkDataDigit(weightField, heightField);
-            double weight = Double.parseDouble(weightField.getText());
+            int weight = Integer.parseInt(weightField.getText());
             int height = Integer.parseInt(heightField.getText());
 
             aux.getUserData().setWeight(weight);
