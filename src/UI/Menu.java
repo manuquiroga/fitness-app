@@ -1,6 +1,11 @@
 package UI;
 
+import Exceptions.EmailInUseException;
+import Exceptions.IncorrectEmailFormatException;
+import Exceptions.NameTooShortException;
+import Exceptions.WeakPasswordException;
 import FoodModels.Food;
+import Handlers.DataValidation;
 import UI.Renderers.FontRenderer;
 import Users.User;
 import Users.UserData;
@@ -101,6 +106,7 @@ public class Menu extends JFrame {
         frame.setSize(860,480);
         frame.setLayout(null);
         frame.setVisible(true);
+
 
     }
 
@@ -232,5 +238,23 @@ public class Menu extends JFrame {
             quantities.add(i);
         }
         return quantities.toArray(new Integer[0]);
+    }
+    private User refactorUserFields(JTextField name,JTextField email,JTextField password,User user) {
+        User aux = new User();
+        try {
+            DataValidation.checkData(name.getText(),email.getText(),password.getText());
+            aux.setName(name.getText());
+            aux.setEmail(email.getText());
+            aux.setPassword(password.getText());
+            aux.setUserData(user.getUserData());
+            aux.setId(user.getId());
+        } catch (WeakPasswordException ex) {
+            JOptionPane.showMessageDialog(null,ex.getMessage());
+        } catch (IncorrectEmailFormatException ex) {
+            JOptionPane.showMessageDialog(null,ex.getMessage());
+        } catch (NameTooShortException ex) {
+            JOptionPane.showMessageDialog(null,ex.getMessage());
+        }
+        return aux;
     }
 }
