@@ -13,6 +13,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.Serial;
 import java.util.ArrayList;
 
 public class Menu extends JFrame {
@@ -47,26 +48,25 @@ public class Menu extends JFrame {
 
         JPanel CreateDietPanel = new JPanel();
         CreateDietPanel.setBounds(0,0,645, 480);
-        CreateDietPanel.setBackground(DEFAULT_BACKGROUND_COLOR);
+        CreateDietPanel.setBackground(new Color(226,226,226));
         CreateDietPanel.setLayout(null);
 
         JLabel Info = new JLabel("You dont have any diet created yet");
-        Info.setBounds( 273, 100, 200, 30);
-        Info.setForeground(Color.WHITE);
+        Info.setBounds( 222, 100, 200, 30);
 
         String[] types = {"CLASSIC", "CELIAC", "VEGAN", "VEGETARIAN"};
         JComboBox DietType = new JComboBox(types);
-        DietType.setBounds( 273, 150, 200, 30);
+        DietType.setBounds( 222, 150, 200, 30);
         DietType.setFocusable(false);
 
         Integer[] quantities = getArrayFromArrayList(user);
         
         JComboBox MealQuantity = new JComboBox(quantities);
-        MealQuantity.setBounds( 273, 200, 200, 30);
+        MealQuantity.setBounds( 222, 200, 200, 30);
         MealQuantity.setFocusable(false);
 
         JButton CreateDietButton = new JButton("Generate diet");
-        CreateDietButton.setBounds( 273, 250, 200, 30);
+        CreateDietButton.setBounds( 222, 250, 200, 30);
         CreateDietButton.setFocusable(false);
 
         CreateDietPanel.add(Info); CreateDietPanel.add(DietType); CreateDietPanel.add(MealQuantity);CreateDietPanel.add(CreateDietButton);
@@ -111,6 +111,7 @@ public class Menu extends JFrame {
         DietCreatedPanel.setLayout(null);
 
         JTable FoodTable = new JTable(rows, 1){
+            @Serial
             private static final long serialVersionUID = 1L;
             public boolean isCellEditable(int row, int column) {
                 return false;
@@ -147,12 +148,6 @@ public class Menu extends JFrame {
 
             FoodTable.add(ShowFoodInfo); FoodTable.add(AlreadyEaten);
 
-            //LabelRenderer ShowFoodInfoLabelRenderer = new LabelRenderer(ShowFoodInfo);
-            //LabelRenderer AlreadyEatenLabelRenderer = new LabelRenderer(AlreadyEaten);
-
-            //FoodTable.getColumnModel().getColumn(0).setCellRenderer(ShowFoodInfoLabelRenderer);
-            //FoodTable.getColumnModel().getColumn(0).setCellRenderer(AlreadyEatenLabelRenderer);
-
             model.setValueAt("   " + foodType + ": " + servingSize + "g " + foodName, row, 0);
         }
 
@@ -174,6 +169,7 @@ public class Menu extends JFrame {
     private JLabel getIconLabel(String iconPath, String labelText, int rows){
         ImageIcon Icon = new ImageIcon(iconPath);
         int w=0, h=0;
+
         switch (rows){
             case 3: case 4: w = 60; h=60; break;
             case 5: w = 50; h=50; break;
