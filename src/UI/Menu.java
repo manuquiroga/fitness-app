@@ -29,6 +29,15 @@ public class Menu extends JFrame {
     private static final Color DEFAULT_BACKGROUND_COLOR = new Color(40, 40, 40);
     private static final FontRenderer TABLE_FONT = new FontRenderer(new Font("Book Antiqua", Font.BOLD, 18));
 
+    public static void main(String[] args) {
+        UserData userData = new UserData(23, 50, "LOSE_WEIGHT", 160, "female", "NONE");
+        User user = new User("m", "Prueba123456", "mq@gmail.com", 10, userData);
+        //user.generateDiet(4, "vegan");
+        Intermediary intermediary = new Intermediary();
+        intermediary.addUserToMap(user);
+        Menu menu = new Menu(user, intermediary);
+        System.out.println(intermediary.showMapUsers());
+    }
 
     public Menu(User user, Intermediary intermediary){
 
@@ -94,16 +103,12 @@ public class Menu extends JFrame {
             }
         });
 
-
-
         frame.add(MenuOptions);
         frame.add(UserDiet);
         frame.setResizable(false);
         frame.setSize(860,480);
         frame.setLayout(null);
         frame.setVisible(true);
-
-
     }
 
     private JPanel getJPanelDiet(User user, int rows){
@@ -125,8 +130,6 @@ public class Menu extends JFrame {
         ArrayList<Food> userDiet = user.getUserData().getDiet();
 
 
-
-
         for(int row = 0; row < rows; row++){
 
 
@@ -145,21 +148,15 @@ public class Menu extends JFrame {
                 case 7: buttonY = (row)*(rowHeight); break;
             }
 
-            JLabel ShowFoodInfo = getIconLabel(SHOW_FOOD_INFO_ICON_PATH, "Show food info", rows);
-            JLabel AlreadyEaten = getIconLabel(ALREADY_EATEN_ICON_PATH, "Click if eaten", rows);
-            ShowFoodInfo.addMouseListener(new MouseAdapter(){
-                @Override
-                public void mouseClicked(MouseEvent e) {
-                    FoodInfo fi = new FoodInfo(food);
-                }
+            JButton ShowFoodInfo = getButton(SHOW_FOOD_INFO_ICON_PATH, "Show food info", rows);
+            JButton AlreadyEaten = getButton(ALREADY_EATEN_ICON_PATH, "Click if eaten", rows);
 
+            ShowFoodInfo.addActionListener(e -> {
+                FoodInfo fi = new FoodInfo(food);
             });
 
-            AlreadyEaten.addMouseListener(new MouseAdapter(){
-                @Override
-                public void mouseClicked(MouseEvent e) {
-                    JOptionPane.showMessageDialog(null, "This feature will be added in version 2.0");
-                }
+            AlreadyEaten.addActionListener(e -> {
+                JOptionPane.showMessageDialog(null, "This feature will be added in version 2.0");
             });
 
             ShowFoodInfo.setBounds(470, buttonY, 60, 60);
@@ -185,7 +182,7 @@ public class Menu extends JFrame {
         return DietCreatedPanel;
     }
 
-    private JLabel getIconLabel(String iconPath, String labelText, int rows){
+    private JButton getButton(String iconPath, String toolTip, int rows){
         ImageIcon Icon = new ImageIcon(iconPath);
         int w=0, h=0;
 
@@ -198,36 +195,16 @@ public class Menu extends JFrame {
         Image scaledImage = Icon.getImage().getScaledInstance(w, h, Image.SCALE_SMOOTH);
         ImageIcon scaledIcon = new ImageIcon(scaledImage);
 
-        JLabel IconLabel = new JLabel(scaledIcon);
+        JButton button = new JButton(scaledIcon);
+        button.setFocusable(false);
+        button.setBorderPainted(false);
+        button.setToolTipText(toolTip);
+        button.setOpaque(false);
+        button.setContentAreaFilled(false);
+        button.setBorderPainted(false);
 
-        IconLabel.addMouseListener(new MouseAdapter() {
-            private JDialog dialog;
-
-            @Override
-            public void mouseEntered(MouseEvent e) {
-                dialog = new JDialog();
-                dialog.setUndecorated(true);
-                dialog.setLayout(new BorderLayout());
-                dialog.add(new JLabel(labelText), BorderLayout.CENTER);
-                dialog.pack();
-                dialog.setLocationRelativeTo(IconLabel);
-                dialog.setVisible(true);
-            }
-
-            @Override
-            public void mouseExited(MouseEvent e) {
-                if (dialog != null) {
-                    dialog.dispose();
-                    dialog = null;
-                }
-            }
-
-
-        });
-
-        return IconLabel;
+        return button;
     }
-
     private Integer[] getArrayFromArrayList(User user){
         ArrayList<Integer> quantities= new ArrayList<>();
         for (int i = user.getUserData().getObjective().getMinMeals(); i <= user.getUserData().getObjective().getMaxMeals(); i++){

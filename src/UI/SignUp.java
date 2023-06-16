@@ -29,7 +29,7 @@ public class SignUp extends JFrame implements ActionListener{
     private static final String LOGO_ICON_PATH = "src/UI/Resources/weightlifter.png";
     private static final String NAME_LIMITS_INFO = "The name must have between 6 and 20 characters";
     private static final String PASSWORD_LIMITS_INFO = "The password must have at least 8 characters, a number and a capital letter";
-    private static final String ACTIVITY_INFO = "You should put physical activity aside.\n NONE is if you work from home or if you are a student.\n MODERATE is for example a job where you lift boxes.\n ACTIVE is for example an active job as a cyclist postman";
+    private static final String ACTIVITY_INFO = "You should put physical activity aside.\n Select NONE if you work from home or if you are a student.\n MODERATE is for example a job where you have to walk.\n ACTIVE is for example an active job like a cyclist postman";
     private static final Color WALTERWHITE = Color.WHITE;
 
     public SignUp(Intermediary intermediary) {
@@ -47,7 +47,7 @@ public class SignUp extends JFrame implements ActionListener{
         NameLabel.setBounds(35, 40, 80, 30);
         NameField.setBounds(115, 40, 250, 30);
 
-        JLabel NameQuestionLabel = CreateIconLabel(QUESTION_MARK_ICON_PATH, NAME_LIMITS_INFO , 370, 40, 30, 30);
+        JButton NameQuestionLabel = getIconButton(QUESTION_MARK_ICON_PATH, NAME_LIMITS_INFO , 375, 40, 30, 30);
         frame.add(NameLabel); frame.add(NameField); frame.add(NameQuestionLabel);
 
         //Email label and field
@@ -67,7 +67,7 @@ public class SignUp extends JFrame implements ActionListener{
         PasswordLabel.setBounds(35, 140, 80, 30);
         PasswordField.setBounds(115, 140, 250, 30);
 
-        JLabel PasswordQuestionLabel = CreateIconLabel(QUESTION_MARK_ICON_PATH, PASSWORD_LIMITS_INFO,370, 140, 30, 30);
+        JButton PasswordQuestionLabel = getIconButton(QUESTION_MARK_ICON_PATH, PASSWORD_LIMITS_INFO,375, 140, 30, 30);
         frame.add(PasswordLabel); frame.add(PasswordField); frame.add(PasswordQuestionLabel);
 
         //Weight and height label and field
@@ -114,7 +114,7 @@ public class SignUp extends JFrame implements ActionListener{
         ActivityLabel.setBounds(35, 340, 80, 30);
         ActivityCombo.setBounds(115, 340, 250, 30);
 
-        JLabel ActivityQuestionLabel = CreateIconLabel(QUESTION_MARK_ICON_PATH, ACTIVITY_INFO,370, 340, 30, 30);
+        JButton ActivityQuestionLabel = getIconButton(QUESTION_MARK_ICON_PATH, ACTIVITY_INFO,375, 340, 30, 30);
         frame.add(ActivityLabel); frame.add(ActivityCombo); frame.add(ActivityQuestionLabel);
 
         //age label and field
@@ -197,7 +197,7 @@ public class SignUp extends JFrame implements ActionListener{
 
         frame.add(signButton);//adding button in JFrame
         frame.setResizable(false);
-        frame.setSize(420,630);
+        frame.setSize(450,630);
         frame.setLayout(null);//using no layout managers
         frame.setVisible(true);//making the frame visible
     }
@@ -209,38 +209,21 @@ public class SignUp extends JFrame implements ActionListener{
 
     }
 
-    public JLabel CreateIconLabel(String iconPath, String labelText, int x, int y, int w, int h){
+    public JButton getIconButton(String iconPath, String toolTip, int x, int y, int w, int h){
         ImageIcon Icon = new ImageIcon(iconPath);
         Image scaledImage = Icon.getImage().getScaledInstance(28, 28, Image.SCALE_SMOOTH);
         ImageIcon scaledIcon = new ImageIcon(scaledImage);
 
-        JLabel IconLabel = new JLabel(scaledIcon);
-        IconLabel.setBounds(x, y, w, h);
+        JButton button = new JButton(scaledIcon);
+        button.setBounds(x,y,w,h);
+        button.setFocusable(false);
+        button.setBorderPainted(false);
+        button.setToolTipText(toolTip);
+        button.setOpaque(false);
+        button.setContentAreaFilled(false);
+        button.setBorderPainted(false);
 
-        IconLabel.addMouseListener(new MouseAdapter() {
-            private JDialog dialog;
-
-            @Override
-            public void mouseEntered(MouseEvent e) {
-                dialog = new JDialog();
-                dialog.setUndecorated(true);
-                dialog.setLayout(new BorderLayout());
-                dialog.add(new JLabel(labelText), BorderLayout.CENTER);
-                dialog.pack();
-                dialog.setLocationRelativeTo(IconLabel);
-                dialog.setVisible(true);
-            }
-
-            @Override
-            public void mouseExited(MouseEvent e) {
-                if (dialog != null) {
-                    dialog.dispose();
-                    dialog = null;
-                }
-            }
-        });
-
-        return IconLabel;
+        return button;
     }
 }
 

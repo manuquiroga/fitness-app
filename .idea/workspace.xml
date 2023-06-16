@@ -4,16 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2910e345-db14-4f9f-b4c7-3856289f3311" name="Changes" comment="changes in the menu, now you can see the user's diet names and servings.">
+    <list default="true" id="2910e345-db14-4f9f-b4c7-3856289f3311" name="Changes" comment="profile changes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Collections/GenericMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Collections/GenericMap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Handlers/Intermediary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Handlers/Intermediary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/FoodInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/FoodInfo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/UI/Home.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/Home.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/Login.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/UI/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/Menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/Profile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/Profile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/UI/SignUp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/SignUp.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -173,7 +167,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686004056284</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="profile changes">
+      <created>1686928591310</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1686928591310</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -202,7 +203,8 @@
     <MESSAGE value="changed desiredWeight for enum Objective, created function to calculate BMR" />
     <MESSAGE value="fixed something" />
     <MESSAGE value="made progress in generateDiet method" />
-    <option name="LAST_COMMIT_MESSAGE" value="made progress in generateDiet method" />
+    <MESSAGE value="profile changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="profile changes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
