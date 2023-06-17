@@ -72,8 +72,8 @@ public class Intermediary {
         JSONObject joAux;
         if(foodMap.containsKey(food.getId()))
         {
-            refactorFoodIDs();
             foodMap.removeByKey(food.getId());
+            refactorFoodIDs();
             joAux=foodToJSON();
             FileHandler.rewriteFile(joAux, "food");
         }
