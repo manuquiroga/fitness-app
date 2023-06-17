@@ -1,6 +1,7 @@
 package Handlers;
 
 import FoodModels.Food;
+import Users.PremiumUser;
 import Users.User;
 import Users.UserData;
 import org.json.JSONArray;
@@ -62,7 +63,8 @@ public class JSONHandler {
 
         try {
             JSONObject jsonObjectUser = new JSONObject(jsonResponse);
-            JSONArray jsonArrayUser = jsonObjectUser.getJSONArray("data");
+            JSONArray jsonArrayUser = jsonObjectUser.getJSONArray("users");
+            JSONArray jsonArrayPremium = jsonObjectUser.getJSONArray("premium_users");
 
             for (int i = 0; i < jsonArrayUser.length(); i++) {
                 JSONObject joFromUsersArray = jsonArrayUser.getJSONObject(i);
@@ -85,6 +87,34 @@ public class JSONHandler {
                     JSONObject joFood = jaDietArray.getJSONObject(j);
                     dietList.add(foodConverter(joFood));
                 }
+                userData.setDiet(dietList);
+                user.setUserData(userData);
+                userList.add(user);
+            }
+
+            for (int i = 0; i < jsonArrayPremium.length(); i++) {
+                JSONObject joFromUsersArray = jsonArrayPremium.getJSONObject(i);
+                PremiumUser user = new PremiumUser();
+                user.setId(joFromUsersArray.getInt("id"));
+                user.setName(joFromUsersArray.getString("name"));
+                user.setEmail(joFromUsersArray.getString("email"));
+                user.setPassword(joFromUsersArray.getString("password"));
+                user.setNumberOfDietsGenerated(joFromUsersArray.getInt("diets_generated"));
+                UserData userData = new UserData();
+                JSONObject joUserData = joFromUsersArray.getJSONObject("userData");
+                userData.setAge(joUserData.getInt("age"));
+                userData.setSex(joUserData.getString("sex"));
+                userData.setHeight(joUserData.getInt("height"));
+                userData.setWeight(joUserData.getInt("weight"));
+                userData.setObjective(joUserData.getString("objective"));
+                userData.setPhysicalActivity(joUserData.getString("physicalActivity"));
+                ArrayList<Food> dietList = new ArrayList<>();
+                JSONArray jaDietArray = joUserData.getJSONArray("diet");
+                for (int j = 0; j < jaDietArray.length(); j++) {
+                    JSONObject joFood = jaDietArray.getJSONObject(j);
+                    dietList.add(foodConverter(joFood));
+                }
+
                 userData.setDiet(dietList);
                 user.setUserData(userData);
                 userList.add(user);

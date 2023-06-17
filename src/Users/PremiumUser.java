@@ -19,6 +19,10 @@ public class PremiumUser extends User{
     public PremiumUser() {
     }
 
+    public void setNumberOfDietsGenerated(int numberOfDietsGenerated) {
+        this.numberOfDietsGenerated = numberOfDietsGenerated;
+    }
+
     public int getNumberOfDietsGenerated() {
         return numberOfDietsGenerated;
     }

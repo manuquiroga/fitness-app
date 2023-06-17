@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2910e345-db14-4f9f-b4c7-3856289f3311" name="Changes" comment="Added buttons to go back in the profile and payment. Added profile button to the menu. Changed some colors too">
+    <list default="true" id="2910e345-db14-4f9f-b4c7-3856289f3311" name="Changes" comment="a lot of debugging, updated food and user ToJSON methods. added intermediary.addUserToMap in menu-&gt; CreateDietButton">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Handlers/FileHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Handlers/FileHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Handlers/Intermediary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Handlers/Intermediary.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Handlers/JSONHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Handlers/JSONHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Interfaces/ICloseApp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Interfaces/ICreateDiet.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Users/PremiumUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/PremiumUser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user.json" beforeDir="false" />
     </list>
@@ -246,6 +248,15 @@
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/Handlers/JSONHandler.java</url>
+          <line>58</line>
+          <properties class="Handlers.JSONHandler" method="readUserFile">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="21" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

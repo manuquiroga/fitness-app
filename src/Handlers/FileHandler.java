@@ -70,6 +70,7 @@ public class FileHandler {
 
             JSONArray jsonArrayPremium = fileData.getJSONArray("premium_users");
             JSONArray jsonArrayUsers = fileData.getJSONArray("users");
+
             if(jsonObject.has("diets_generated")){
                 jsonArrayPremium.put(jsonObject);
                 fileData.put("premium_users", jsonArrayPremium);
