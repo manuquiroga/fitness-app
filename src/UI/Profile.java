@@ -66,8 +66,8 @@ public class Profile extends JFrame{
         lblHeight.setBounds(50,250, 100, 30);
 
         JLabel lblAge = new JLabel("Age:");
-        lblHeight.setForeground(Color.WHITE);
-        lblHeight.setBounds(50,290, 100, 30);
+        lblAge.setForeground(Color.WHITE);
+        lblAge.setBounds(50,290, 100, 30);
 
         nameField.setText(user.getName());
         nameField.setBounds(135, 90, 200, 30);
@@ -84,7 +84,7 @@ public class Profile extends JFrame{
         heightField.setText(String.valueOf(user.getUserData().getHeight()));
         heightField.setBounds(135,250,200,30);
 
-        ageField.setText(String.valueOf(user.getUserData().getHeight()));
+        ageField.setText(String.valueOf(user.getUserData().getAge()));
         ageField.setBounds(135,290,200,30);
 
         JButton unlockFieldButton = new JButton("Unlock Fields");
