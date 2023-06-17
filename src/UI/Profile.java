@@ -1,5 +1,6 @@
 package UI;
 
+import Exceptions.EmailInUseException;
 import Exceptions.IncorrectEmailFormatException;
 import Exceptions.NameTooShortException;
 import Exceptions.WeakPasswordException;
@@ -231,6 +232,8 @@ public class Profile extends JFrame{
             JOptionPane.showMessageDialog(null,ex.getMessage());
         } catch (NumberFormatException ex){
             JOptionPane.showMessageDialog(null,ex.getMessage());
+        } catch (EmailInUseException e) {
+            throw new RuntimeException(e);
         }
         return aux;
     }

@@ -66,6 +66,20 @@ public class DataValidation {
         return matcher.find();
     }
 
+    public static boolean emailChecker(String email)
+    {
+        boolean val=false;
+        ArrayList<User> userList = JSONHandler.readUserFile();
+        for (User user: userList) {
+            if(email.equals(user.getEmail()))
+            {
+                val=true;
+                break;
+            }
+        }
+        return val;
+    }
+
     public static boolean password(String password) {
         boolean val = false;
         if (password.length() >= MIN_PASSWORD_CHARACTERS) {
@@ -119,7 +133,7 @@ public class DataValidation {
         return val;
     }
 
-    public static boolean checkData(String name, String email, String password) throws NameTooShortException, IncorrectEmailFormatException, WeakPasswordException {
+    public static boolean checkData(String name, String email, String password) throws NameTooShortException, IncorrectEmailFormatException, WeakPasswordException, EmailInUseException {
         boolean val = false;
         if(!DataValidation.name(name)){
             throw new NameTooShortException("The name has to be at least "+ DataValidation.getMinCharName() + " characters long");
@@ -131,8 +145,9 @@ public class DataValidation {
             throw new WeakPasswordException("Password needs to have minimum "+
                     DataValidation.getMinCharPass() +
                     " characters and contain at least 1 number and 1 uppercase");
-        }
-        else{
+        } else if (!DataValidation.emailChecker(email)) {
+            throw new EmailInUseException();
+        } else{
             val = true;
         }
         return val;

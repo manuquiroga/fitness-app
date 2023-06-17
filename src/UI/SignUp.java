@@ -1,9 +1,6 @@
 package UI;
-import Exceptions.DataOutOfBoundsException;
+import Exceptions.*;
 import Handlers.*;
-import Exceptions.IncorrectEmailFormatException;
-import Exceptions.NameTooShortException;
-import Exceptions.WeakPasswordException;
 import Users.Objective;
 import Users.PhysicalActivity;
 import Users.User;
@@ -188,6 +185,8 @@ public class SignUp extends JFrame implements ActionListener{
             }catch (NumberFormatException ex){
                 System.err.println("Data Type error: " + ex.getMessage());
                 JOptionPane.showMessageDialog(null,ex.getMessage());
+            } catch (EmailInUseException ex) {
+                throw new RuntimeException(ex);
             }
 
         });
