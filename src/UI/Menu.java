@@ -8,6 +8,7 @@ import FoodModels.Food;
 import Handlers.DataValidation;
 import Handlers.Intermediary;
 import UI.Renderers.FontRenderer;
+import Users.PremiumUser;
 import Users.User;
 import Users.UserData;
 
@@ -27,6 +28,8 @@ public class Menu extends JFrame {
     private static final String ALREADY_EATEN_ICON_PATH = "src/UI/Resources/aprobado.png";
     private static final String SHOW_FOOD_INFO_ICON_PATH = "src/UI/Resources/dieta.png";
     private static final String PROFILE_ICON_PATH = "src/UI/Resources/usuario.png";
+    private static final String NEW_DIET_ICON_PATH = "src/UI/Resources/nueva-dieta.png";
+    private static final String LOGOUT_ICON_PATH = "src/UI/Resources/cerrar-sesion.png";
     private static final Color DEFAULT_BACKGROUND_COLOR = new Color(40, 40, 40);
     private static final FontRenderer TABLE_FONT = new FontRenderer(new Font("Book Antiqua", Font.BOLD, 18));
 
@@ -81,18 +84,48 @@ public class Menu extends JFrame {
         CreateDietButton.setFocusable(false);
 
 
-        ImageIcon Icon = new ImageIcon(PROFILE_ICON_PATH);
-        Image scaledImage = Icon.getImage().getScaledInstance(60, 60, Image.SCALE_SMOOTH);
-        ImageIcon scaledIcon = new ImageIcon(scaledImage);
+        ImageIcon IconProfile = new ImageIcon(PROFILE_ICON_PATH);
+        Image scaledImageProfile = IconProfile.getImage().getScaledInstance(60, 60, Image.SCALE_SMOOTH);
+        ImageIcon scaledIconProfile = new ImageIcon(scaledImageProfile);
 
-        JButton profileButton = new JButton(scaledIcon);
-        profileButton.setBounds(60,20,100,100);
+        JButton profileButton = new JButton(scaledIconProfile);
+        profileButton.setBounds(60,35,100,100);
         profileButton.setFocusable(false);
         profileButton.setBackground(new Color(242, 202, 90));
+        profileButton.setToolTipText("View profile");
         MenuOptions.add(profileButton);
 
-        CreateDietPanel.add(Info); CreateDietPanel.add(DietType); CreateDietPanel.add(MealQuantity);CreateDietPanel.add(CreateDietButton);
+        ImageIcon IconNewDiet = new ImageIcon(NEW_DIET_ICON_PATH);
+        Image scaledImageNewDiet = IconNewDiet.getImage().getScaledInstance(60, 60, Image.SCALE_SMOOTH);
+        ImageIcon scaledIconNewDiet = new ImageIcon(scaledImageNewDiet);
 
+        JButton newDietButton = new JButton(scaledIconNewDiet);
+        newDietButton.setBounds(60,165,100,100);
+        newDietButton.setFocusable(false);
+        newDietButton.setBackground(new Color(242, 202, 90));
+        MenuOptions.add(newDietButton);
+
+        if(!(user instanceof PremiumUser)){
+            newDietButton.setToolTipText("Generate new diet is only allowed for premium users");
+            newDietButton.setEnabled(false);
+            newDietButton.setBackground(new Color(60,60,60));
+        }
+        else{
+            newDietButton.setToolTipText("Generate new diet");
+        }
+
+        ImageIcon IconLogOut = new ImageIcon(LOGOUT_ICON_PATH);
+        Image scaledImageLogOut = IconLogOut.getImage().getScaledInstance(60, 60, Image.SCALE_SMOOTH);
+        ImageIcon scaledIconLogOut = new ImageIcon(scaledImageLogOut);
+
+        JButton logOutButton = new JButton(scaledIconLogOut);
+        logOutButton.setBounds(60,295,100,100);
+        logOutButton.setFocusable(false);
+        logOutButton.setBackground(new Color(242, 202, 90));
+        logOutButton.setToolTipText("Log Out");
+        MenuOptions.add(logOutButton);
+
+        CreateDietPanel.add(Info); CreateDietPanel.add(DietType); CreateDietPanel.add(MealQuantity);CreateDietPanel.add(CreateDietButton);
 
         if(user.getUserData().getDiet().size() == 0){
             UserDiet.add(CreateDietPanel);
@@ -123,6 +156,15 @@ public class Menu extends JFrame {
             }
         });
 
+        logOutButton.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                frame.dispose();
+                Login login = new Login(intermediary);
+            }
+        });
+
         frame.add(MenuOptions);
         frame.add(UserDiet);
         frame.setResizable(false);
@@ -130,6 +172,7 @@ public class Menu extends JFrame {
         frame.setLayout(null);
         frame.setVisible(true);
     }
+
 
     private JPanel getJPanelDiet(User user, int rows){
         int rowHeight = 440/rows;

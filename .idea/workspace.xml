@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2910e345-db14-4f9f-b4c7-3856289f3311" name="Changes" comment="fixed profile problem">
+    <list default="true" id="2910e345-db14-4f9f-b4c7-3856289f3311" name="Changes" comment="Added buttons to go back in the profile and payment. Added profile button to the menu. Changed some colors too">
+      <change afterPath="$PROJECT_DIR$/src/UI/Resources/cerrar-sesion.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/UI/Resources/nueva-dieta.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/Payment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/Payment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/Profile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/Profile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user.json" beforeDir="false" afterPath="$PROJECT_DIR$/user.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UI/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/Menu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,6 +50,7 @@
       <recent name="Exceptions" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\quiro\Documents\GitHub\tp-lab3\src\UI\Resources" />
       <recent name="C:\Users\quiro\Documents\GitHub\tp-lab3\src\UI" />
     </key>
   </component>
@@ -188,7 +189,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686943206846</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Added buttons to go back in the profile and payment. Added profile button to the menu. Changed some colors too">
+      <created>1686957768403</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1686957768403</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -219,7 +227,8 @@
     <MESSAGE value="made progress in generateDiet method" />
     <MESSAGE value="profile changes" />
     <MESSAGE value="fixed profile problem" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed profile problem" />
+    <MESSAGE value="Added buttons to go back in the profile and payment. Added profile button to the menu. Changed some colors too" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added buttons to go back in the profile and payment. Added profile button to the menu. Changed some colors too" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
