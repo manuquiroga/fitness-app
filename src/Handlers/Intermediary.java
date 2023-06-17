@@ -4,6 +4,7 @@ package Handlers;
 import Collections.GenericMap;
 import FoodModels.Food;
 import Interfaces.IToJSON;
+import Users.PremiumUser;
 import Users.User;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -31,7 +32,7 @@ public class Intermediary {
     }
 
     public void updateUser (String email, User user) throws JSONException {
-        JSONObject joAux = new JSONObject();
+        JSONObject joAux=new JSONObject();
         if(!email.equals(user.getEmail())) {
             if (!userMap.containsKey(user.getEmail()) && userMap.containsKey(email)) {
                 userMap.removeByKey(email);
@@ -83,13 +84,20 @@ public class Intermediary {
 
     public JSONObject userToJSON() throws JSONException {
         List<User> userList=userMap.toList();
-        JSONArray userArray=new JSONArray();
-        JSONObject jo = new JSONObject();
+        JSONArray userArray = new JSONArray();
+        JSONArray premiumArray = new JSONArray();
+        JSONObject jsonObject = new JSONObject();
         for (int i = 0; i < userList.size(); i++) {
-            userArray.put(userList.get(i).toJSON());
+            if (userList.get(i) instanceof PremiumUser){
+                PremiumUser aux = (PremiumUser) userList.get(i);
+                premiumArray.put(aux.toJSON());
+            }else {
+                userArray.put(userList.get(i).toJSON());
+            }
         }
-        jo.put("data", userArray);
-        return jo;
+        jsonObject.put("premium_users",premiumArray);
+        jsonObject.put("users",userArray);
+        return jsonObject;
     }
     public JSONObject foodToJSON() throws JSONException {
         List<Food> foodList=foodMap.toList();

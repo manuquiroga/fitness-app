@@ -64,12 +64,19 @@ public class FileHandler {
                 fileData = new JSONObject(existingContent);
             } else {
                 fileData = new JSONObject();
-                fileData.put("data", new JSONArray());
+                fileData.put("premium_users", new JSONArray());
+                fileData.put("users",new JSONArray());
             }
 
-            JSONArray jsonArray = fileData.getJSONArray("data");
-            jsonArray.put(jsonObject);
-            fileData.put("data", jsonArray);
+            JSONArray jsonArrayPremium = fileData.getJSONArray("premium_users");
+            JSONArray jsonArrayUsers = fileData.getJSONArray("users");
+            if(jsonObject.has("diets_generated")){
+                jsonArrayPremium.put(jsonObject);
+                fileData.put("premium_users", jsonArrayPremium);
+            }else{
+                jsonArrayUsers.put(jsonObject);
+                fileData.put("users",jsonArrayUsers);
+            }
 
             try (FileWriter fileWriter = new FileWriter(fileName)) {
                 fileWriter.write(fileData.toString());

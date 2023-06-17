@@ -1,6 +1,8 @@
 package Users;
 
 import FoodModels.Food;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
@@ -42,6 +44,13 @@ public class PremiumUser extends User{
         return "PremiumUser{" +
                 "numberOfDietsGenerated=" + numberOfDietsGenerated +
                 '}';
+    }
+
+    @Override
+    public JSONObject toJSON() throws JSONException {
+        JSONObject jsonObject = super.toJSON();
+        jsonObject.put("diets_generated",numberOfDietsGenerated);
+        return jsonObject;
     }
 
     //Methods:
