@@ -57,6 +57,15 @@ public class Intermediary {
             FileHandler.rewriteFile(joAux, "user");
         }
     }
+    public void deleteUser(String email) throws JSONException {
+        JSONObject joAux=new JSONObject();
+        if(userMap.containsKey(email))
+        {
+            userMap.removeByKey(email);
+            joAux=userToJSON();
+            FileHandler.rewriteFile(joAux, "user");
+        }
+    }
 
     public String showMapUsers(){return userMap.toString();}
 
@@ -79,6 +88,18 @@ public class Intermediary {
         }
     }
 
+    public void deleteFood(int id) throws JSONException {
+        JSONObject joAux;
+        if(foodMap.containsKey(id));
+        {
+            foodMap.removeByKey(id);
+            refactorFoodIDs();
+            joAux=foodToJSON();
+            FileHandler.rewriteFile(joAux, "food");
+        }
+    }
+
+
     public void refactorFoodIDs()
     {
         List<Food> foodList =foodMap.toList();
@@ -96,7 +117,7 @@ public class Intermediary {
           addFoodToMap(food);
         }
     }
-    public String showTreeFood (){return foodMap.toString();}
+    public String showFoodMap (){return foodMap.toString();}
 
     public JSONObject userToJSON() throws JSONException {
         List<User> userList=userMap.toList();
