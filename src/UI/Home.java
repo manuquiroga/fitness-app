@@ -3,6 +3,7 @@ package UI;
 import Handlers.FileHandler;
 import Handlers.Intermediary;
 import Handlers.JSONHandler;
+import Users.AdminUser;
 import Users.User;
 import Users.UserData;
 import org.json.JSONException;
@@ -26,12 +27,12 @@ public class Home extends JFrame implements ActionListener {
        User user2 = new User("manuel", "Prueba1234", "q@gmail.com", userData2);
 
         UserData userData3 = new UserData(20, 63, "MAINTAIN_WEIGHT", 174, "male", "NONE");
-       User user3 = new User("pepe", "Prueba1234", "p@gmail.com", userData2);
+       User user3 = new User("pepe", "Prueba1234", "p@gmail.com", userData3);
 
        try{
            JSONHandler.userToFile(user);
            JSONHandler.userToFile(user2);
-            JSONHandler.userToFile(user3);
+           JSONHandler.userToFile(user3);
        } catch (JSONException e) {
             System.err.println(e.getMessage());
        }
@@ -45,7 +46,10 @@ public class Home extends JFrame implements ActionListener {
         }
 
         System.out.println(intermediary.showMapUsers());
-        Home home = new Home(intermediary);
+        AdminUser adminUser = new AdminUser("admin", "Prueba1234", "admin@gmail.com", userData3);
+        AdminMenu adminMenu = new AdminMenu(adminUser);
+        adminMenu.runAdminMenu(intermediary);
+        //Home home = new Home(intermediary);
     }
 
     public Home(Intermediary intermediary) {
