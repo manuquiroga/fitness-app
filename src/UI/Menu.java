@@ -11,6 +11,7 @@ import UI.Renderers.FontRenderer;
 import Users.PremiumUser;
 import Users.User;
 import Users.UserData;
+import org.json.JSONException;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -149,10 +150,18 @@ public class Menu extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 CreateDietPanel.setVisible(false);
-                user.generateDiet((Integer) MealQuantity.getSelectedItem(), (String) DietType.getSelectedItem()); //fix
+                user.generateDiet((Integer) MealQuantity.getSelectedItem(), (String) DietType.getSelectedItem());
+                System.out.println(user);
 
-                DietCreatedPanel = getJPanelDiet(user, user.getUserData().getDiet().size());
-                UserDiet.add(DietCreatedPanel);
+                try {
+                    intermediary.addUserToMap(user);
+                    intermediary.updateUser(user.getEmail(), user);
+                    DietCreatedPanel = getJPanelDiet(user, user.getUserData().getDiet().size());
+                    UserDiet.add(DietCreatedPanel);
+
+                } catch (JSONException ex) {
+                    JOptionPane.showMessageDialog(null, "Wooops... try again");
+                }
             }
         });
 

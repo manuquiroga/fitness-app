@@ -31,7 +31,7 @@ public class Intermediary {
     }
 
     public void updateUser (String email, User user) throws JSONException {
-        JSONObject joAux=new JSONObject();
+        JSONObject joAux = new JSONObject();
         if(!email.equals(user.getEmail())) {
             if (!userMap.containsKey(user.getEmail()) && userMap.containsKey(email)) {
                 userMap.removeByKey(email);
@@ -88,7 +88,7 @@ public class Intermediary {
         for (int i = 0; i < userList.size(); i++) {
             userArray.put(userList.get(i).toJSON());
         }
-        jo.put("users", userArray);
+        jo.put("data", userArray);
         return jo;
     }
     public JSONObject foodToJSON() throws JSONException {

@@ -166,11 +166,11 @@ public class SignUp extends JFrame implements ActionListener{
                 UserData userData = new UserData(age, weight, objective, height, sex, physicalActivity);
                 User user = new User(name, password, email, id, userData);
                 JSONHandler.userToFile(user);
-                System.out.println(user);
 
                 //SendEmail.send(email, SendEmail.getSubject(), SendEmail.welcomeText(name));
 
                 frame.dispose();
+                intermediary.addUserToMap(user);
                 Login login = new Login(intermediary);
 
             }catch (IncorrectEmailFormatException ex) {

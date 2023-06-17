@@ -4,11 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2910e345-db14-4f9f-b4c7-3856289f3311" name="Changes" comment="Added buttons to go back in the profile and payment. Added profile button to the menu. Changed some colors too">
-      <change afterPath="$PROJECT_DIR$/src/UI/Resources/cerrar-sesion.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UI/Resources/nueva-dieta.png" afterDir="false" />
+    <list default="true" id="2910e345-db14-4f9f-b4c7-3856289f3311" name="Changes" comment="Added logout button with functionality and new diet button without functionality, just blocked for non premium users">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FoodModels/Food.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FoodModels/Food.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Handlers/DataValidation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Handlers/DataValidation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Handlers/Intermediary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Handlers/Intermediary.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/UI/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UI/SignUp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/SignUp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user.json" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -196,7 +199,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686957768403</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Added logout button with functionality and new diet button without functionality, just blocked for non premium users">
+      <created>1686964207882</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1686964207882</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -228,7 +238,8 @@
     <MESSAGE value="profile changes" />
     <MESSAGE value="fixed profile problem" />
     <MESSAGE value="Added buttons to go back in the profile and payment. Added profile button to the menu. Changed some colors too" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added buttons to go back in the profile and payment. Added profile button to the menu. Changed some colors too" />
+    <MESSAGE value="Added logout button with functionality and new diet button without functionality, just blocked for non premium users" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added logout button with functionality and new diet button without functionality, just blocked for non premium users" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -245,6 +256,33 @@
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/Handlers/JSONHandler.java</url>
+          <line>57</line>
+          <properties class="Handlers.JSONHandler" method="readUserFile">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/Handlers/JSONHandler.java</url>
+          <line>14</line>
+          <properties class="Handlers.JSONHandler" method="foodConverter">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/Handlers/JSONHandler.java</url>
+          <line>98</line>
+          <properties class="Handlers.JSONHandler" method="userToFile">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="20" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

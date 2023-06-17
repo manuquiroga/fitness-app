@@ -2,6 +2,7 @@ package FoodModels;
 
 import Interfaces.IToFile;
 import Interfaces.IToJSON;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -154,14 +155,22 @@ public class Food implements IToJSON, Comparable {
     public JSONObject toJSON() throws JSONException {
         
         JSONObject json = new JSONObject();
+        JSONArray ja_ingredients = new JSONArray();
         json.put("id", id);
         json.put("name", name);
         json.put("calories", calories);
         json.put("servingSize_g", servingSize_g);
-        json.put("FoodType", foodType.name());
+        json.put("type", foodType.name());
         json.put("proteins_g", proteins_g);
         json.put("fats_g", fats_g);
         json.put("carbohydrates_g", carbohydrates_g);
+        json.put("isVegan", isVegan);
+        json.put("isCeliac", isCeliac);
+        json.put("isVegetarian", isVegetarian);
+        for (String s:ingredients) {
+            ja_ingredients.put(s);
+        }
+        json.put("ingredients", ja_ingredients);
         return json;
     }
 
