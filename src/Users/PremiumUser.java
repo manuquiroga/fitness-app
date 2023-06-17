@@ -27,6 +27,23 @@ public class PremiumUser extends User{
 
     //equals, hashCode, compareTo, toString
 
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
+
+    @Override
+    public int compareTo(Object obj) {
+        return super.compareTo(obj);
+    }
+
+    @Override
+    public String toString() {
+        return "PremiumUser{" +
+                "numberOfDietsGenerated=" + numberOfDietsGenerated +
+                '}';
+    }
+
     //Methods:
 
 
