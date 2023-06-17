@@ -68,17 +68,34 @@ public class Intermediary {
         }
     }
 
-    public void deleteFood(int id, Food food) throws JSONException {
-        Food aux=null;
-        JSONObject joAux=new JSONObject();
+    public void deleteFood(Food food) throws JSONException {
+        JSONObject joAux;
         if(foodMap.containsKey(food.getId()))
         {
-            aux=foodMap.removeByKey(id);
-            joAux=userToJSON();
+            refactorFoodIDs();
+            foodMap.removeByKey(food.getId());
+            joAux=foodToJSON();
             FileHandler.rewriteFile(joAux, "food");
         }
     }
 
+    public void refactorFoodIDs()
+    {
+        List<Food> foodList =foodMap.toList();
+        for (int i = 0; i < foodList.size(); i++) {
+            foodList.get(i).setId(i+1);
+        }
+        listToMap(foodList);
+    }
+
+    public void listToMap(List<Food> foodList)
+    {
+        foodMap=new GenericMap<Integer, Food>();
+        for (Food food : foodList)
+        {
+          addFoodToMap(food);
+        }
+    }
     public String showTreeFood (){return foodMap.toString();}
 
     public JSONObject userToJSON() throws JSONException {
