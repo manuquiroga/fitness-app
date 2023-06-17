@@ -69,7 +69,7 @@ public class JSONHandler {
             for (int i = 0; i < jsonArrayUser.length(); i++) {
                 JSONObject joFromUsersArray = jsonArrayUser.getJSONObject(i);
                 User user = new User();
-                user.setId(joFromUsersArray.getInt("id"));
+                user.setId(joFromUsersArray.getString("id"));
                 user.setName(joFromUsersArray.getString("name"));
                 user.setEmail(joFromUsersArray.getString("email"));
                 user.setPassword(joFromUsersArray.getString("password"));
@@ -95,7 +95,7 @@ public class JSONHandler {
             for (int i = 0; i < jsonArrayPremium.length(); i++) {
                 JSONObject joFromUsersArray = jsonArrayPremium.getJSONObject(i);
                 PremiumUser user = new PremiumUser();
-                user.setId(joFromUsersArray.getInt("id"));
+                user.setId(joFromUsersArray.getString("id"));
                 user.setName(joFromUsersArray.getString("name"));
                 user.setEmail(joFromUsersArray.getString("email"));
                 user.setPassword(joFromUsersArray.getString("password"));

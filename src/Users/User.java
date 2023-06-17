@@ -10,10 +10,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Random;
-import java.util.Set;
+import java.util.*;
 
 public class User implements IToJSON, Comparable {
 
@@ -22,16 +19,16 @@ public class User implements IToJSON, Comparable {
     private String name;
     private String password;
     private String email;
-    private int id;
+    private UUID id;
     private UserData userData;
 
 
     //constructors:
-    public User(String name, String password, String email, int id, UserData userData) {
+    public User(String name, String password, String email, UserData userData) {
         this.name = name;
         this.password = password;
         this.email = email;
-        this.id = id;
+        this.id = UUID.randomUUID();
         this.userData = userData;
     }
 
@@ -53,7 +50,7 @@ public class User implements IToJSON, Comparable {
         return email;
     }
 
-    public int getId() {
+    public UUID getId() {
         return id;
     }
 
@@ -75,14 +72,13 @@ public class User implements IToJSON, Comparable {
         this.email = email;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public void setUserData(UserData userData) {
         this.userData = userData;
     }
 
+    public void setId(String id){
+        this.id = UUID.fromString(id);
+    }
 
     //equals, hashcode, compareTo, toString
 
@@ -95,7 +91,7 @@ public class User implements IToJSON, Comparable {
             if(obj instanceof User)
             {
                 User aux=(User) obj;
-                if(getId()==aux.getId())
+                if(getId().equals(aux.getId()))
                 {
                     rta=true;
                 }
@@ -132,7 +128,7 @@ public class User implements IToJSON, Comparable {
                 "name: " + name + '\n' +
                 "password: " + password + '\n' +
                 "email: " + email + '\n' +
-                "id: " + id + '\n' +
+                "id: " + id.toString() + '\n' +
                 "userData: " + userData.toString() +
                 '}';
     }
@@ -143,7 +139,7 @@ public class User implements IToJSON, Comparable {
         json.put("name", name);
         json.put("password", password);
         json.put("email", email);
-        json.put("id", id);
+        json.put("id", id.toString());
         json.put("userData", userData.toJSON());
         return json;
     }

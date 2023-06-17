@@ -96,22 +96,6 @@ public class DataValidation {
         return isSafe;
     }
 
-    public static int newID(){
-        int id = 0;
-        try{
-            if(FileHandler.existsFile("user")) {
-                id = JSONHandler.countItemsInUserJSON() + 1;
-            }
-        }
-        catch (FileNotFoundException ex ) {
-            System.err.println("File not found error: "+ex.getMessage());
-        }
-        catch (IOException ex) {
-            System.err.println("IO Error: "+ex.getMessage());
-        }
-        return id;
-    }
-
     public static boolean checkLoginData(String email, String password) throws IncorrectPasswordException{
         boolean val=false;
         ArrayList<User> userList;

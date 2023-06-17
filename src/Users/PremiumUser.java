@@ -11,8 +11,8 @@ public class PremiumUser extends User{
     private int numberOfDietsGenerated;
 
     //constructors:
-    public PremiumUser(String name, String password, String email, int id, UserData userData) {
-        super(name, password, email, id, userData);
+    public PremiumUser(String name, String password, String email, UserData userData) {
+        super(name, password, email, userData);
         this.numberOfDietsGenerated = 0;
     }
 

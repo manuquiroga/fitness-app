@@ -149,9 +149,6 @@ public class SignUp extends JFrame implements ActionListener{
             String sex = (String) GenderCombo.getSelectedItem();
             String physicalActivity = (String) ActivityCombo.getSelectedItem();
             String objective = (String) ObjectiveCombo.getSelectedItem();
-            int id= DataValidation.newID();
-
-
 
             try{
                 DataValidation.checkData(name, email, password);
@@ -164,7 +161,7 @@ public class SignUp extends JFrame implements ActionListener{
                 DataValidation.checkUserDataBounds(age, weight, height);
 
                 UserData userData = new UserData(age, weight, objective, height, sex, physicalActivity);
-                User user = new User(name, password, email, id, userData);
+                User user = new User(name, password, email, userData);
                 JSONHandler.userToFile(user);
 
                 //SendEmail.send(email, SendEmail.getSubject(), SendEmail.welcomeText(name));

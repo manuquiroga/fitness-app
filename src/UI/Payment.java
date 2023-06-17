@@ -63,7 +63,7 @@ public class Payment extends JFrame {
 
                 try{
                     DataValidation.checkCardData(number, cvv, name);
-                    PremiumUser premiumUser = new PremiumUser(user.getName(), user.getPassword(), user.getEmail(), user.getId(), user.getUserData());
+                    PremiumUser premiumUser = new PremiumUser(user.getName(), user.getPassword(), user.getEmail(), user.getUserData());
                     intermediary.updateUser(user.getEmail(), premiumUser);
 
                     JOptionPane.showMessageDialog(null, "CONGRATULATIONS, Log in again with this account to see your benefits");
@@ -82,6 +82,7 @@ public class Payment extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
+                Profile profile = new Profile(user, intermediary);
             }
         });
 

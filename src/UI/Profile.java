@@ -23,16 +23,6 @@ public class Profile extends JFrame{
     private JPasswordField passwordField;
     private User user;
 
-    public static void main(String[] args) {
-        UserData userData = new UserData(23, 50, "LOSE_WEIGHT", 160, "female", "NONE");
-        User us = new User("manuel", "Prueba123456", "mq@gmail.com", 10, userData);
-        us.generateDiet(4, "vegan");
-        Intermediary intermediary = new Intermediary();
-        intermediary.addUserToMap(us);
-        Profile profile = new Profile(us, intermediary);
-        System.out.println(intermediary.showMapUsers());
-    }
-
     public Profile(User u, Intermediary intermediary) throws HeadlessException {
         System.out.println(intermediary.showMapUsers());
 
@@ -229,7 +219,7 @@ public class Profile extends JFrame{
             DataValidation.checkDataDigit(weightField, heightField);
             double weight = Double.parseDouble(weightField.getText());
             int height = Integer.parseInt(heightField.getText());
-
+            //TODO: ADD AGE AND CHECK DATA
             aux.getUserData().setWeight(weight);
             aux.getUserData().setHeight(height);
 
