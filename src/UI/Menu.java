@@ -36,19 +36,12 @@ public class Menu extends JFrame {
     private static final FontRenderer TABLE_FONT = new FontRenderer(new Font("Book Antiqua", Font.BOLD, 18));
     private JPanel DietCreatedPanel;
 
-    public static void main(String[] args) {
-        UserData userData = new UserData(19, 60, "MAINTAIN_WEIGHT", 172, "male", "NONE");
-        User user = new User("manuel", "Prueba123456", "mq@gmail.com", 10, userData);
-        //user.generateDiet(4, "vegan");
-        Intermediary intermediary = new Intermediary();
-        intermediary.addUserToMap(user);
-        Menu menu = new Menu(user, intermediary);
-        System.out.println(intermediary.showMapUsers());
-    }
-
     public Menu(User user, Intermediary intermediary){
+        System.out.println(intermediary.showMapUsers());
 
-        JFrame frame=new JFrame("Nutribros");//creating instance of JFrame
+        DietCreatedPanel = new JPanel();
+
+        JFrame frame=new JFrame("Nutribros");
         frame.getContentPane().setBackground(DEFAULT_BACKGROUND_COLOR);
         ImageIcon logo = new ImageIcon(LOGO_ICON_PATH); frame.setIconImage(logo.getImage());
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -115,11 +108,15 @@ public class Menu extends JFrame {
         }
         else{
             newDietButton.setToolTipText("Generate new diet");
-            if(((PremiumUser) user).getNumberOfDietsGenerated() < 10){
-                ((PremiumUser) user).addMaxDiet();
-
-            }else{
+            if(((PremiumUser) user).getNumberOfDietsGenerated() >= 10){
                 newDietButton.setToolTipText("The maximum of diets per week is 10");
+                newDietButton.setEnabled(false);
+                newDietButton.setBackground(new Color(60,60,60));
+            }
+            if(!user.hasDiet()){
+                newDietButton.setToolTipText("You dont have a diet created yet");
+                newDietButton.setEnabled(false);
+                newDietButton.setBackground(new Color(60,60,60));
             }
         }
 
@@ -149,6 +146,16 @@ public class Menu extends JFrame {
         CreateDietButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                if(user instanceof PremiumUser){
+                    if(((PremiumUser) user).getNumberOfDietsGenerated() < 10){
+                        newDietButton.setBackground(new Color(242, 202, 90));
+                        newDietButton.setEnabled(true);
+                    }
+                    else{
+                        newDietButton.setToolTipText("The maximum of diets per week is 10");
+                    }
+                }
+
                 CreateDietPanel.setVisible(false);
                 user.generateDiet((Integer) MealQuantity.getSelectedItem(), (String) DietType.getSelectedItem());
                 System.out.println(user);
@@ -185,8 +192,19 @@ public class Menu extends JFrame {
         newDietButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                DietCreatedPanel.setVisible(false);
-                UserDiet.add(CreateDietPanel);
+
+
+                user.resetDiet();
+                ((PremiumUser) user).addMaxDiet();
+
+                try {
+                    intermediary.updateUser(user.getEmail(), user);
+                } catch (JSONException ex) {
+                    System.err.println(ex.getMessage());
+                }
+
+                frame.dispose();
+                Menu menu = new Menu(user,intermediary);
             }
         });
 

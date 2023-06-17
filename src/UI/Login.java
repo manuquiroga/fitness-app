@@ -19,6 +19,8 @@ public class Login extends JFrame{
     private static final String LOGO_ICON_PATH = "src/UI/Resources/weightlifter.png";
 
     public Login(Intermediary intermediary){
+        System.out.println(intermediary.showMapUsers());
+
         JFrame frame=new JFrame("Nutribros");//creating instance of JFrame
         frame.getContentPane().setBackground(new Color(40, 40, 40));
         ImageIcon logo = new ImageIcon(LOGO_ICON_PATH); frame.setIconImage(logo.getImage());
@@ -60,7 +62,6 @@ public class Login extends JFrame{
                 System.err.println("Incorrect data: " + ex.getMessage());
                 JOptionPane.showMessageDialog(null, ex.getMessage());
             }
-
         });
 
         frame.add(logButton);

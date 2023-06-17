@@ -18,11 +18,12 @@ public class Payment extends JFrame {
     private JTextField nameField;
 
     public Payment(User user, Intermediary intermediary){
+        System.out.println(intermediary.showMapUsers());
+
         setBounds(0, 0, 400, 480);
         getContentPane().setBackground(new Color(40, 40, 40));
         setLayout(null);
         setResizable(false);
-
 
         numberField = new JTextField();
         cvField = new JTextField();

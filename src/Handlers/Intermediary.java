@@ -48,12 +48,11 @@ public class Intermediary {
         }
     }
 
-    public void deleteUser(String email, User user) throws JSONException {
-        User aux=null;
+    public void deleteUser(User user) throws JSONException {
         JSONObject joAux=new JSONObject();
-        if((!userMap.containsKey(user.getEmail())) && userMap.containsKey(email))
+        if(userMap.containsKey(user.getEmail()))
         {
-            aux=userMap.removeByKey(email);
+            userMap.removeByKey(user.getEmail());
             joAux=userToJSON();
             FileHandler.rewriteFile(joAux, "user");
         }

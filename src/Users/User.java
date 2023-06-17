@@ -263,6 +263,14 @@ public class User implements IToJSON, Comparable {
         return celiacFoods;
     }
 
+    public void resetDiet(){
+        userData.setDiet(new ArrayList<>());
+    }
+
+    public boolean hasDiet(){
+        return (userData.getDiet().size() > 0);
+    }
+
     private ArrayList<Food> getBreakfastList(ArrayList<Food> allFoods){
         ArrayList<Food> breakfasts = new ArrayList<>();
         for (Food food:allFoods) {

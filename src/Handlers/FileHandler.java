@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
+
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -14,32 +14,6 @@ import org.json.JSONObject;
 
 public class FileHandler {
 
-
-    /*public static void saveInFile(JSONObject jsonObject, String fileName) {
-        try {
-            JSONArray jsonArray;
-            Path pathFile = Path.of(fileName + ".json");
-            if (Files.exists(pathFile)) {
-                String existingContent = new String(Files.readAllBytes(pathFile));
-                jsonArray = new JSONArray(existingContent);
-            } else {
-                jsonArray = new JSONArray();
-            }
-            jsonArray.put(jsonObject);
-
-            try (FileWriter fileWriter = new FileWriter(fileName + ".json")) {
-                fileWriter.write(jsonArray.toString());
-                fileWriter.flush();
-                System.out.println("JSONObject added to the file successfully.");
-            } catch (IOException e) {
-                System.err.println("IO 1: "+e.getMessage());
-            }
-        } catch (IOException e) {
-            System.err.println("IO 2: "+e.getMessage());
-        } catch (JSONException e) {
-            System.err.println("JSON 1: "+e.getMessage());
-        }
-    } */
 
     public static void rewriteFile(JSONObject object, String file) {
         try {

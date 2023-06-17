@@ -121,12 +121,9 @@ public class DataValidation {
                 userList=JSONHandler.readUserFile();
                 for (User user : userList) {
                     if (user.getEmail().equalsIgnoreCase(email) && user.getPassword().equals(password)) {
-                        System.out.println(user.getEmail().equalsIgnoreCase(email));
-                        System.out.println(user.getPassword().equals(password));
                         val = true;
                         break;
                     }
-                    break;
                 }
                 if(!val){
                     throw new IncorrectPasswordException("Incorrect email or password");

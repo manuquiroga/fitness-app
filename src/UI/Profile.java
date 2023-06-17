@@ -34,10 +34,12 @@ public class Profile extends JFrame{
     }
 
     public Profile(User u, Intermediary intermediary) throws HeadlessException {
+        System.out.println(intermediary.showMapUsers());
+
 
         this.user = u;
         setTitle("User Profile");
-        setBounds(0, 0, 400, 480);
+        setBounds(0, 0, 400, 520);
         getContentPane().setBackground(new Color(40, 40, 40));
         ImageIcon logo = new ImageIcon("src/UI/Resources/weightlifter.png"); setIconImage(logo.getImage());
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -101,18 +103,19 @@ public class Profile extends JFrame{
         getPremiumButton.setFocusable(false);
         getPremiumButton.setBackground(new Color(242, 202, 90));
 
-//        ImageIcon Icon = new ImageIcon("src/UI/Resources/volver-flecha.png");
-//        Image scaledImage = Icon.getImage().getScaledInstance(30, 30, Image.SCALE_SMOOTH);
-//        ImageIcon scaledIcon = new ImageIcon(scaledImage);
-
         JButton goBackButton = new JButton("Back to menu");
         goBackButton.setBounds(100,380,200,30);
         goBackButton.setFocusable(false);
 
+        JButton deleteAccountButton = new JButton("DELETE ACCOUNT");
+        deleteAccountButton.setBounds(100,420,200,30);
+        deleteAccountButton.setFocusable(false);
+        deleteAccountButton.setBackground(new Color(245, 94, 111));
+
+
         if(!(user instanceof PremiumUser)){
             add(getPremiumButton);
         }
-
 
 
         unlockFieldButton.addActionListener(new ActionListener() {
@@ -169,6 +172,26 @@ public class Profile extends JFrame{
             }
         });
 
+        deleteAccountButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //YES_OPTION = 0;
+                //NO_OPTION = 1;
+                //CANCEL_OPTION = 2;
+                int option = JOptionPane.showConfirmDialog(null, "WARNING. Are you sure you want to delete your account?");
+
+                if(option == 0){
+                    try {
+                        intermediary.deleteUser(user);
+                    } catch (JSONException ex) {
+                        System.err.println(ex.getMessage());
+                    }
+                    dispose();
+                    Home home = new Home(intermediary);
+                }
+            }
+        });
+
         add(lblName);
         add(nameField);
         add(lblEmail);
@@ -181,6 +204,7 @@ public class Profile extends JFrame{
         add(heightField);
         add(unlockFieldButton);
         add(goBackButton);
+        add(deleteAccountButton);
 
         nameField.setEnabled(false);
         emailField.setEnabled(false);
