@@ -31,11 +31,13 @@ public class Menu extends JFrame {
     private static final String NEW_DIET_ICON_PATH = "src/UI/Resources/nueva-dieta.png";
     private static final String LOGOUT_ICON_PATH = "src/UI/Resources/cerrar-sesion.png";
     private static final Color DEFAULT_BACKGROUND_COLOR = new Color(40, 40, 40);
+    private static final int PREMIUM_USER_MAX_DIET = 10;
     private static final FontRenderer TABLE_FONT = new FontRenderer(new Font("Book Antiqua", Font.BOLD, 18));
+    private JPanel DietCreatedPanel;
 
     public static void main(String[] args) {
-        UserData userData = new UserData(23, 50, "LOSE_WEIGHT", 160, "female", "NONE");
-        User user = new User("m", "Prueba123456", "mq@gmail.com", 10, userData);
+        UserData userData = new UserData(19, 60, "MAINTAIN_WEIGHT", 172, "male", "NONE");
+        User user = new User("manuel", "Prueba123456", "mq@gmail.com", 10, userData);
         //user.generateDiet(4, "vegan");
         Intermediary intermediary = new Intermediary();
         intermediary.addUserToMap(user);
@@ -112,6 +114,12 @@ public class Menu extends JFrame {
         }
         else{
             newDietButton.setToolTipText("Generate new diet");
+            if(((PremiumUser) user).getNumberOfDietsGenerated() < 10){
+                ((PremiumUser) user).addMaxDiet();
+
+            }else{
+                newDietButton.setToolTipText("The maximum of diets per week is 10");
+            }
         }
 
         ImageIcon IconLogOut = new ImageIcon(LOGOUT_ICON_PATH);
@@ -135,15 +143,15 @@ public class Menu extends JFrame {
             UserDiet.add(DietCreatedPanel);
         }
 
+
         //ActionListeners
         CreateDietButton.addActionListener(new ActionListener() {
-
             @Override
             public void actionPerformed(ActionEvent e) {
                 CreateDietPanel.setVisible(false);
                 user.generateDiet((Integer) MealQuantity.getSelectedItem(), (String) DietType.getSelectedItem()); //fix
 
-                JPanel DietCreatedPanel = getJPanelDiet(user, user.getUserData().getDiet().size());
+                DietCreatedPanel = getJPanelDiet(user, user.getUserData().getDiet().size());
                 UserDiet.add(DietCreatedPanel);
             }
         });
@@ -162,6 +170,14 @@ public class Menu extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 frame.dispose();
                 Login login = new Login(intermediary);
+            }
+        });
+
+        newDietButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                DietCreatedPanel.setVisible(false);
+                UserDiet.add(CreateDietPanel);
             }
         });
 

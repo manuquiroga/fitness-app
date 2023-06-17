@@ -2,6 +2,10 @@ package UI;
 
 import Exceptions.IncorrectCardNumberException;
 import Handlers.DataValidation;
+import Handlers.Intermediary;
+import Users.PremiumUser;
+import Users.User;
+import org.json.JSONException;
 
 import javax.swing.*;
 import java.awt.*;
@@ -13,7 +17,7 @@ public class Payment extends JFrame {
     private JTextField cvField;
     private JTextField nameField;
 
-    public Payment(){
+    public Payment(User user, Intermediary intermediary){
         setBounds(0, 0, 400, 480);
         getContentPane().setBackground(new Color(40, 40, 40));
         setLayout(null);
@@ -58,10 +62,18 @@ public class Payment extends JFrame {
 
                 try{
                     DataValidation.checkCardData(number, cvv, name);
+                    PremiumUser premiumUser = new PremiumUser(user.getName(), user.getPassword(), user.getEmail(), user.getId(), user.getUserData());
+                    intermediary.updateUser(user.getEmail(), premiumUser);
+
+                    JOptionPane.showMessageDialog(null, "CONGRATULATIONS, Log in again with this account to see your benefits");
+                    dispose();
+
+                    Login login = new Login(intermediary);
                 }catch (IncorrectCardNumberException ex){
                     JOptionPane.showMessageDialog(null,ex.getMessage());
+                } catch (JSONException ex) {
+                    JOptionPane.showMessageDialog(null,ex.getMessage());
                 }
-                setVisible(false);
             }
         });
 

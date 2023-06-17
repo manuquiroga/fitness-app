@@ -9,12 +9,20 @@ public class PremiumUser extends User{
     private int numberOfDietsGenerated;
 
     //constructors:
-    public PremiumUser(String name, String password, String email, int id, UserData userData, int numberOfDietsGenerated) {
+    public PremiumUser(String name, String password, String email, int id, UserData userData) {
         super(name, password, email, id, userData);
-        this.numberOfDietsGenerated=numberOfDietsGenerated;
+        this.numberOfDietsGenerated = 0;
     }
 
     public PremiumUser() {
+    }
+
+    public int getNumberOfDietsGenerated() {
+        return numberOfDietsGenerated;
+    }
+
+    public void addMaxDiet(){
+        numberOfDietsGenerated++;
     }
 
     //equals, hashCode, compareTo, toString

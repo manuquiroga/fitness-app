@@ -164,7 +164,8 @@ public class Profile extends JFrame{
         getPremiumButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Payment payment = new Payment();
+                dispose();
+                Payment payment = new Payment(user, intermediary);
             }
         });
 
