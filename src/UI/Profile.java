@@ -21,6 +21,7 @@ public class Profile extends JFrame{
     private JTextField emailField;
     private JTextField weightField;
     private JTextField heightField;
+    private JTextField ageField;
     private JPasswordField passwordField;
     private User user;
 
@@ -42,6 +43,7 @@ public class Profile extends JFrame{
         passwordField = new JPasswordField();
         weightField = new JTextField();
         heightField = new JTextField();
+        ageField = new JTextField();
 
         JLabel lblName = new JLabel("Name:");
         lblName.setForeground(Color.WHITE);
@@ -63,6 +65,10 @@ public class Profile extends JFrame{
         lblHeight.setForeground(Color.WHITE);
         lblHeight.setBounds(50,250, 100, 30);
 
+        JLabel lblAge = new JLabel("Age:");
+        lblHeight.setForeground(Color.WHITE);
+        lblHeight.setBounds(50,290, 100, 30);
+
         nameField.setText(user.getName());
         nameField.setBounds(135, 90, 200, 30);
 
@@ -77,6 +83,9 @@ public class Profile extends JFrame{
 
         heightField.setText(String.valueOf(user.getUserData().getHeight()));
         heightField.setBounds(135,250,200,30);
+
+        ageField.setText(String.valueOf(user.getUserData().getHeight()));
+        ageField.setBounds(135,290,200,30);
 
         JButton unlockFieldButton = new JButton("Unlock Fields");
         unlockFieldButton.setBounds(100,340,200,30);
@@ -117,6 +126,7 @@ public class Profile extends JFrame{
                 passwordField.setEnabled(true);
                 weightField.setEnabled(true);
                 heightField.setEnabled(true);
+                ageField.setEnabled(true);
 
                 remove(unlockFieldButton);
                 add(saveDataButton);
@@ -127,7 +137,7 @@ public class Profile extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 String oldEmail = user.getEmail();
-                User newUser = refactorUserFields(nameField, emailField, passwordField, weightField, heightField);
+                User newUser = refactorUserFields(nameField, emailField, passwordField, weightField, heightField, ageField);
                 try {
                     intermediary.updateUser(oldEmail, newUser);
                     user = newUser;
@@ -144,6 +154,7 @@ public class Profile extends JFrame{
                 passwordField.setEnabled(false);
                 weightField.setEnabled(false);
                 heightField.setEnabled(false);
+                ageField.setEnabled(false);
             }
         });
 
@@ -193,6 +204,8 @@ public class Profile extends JFrame{
         add(weightField);
         add(lblHeight);
         add(heightField);
+        add(lblAge);
+        add(ageField);
         add(unlockFieldButton);
         add(goBackButton);
         add(deleteAccountButton);
@@ -202,11 +215,12 @@ public class Profile extends JFrame{
         passwordField.setEnabled(false);
         weightField.setEnabled(false);
         heightField.setEnabled(false);
+        ageField.setEnabled(false);
 
         setVisible(true);
     }
 
-    private User refactorUserFields(JTextField nameField,JTextField emailField,JTextField passwordField,JTextField weightField,JTextField heightField) {
+    private User refactorUserFields(JTextField nameField,JTextField emailField,JTextField passwordField,JTextField weightField,JTextField heightField, JTextField ageField) {
         User aux = user;
         try {
             String name = nameField.getText();
@@ -217,10 +231,12 @@ public class Profile extends JFrame{
             aux.setEmail(email);
             aux.setPassword(password);
 
-            DataValidation.checkDataDigit(weightField, heightField);
+            DataValidation.checkDataDigit(weightField, heightField, ageField);
             double weight = Double.parseDouble(weightField.getText());
             int height = Integer.parseInt(heightField.getText());
-            //TODO: ADD AGE AND CHECK DATA
+            int age = Integer.parseInt(ageField.getText());
+
+            aux.getUserData().setAge(age);
             aux.getUserData().setWeight(weight);
             aux.getUserData().setHeight(height);
 

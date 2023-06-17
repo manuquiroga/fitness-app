@@ -136,10 +136,11 @@ public class User implements IToJSON, Comparable {
     @Override
     public JSONObject toJSON() throws JSONException {
         JSONObject json = new JSONObject();
+        String idNew = id.toString();
         json.put("name", name);
         json.put("password", password);
         json.put("email", email);
-        json.put("id", id.toString());
+        json.put("id", idNew);
         json.put("userData", userData.toJSON());
         return json;
     }
