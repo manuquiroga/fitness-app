@@ -124,13 +124,13 @@ public class User implements IToJSON, Comparable {
 
     @Override
     public String toString() {
-        return "User{" + '\n' +
-                "name: " + name + '\n' +
-                "password: " + password + '\n' +
-                "email: " + email + '\n' +
-                "id: " + id.toString() + '\n' +
-                "userData: " + userData.toString() +
-                '}';
+        return
+                "\n"+"User" + '\n' +
+                "Name: " + name + '\n' +
+                "Password: " + password + '\n' +
+                "Email: " + email + '\n' +
+                "ID: " + id.toString() + '\n' +
+                "Data: "+userData.toString();
     }
 
     @Override

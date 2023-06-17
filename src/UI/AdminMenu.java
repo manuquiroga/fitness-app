@@ -12,37 +12,44 @@ public class AdminMenu {
 
         int option = 0, id;
         String data;
+        String persist = new String();
+        do {
 
-        System.out.println("Welcome admin");
-        System.out.println("Select option");
+            System.out.println("Welcome admin");
+            System.out.println("Select option");
 
-        System.out.println("1. DISPLAY ALL USERS");
-        System.out.println("2. DISPLAY ALL FOODS");
-        System.out.println("3. DELETE ONE USER");
-        System.out.println("4. DELETE ONE FOOD");
-        option = scanner.nextInt();
+            System.out.println("1. DISPLAY ALL USERS");
+            System.out.println("2. DISPLAY ALL FOODS");
+            System.out.println("3. DELETE ONE USER");
+            System.out.println("4. DELETE ONE FOOD");
+            option = scanner.nextInt();
 
-        switch (option){
-            case 1:
-                System.out.println(admin.getAllUsers(intermediary));
-                break;
-            case 2:
-                System.out.println(admin.getAllFoods(intermediary));
-                break;
-            case 3:
-                System.out.println("Write the user's email: ");
-                data = scanner.nextLine();
-                admin.deleteUser(intermediary, data);
-                break;
-            case 4:
-                System.out.println("Write the food's id: ");
-                id = scanner.nextInt();
-                admin.deleteFood(intermediary, id);
-                break;
-            default:
-                System.err.println("Option does not exist. Closing admin menu");
-                break;
-        }
+            switch (option) {
+                case 1:
+                    System.out.println(admin.getAllUsers(intermediary));
+                    break;
+                case 2:
+                    System.out.println(admin.getAllFoods(intermediary));
+                    break;
+                case 3:
+                    System.out.println("Write the user's email: ");
+                    data = scanner.nextLine();
+                    admin.deleteUser(intermediary, data);
+                    break;
+                case 4:
+                    System.out.println("Write the food's id: ");
+                    id = scanner.nextInt();
+                    admin.deleteFood(intermediary, id);
+                    break;
+                default:
+                    System.err.println("Option does not exist. Closing admin menu");
+                    break;
+            }
+            scanner.nextLine();
+            System.out.println("If you want to continue enter yes");
+            persist = scanner.next();
+            //System.out.print("\033[H\033[2J");// Parece que no existe un metodo en java que limpie la consola
+        }while(persist.equalsIgnoreCase("yes"));
     }
 
     public AdminMenu(AdminUser admin){

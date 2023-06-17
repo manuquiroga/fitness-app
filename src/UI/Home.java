@@ -1,5 +1,6 @@
 package UI;
 
+import FoodModels.Food;
 import Handlers.FileHandler;
 import Handlers.Intermediary;
 import Handlers.JSONHandler;
@@ -20,7 +21,7 @@ public class Home extends JFrame implements ActionListener {
     private static final String LOGO_ICON_PATH = "src/UI/Resources/weightlifter.png";
 
     public static void main(String[] args) {
-       UserData userData = new UserData(19, 60, "MAINTAIN_WEIGHT", 172, "male", "NONE");
+       /*UserData userData = new UserData(19, 60, "MAINTAIN_WEIGHT", 172, "male", "NONE");
        User user = new User("quiman", "Prueba1234", "m@gmail.com", userData);
 
         UserData userData2 = new UserData(19, 60, "MAINTAIN_WEIGHT", 172, "male", "NONE");
@@ -35,18 +36,22 @@ public class Home extends JFrame implements ActionListener {
            JSONHandler.userToFile(user3);
        } catch (JSONException e) {
             System.err.println(e.getMessage());
-       }
+       }*/
 
         Intermediary intermediary = new Intermediary();
-        ArrayList<User> users= JSONHandler.readUserFile();
-        System.out.println(users);
+        ArrayList<User> users = JSONHandler.readUserFile();
+        ArrayList<Food> foods = JSONHandler.readFoodFile();
+        //System.out.println(users);
 
         for (int i = 0; i<users.size() ; i++){
             intermediary.addUserToMap(users.get(i));
         }
+        for (int j = 0; j<foods.size();j++){
+            intermediary.addFoodToMap(foods.get(j));
+        }
 
-        System.out.println(intermediary.showMapUsers());
-        AdminUser adminUser = new AdminUser("admin", "Prueba1234", "admin@gmail.com", userData3);
+        //System.out.println(intermediary.showMapUsers());
+        AdminUser adminUser = new AdminUser();
         AdminMenu adminMenu = new AdminMenu(adminUser);
         adminMenu.runAdminMenu(intermediary);
         //Home home = new Home(intermediary);

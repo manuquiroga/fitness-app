@@ -38,7 +38,8 @@ public class GenericMap<K, V> {
     public String toString(){
         String s = "";
         for (Map.Entry<K, V> entry : genericMap.entrySet()){
-            s += "[K=" + entry.getKey() + ", V=" + entry.getValue() + "]\n";
+            s += "\n------------------------------\n"+
+                    "KEY:" + entry.getKey()+"\n"+"VALUE" + entry.getValue() + "\n------------------------------\n";
         }
          return s;
     }

@@ -220,20 +220,20 @@ public class Food implements IToJSON, Comparable {
 
     @Override
     public String toString() {
-        return "\nFood{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", calories=" + calories +
-                ", proteins_g=" + proteins_g +
-                ", fats_g=" + fats_g +
-                ", carbohydrates_g=" + carbohydrates_g +
-                ", servingSize_g=" + servingSize_g +
-                ", foodType=" + foodType +
-                ", ingredients=" + ingredients +
-                ", isVegan=" + isVegan +
-                ", isCeliac=" + isCeliac +
-                ", isVegetarian=" + isVegetarian +
-                '}' ;
+        return "\n-----\n"+
+                "Food:" +
+                "ID=" + id +'\n'+
+                "Name='" + name + '\n' +
+                "Calories=" + calories + '\n'+
+                "Proteins_g=" + proteins_g + '\n'+
+                "Fats_g=" + fats_g + '\n'+
+                "Carbohydrates_g=" + carbohydrates_g + '\n'+
+                "ServingSize_g=" + servingSize_g + '\n'+
+                "FoodType=" + foodType + '\n'+
+                "Ingredients=" + ingredients + '\n'+
+                "IsVegan=" + isVegan + '\n'+
+                "IsCeliac=" + isCeliac + '\n'+
+                "IsVegetarian=" + isVegetarian;
     }
 
     //Methods:

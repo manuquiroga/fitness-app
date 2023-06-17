@@ -112,15 +112,14 @@ public class UserData implements IToJSON {
 
     @Override
     public String toString() {
-        return "UserData{" + '\n' +
-                "age: " + age + '\n' +
-                "weight: " + weight + '\n' +
-                "objective: " + objective + '\n' +
-                "height: " + height + '\n' +
-                "sex: " + sex + '\n' +
-                "physicalActivity: " + physicalActivity + '\n' +
-                "diet: " + diet.toString() + '\n' +
-                '}';
+        return super.toString()+
+                "\n"+"Age: " + age + '\n' +
+                "Weight: " + weight + '\n' +
+                "Objective: " + objective + '\n' +
+                "Height: " + height + '\n' +
+                "Sex: " + sex + '\n' +
+                "PhysicalActivity: " + physicalActivity + '\n' +
+                "Diet: " + diet.toString() + '\n';
     }
 
 

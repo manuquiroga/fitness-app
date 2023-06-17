@@ -45,9 +45,8 @@ public class PremiumUser extends User{
 
     @Override
     public String toString() {
-        return "PremiumUser{" +
-                "numberOfDietsGenerated=" + numberOfDietsGenerated +
-                '}';
+        return super.toString()+ "\n"+
+                "numberOfDietsGenerated=" + numberOfDietsGenerated;
     }
 
     @Override
