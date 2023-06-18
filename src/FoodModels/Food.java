@@ -20,7 +20,7 @@ public class Food implements IToJSON, Comparable {
     private double carbohydrates_g;
     private double servingSize_g;
     private FoodType foodType;
-    private Set<String> ingredients; //TODO: make set
+    private Set<String> ingredients;
     private boolean isVegan;
     private boolean isCeliac;
     private boolean isVegetarian;
