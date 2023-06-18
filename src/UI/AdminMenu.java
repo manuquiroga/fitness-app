@@ -47,7 +47,7 @@ public class AdminMenu {
                     scanner.nextLine();
                     break;
                 default:
-                    System.err.println("Option does not exist. Closing admin menu");
+                    System.err.println("Option does not exist");
                     break;
             }
             System.out.println("If you want to continue enter yes");

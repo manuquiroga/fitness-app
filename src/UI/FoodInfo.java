@@ -5,6 +5,8 @@ import UI.Renderers.FontRenderer;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 
 public class FoodInfo extends JFrame {
@@ -61,9 +63,12 @@ public class FoodInfo extends JFrame {
         frame.add(IngredientsLabel);
 
         DefaultListModel model = new DefaultListModel();
+        Iterator<String> it= food.getIngredients().iterator();
 
         for (int i = 0; i<food.getIngredients().size();i++){
-            model.add(i,food.getIngredients().get(i));
+            if(it.hasNext()){
+                model.add(i,it.next());
+            }
         }
 
         JList IngredientsList = new JList(model);

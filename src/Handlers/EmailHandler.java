@@ -7,7 +7,7 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import java.util.Properties;
 
-public class SendEmail {
+public class EmailHandler {
 
     private static final String SENDER_EMAIL = "nutribros.email@gmail.com";
     private static final String SENDER_APPLICATION_PASSWORD = "vzfhvkueoertdana";

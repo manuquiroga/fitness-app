@@ -1,19 +1,11 @@
 package UI;
 
-import Exceptions.IncorrectEmailFormatException;
 import Exceptions.IncorrectPasswordException;
-import Exceptions.NameTooShortException;
-import Exceptions.WeakPasswordException;
 import Handlers.DataValidation;
 import Handlers.Intermediary;
-import Handlers.SendEmail;
-import Users.User;
 
 import javax.swing.*;
-import javax.xml.crypto.Data;
 import java.awt.*;
-import java.io.IOException;
-import java.util.Arrays;
 
 public class Login extends JFrame{
     private static final String LOGO_ICON_PATH = "src/UI/Resources/weightlifter.png";
