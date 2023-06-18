@@ -4,11 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2910e345-db14-4f9f-b4c7-3856289f3311" name="Changes" comment="added go back button for login menu.">
+    <list default="true" id="2910e345-db14-4f9f-b4c7-3856289f3311" name="Changes" comment="todo: add a loop to admin menu. fix show all foods">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FoodModels/Food.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FoodModels/Food.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/FoodInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/FoodInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Users/AdminUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/AdminUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Handlers/SendEmail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Handlers/SendEmail.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UI/Home.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/Home.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UI/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/Login.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UI/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UI/Payment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/Payment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UI/Profile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/Profile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UI/SignUp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/SignUp.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -224,14 +228,7 @@
       <option name="project" value="LOCAL" />
       <updated>1687040174238</updated>
     </task>
-    <task id="LOCAL-00024" summary="added go back button for login menu.">
-      <created>1687096302346</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1687096302346</updated>
-    </task>
-    <option name="localTasksCounter" value="25" />
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -267,8 +264,7 @@
     <MESSAGE value="Added &quot;deleteFood&quot;, &quot;refactorFoodIDs&quot; and &quot;listToMap&quot; methods" />
     <MESSAGE value="adminUser created" />
     <MESSAGE value="Added method for checking if an email is already in use" />
-    <MESSAGE value="added go back button for login menu." />
-    <option name="LAST_COMMIT_MESSAGE" value="added go back button for login menu." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added method for checking if an email is already in use" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -277,6 +273,24 @@
           <properties class="java.nio.file.NoSuchFileException" package="java.nio.file" />
           <option name="timeStamp" value="1" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/Handlers/DataValidation.java</url>
+          <line>128</line>
+          <properties class="Handlers.DataValidation">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="32" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/Handlers/JSONHandler.java</url>
+          <line>58</line>
+          <properties class="Handlers.JSONHandler" method="readUserFile">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="38" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

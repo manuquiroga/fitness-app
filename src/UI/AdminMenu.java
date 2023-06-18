@@ -1,8 +1,11 @@
 package UI;
 
+import Handlers.DataValidation;
 import Handlers.Intermediary;
 import Users.AdminUser;
+import Users.User;
 
+import java.awt.*;
 import java.util.Scanner;
 
 public class AdminMenu {
@@ -11,11 +14,11 @@ public class AdminMenu {
     public void runAdminMenu(Intermediary intermediary){
 
         int option = 0, id;
-        String data;
-        String persist = new String();
-        do {
+        String data = new String(),persist = new String();
+
 
             System.out.println("Welcome admin");
+        do {
             System.out.println("Select option");
 
             System.out.println("1. DISPLAY ALL USERS");
@@ -23,6 +26,7 @@ public class AdminMenu {
             System.out.println("3. DELETE ONE USER");
             System.out.println("4. DELETE ONE FOOD");
             option = scanner.nextInt();
+            scanner.nextLine();
 
             switch (option) {
                 case 1:
@@ -40,15 +44,14 @@ public class AdminMenu {
                     System.out.println("Write the food's id: ");
                     id = scanner.nextInt();
                     admin.deleteFood(intermediary, id);
+                    scanner.nextLine();
                     break;
                 default:
                     System.err.println("Option does not exist");
                     break;
             }
-            scanner.nextLine();
             System.out.println("If you want to continue enter yes");
             persist = scanner.next();
-            //System.out.print("\033[H\033[2J");// Parece que no existe un metodo en java que limpie la consola
         }while(persist.equalsIgnoreCase("yes"));
     }
 
