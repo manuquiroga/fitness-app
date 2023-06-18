@@ -226,10 +226,8 @@ public abstract class User implements IToJSON, Comparable, IFromJSON {
                     snackCount++;
                 }
             }
-
             dif = ((actualCalories-caloriesObjective) <= 80 && (actualCalories-caloriesObjective) >= 0);
         } while(!dif);
-
         userData.setDiet(foodArrayList);
     }
     public ArrayList<Food> getVegetarianFoods(){

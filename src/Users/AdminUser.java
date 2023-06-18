@@ -7,6 +7,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class AdminUser extends User {
 
@@ -36,38 +37,22 @@ public class AdminUser extends User {
         this.positionAtCompany = positionAtCompany;
     }
 
-    public void deleteUser(Intermediary intermediary, User user){
-        try {
-            intermediary.deleteUser(user);
-        } catch (JSONException e) {
-            System.err.println(e.getMessage());
-        }
+    public void deleteUser(Intermediary intermediary, User user) throws JSONException{
+        intermediary.deleteUser(user);
     }
-    public void deleteUser(Intermediary intermediary, String email){
-        try {
-            intermediary.deleteUser(email);
-        } catch (JSONException e) {
-            System.err.println(e.getMessage());
-        }
+    public void deleteUser(Intermediary intermediary, String email) throws JSONException{
+        intermediary.deleteUser(email);
     }
 
 
-    public void deleteFood(Intermediary intermediary, Food food){
-        try {
-            intermediary.deleteFood(food);
-        } catch (JSONException e) {
-            System.err.println(e.getMessage());
-        }
+    public void deleteFood(Intermediary intermediary, Food food) throws JSONException{
+        intermediary.deleteFood(food);
     }
-    public void deleteFood(Intermediary intermediary, int id){
-        try {
-            intermediary.deleteFood(id);
-        } catch (JSONException e) {
-            System.err.println(e.getMessage());
-        }
+    public void deleteFood(Intermediary intermediary, int id) throws JSONException{
+        intermediary.deleteFood(id);
     }
-    public void deleteUserDiet(Intermediary intermediary, int id){
-        ArrayList<User> users= (ArrayList<User>) intermediary.usersToList();
+    public void deleteUserDiet(Intermediary intermediary, int id) throws JSONException{
+        List<User> users= intermediary.usersToList();
 
         for (User user:users) {
             ArrayList<Food> userDiet = user.getUserData().getDiet();
@@ -75,15 +60,14 @@ public class AdminUser extends User {
             for(Food food:userDiet){
                 if(food.getId() == id){
                     user.resetDiet();
-
-                    try {
-                        intermediary.updateUser(user.getEmail(), user);
-                    } catch (JSONException e) {
-                        System.err.println(e.getMessage());
-                    }
+                    intermediary.updateUser(user.getEmail(), user);
                 }
             }
         }
+    }
+
+    public void addFood(Intermediary intermediary,Food food) throws JSONException{
+        intermediary.addFoodToFile(food);
     }
 
     @Override
@@ -100,7 +84,5 @@ public class AdminUser extends User {
         aux.put("position", getPositionAtCompany());
         return aux;
     }
-
-
 
 }

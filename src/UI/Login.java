@@ -3,6 +3,8 @@ package UI;
 import Exceptions.IncorrectPasswordException;
 import Handlers.DataValidation;
 import Handlers.Intermediary;
+import Users.AdminUser;
+import Users.User;
 
 import javax.swing.*;
 import java.awt.*;
@@ -33,8 +35,6 @@ public class Login extends JFrame{
         PasswordField.setBounds(115, 90, 250, 30);
         frame.add(PasswordLabel); frame.add(PasswordField);
 
-        //TODO: (ponele) forgot password
-
         JButton logButton=new JButton("Submit");
         logButton.setBounds(135,180,150, 30);
 
@@ -53,11 +53,16 @@ public class Login extends JFrame{
             String email = (EmailField.getText());
             String password = PasswordField.getText();
 
-            //TODO: verify correct email/password, get user from info
             try {
                 if(DataValidation.checkLoginData(email,password)){
                     frame.dispose();
-                    Menu menu = new Menu(DataValidation.getUserFromLogin(email,password), intermediary); //change
+                    User user = DataValidation.getUserFromLogin(email,password);
+                    if(user instanceof AdminUser){
+                        AdminMenu adminMenu = new AdminMenu((AdminUser) user);
+                        adminMenu.runAdminMenu(intermediary);
+                    }else {
+                        Menu menu = new Menu(user,intermediary);
+                    }
                 }
             } catch (IncorrectPasswordException ex) {
                 System.err.println("Incorrect data: " + ex.getMessage());

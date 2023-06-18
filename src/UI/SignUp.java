@@ -181,7 +181,8 @@ public class SignUp extends JFrame implements ActionListener{
                 System.err.println("Data Type error: " + ex.getMessage());
                 JOptionPane.showMessageDialog(null,ex.getMessage());
             } catch (EmailInUseException ex) {
-                throw new RuntimeException(ex);
+                System.err.println("Error: " + ex.getMessage());
+                JOptionPane.showMessageDialog(null,ex.getMessage());
             }
 
         });

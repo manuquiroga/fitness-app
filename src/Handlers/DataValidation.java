@@ -146,7 +146,7 @@ public class DataValidation {
                     DataValidation.getMinCharPass() +
                     " characters and contain at least 1 number and 1 uppercase");
         } else if (!DataValidation.emailChecker(email)) {
-            throw new EmailInUseException();
+            throw new EmailInUseException(email);
         } else{
             val = true;
         }

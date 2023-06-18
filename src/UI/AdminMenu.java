@@ -30,37 +30,38 @@ public class AdminMenu {
             System.out.println("4. DELETE ONE FOOD");
             option = scanner.nextInt();
             scanner.nextLine();
+            try {
+                switch (option) {
+                    case 1:
+                        System.out.println(admin.getAllUsers(intermediary));
+                        break;
+                    case 2:
+                        System.out.println(admin.getAllFoods(intermediary));
+                        break;
+                    case 3:
+                        System.out.println("Write the user's email: ");
+                        data = scanner.nextLine();
+                        admin.deleteUser(intermediary, data);
+                        break;
+                    case 4:
+                        System.out.println("Write the food's id: ");
+                        id = scanner.nextInt();
+                        admin.deleteFood(intermediary, id);
+                        admin.deleteUserDiet(intermediary, id);
 
-            switch (option) {
-                case 1:
-                    System.out.println(admin.getAllUsers(intermediary));
-                    break;
-                case 2:
-                    System.out.println(admin.getAllFoods(intermediary));
-                    break;
-                case 3:
-                    System.out.println("Write the user's email: ");
-                    data = scanner.nextLine();
-                    admin.deleteUser(intermediary, data);
-                    break;
-                case 4:
-                    System.out.println("Write the food's id: ");
-                    id = scanner.nextInt();
-                    admin.deleteFood(intermediary, id);
-                    admin.deleteUserDiet(intermediary, id);
-
-                    scanner.nextLine();
-                    break;
-                default:
-                    System.err.println("Option does not exist");
-                    break;
+                        scanner.nextLine();
+                        break;
+                    default:
+                        System.err.println("Option does not exist");
+                        break;
+                }
+            }catch (JSONException ex){
+                System.err.println("Error"+ex.getMessage());
             }
             System.out.println("If you want to continue enter yes");
             persist = scanner.next();
         }while(persist.equalsIgnoreCase("yes"));
     }
-
-
 
     public AdminMenu(AdminUser admin){
         AdminMenu.admin = admin;

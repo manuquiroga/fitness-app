@@ -7,7 +7,4 @@ public class IncorrectPasswordException extends Exception{
         super(s);
     }
 
-    public void closeApp(){
-        System.exit(0);
-    }
 }

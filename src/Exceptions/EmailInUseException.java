@@ -1,9 +1,15 @@
 package Exceptions;
 
 public class EmailInUseException extends Exception{
-    public EmailInUseException() {
-        super("This email is already in use, please use another one");
+    private String email;
+
+    public EmailInUseException(String email) {
+        super("Email "+email+" already in use");
+        this.email = email;
     }
 
-    //While this exception happens, we will recursively ask the user to try another email.
+    public String getEmail() {
+        return email;
+    }
+
 }

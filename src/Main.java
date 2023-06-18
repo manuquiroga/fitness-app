@@ -14,13 +14,6 @@ import java.util.Random;
 
 public class Main {
     public static void main(String[] args) {
-        AdminUser adminUser = new AdminUser();
-        Intermediary intermediary = new Intermediary();
-        ArrayList<User> users= JSONHandler.readUserFile();
-        System.out.println(users);
-
-        for (int i = 0; i<users.size() ; i++){
-            intermediary.addUserToMap(users.get(i));
-        }
+        Home.main(args);
     }
 }
