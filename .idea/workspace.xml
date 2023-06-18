@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2910e345-db14-4f9f-b4c7-3856289f3311" name="Changes" comment="todo: add a loop to admin menu. fix show all foods">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/AdminMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/AdminMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/Home.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/Home.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/Menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user.json" beforeDir="false" afterPath="$PROJECT_DIR$/user.json" afterDir="false" />
-    </list>
+    <list default="true" id="2910e345-db14-4f9f-b4c7-3856289f3311" name="Changes" comment="Refactor User" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -225,7 +219,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687040174238</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Refactor User">
+      <created>1687117365136</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1687117365137</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -261,7 +262,8 @@
     <MESSAGE value="Added &quot;deleteFood&quot;, &quot;refactorFoodIDs&quot; and &quot;listToMap&quot; methods" />
     <MESSAGE value="adminUser created" />
     <MESSAGE value="Added method for checking if an email is already in use" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added method for checking if an email is already in use" />
+    <MESSAGE value="Refactor User" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactor User" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
