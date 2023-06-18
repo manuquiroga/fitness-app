@@ -89,12 +89,12 @@ public class JSONHandler {
     {
         JSONObject jsonObject =food.toJSON();
 
-        FileHandler.saveInFile(jsonObject, "food");
+        FileHandler.saveInFile(jsonObject, "foods");
     }
     public static void rewriteFoodFile(Food food)throws JSONException
     {
         JSONObject jsonObject=food.toJSON();
-        FileHandler.rewriteFile(jsonObject, "food");
+        FileHandler.rewriteFile(jsonObject, "foods");
     }
 
     public static int countItemsInUserJSON() throws FileNotFoundException {
