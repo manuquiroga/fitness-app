@@ -14,28 +14,13 @@ import java.util.ArrayList;
 
 public class JSONHandler {
 
-    private static Food foodConverter (JSONObject aux) throws JSONException{
+    public static Food foodConverter (JSONObject aux) throws JSONException{
 
-        Food food = new Food();
-        food.setName(aux.getString("name"));
-        food.setFoodType(aux.getString("type"));
-        food.setId(aux.getInt("id"));
-        food.setServingSize_g(aux.getInt("servingSize_g"));
-        food.setCalories(aux.getDouble("calories"));
-        food.setProteins_g(aux.getDouble("proteins_g"));
-        food.setCarbohydrates_g(aux.getDouble("carbohydrates_g"));
-        food.setFats_g(aux.getDouble("fats_g"));
-        food.setVegan(aux.getBoolean("isVegan"));
-        food.setCeliac(aux.getBoolean("isCeliac"));
-        food.setVegetarian(aux.getBoolean("isVegetarian"));
-
-        JSONArray jaIngredients = aux.getJSONArray("ingredients");
-        for (int j = 0; j < jaIngredients.length(); j++) {
-            food.addIngredient(jaIngredients.getString(j));
-        }
-
+        Food food=new Food();
+        food.IFromJSON(aux);
         return food;
     }
+
 
     public static ArrayList<Food> readFoodFile() {
         String jsonResponse = FileHandler.read("foods");
@@ -64,7 +49,7 @@ public class JSONHandler {
 
         try {
             JSONObject jsonObjectUser = new JSONObject(jsonResponse);
-            JSONArray jsonArrayUser = jsonObjectUser.getJSONArray("users");
+            JSONArray jsonArrayUser = jsonObjectUser.getJSONArray("basic_users");
             JSONArray jsonArrayPremium = jsonObjectUser.getJSONArray("premium_users");
 
             for (int i = 0; i < jsonArrayUser.length(); i++) {

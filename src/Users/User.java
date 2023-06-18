@@ -1,10 +1,9 @@
 package Users;
 
-import Exceptions.TooFewMealsException;
 import FoodModels.Food;
 import FoodModels.FoodType;
-import Handlers.FileHandler;
 import Handlers.JSONHandler;
+import Interfaces.IFromJSON;
 import Interfaces.IToJSON;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -12,7 +11,7 @@ import org.json.JSONObject;
 
 import java.util.*;
 
-public abstract class User implements IToJSON, Comparable {
+public abstract class User implements IToJSON, Comparable, IFromJSON {
 
     private final int CALORIE_DEFICIT = 350;
     private final int CALORIE_SURPLUS = 500;
@@ -143,6 +142,17 @@ public abstract class User implements IToJSON, Comparable {
         json.put("id", idNew);
         json.put("userData", userData.toJSON());
         return json;
+    }
+
+    @Override
+    public void IFromJSON(JSONObject jo) throws JSONException {
+        setName(jo.getString("name"));
+        setEmail(jo.getString("email"));
+        setPassword(jo.getString("password"));
+        setId(jo.getString("id"));
+        UserData data=new UserData();
+        data.IFromJSON(jo.getJSONObject("userData"));
+        setUserData(data);
     }
 
     public int getCaloriesObjective(){
@@ -299,7 +309,6 @@ public abstract class User implements IToJSON, Comparable {
     private ArrayList<Integer> generateRandomIndexArray(int mealQ, int bound){
         Random random = new Random();
         ArrayList<Integer> generatedNumbers = new ArrayList<>();
-
 
         int count = 0;
         while (count<mealQ){

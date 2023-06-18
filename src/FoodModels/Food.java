@@ -1,17 +1,16 @@
 package FoodModels;
 
-import Interfaces.IToFile;
+import Interfaces.IFromJSON;
 import Interfaces.IToJSON;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
 
-public class Food implements IToJSON, Comparable {
+public class Food implements IToJSON, Comparable, IFromJSON {
     private int id;
     private String name;
     private double calories;
@@ -172,6 +171,27 @@ public class Food implements IToJSON, Comparable {
         }
         json.put("ingredients", ja_ingredients);
         return json;
+    }
+
+    @Override
+    public void IFromJSON(JSONObject jo) throws JSONException
+    {
+        setName(jo.getString("name"));
+        setFoodType(jo.getString("type"));
+        setId(jo.getInt("id"));
+        setServingSize_g(jo.getInt("servingSize_g"));
+        setCalories(jo.getDouble("calories"));
+        setProteins_g(jo.getDouble("proteins_g"));
+        setCarbohydrates_g(jo.getDouble("carbohydrates_g"));
+        setFats_g(jo.getDouble("fats_g"));
+        setVegan(jo.getBoolean("isVegan"));
+        setCeliac(jo.getBoolean("isCeliac"));
+        setVegetarian(jo.getBoolean("isVegetarian"));
+
+        JSONArray jaIngredients = jo.getJSONArray("ingredients");
+        for (int j = 0; j < jaIngredients.length(); j++) {
+            addIngredient(jaIngredients.getString(j));
+        }
     }
 
 

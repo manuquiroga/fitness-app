@@ -39,18 +39,23 @@ public class FileHandler {
             } else {
                 fileData = new JSONObject();
                 fileData.put("premium_users", new JSONArray());
-                fileData.put("users",new JSONArray());
+                fileData.put("basic_users", new JSONArray());
+                fileData.put("admin_users",new JSONArray());
             }
 
             JSONArray jsonArrayPremium = fileData.getJSONArray("premium_users");
-            JSONArray jsonArrayUsers = fileData.getJSONArray("users");
+            JSONArray jsonArrayBasic = fileData.getJSONArray("basic_users");
+            JSONArray jsonArrayAdmin = fileData.getJSONArray("admin_users");
 
             if(jsonObject.has("diets_generated")){
                 jsonArrayPremium.put(jsonObject);
                 fileData.put("premium_users", jsonArrayPremium);
-            }else{
-                jsonArrayUsers.put(jsonObject);
-                fileData.put("users",jsonArrayUsers);
+            }else if (jsonObject.has("position")) {
+                jsonArrayAdmin.put(jsonObject);
+                fileData.put("admin_users", jsonArrayAdmin);
+            } else{
+                jsonArrayBasic.put(jsonObject);
+                fileData.put("basic_users",jsonArrayBasic);
             }
 
             try (FileWriter fileWriter = new FileWriter(fileName)) {

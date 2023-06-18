@@ -1,6 +1,7 @@
 package Users;
 
 import FoodModels.Food;
+import Handlers.JSONHandler;
 import Interfaces.IToJSON;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -71,9 +72,6 @@ public class UserData implements IToJSON {
     public void setWeight(double weight) {
         this.weight = weight;
     }
-
-
-
 
     public void setHeight(int height) {
         this.height = height;
@@ -160,8 +158,19 @@ public class UserData implements IToJSON {
         jsonObject.put("diet", jsonArray);
         return jsonObject;
     }
-
-    public void addFood(Food food) {
-        diet.add(food);
+    public void IFromJSON (JSONObject jo) throws JSONException {
+        setAge(jo.getInt("age"));
+        setHeight(jo.getInt("height"));
+        setWeight(jo.getDouble("weight"));
+        setObjective(jo.getString("objective"));
+        setPhysicalActivity(jo.getString("physicalActivity"));
+        setSex(jo.getString("sex"));
+        JSONArray dietArray=jo.getJSONArray("diet");
+        ArrayList<Food> dietList=new ArrayList<>();
+        for (int i = 0; i < dietArray.length(); i++) {
+            dietList.add(JSONHandler.foodConverter((JSONObject) dietArray.get(i)));
+        }
+        setDiet(dietList);
     }
+
 }

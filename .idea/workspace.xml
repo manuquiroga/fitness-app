@@ -5,10 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2910e345-db14-4f9f-b4c7-3856289f3311" name="Changes" comment="Added method for checking if an email is already in use">
-      <change afterPath="$PROJECT_DIR$/src/Exceptions/FoodNotInMapException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Exceptions/UserNotInMapException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Handlers/Intermediary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Handlers/Intermediary.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Interfaces/IFromJSON.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FoodModels/Food.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FoodModels/Food.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Handlers/FileHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Handlers/FileHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Handlers/JSONHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Handlers/JSONHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Interfaces/IToFile.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Users/AdminUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/AdminUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Users/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Users/UserData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/UserData.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,6 +24,7 @@
       <list>
         <option value="Enum" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -224,7 +229,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687040174238</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Added method for checking if an email is already in use">
+      <created>1687117696350</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1687117696350</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -280,8 +292,8 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/Handlers/JSONHandler.java</url>
-          <line>58</line>
-          <properties class="Handlers.JSONHandler" method="readUserFile">
+          <line>59</line>
+          <properties class="Handlers.JSONHandler">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
@@ -306,6 +318,11 @@
           <url>file://$PROJECT_DIR$/src/UI/Home.java</url>
           <line>42</line>
           <option name="timeStamp" value="37" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Handlers/FileHandler.java</url>
+          <line>52</line>
+          <option name="timeStamp" value="39" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

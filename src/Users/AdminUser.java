@@ -2,15 +2,19 @@ package Users;
 
 import FoodModels.Food;
 import Handlers.Intermediary;
+import Interfaces.IToJSON;
 import org.json.JSONException;
+import org.json.JSONObject;
 
-public class AdminUser extends User{
+public class AdminUser extends User {
 
+    private String positionAtCompany;
     public AdminUser() {
     }
 
-    public AdminUser(String name, String password, String email, UserData userData) {
+    public AdminUser(String name, String password, String email, UserData userData, String positionAtCompany ) {
         super(name, password, email, userData);
+        this.positionAtCompany=positionAtCompany;
     }
 
     //methods: ver todos los usuarios y comidas, eliminar un usuario/comida, buscar usuario/comida
@@ -20,6 +24,14 @@ public class AdminUser extends User{
 
     public String getAllFoods(Intermediary intermediary){
         return intermediary.showFoodMap();
+    }
+
+    public String getPositionAtCompany() {
+        return positionAtCompany;
+    }
+
+    public void setPositionAtCompany(String positionAtCompany) {
+        this.positionAtCompany = positionAtCompany;
     }
 
     public void deleteUser(Intermediary intermediary, User user){
@@ -52,5 +64,21 @@ public class AdminUser extends User{
             System.err.println(e.getMessage());
         }
     }
+    @Override
+    public void IFromJSON(JSONObject jo) throws JSONException
+    {
+        super.IFromJSON(jo);
+        setPositionAtCompany(jo.getString("position"));
+    }
+    @Override
+    public JSONObject toJSON() throws JSONException
+    {
+        JSONObject aux=new JSONObject();
+        aux=super.toJSON();
+        aux.put("position", getPositionAtCompany());
+        return aux;
+    }
+
+
 
 }
