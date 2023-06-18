@@ -6,6 +6,7 @@ import Exceptions.FoodNotInMapException;
 import Exceptions.UserNotInMapException;
 import FoodModels.Food;
 import Interfaces.IToJSON;
+import Users.BasicUser;
 import Users.PremiumUser;
 import Users.User;
 import org.json.JSONArray;
@@ -177,13 +178,16 @@ public class Intermediary {
 
     public void addFoodToFile(Food food) throws JSONException {
         JSONObject joAux;
+        List<Food> foodList=foodMap.toList();
+        food.setId(foodList.size()+1);
         if(!foodMap.containsKey(food.getId()))
         {
-            refactorFoodIDs();
             joAux=foodToJSON();
-            FileHandler.rewriteFile(joAux, "food");
+            FileHandler.saveInFile(joAux, "food");
         }
     }
+
+
 
 
 
