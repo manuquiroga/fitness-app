@@ -12,7 +12,7 @@ import org.json.JSONObject;
 
 import java.util.*;
 
-public class User implements IToJSON, Comparable {
+public abstract class User implements IToJSON, Comparable {
 
     private final int CALORIE_DEFICIT = 350;
     private final int CALORIE_SURPLUS = 500;

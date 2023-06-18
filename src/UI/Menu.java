@@ -107,8 +107,8 @@ public class Menu extends JFrame {
             newDietButton.setBackground(new Color(60,60,60));
         } else{
             newDietButton.setToolTipText("Generate new diet");
-            if(((PremiumUser) user).getNumberOfDietsGenerated() >= 10){
-                newDietButton.setToolTipText("The maximum of diets per week is 10");
+            if(((PremiumUser) user).getNumberOfDietsGenerated() >= PREMIUM_USER_MAX_DIET){
+                newDietButton.setToolTipText("The maximum of diets per week is "+PREMIUM_USER_MAX_DIET);
                 newDietButton.setEnabled(false);
                 newDietButton.setBackground(new Color(60,60,60));
             }

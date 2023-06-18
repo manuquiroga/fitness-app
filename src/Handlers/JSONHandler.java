@@ -1,6 +1,7 @@
 package Handlers;
 
 import FoodModels.Food;
+import Users.BasicUser;
 import Users.PremiumUser;
 import Users.User;
 import Users.UserData;
@@ -68,7 +69,7 @@ public class JSONHandler {
 
             for (int i = 0; i < jsonArrayUser.length(); i++) {
                 JSONObject joFromUsersArray = jsonArrayUser.getJSONObject(i);
-                User user = new User();
+                User user = new BasicUser();
                 user.setId(joFromUsersArray.getString("id"));
                 user.setName(joFromUsersArray.getString("name"));
                 user.setEmail(joFromUsersArray.getString("email"));

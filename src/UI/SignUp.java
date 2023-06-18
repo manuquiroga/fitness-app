@@ -1,10 +1,7 @@
 package UI;
 import Exceptions.*;
 import Handlers.*;
-import Users.Objective;
-import Users.PhysicalActivity;
-import Users.User;
-import Users.UserData;
+import Users.*;
 import org.json.JSONException;
 
 import javax.swing.*;
@@ -156,7 +153,7 @@ public class SignUp extends JFrame implements ActionListener{
                 DataValidation.checkUserDataBounds(age, weight, height);
 
                 UserData userData = new UserData(age, weight, objective, height, sex, physicalActivity);
-                User user = new User(name, password, email, userData);
+                User user = new BasicUser(name, password, email, userData);
                 JSONHandler.userToFile(user);
 
                 //SendEmail.send(email, "Welcome to Nutribros"), SendEmail.welcomeText(name));
