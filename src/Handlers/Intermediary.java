@@ -2,6 +2,8 @@
 package Handlers;
 
 import Collections.GenericMap;
+import Exceptions.FoodNotInMapException;
+import Exceptions.UserNotInMapException;
 import FoodModels.Food;
 import Interfaces.IToJSON;
 import Users.PremiumUser;
@@ -121,19 +123,23 @@ public class Intermediary {
 
     public JSONObject userToJSON() throws JSONException {
         List<User> userList=userMap.toList();
-        JSONArray userArray = new JSONArray();
+        JSONArray basicArray = new JSONArray();
         JSONArray premiumArray = new JSONArray();
+        JSONArray adminArray = new JSONArray();
         JSONObject jsonObject = new JSONObject();
         for (int i = 0; i < userList.size(); i++) {
             if (userList.get(i) instanceof PremiumUser){
                 PremiumUser aux = (PremiumUser) userList.get(i);
                 premiumArray.put(aux.toJSON());
-            }else {
-                userArray.put(userList.get(i).toJSON());
+            }else if(userList.get(i) instanceof BasicUser){
+                basicArray.put(userList.get(i).toJSON());
+            }else{
+                adminArray.put(userList.get(i).toJSON());
             }
         }
         jsonObject.put("premium_users",premiumArray);
-        jsonObject.put("users",userArray);
+        jsonObject.put("basic_users",basicArray);
+        jsonObject.put("admin_users",adminArray);
         return jsonObject;
     }
     public JSONObject foodToJSON() throws JSONException {
@@ -146,6 +152,39 @@ public class Intermediary {
         jo.put("foods", foodArray);
         return jo;
     }
+
+    public Food searchFood (int foodID) throws FoodNotInMapException {
+        Food foodFound;
+        if(foodMap.containsKey(foodID))
+        {
+            foodFound=foodMap.searchByKey(foodID);
+        }else {
+            throw new FoodNotInMapException();
+        }
+        return foodFound;
+    }
+
+    public User searchUser (String email) throws UserNotInMapException {
+        User userFound;
+        if(userMap.containsKey(email))
+        {
+            userFound=userMap.searchByKey(email);
+        }else{
+            throw new UserNotInMapException();
+        }
+        return userFound;
+    }
+
+    public void addFoodToFile(Food food) throws JSONException {
+        JSONObject joAux;
+        if(!foodMap.containsKey(food.getId()))
+        {
+            refactorFoodIDs();
+            joAux=foodToJSON();
+            FileHandler.rewriteFile(joAux, "food");
+        }
+    }
+
 
 
 }
