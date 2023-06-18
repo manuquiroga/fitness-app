@@ -4,15 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2910e345-db14-4f9f-b4c7-3856289f3311" name="Changes" comment="Added method for checking if an email is already in use">
-      <change afterPath="$PROJECT_DIR$/src/Interfaces/IFromJSON.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FoodModels/Food.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FoodModels/Food.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Handlers/FileHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Handlers/FileHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Handlers/JSONHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Handlers/JSONHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Interfaces/IToFile.java" beforeDir="false" />
+    <list default="true" id="2910e345-db14-4f9f-b4c7-3856289f3311" name="Changes" comment="Refactor User">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Exceptions/IncompleteDietException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Handlers/Intermediary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Handlers/Intermediary.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UI/AdminMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/AdminMenu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Users/AdminUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/AdminUser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Users/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Users/UserData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/UserData.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,7 +22,6 @@
       <list>
         <option value="Enum" />
         <option value="Class" />
-        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -45,7 +42,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/quiro/Documents/GitHub/tp-lab3&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
   }
@@ -229,12 +226,12 @@
       <option name="project" value="LOCAL" />
       <updated>1687040174238</updated>
     </task>
-    <task id="LOCAL-00024" summary="Added method for checking if an email is already in use">
-      <created>1687117696350</created>
+    <task id="LOCAL-00024" summary="Refactor User">
+      <created>1687117365136</created>
       <option name="number" value="00024" />
       <option name="presentableId" value="LOCAL-00024" />
       <option name="project" value="LOCAL" />
-      <updated>1687117696350</updated>
+      <updated>1687117365137</updated>
     </task>
     <option name="localTasksCounter" value="25" />
     <servers />
@@ -272,7 +269,8 @@
     <MESSAGE value="Added &quot;deleteFood&quot;, &quot;refactorFoodIDs&quot; and &quot;listToMap&quot; methods" />
     <MESSAGE value="adminUser created" />
     <MESSAGE value="Added method for checking if an email is already in use" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added method for checking if an email is already in use" />
+    <MESSAGE value="Refactor User" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactor User" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -291,38 +289,18 @@
           <option name="timeStamp" value="32" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/Handlers/JSONHandler.java</url>
-          <line>59</line>
-          <properties class="Handlers.JSONHandler">
+          <url>file://$PROJECT_DIR$/src/Handlers/Intermediary.java</url>
+          <line>62</line>
+          <properties class="Handlers.Intermediary" method="deleteUser">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
-          <option name="timeStamp" value="38" />
+          <option name="timeStamp" value="40" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/UI/Payment.java</url>
-          <line>63</line>
-          <option name="timeStamp" value="33" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/UI/Payment.java</url>
+          <url>file://$PROJECT_DIR$/src/Handlers/Intermediary.java</url>
           <line>66</line>
-          <option name="timeStamp" value="34" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/UI/Home.java</url>
-          <line>39</line>
-          <option name="timeStamp" value="36" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/UI/Home.java</url>
-          <line>42</line>
-          <option name="timeStamp" value="37" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Handlers/FileHandler.java</url>
-          <line>52</line>
-          <option name="timeStamp" value="39" />
+          <option name="timeStamp" value="41" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -1,11 +1,14 @@
 package UI;
 
+import FoodModels.Food;
 import Handlers.DataValidation;
 import Handlers.Intermediary;
 import Users.AdminUser;
 import Users.User;
+import org.json.JSONException;
 
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class AdminMenu {
@@ -44,6 +47,8 @@ public class AdminMenu {
                     System.out.println("Write the food's id: ");
                     id = scanner.nextInt();
                     admin.deleteFood(intermediary, id);
+                    admin.deleteUserDiet(intermediary, id);
+
                     scanner.nextLine();
                     break;
                 default:
@@ -54,6 +59,8 @@ public class AdminMenu {
             persist = scanner.next();
         }while(persist.equalsIgnoreCase("yes"));
     }
+
+
 
     public AdminMenu(AdminUser admin){
         AdminMenu.admin = admin;

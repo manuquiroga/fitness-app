@@ -91,6 +91,14 @@ public class Intermediary {
         }
     }
 
+    public List<User> usersToList(){
+        return userMap.toList();
+    }
+
+    public List<Food> foodToList(){
+        return foodMap.toList();
+    }
+
     public void deleteFood(int id) throws JSONException {
         JSONObject joAux;
         if(foodMap.containsKey(id));

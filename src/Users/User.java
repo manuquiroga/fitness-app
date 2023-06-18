@@ -178,13 +178,12 @@ public abstract class User implements IToJSON, Comparable, IFromJSON {
         int caloriesObjective = getCaloriesObjective();
         int actualCalories;
         boolean dif;
-        
+
         switch (type.toLowerCase()){
             case "classic" -> allFoods = JSONHandler.readFoodFile();
             case "vegan" -> allFoods = getVeganFoods();
             case "vegetarian" -> allFoods = getVegetarianFoods();
             case "celiac" -> allFoods = getCeliacFoods();
-            //TODO default -> throw new WrongFoodTypeException();
             //TODO: celiac-vegetarian and celiac-vegan diets
         }
 

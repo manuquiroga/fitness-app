@@ -6,6 +6,8 @@ import Interfaces.IToJSON;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+
 public class AdminUser extends User {
 
     private String positionAtCompany;
@@ -64,6 +66,26 @@ public class AdminUser extends User {
             System.err.println(e.getMessage());
         }
     }
+    public void deleteUserDiet(Intermediary intermediary, int id){
+        ArrayList<User> users= (ArrayList<User>) intermediary.usersToList();
+
+        for (User user:users) {
+            ArrayList<Food> userDiet = user.getUserData().getDiet();
+
+            for(Food food:userDiet){
+                if(food.getId() == id){
+                    user.resetDiet();
+
+                    try {
+                        intermediary.updateUser(user.getEmail(), user);
+                    } catch (JSONException e) {
+                        System.err.println(e.getMessage());
+                    }
+                }
+            }
+        }
+    }
+
     @Override
     public void IFromJSON(JSONObject jo) throws JSONException
     {
