@@ -51,14 +51,14 @@ public class Home extends JFrame implements ActionListener {
         }
 
         //System.out.println(intermediary.showMapUsers());
-        AdminUser adminUser = new AdminUser();
-        AdminMenu adminMenu = new AdminMenu(adminUser);
-        adminMenu.runAdminMenu(intermediary);
-        //Home home = new Home(intermediary);
+        //AdminUser adminUser = new AdminUser();
+        //AdminMenu adminMenu = new AdminMenu(adminUser);
+        //adminMenu.runAdminMenu(intermediary);
+        Home home = new Home(intermediary);
     }
 
     public Home(Intermediary intermediary) {
-        JFrame frame=new JFrame("Nutribros Login");
+        JFrame frame=new JFrame("Nutribros");
         ImageIcon logo = new ImageIcon(LOGO_ICON_PATH);
         frame.getContentPane().setBackground(new Color(40, 40, 40));
 
@@ -95,7 +95,7 @@ public class Home extends JFrame implements ActionListener {
         frame.setResizable(false);
         frame.setSize(420,420);
         frame.setLayout(null);
-        frame.setVisible(true);//making the frame visible
+        frame.setVisible(true);
     }
     @Override
     public void actionPerformed(ActionEvent e) {

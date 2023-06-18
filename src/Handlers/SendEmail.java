@@ -1,5 +1,7 @@
 package Handlers;
 
+import Users.User;
+
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
@@ -55,7 +57,7 @@ public class SendEmail {
         return name + ", thank you for joining the Nutribros platform, any questions you may have can be reported to this email";
     }
 
-    public static String getSubject(){
-        return "Welcome to Nutribros";
+    public static String forgotPasswordText(User user){
+        return "Hello, "+ user.getName() +" your password is: "+ user.getPassword();
     }
 }

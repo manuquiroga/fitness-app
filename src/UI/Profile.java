@@ -1,9 +1,6 @@
 package UI;
 
-import Exceptions.EmailInUseException;
-import Exceptions.IncorrectEmailFormatException;
-import Exceptions.NameTooShortException;
-import Exceptions.WeakPasswordException;
+import Exceptions.*;
 import Handlers.DataValidation;
 import Handlers.Intermediary;
 import Users.PremiumUser;
@@ -26,11 +23,9 @@ public class Profile extends JFrame{
     private User user;
 
     public Profile(User u, Intermediary intermediary) throws HeadlessException {
-        System.out.println(intermediary.showMapUsers());
-
 
         this.user = u;
-        setTitle("User Profile");
+        setTitle(user.getName() + " Profile");
         setBounds(0, 0, 400, 520);
         getContentPane().setBackground(new Color(40, 40, 40));
         ImageIcon logo = new ImageIcon("src/UI/Resources/weightlifter.png"); setIconImage(logo.getImage());
@@ -232,9 +227,12 @@ public class Profile extends JFrame{
             aux.setPassword(password);
 
             DataValidation.checkDataDigit(weightField, heightField, ageField);
+
             double weight = Double.parseDouble(weightField.getText());
             int height = Integer.parseInt(heightField.getText());
             int age = Integer.parseInt(ageField.getText());
+
+            DataValidation.checkUserDataBounds(age, weight, height);
 
             aux.getUserData().setAge(age);
             aux.getUserData().setWeight(weight);
@@ -248,8 +246,10 @@ public class Profile extends JFrame{
             JOptionPane.showMessageDialog(null,ex.getMessage());
         } catch (NumberFormatException ex){
             JOptionPane.showMessageDialog(null,ex.getMessage());
-        } catch (EmailInUseException e) {
-            throw new RuntimeException(e);
+        } catch (EmailInUseException ex) {
+            JOptionPane.showMessageDialog(null,ex.getMessage());
+        } catch (DataOutOfBoundsException ex) {
+            JOptionPane.showMessageDialog(null,ex.getMessage());
         }
         return aux;
     }

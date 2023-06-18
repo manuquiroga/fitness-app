@@ -26,12 +26,12 @@ public class SignUp extends JFrame implements ActionListener{
     private static final String LOGO_ICON_PATH = "src/UI/Resources/weightlifter.png";
     private static final String NAME_LIMITS_INFO = "The name must have between 6 and 20 characters";
     private static final String PASSWORD_LIMITS_INFO = "The password must have at least 8 characters, a number and a capital letter";
-    private static final String ACTIVITY_INFO = "You should put physical activity aside.\n Select NONE if you work from home or if you are a student.\n MODERATE is for example a job where you have to walk.\n ACTIVE is for example an active job like a cyclist postman";
+    private static final String ACTIVITY_INFO = "You should put physical activity aside, select an option according to your work.";
     private static final Color WALTERWHITE = Color.WHITE;
 
     public SignUp(Intermediary intermediary) {
 
-        JFrame frame=new JFrame("Nutribros");//creating instance of JFrame
+        JFrame frame=new JFrame("Nutribros Sign Up");//creating instance of JFrame
         frame.getContentPane().setBackground(new Color(40, 40, 40));
         ImageIcon logo = new ImageIcon(LOGO_ICON_PATH); frame.setIconImage(logo.getImage());
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -132,8 +132,6 @@ public class SignUp extends JFrame implements ActionListener{
         GenderLabel.setBounds(35, 440, 80, 30);
         GenderCombo.setBounds(115, 440, 250, 30);
         frame.add(GenderLabel); frame.add(GenderCombo);
-        //TODO: (ponele) link to gender choice
-
 
         JButton signButton=new JButton("Submit");//creating instance of JButton
         signButton.setBounds(135,510,150, 40);//x axis, y axis, width, height
@@ -161,7 +159,7 @@ public class SignUp extends JFrame implements ActionListener{
                 User user = new User(name, password, email, userData);
                 JSONHandler.userToFile(user);
 
-                //SendEmail.send(email, SendEmail.getSubject(), SendEmail.welcomeText(name));
+                //SendEmail.send(email, "Welcome to Nutribros"), SendEmail.welcomeText(name));
 
                 frame.dispose();
                 intermediary.addUserToMap(user);

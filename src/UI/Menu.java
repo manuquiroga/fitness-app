@@ -37,7 +37,6 @@ public class Menu extends JFrame {
     private JPanel DietCreatedPanel;
 
     public Menu(User user, Intermediary intermediary){
-        System.out.println(intermediary.showMapUsers());
 
         DietCreatedPanel = new JPanel();
 
