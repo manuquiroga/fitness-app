@@ -8,6 +8,7 @@ import FoodModels.Food;
 import Handlers.DataValidation;
 import Handlers.Intermediary;
 import UI.Renderers.FontRenderer;
+import Users.AdminUser;
 import Users.PremiumUser;
 import Users.User;
 import Users.UserData;
@@ -104,8 +105,7 @@ public class Menu extends JFrame {
             newDietButton.setToolTipText("Generate new diet is only allowed for premium users");
             newDietButton.setEnabled(false);
             newDietButton.setBackground(new Color(60,60,60));
-        }
-        else{
+        } else{
             newDietButton.setToolTipText("Generate new diet");
             if(((PremiumUser) user).getNumberOfDietsGenerated() >= 10){
                 newDietButton.setToolTipText("The maximum of diets per week is 10");

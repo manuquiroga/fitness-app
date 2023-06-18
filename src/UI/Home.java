@@ -51,10 +51,10 @@ public class Home extends JFrame implements ActionListener {
         }
 
         //System.out.println(intermediary.showMapUsers());
-        //AdminUser adminUser = new AdminUser();
-        //AdminMenu adminMenu = new AdminMenu(adminUser);
-        //adminMenu.runAdminMenu(intermediary);
-        Home home = new Home(intermediary);
+        AdminUser adminUser = new AdminUser();
+        AdminMenu adminMenu = new AdminMenu(adminUser);
+        adminMenu.runAdminMenu(intermediary);
+        //Home home = new Home(intermediary);
     }
 
     public Home(Intermediary intermediary) {
