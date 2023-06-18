@@ -42,7 +42,7 @@ public class AdminMenu {
                     admin.deleteFood(intermediary, id);
                     break;
                 default:
-                    System.err.println("Option does not exist. Closing admin menu");
+                    System.err.println("Option does not exist");
                     break;
             }
             scanner.nextLine();

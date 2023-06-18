@@ -7,6 +7,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 
 public class Food implements IToJSON, Comparable {
@@ -18,7 +20,7 @@ public class Food implements IToJSON, Comparable {
     private double carbohydrates_g;
     private double servingSize_g;
     private FoodType foodType;
-    private ArrayList<String> ingredients; //TODO: make set
+    private Set<String> ingredients; //TODO: make set
     private boolean isVegan;
     private boolean isCeliac;
     private boolean isVegetarian;
@@ -37,19 +39,17 @@ public class Food implements IToJSON, Comparable {
         this.isVegan = isVegan;
         this.isCeliac = isCeliac;
         this.isVegetarian = isVegetarian;
-        this.ingredients = new ArrayList<>();
+        this.ingredients = new HashSet<>();
     }
 
     public Food() {
-        this.ingredients = new ArrayList<>();
+        this.ingredients = new HashSet<>();
     }
 
     //Getters:
 
     public void addIngredient(String ingredient){
-        if(ingredient != null){
-            ingredients.add(ingredient);
-        }
+        ingredients.add(ingredient);
     }
     public double getproteins_g() {
         return proteins_g;
@@ -94,7 +94,7 @@ public class Food implements IToJSON, Comparable {
         return foodType;
     }
 
-    public ArrayList<String> getIngredients(){
+    public Set<String> getIngredients(){
         return ingredients;
     }
 
