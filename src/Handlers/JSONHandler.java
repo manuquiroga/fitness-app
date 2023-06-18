@@ -1,10 +1,7 @@
 package Handlers;
 
 import FoodModels.Food;
-import Users.BasicUser;
-import Users.PremiumUser;
-import Users.User;
-import Users.UserData;
+import Users.*;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -49,61 +46,26 @@ public class JSONHandler {
 
         try {
             JSONObject jsonObjectUser = new JSONObject(jsonResponse);
-            JSONArray jsonArrayUser = jsonObjectUser.getJSONArray("basic_users");
+            JSONArray jsonArrayAdmins = jsonObjectUser.getJSONArray("admin_users");
+            JSONArray jsonArrayBasicUsers = jsonObjectUser.getJSONArray("basic_users");
             JSONArray jsonArrayPremium = jsonObjectUser.getJSONArray("premium_users");
 
-            for (int i = 0; i < jsonArrayUser.length(); i++) {
-                JSONObject joFromUsersArray = jsonArrayUser.getJSONObject(i);
-                User user = new BasicUser();
-                user.setId(joFromUsersArray.getString("id"));
-                user.setName(joFromUsersArray.getString("name"));
-                user.setEmail(joFromUsersArray.getString("email"));
-                user.setPassword(joFromUsersArray.getString("password"));
-                UserData userData = new UserData();
-                JSONObject joUserData = joFromUsersArray.getJSONObject("userData");
-                userData.setAge(joUserData.getInt("age"));
-                userData.setSex(joUserData.getString("sex"));
-                userData.setHeight(joUserData.getInt("height"));
-                userData.setWeight(joUserData.getInt("weight"));
-                userData.setObjective(joUserData.getString("objective"));
-                userData.setPhysicalActivity(joUserData.getString("physicalActivity"));
-                ArrayList<Food> dietList = new ArrayList<>();
-                JSONArray jaDietArray = joUserData.getJSONArray("diet");
-                for (int j = 0; j < jaDietArray.length(); j++) {
-                    JSONObject joFood = jaDietArray.getJSONObject(j);
-                    dietList.add(foodConverter(joFood));
-                }
-                userData.setDiet(dietList);
-                user.setUserData(userData);
-                userList.add(user);
+            for (int i = 0; i < jsonArrayAdmins.length(); i++) {
+                AdminUser adminUser = new AdminUser();
+                adminUser.IFromJSON(jsonArrayAdmins.getJSONObject(i));
+                userList.add(adminUser);
             }
 
             for (int i = 0; i < jsonArrayPremium.length(); i++) {
-                JSONObject joFromUsersArray = jsonArrayPremium.getJSONObject(i);
-                PremiumUser user = new PremiumUser();
-                user.setId(joFromUsersArray.getString("id"));
-                user.setName(joFromUsersArray.getString("name"));
-                user.setEmail(joFromUsersArray.getString("email"));
-                user.setPassword(joFromUsersArray.getString("password"));
-                user.setNumberOfDietsGenerated(joFromUsersArray.getInt("diets_generated"));
-                UserData userData = new UserData();
-                JSONObject joUserData = joFromUsersArray.getJSONObject("userData");
-                userData.setAge(joUserData.getInt("age"));
-                userData.setSex(joUserData.getString("sex"));
-                userData.setHeight(joUserData.getInt("height"));
-                userData.setWeight(joUserData.getInt("weight"));
-                userData.setObjective(joUserData.getString("objective"));
-                userData.setPhysicalActivity(joUserData.getString("physicalActivity"));
-                ArrayList<Food> dietList = new ArrayList<>();
-                JSONArray jaDietArray = joUserData.getJSONArray("diet");
-                for (int j = 0; j < jaDietArray.length(); j++) {
-                    JSONObject joFood = jaDietArray.getJSONObject(j);
-                    dietList.add(foodConverter(joFood));
-                }
+                PremiumUser premiumUser = new PremiumUser();
+                premiumUser.IFromJSON(jsonArrayPremium.getJSONObject(i));
+                userList.add(premiumUser);
+            }
 
-                userData.setDiet(dietList);
-                user.setUserData(userData);
-                userList.add(user);
+            for (int i = 0; i < jsonArrayBasicUsers.length(); i++) {
+                BasicUser basicUser = new BasicUser();
+                basicUser.IFromJSON(jsonArrayBasicUsers.getJSONObject(i));
+                userList.add(basicUser);
             }
 
         } catch (JSONException e) {
