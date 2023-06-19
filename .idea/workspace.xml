@@ -6,30 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="2910e345-db14-4f9f-b4c7-3856289f3311" name="Changes" comment="error handling recipe api">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Collections/GenericMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Collections/GenericMap.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Exceptions/DataOutOfBoundsException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Exceptions/DataOutOfBoundsException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Exceptions/EmailInUseException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Exceptions/EmailInUseException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Exceptions/FoodNotInMapException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Exceptions/FoodNotInMapException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Exceptions/IncorrectCardNumberException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Exceptions/IncorrectCardNumberException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Exceptions/IncorrectEmailFormatException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Exceptions/IncorrectEmailFormatException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Exceptions/IncorrectPasswordException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Exceptions/IncorrectPasswordException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Exceptions/NameTooShortException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Exceptions/NameTooShortException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Exceptions/UserNotInMapException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Exceptions/UserNotInMapException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Exceptions/WeakPasswordException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Exceptions/WeakPasswordException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FoodModels/Food.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FoodModels/Food.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FoodModels/FoodType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FoodModels/FoodType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Handlers/DataValidation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Handlers/DataValidation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Handlers/EmailHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Handlers/EmailHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Handlers/FileHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Handlers/FileHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Handlers/Intermediary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Handlers/Intermediary.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Handlers/JSONHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Handlers/JSONHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Interfaces/IFromJSON.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interfaces/IFromJSON.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Interfaces/IToJSON.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interfaces/IToJSON.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Handlers/RecipeApiHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Handlers/RecipeApiHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UI/Renderers/FontRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/Renderers/FontRenderer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Users/AdminUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/AdminUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Users/BasicUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/BasicUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Users/PremiumUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/PremiumUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Users/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Users/UserData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/UserData.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

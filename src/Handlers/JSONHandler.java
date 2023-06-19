@@ -98,17 +98,5 @@ public class JSONHandler {
         FileHandler.saveInFile(jsonObject, "user");
     }
 
-    /**
-     * Transforms a food object into a JSON object and saves it in a file.
-     * @param food a food object that we want to save in a file.
-     * @throws JSONException if the value is non-finite number or if the key is null.
-     */
-    public static void foodToFile(Food food)throws JSONException
-    {
-        JSONObject jsonObject =food.toJSON();
-
-        FileHandler.saveInFile(jsonObject, "foods");
-    }
-
 }
 

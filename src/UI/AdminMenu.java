@@ -6,6 +6,7 @@ import FoodModels.Food;
 import FoodModels.FoodType;
 import Handlers.DataValidation;
 import Handlers.Intermediary;
+import Handlers.JSONHandler;
 import Users.AdminUser;
 import Users.User;
 import org.json.JSONException;
@@ -91,13 +92,15 @@ public class AdminMenu {
                         aux.setServingSize_g(scanner.nextDouble());
                         scanner.nextLine();
 
-                        System.out.print("Food Type: (BREAKFAST, MEAL, SNACK)");
+                        System.out.print("Food type: (BREAKFAST, MEAL, SNACK): ");
                         aux.setFoodType(scanner.next());
 
-                        System.out.println("Enter the ingredients (one per line, empty line to finish):");
-                        String ingredient;
-                        while (!(ingredient = scanner.nextLine()).isEmpty()) {
+                        System.out.println("Enter the ingredients (type 'done' to finish):");
+
+                        String ingredient = scanner.nextLine();
+                        while (!ingredient.equalsIgnoreCase("done")) {
                             aux.addIngredient(ingredient);
+                            ingredient = scanner.nextLine();
                         }
 
                         System.out.print("Is it vegan? (true/false): ");

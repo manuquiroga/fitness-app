@@ -271,7 +271,7 @@ public class Intermediary {
         if(!foodMap.containsKey(food.getId()))
         {
             joAux=foodToJSON();
-            FileHandler.saveInFile(joAux, "food");
+            FileHandler.rewriteFile(joAux,"foods");
         }
     }
 }
