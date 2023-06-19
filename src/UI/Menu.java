@@ -22,7 +22,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.IOException;
 import java.io.Serial;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 
 public class Menu extends JFrame {
@@ -264,7 +266,15 @@ public class Menu extends JFrame {
             AlreadyEaten.addActionListener(e -> {
                 String response = RecipeApiHandler.searchRecipe(foodName);
                 String recipeURL = RecipeApiHandler.getRecipeUrl(response);
-                RecipeApiHandler.openBrowser(recipeURL);
+                try {
+                    RecipeApiHandler.openBrowser(recipeURL);
+                } catch (URISyntaxException ex) {
+                    System.err.println("URL Syntax error"+ex.getMessage());
+                    JOptionPane.showMessageDialog(null, "Sorry, there was an error while opening the recipe");
+                } catch (IOException ex) {
+                    System.err.println("Open browser error: "+ex.getMessage());
+                    JOptionPane.showMessageDialog(null, "Sorry, there was an error while opening the recipe");
+                }
             });
 
             ShowFoodInfo.setBounds(470, buttonY, 60, 60);

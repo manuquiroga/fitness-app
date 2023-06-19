@@ -9,6 +9,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
+/** This class stores user data that is not relevant for registration */
 public class UserData implements IToJSON {
     private int age;
     private double weight;
@@ -123,8 +124,12 @@ public class UserData implements IToJSON {
 
     //Methods:
 
+    /**
+     * Calculates the Basal Metabolic Rate (BMR) of the user using their UserData and the Harris-Benedict equation.
+     * @return an integer representing the BMR.
+     */
     public int calculateBMR(){
-        //Harris-Bennedict Equation
+        //Harris-Benedict Equation
         int bmr = 0;
         if(sex.equalsIgnoreCase("MALE")){
             bmr = 88 + (int) (13.4 * weight) + (int) (4.8 * height) + (int) (5.7 * age);

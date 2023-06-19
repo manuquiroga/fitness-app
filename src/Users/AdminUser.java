@@ -2,13 +2,15 @@ package Users;
 
 import FoodModels.Food;
 import Handlers.Intermediary;
-import Interfaces.IToJSON;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * This is the class that belongs to the administrator users. It includes the administrator methods.
+ */
 public class AdminUser extends User {
 
     private String positionAtCompany;
@@ -20,7 +22,6 @@ public class AdminUser extends User {
         this.positionAtCompany=positionAtCompany;
     }
 
-    //methods: ver todos los usuarios y comidas, eliminar un usuario/comida, buscar usuario/comida
     public String getAllUsers(Intermediary intermediary){
         return intermediary.showMapUsers();
     }

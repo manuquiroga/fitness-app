@@ -11,6 +11,10 @@ import org.json.JSONObject;
 
 import java.util.*;
 
+/**
+ * This abstract class is the main class for users, where their important registration data and UserData are stored
+ * @see UserData;
+ */
 public abstract class User implements IToJSON, Comparable, IFromJSON {
 
     private final int CALORIE_DEFICIT = 350;
@@ -155,6 +159,11 @@ public abstract class User implements IToJSON, Comparable, IFromJSON {
         setUserData(data);
     }
 
+    /**
+     * calculates the calories that the user should consume based on their BMR + objective.
+     * The calories to consume according to the objective are constant values declared in this class
+     * @return an integer representing the calories to consume
+     */
     public int getCaloriesObjective(){
         int bmr = userData.calculateBMR();
         int caloriesObjective = 0;
@@ -168,7 +177,17 @@ public abstract class User implements IToJSON, Comparable, IFromJSON {
     }
 
     //ask for a string depending on whether you are celiac, vegan or vegetarian. the words will be limited to the user (classic, vegan, vegetarian, celiac), we also limit the meal quantity number
-    
+
+    /**
+     * This is the main method of the application, its function is to generate a diet for the user based on their goals and the required calories to achieve them.
+     * To achieve this, all the meals are read from the food file. They are then separated based on their type (Breakfast, Meal, or Snack).
+     * The 'type' parameter is analyzed, and based on this, the meals are separated into lists according to whether they are vegetarian, vegan, gluten-free, or classic (Classic includes all meals).
+     * From this, an array with random indices is generated, with the limits ranging from 0 to the number of meals in the list.
+     * Once this is done, the meals will be stored in the user's diet, with a minimum of one breakfast, two main meals (lunch and dinner), and the remainder as snacks.
+     * The diet will be regenerated if the total calories in the diet exceed the user's calorie goal by 80.
+     * @param mealsQuantity an integer representing the quantity of meals requested by the user.
+     * @param type a string indicating the type of diet (classic, celiac, vegan, vegetarian).
+     */
     public void generateDiet(int mealsQuantity, String type){
         ArrayList<Food> allFoods = new ArrayList<>();
         ArrayList<Food> foodArrayList;

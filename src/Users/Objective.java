@@ -1,7 +1,10 @@
 package Users;
 
+/**
+ * This class specifies the types of objectives that exist and their minimum and maximum number of meals per day per diet.
+ * it is open to new options like GAIN_WEIGHT_FAST
+ */
 public enum Objective {
-    //open to new options like LOSE_WEIGHT_FAST
     LOSE_WEIGHT(3,5)
     ,MAINTAIN_WEIGHT(4,5)
     ,GAIN_WEIGHT(4,7);
