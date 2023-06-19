@@ -1,6 +1,9 @@
 package UI;
 
+import Exceptions.FoodNotInMapException;
+import Exceptions.UserNotInMapException;
 import FoodModels.Food;
+import FoodModels.FoodType;
 import Handlers.DataValidation;
 import Handlers.Intermediary;
 import Users.AdminUser;
@@ -9,7 +12,9 @@ import org.json.JSONException;
 
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Scanner;
+import java.util.Set;
 
 public class AdminMenu {
     private static AdminUser admin;
@@ -28,8 +33,12 @@ public class AdminMenu {
             System.out.println("2. DISPLAY ALL FOODS");
             System.out.println("3. DELETE ONE USER");
             System.out.println("4. DELETE ONE FOOD");
+            System.out.println("5. SEARCH ONE FOOD");
+            System.out.println("6. SEARCH ONE USER");
+            System.out.println("7. ADD ONE FOOD");
             option = scanner.nextInt();
             scanner.nextLine();
+
             try {
                 switch (option) {
                     case 1:
@@ -40,7 +49,7 @@ public class AdminMenu {
                         break;
                     case 3:
                         System.out.println("Write the user's email: ");
-                        data = scanner.nextLine();
+                        data = scanner.next();
                         admin.deleteUser(intermediary, data);
                         break;
                     case 4:
@@ -48,15 +57,70 @@ public class AdminMenu {
                         id = scanner.nextInt();
                         admin.deleteFood(intermediary, id);
                         admin.deleteUserDiet(intermediary, id);
+                        break;
+                    case 5:
+                        System.out.println("Search food by id");
+                        id = scanner.nextInt();
+                        Food food = intermediary.searchFood(id);
+                        System.out.println(food.toString());
+                        break;
+                    case 6:
+                        System.out.println("Search user by email");
+                        data = scanner.next();
+                        User user = intermediary.searchUser(data);
+                        System.out.println(user.toString());
+                        break;
+                    case 7:
+                        Food aux = new Food();
+                        System.out.print("Name: ");
+                        aux.setName(scanner.nextLine());
 
+                        System.out.print("Calories: ");
+                        aux.setCalories(scanner.nextInt());
+
+                        System.out.print("Proteins (in grams): ");
+                        aux.setProteins_g(scanner.nextDouble());
+
+                        System.out.print("Fats (in grams): ");
+                        aux.setFats_g(scanner.nextDouble());
+
+                        System.out.print("Carbohydrates (in grams): ");
+                        aux.setCarbohydrates_g(scanner.nextDouble());
+
+                        System.out.print("Serving Size (in grams): ");
+                        aux.setServingSize_g(scanner.nextDouble());
                         scanner.nextLine();
+
+                        System.out.print("Food Type: (BREAKFAST, MEAL, SNACK)");
+                        aux.setFoodType(scanner.next());
+
+                        System.out.println("Enter the ingredients (one per line, empty line to finish):");
+                        String ingredient;
+                        while (!(ingredient = scanner.nextLine()).isEmpty()) {
+                            aux.addIngredient(ingredient);
+                        }
+
+                        System.out.print("Is it vegan? (true/false): ");
+                        aux.setVegan(scanner.nextBoolean());
+
+                        System.out.print("Is it celiac friendly? (true/false): ");
+                        aux.setCeliac(scanner.nextBoolean());
+
+                        System.out.print("Is it vegetarian? (true/false): ");
+                        aux.setVegetarian(scanner.nextBoolean());
+
+                        intermediary.addFoodToFile(aux);
                         break;
                     default:
                         System.err.println("Option does not exist");
                         break;
                 }
             }catch (JSONException ex){
-                System.err.println("Error"+ex.getMessage());
+                System.err.println("Error "+ex.getMessage());
+            }catch (FoodNotInMapException ex){
+                System.err.println("Error "+ex.getMessage());
+            }catch (UserNotInMapException ex){
+                System.err.println("Error: "+ex.getMessage());
             }
             System.out.println("If you want to continue enter yes");
             persist = scanner.next();
