@@ -66,12 +66,12 @@ public class DataValidation {
         return matcher.find();
     }
 
-    public static boolean emailChecker(String email)
+    private static boolean existsEmail(String email)
     {
         boolean val=false;
         ArrayList<User> userList = JSONHandler.readUserFile();
         for (User user: userList) {
-            if(!email.equals(user.getEmail()))
+            if(email.equalsIgnoreCase(user.getEmail()))
             {
                 val=true;
                 break;
@@ -145,7 +145,7 @@ public class DataValidation {
             throw new WeakPasswordException("Password needs to have minimum "+
                     DataValidation.getMinCharPass() +
                     " characters and contain at least 1 number and 1 uppercase");
-        } else if (!DataValidation.emailChecker(email)) {
+        } else if (DataValidation.existsEmail(email)) {
             throw new EmailInUseException(email);
         } else{
             val = true;

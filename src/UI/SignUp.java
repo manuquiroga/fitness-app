@@ -136,7 +136,7 @@ public class SignUp extends JFrame implements ActionListener{
         signButton.addActionListener(e -> {
 
             String name = NameField.getText();
-            String email = (EmailField.getText());
+            String email = (EmailField.getText()).toLowerCase();
             String password = (PasswordField.getText());
             String sex = (String) GenderCombo.getSelectedItem();
             String physicalActivity = (String) ActivityCombo.getSelectedItem();
