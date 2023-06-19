@@ -252,7 +252,7 @@ public class Intermediary {
         {
             addFoodToMap(food);
             joAux=foodToJSON();
-            FileHandler.saveInFile(joAux, "food");
+            FileHandler.rewriteFile(joAux,"foods");
         }
     }
 }
