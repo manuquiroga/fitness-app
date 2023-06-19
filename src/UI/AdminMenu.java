@@ -37,8 +37,15 @@ public class AdminMenu {
             System.out.println("5. SEARCH ONE FOOD");
             System.out.println("6. SEARCH ONE USER");
             System.out.println("7. ADD ONE FOOD");
-            option = scanner.nextInt();
-            scanner.nextLine();
+            String input = scanner.nextLine();
+
+            try {
+                option = Integer.parseInt(input);
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid input. Please enter a number.");
+                runAdminMenu(intermediary);
+                break;
+            }
 
             try {
                 switch (option) {
@@ -51,7 +58,11 @@ public class AdminMenu {
                     case 3:
                         System.out.println("Write the user's email: ");
                         data = scanner.next();
-                        admin.deleteUser(intermediary, data);
+                        if(!DataValidation.email(data)){
+                            System.err.println("The email entered is wrongly formulated");
+                        }else {
+                            admin.deleteUser(intermediary, data);
+                        }
                         break;
                     case 4:
                         System.out.println("Write the food's id: ");
@@ -73,45 +84,7 @@ public class AdminMenu {
                         break;
                     case 7:
                         Food aux = new Food();
-                        System.out.print("Name: ");
-                        aux.setName(scanner.nextLine());
-
-                        System.out.print("Calories: ");
-                        aux.setCalories(scanner.nextInt());
-
-                        System.out.print("Proteins (in grams): ");
-                        aux.setProteins_g(scanner.nextDouble());
-
-                        System.out.print("Fats (in grams): ");
-                        aux.setFats_g(scanner.nextDouble());
-
-                        System.out.print("Carbohydrates (in grams): ");
-                        aux.setCarbohydrates_g(scanner.nextDouble());
-
-                        System.out.print("Serving Size (in grams): ");
-                        aux.setServingSize_g(scanner.nextDouble());
-                        scanner.nextLine();
-
-                        System.out.print("Food type: (BREAKFAST, MEAL, SNACK): ");
-                        aux.setFoodType(scanner.next());
-
-                        System.out.println("Enter the ingredients (type 'done' to finish):");
-
-                        String ingredient = scanner.nextLine();
-                        while (!ingredient.equalsIgnoreCase("done")) {
-                            aux.addIngredient(ingredient);
-                            ingredient = scanner.nextLine();
-                        }
-
-                        System.out.print("Is it vegan? (true/false): ");
-                        aux.setVegan(scanner.nextBoolean());
-
-                        System.out.print("Is it celiac friendly? (true/false): ");
-                        aux.setCeliac(scanner.nextBoolean());
-
-                        System.out.print("Is it vegetarian? (true/false): ");
-                        aux.setVegetarian(scanner.nextBoolean());
-
+                        addFoodMenu(aux);
                         intermediary.addFoodToFile(aux);
                         break;
                     default:
@@ -132,5 +105,48 @@ public class AdminMenu {
 
     public AdminMenu(AdminUser admin){
         AdminMenu.admin = admin;
+    }
+
+    private void addFoodMenu(Food aux){
+        System.out.print("Name: ");
+        aux.setName(scanner.nextLine());
+
+        System.out.print("Calories: ");
+        aux.setCalories(scanner.nextInt());
+
+        System.out.print("Proteins (in grams): ");
+        aux.setProteins_g(scanner.nextDouble());
+
+        System.out.print("Fats (in grams): ");
+        aux.setFats_g(scanner.nextDouble());
+
+        System.out.print("Carbohydrates (in grams): ");
+        aux.setCarbohydrates_g(scanner.nextDouble());
+
+        System.out.print("Serving Size (in grams): ");
+        aux.setServingSize_g(scanner.nextDouble());
+        scanner.nextLine();
+
+        System.out.print("Food type: (BREAKFAST, MEAL, SNACK): ");
+        aux.setFoodType(scanner.next());
+
+        System.out.println("Enter the ingredients (type 'done' to finish):");
+
+        String ingredient = scanner.nextLine();
+        while (!ingredient.equalsIgnoreCase("done")) {
+            aux.addIngredient(ingredient);
+            ingredient = scanner.nextLine();
+        }
+
+        System.out.print("Is it vegan? (true/false): ");
+        aux.setVegan(scanner.nextBoolean());
+
+        System.out.print("Is it celiac friendly? (true/false): ");
+        aux.setCeliac(scanner.nextBoolean());
+
+        System.out.print("Is it vegetarian? (true/false): ");
+        aux.setVegetarian(scanner.nextBoolean());
+
+
     }
 }
