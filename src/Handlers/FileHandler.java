@@ -72,8 +72,6 @@ public class FileHandler {
         }
     }
 
-
-
     public static String read(String file)
     {
         String content = "";

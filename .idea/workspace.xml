@@ -6,11 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="2910e345-db14-4f9f-b4c7-3856289f3311" name="Changes" comment="fixed existsEmail">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/foods.json" beforeDir="false" afterPath="$PROJECT_DIR$/foods.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Handlers/FileHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Handlers/FileHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Handlers/Intermediary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Handlers/Intermediary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Handlers/JSONHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Handlers/JSONHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/AdminMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/AdminMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Handlers/RecipeApiHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Handlers/RecipeApiHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Interfaces/IFromJSON.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interfaces/IFromJSON.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Interfaces/IToJSON.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interfaces/IToJSON.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UI/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Users/AdminUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/AdminUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Users/Objective.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/Objective.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Users/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Users/UserData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/UserData.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
