@@ -4,16 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2910e345-db14-4f9f-b4c7-3856289f3311" name="Changes" comment="fixed existsEmail">
+    <list default="true" id="2910e345-db14-4f9f-b4c7-3856289f3311" name="Changes" comment="Modify readUserFile">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Handlers/RecipeApiHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Handlers/RecipeApiHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Interfaces/IFromJSON.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interfaces/IFromJSON.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Interfaces/IToJSON.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interfaces/IToJSON.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/Menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Users/AdminUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/AdminUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Users/Objective.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/Objective.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Users/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Users/UserData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/UserData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Handlers/DataValidation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Handlers/DataValidation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Handlers/FileHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Handlers/FileHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Handlers/Intermediary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Handlers/Intermediary.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,6 +20,7 @@
       <list>
         <option value="Enum" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -45,7 +41,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/quiro/Documents/GitHub/tp-lab3&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
   }
@@ -229,28 +225,21 @@
       <option name="project" value="LOCAL" />
       <updated>1687040174238</updated>
     </task>
-    <task id="LOCAL-00024" summary="Refactor User">
-      <created>1687117365136</created>
+    <task id="LOCAL-00024" summary="Added method for checking if an email is already in use">
+      <created>1687117696350</created>
       <option name="number" value="00024" />
       <option name="presentableId" value="LOCAL-00024" />
       <option name="project" value="LOCAL" />
-      <updated>1687117365137</updated>
+      <updated>1687117696350</updated>
     </task>
-    <task id="LOCAL-00025" summary="Added recipe api, added recipe button on menu">
-      <created>1687184716334</created>
+    <task id="LOCAL-00025" summary="Modify readUserFile">
+      <created>1687121626455</created>
       <option name="number" value="00025" />
       <option name="presentableId" value="LOCAL-00025" />
       <option name="project" value="LOCAL" />
-      <updated>1687184716334</updated>
+      <updated>1687121626455</updated>
     </task>
-    <task id="LOCAL-00026" summary="fixed existsEmail">
-      <created>1687185281746</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1687185281746</updated>
-    </task>
-    <option name="localTasksCounter" value="27" />
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -286,10 +275,8 @@
     <MESSAGE value="Added &quot;deleteFood&quot;, &quot;refactorFoodIDs&quot; and &quot;listToMap&quot; methods" />
     <MESSAGE value="adminUser created" />
     <MESSAGE value="Added method for checking if an email is already in use" />
-    <MESSAGE value="Refactor User" />
-    <MESSAGE value="Added recipe api, added recipe button on menu" />
-    <MESSAGE value="fixed existsEmail" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed existsEmail" />
+    <MESSAGE value="Modify readUserFile" />
+    <option name="LAST_COMMIT_MESSAGE" value="Modify readUserFile" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -298,19 +285,15 @@
           <properties class="java.nio.file.NoSuchFileException" package="java.nio.file" />
           <option name="timeStamp" value="1" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/Handlers/Intermediary.java</url>
-          <line>62</line>
-          <properties class="Handlers.Intermediary" method="deleteUser">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="40" />
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/UI/Payment.java</url>
+          <line>63</line>
+          <option name="timeStamp" value="33" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Handlers/Intermediary.java</url>
+          <url>file://$PROJECT_DIR$/src/UI/Payment.java</url>
           <line>66</line>
-          <option name="timeStamp" value="41" />
+          <option name="timeStamp" value="34" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

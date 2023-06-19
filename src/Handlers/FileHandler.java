@@ -15,10 +15,15 @@ import org.json.JSONObject;
 public class FileHandler {
 
 
-    public static void rewriteFile(JSONObject object, String file) {
+    /**
+     * Rewrites the file that's specified by the String passed as a parameter.
+     * @param fileName is a String that indicates which file the method will rewrite.
+     * @param jsonObject is the object that will be added to the file.
+     */
+    public static void rewriteFile(JSONObject jsonObject, String fileName) {
         try {
-            FileWriter newFile = new FileWriter(file + ".json");
-            newFile.write(object.toString());
+            FileWriter newFile = new FileWriter(fileName + ".json");
+            newFile.write(jsonObject.toString());
             newFile.flush();
             newFile.close();
 
@@ -27,7 +32,11 @@ public class FileHandler {
         }
     }
 
-
+    /**
+     * Saves a JSONObject in the specified file. The object is saved as the last one in the file.
+     * @param fileName is a String that indicates which file the method will be adding the object to.
+     * @param jsonObject is the object that will be added to the file.
+     */
     public static void saveInFile(JSONObject jsonObject, String fileName) {
         try {
             JSONObject fileData;
@@ -72,12 +81,17 @@ public class FileHandler {
         }
     }
 
-    public static String read(String file)
+    /**
+     * Retrieves the content of the specified file.
+     * @param fileName is a String that indicates which file the method will retrieve the information from.
+     * @return returns the information as a String to be used in other operations.
+     */
+    public static String read(String fileName)
     {
         String content = "";
         try
         {
-            content = new String(Files.readAllBytes(Paths.get(file+".json")));
+            content = new String(Files.readAllBytes(Paths.get(fileName+".json")));
         }
         catch (IOException e)
         {
@@ -86,6 +100,11 @@ public class FileHandler {
         return content;
     }
 
+    /**
+     * Checks if a file exists.
+     * @param fileName is a String that indicates which file the method will check.
+     * @return a boolean indicating whether the specified file exists or not.
+     */
     public static boolean existsFile(String fileName) throws IOException {
         File file = new File(fileName+".json");
         return file.exists();

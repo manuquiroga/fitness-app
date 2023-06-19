@@ -250,7 +250,6 @@ public class Intermediary {
         food.setId(foodList.size()+1);
         if(!foodMap.containsKey(food.getId()))
         {
-            addFoodToMap(food);
             joAux=foodToJSON();
             FileHandler.saveInFile(joAux, "food");
         }
