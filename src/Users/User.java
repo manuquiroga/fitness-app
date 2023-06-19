@@ -149,13 +149,13 @@ public abstract class User implements IToJSON, Comparable, IFromJSON {
     }
 
     @Override
-    public void IFromJSON(JSONObject jo) throws JSONException {
+    public void fromJSON(JSONObject jo) throws JSONException {
         setName(jo.getString("name"));
         setEmail(jo.getString("email"));
         setPassword(jo.getString("password"));
         setId(jo.getString("id"));
         UserData data=new UserData();
-        data.IFromJSON(jo.getJSONObject("userData"));
+        data.fromJSON(jo.getJSONObject("userData"));
         setUserData(data);
     }
 

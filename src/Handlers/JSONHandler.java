@@ -20,7 +20,7 @@ public class JSONHandler {
      */
     public static Food foodConverter (JSONObject aux) throws JSONException{
         Food food=new Food();
-        food.IFromJSON(aux);
+        food.fromJSON(aux);
         return food;
     }
 
@@ -65,19 +65,19 @@ public class JSONHandler {
 
             for (int i = 0; i < jsonArrayAdmins.length(); i++) {
                 AdminUser adminUser = new AdminUser();
-                adminUser.IFromJSON(jsonArrayAdmins.getJSONObject(i));
+                adminUser.fromJSON(jsonArrayAdmins.getJSONObject(i));
                 userList.add(adminUser);
             }
 
             for (int i = 0; i < jsonArrayPremium.length(); i++) {
                 PremiumUser premiumUser = new PremiumUser();
-                premiumUser.IFromJSON(jsonArrayPremium.getJSONObject(i));
+                premiumUser.fromJSON(jsonArrayPremium.getJSONObject(i));
                 userList.add(premiumUser);
             }
 
             for (int i = 0; i < jsonArrayBasicUsers.length(); i++) {
                 BasicUser basicUser = new BasicUser();
-                basicUser.IFromJSON(jsonArrayBasicUsers.getJSONObject(i));
+                basicUser.fromJSON(jsonArrayBasicUsers.getJSONObject(i));
                 userList.add(basicUser);
             }
 

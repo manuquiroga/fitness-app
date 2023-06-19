@@ -174,7 +174,7 @@ public class Food implements IToJSON, Comparable, IFromJSON {
     }
 
     @Override
-    public void IFromJSON(JSONObject jo) throws JSONException
+    public void fromJSON(JSONObject jo) throws JSONException
     {
         setName(jo.getString("name"));
         setFoodType(jo.getString("type"));
@@ -255,9 +255,4 @@ public class Food implements IToJSON, Comparable, IFromJSON {
                 "IsCeliac=" + isCeliac + '\n'+
                 "IsVegetarian=" + isVegetarian;
     }
-
-    //Methods:
-
-
-    //None
 }

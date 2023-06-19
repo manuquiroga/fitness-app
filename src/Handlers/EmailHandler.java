@@ -7,6 +7,11 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import java.util.Properties;
 
+/**
+ * The EmailHandler class provides functionality for sending emails using the SMTP protocol.
+ * It utilizes the Gmail SMTP server for sending emails.
+ * @see <a href=https://www.geeksforgeeks.org/send-email-using-java-program/> </a>
+ */
 public class EmailHandler {
 
     private static final String SENDER_EMAIL = "nutribros.email@gmail.com";
@@ -29,7 +34,6 @@ public class EmailHandler {
         });
 
         try {
-            // Create a new MimeMessage object using the session
             Message message = new MimeMessage(session);
 
             // Set the sender
@@ -52,11 +56,20 @@ public class EmailHandler {
             System.out.println("Error sending the email: " + e.getMessage());
         }
     }
-
+    /**
+     * Generates the welcome text for a new user.
+     * @param name The name of the user.
+     * @return The welcome text.
+     */
     public static String welcomeText(String name){
         return name + ", thank you for joining the Nutribros platform, any questions you may have can be reported to this email";
     }
 
+    /**
+     * Generates the text for a forgot password email.
+     * @param user The user for whom the email is being generated.
+     * @return The forgot password text.
+     */
     public static String forgotPasswordText(User user){
         return "Hello, "+ user.getName() +" your password is: "+ user.getPassword();
     }

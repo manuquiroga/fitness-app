@@ -1,10 +1,22 @@
 package Exceptions;
 
+/**
+ * he exception that is thrown when a password is considered weak.
+ */
 public class WeakPasswordException extends Exception {
-    public WeakPasswordException(String s) {
-        super(s);
+
+    /**
+     * Constructs a WeakPasswordException with the specified error message.
+     * @param message the error message
+     */
+    public WeakPasswordException(String message) {
+        super(message);
     }
-    public String passwordExample(){
+    /**
+     * Returns an example password.
+     * @return an example password
+     */
+    public String passwordExample() {
         return "Testo1234";
     }
 }

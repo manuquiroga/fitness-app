@@ -21,6 +21,9 @@ public class Intermediary {
     private GenericMap<String,User> userMap;
     private GenericMap<Integer, Food> foodMap;
 
+    /**
+     * Constructs a new instance of Intermediary.
+     */
     public Intermediary(){
         userMap = new GenericMap<String,User>();
         foodMap = new GenericMap<Integer, Food>();
@@ -132,16 +135,23 @@ public class Intermediary {
         }
     }
 
+    /**
+     * Converts the user map to a list.
+     * @return The list of users.
+     */
     public List<User> usersToList(){
         return userMap.toList();
     }
-
+    /**
+     * Converts the food map to a list.
+     * @return The list of foods.
+     */
     public List<Food> foodToList(){
         return foodMap.toList();
     }
 
     /**
-     * moves all the meals from the map to a list, reassigns the IDs, and recreates the meal map.
+     * Moves all the meals from the map to a list, reassigns the IDs, and recreates the meal map.
      */
     public void refactorFoodIDs()
     {
@@ -151,7 +161,10 @@ public class Intermediary {
         }
         listToMap(foodList);
     }
-
+    /**
+     * Converts the food list to a map and updates the food map.
+     * @param foodList The list of foods.
+     */
     public void listToMap(List<Food> foodList)
     {
         foodMap=new GenericMap<Integer, Food>();
@@ -160,7 +173,14 @@ public class Intermediary {
           addFoodToMap(food);
         }
     }
-    public String showFoodMap (){return foodMap.toString();}
+
+    /**
+     * Returns a string representation of the food map.
+     * @return The string representation of the food map.
+     */
+    public String showFoodMap (){
+        return foodMap.toString();
+    }
 
     /**
      * translates the map of users to a JSONObject.

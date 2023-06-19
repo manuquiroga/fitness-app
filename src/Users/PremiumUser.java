@@ -56,7 +56,12 @@ public class PremiumUser extends User{
         return jsonObject;
     }
 
-    //Methods:
+    @Override
+    public void fromJSON(JSONObject jo) throws JSONException
+    {
+        super.fromJSON(jo);
+        setNumberOfDietsGenerated(jo.getInt("diets_generated"));
+    }
 
 
 }

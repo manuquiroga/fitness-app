@@ -36,9 +36,9 @@ public class BasicUser extends User implements IToJSON {
     }
 
     @Override
-    public void IFromJSON (JSONObject jo) throws JSONException
+    public void fromJSON (JSONObject jo) throws JSONException
     {
-        super.IFromJSON(jo);
+        super.fromJSON(jo);
     }
 
     @Override

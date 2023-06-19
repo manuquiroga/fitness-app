@@ -163,7 +163,7 @@ public class UserData implements IToJSON {
         jsonObject.put("diet", jsonArray);
         return jsonObject;
     }
-    public void IFromJSON (JSONObject jo) throws JSONException {
+    public void fromJSON (JSONObject jo) throws JSONException {
         setAge(jo.getInt("age"));
         setHeight(jo.getInt("height"));
         setWeight(jo.getDouble("weight"));
