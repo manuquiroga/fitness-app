@@ -20,7 +20,6 @@ public class DataValidation {
     private static final double MIN_WEIGHT = 25;
     private static final double MAX_WEIGHT = 500;
     private static final int MIN_HEIGHT = 80;
-
     private static final int MAX_HEIGHT = 240;
 
     public static int getMinCharPass() {
