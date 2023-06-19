@@ -45,7 +45,6 @@ public class AdminUser extends User {
         intermediary.deleteUser(email);
     }
 
-
     public void deleteFood(Intermediary intermediary, Food food) throws JSONException{
         intermediary.deleteFood(food);
     }

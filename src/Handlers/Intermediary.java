@@ -5,7 +5,6 @@ import Collections.GenericMap;
 import Exceptions.FoodNotInMapException;
 import Exceptions.UserNotInMapException;
 import FoodModels.Food;
-import Interfaces.IToJSON;
 import Users.BasicUser;
 import Users.PremiumUser;
 import Users.User;
@@ -15,9 +14,10 @@ import org.json.JSONObject;
 
 import java.util.*;
 
+/**
+ * This class works as a connector between all the classes and is used to avoid working directly with files.
+ */
 public class Intermediary {
-
-
     private GenericMap<String,User> userMap;
     private GenericMap<Integer, Food> foodMap;
 
@@ -26,14 +26,22 @@ public class Intermediary {
         foodMap = new GenericMap<Integer, Food>();
     }
 
-
-    //User
+    /**
+     * Adds an object of the class User to the map of users.
+     * @param user an object of the User class to be added
+     */
     public void addUserToMap (User user){
         if(!userMap.containsKey(user.getEmail()) && !userMap.containsValue(user)){
             userMap.put(user.getEmail(),user);
         }
     }
 
+    /**
+     * Updates a user in the map of users, with a security check if the user's email changes (email is used as the key).
+     * @param email the email of the user
+     * @param user an object of the User class to be modified
+     * @throws JSONException if the value is non-finite number or if the key is null
+     */
     public void updateUser (String email, User user) throws JSONException {
         JSONObject joAux=new JSONObject();
         if(!email.equals(user.getEmail())) {
@@ -51,6 +59,11 @@ public class Intermediary {
         }
     }
 
+    /**
+     * deletes a user in the map of users and rewrites the user file.
+     * @param user an object of the User class to be deleted.
+     * @throws JSONException if the value is non-finite number or if the key is null
+     */
     public void deleteUser(User user) throws JSONException {
         JSONObject joAux=new JSONObject();
         if(userMap.containsKey(user.getEmail()))
@@ -60,6 +73,11 @@ public class Intermediary {
             FileHandler.rewriteFile(joAux, "user");
         }
     }
+    /**
+     * deletes a user in the map of users and rewrites the user file.
+     * @param email a string with the email of the user to be deleted.
+     * @throws JSONException if the value is non-finite number or if the key is null
+     */
     public void deleteUser(String email) throws JSONException {
         JSONObject joAux=new JSONObject();
         if(userMap.containsKey(email))
@@ -72,19 +90,42 @@ public class Intermediary {
 
     public String showMapUsers(){return userMap.toString();}
 
-    //Food
-
+    /**
+     * Adds a Food object to the map of foods.
+     * @param food a Food object to be added
+     */
     public void addFoodToMap (Food food){
         if (!foodMap.containsKey(food.getId()) && !foodMap.containsValue(food)){
             foodMap.put(food.getId(),food);
         }
     }
 
+    /**
+     * deletes a food object in the map of foods and rewrites the foods file.
+     * @param food a food object to be deleted.
+     * @throws JSONException if the value is non-finite number or if the key is null
+     */
     public void deleteFood(Food food) throws JSONException {
         JSONObject joAux;
         if(foodMap.containsKey(food.getId()))
         {
             foodMap.removeByKey(food.getId());
+            refactorFoodIDs();
+            joAux=foodToJSON();
+            FileHandler.rewriteFile(joAux, "food");
+        }
+    }
+
+    /**
+     * deletes a food object in the map of foods and rewrites the foods file.
+     * @param id the if of the food object to be deleted.
+     * @throws JSONException if the value is non-finite number or if the key is null
+     */
+    public void deleteFood(int id) throws JSONException {
+        JSONObject joAux;
+        if(foodMap.containsKey(id));
+        {
+            foodMap.removeByKey(id);
             refactorFoodIDs();
             joAux=foodToJSON();
             FileHandler.rewriteFile(joAux, "food");
@@ -99,18 +140,9 @@ public class Intermediary {
         return foodMap.toList();
     }
 
-    public void deleteFood(int id) throws JSONException {
-        JSONObject joAux;
-        if(foodMap.containsKey(id));
-        {
-            foodMap.removeByKey(id);
-            refactorFoodIDs();
-            joAux=foodToJSON();
-            FileHandler.rewriteFile(joAux, "food");
-        }
-    }
-
-
+    /**
+     * moves all the meals from the map to a list, reassigns the IDs, and recreates the meal map.
+     */
     public void refactorFoodIDs()
     {
         List<Food> foodList =foodMap.toList();
@@ -130,11 +162,17 @@ public class Intermediary {
     }
     public String showFoodMap (){return foodMap.toString();}
 
+    /**
+     * translates the map of users to a JSONObject.
+     * @return a JSONObject with all the users.
+     * @throws JSONException if the value is non-finite number or if the key is null
+     */
     public JSONObject userToJSON() throws JSONException {
         List<User> userList=userMap.toList();
         JSONArray basicArray = new JSONArray();
         JSONArray premiumArray = new JSONArray();
         JSONArray adminArray = new JSONArray();
+
         JSONObject jsonObject = new JSONObject();
         for (int i = 0; i < userList.size(); i++) {
             if (userList.get(i) instanceof PremiumUser){
@@ -151,6 +189,11 @@ public class Intermediary {
         jsonObject.put("admin_users",adminArray);
         return jsonObject;
     }
+    /**
+     * translates the map of foods to a JSONObject.
+     * @return a JSONObject with all the foods.
+     * @throws JSONException if the value is non-finite number or if the key is null
+     */
     public JSONObject foodToJSON() throws JSONException {
         List<Food> foodList=foodMap.toList();
         JSONArray foodArray=new JSONArray();
@@ -162,6 +205,12 @@ public class Intermediary {
         return jo;
     }
 
+    /**
+     * searches for a food object in the food map.
+     * @param foodID the ID of the food to search for
+     * @return An instance of the Food class with the information of the found meal.
+     * @throws FoodNotInMapException If the meal does not exist in the map.
+     */
     public Food searchFood (int foodID) throws FoodNotInMapException {
         Food foodFound;
         if(foodMap.containsKey(foodID))
@@ -173,6 +222,12 @@ public class Intermediary {
         return foodFound;
     }
 
+    /**
+     * searches for a user object in the user map.
+     * @param email the email of the user to search for
+     * @return An instance of the User class with the information of the found user.
+     * @throws UserNotInMapException If the user does not exist in the map.
+     */
     public User searchUser (String email) throws UserNotInMapException {
         User userFound;
         if(userMap.containsKey(email))
@@ -184,6 +239,11 @@ public class Intermediary {
         return userFound;
     }
 
+    /**
+     * adds a food object to the foods file.
+     * @param food the food object to be added
+     * @throws JSONException if the value is non-finite number or if the key is null
+     */
     public void addFoodToFile(Food food) throws JSONException {
         JSONObject joAux;
         List<Food> foodList=foodMap.toList();
@@ -195,9 +255,4 @@ public class Intermediary {
             FileHandler.saveInFile(joAux, "food");
         }
     }
-
-
-
-
-
 }

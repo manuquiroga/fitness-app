@@ -18,10 +18,8 @@ public class FontRenderer extends DefaultTableCellRenderer {
     }
 
     @Override
-    public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus,
-                                                   int row, int column) {
-        Component rendererComponent = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row,
-                column);
+    public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
+        Component rendererComponent = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
         rendererComponent.setFont(font);
         return rendererComponent;
     }

@@ -9,16 +9,27 @@ import org.json.JSONObject;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
+/**
+ * This class is for handling JSON files and converting their information to JSON format.
+ */
 public class JSONHandler {
 
+    /**
+     * Instantiates a food object from a JSON object
+     * @param aux a JSON object with the information of the food.
+     * @return a Food object with the information from the JSON object.
+     * @throws JSONException if the key is not found or if the value is not of the expected type.
+     */
     public static Food foodConverter (JSONObject aux) throws JSONException{
-
         Food food=new Food();
         food.IFromJSON(aux);
         return food;
     }
 
-
+    /**
+     * Reads from the food file and inserts them into an ArrayList
+     * @return an ArrayList containing the foods from a file.
+     */
     public static ArrayList<Food> readFoodFile() {
         String jsonResponse = FileHandler.read("foods");
 
@@ -39,6 +50,10 @@ public class JSONHandler {
         return foodList;
     }
 
+    /**
+     * Reads from the user file and inserts them into an ArrayList
+     * @return an ArrayList containing the users from a file.
+     */
     public static ArrayList<User> readUserFile() {
         String jsonResponse = FileHandler.read("user");
 
@@ -74,33 +89,27 @@ public class JSONHandler {
         return userList;
     }
 
+    /**
+     * Transforms a user object into a JSON object and saves it in a file.
+     * @param user a user object that we want to save in a file.
+     * @throws JSONException if the value is non-finite number or if the key is null.
+     */
     public static void userToFile(User user)throws JSONException
     {
         JSONObject jsonObject=user.toJSON();
         FileHandler.saveInFile(jsonObject, "user");
     }
-    public static void rewriteUserFile(User user)throws JSONException
-    {
-        JSONObject jsonObject=user.toJSON();
-        FileHandler.rewriteFile(jsonObject, "user");
-    }
 
+    /**
+     * Transforms a food object into a JSON object and saves it in a file.
+     * @param food a food object that we want to save in a file.
+     * @throws JSONException if the value is non-finite number or if the key is null.
+     */
     public static void foodToFile(Food food)throws JSONException
     {
         JSONObject jsonObject =food.toJSON();
 
         FileHandler.saveInFile(jsonObject, "foods");
-    }
-    public static void rewriteFoodFile(Food food)throws JSONException
-    {
-        JSONObject jsonObject=food.toJSON();
-        FileHandler.rewriteFile(jsonObject, "foods");
-    }
-
-    public static int countItemsInUserJSON() throws FileNotFoundException {
-
-        ArrayList<User> userList = readUserFile();
-        return userList.size();
     }
 
 }

@@ -73,7 +73,8 @@ public class RecipeApiHandler {
     /**
      * opens the URL in your browser.
      * @param url a string with the url
-     * @author Manuel Quiroga
+     * @throws IOException if the user default browser is not found, or it fails to be launched, or the default handler application failed to be launched
+     * @throws URISyntaxException if the url could not be parsed as a URI reference.
      */
     public static void openBrowser(String url) throws IOException, URISyntaxException {
 
