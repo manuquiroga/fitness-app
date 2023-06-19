@@ -71,7 +71,7 @@ public class DataValidation {
         boolean val=false;
         ArrayList<User> userList = JSONHandler.readUserFile();
         for (User user: userList) {
-            if(email.equals(user.getEmail()))
+            if(!email.equals(user.getEmail()))
             {
                 val=true;
                 break;
