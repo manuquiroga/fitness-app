@@ -7,6 +7,7 @@ import Exceptions.WeakPasswordException;
 import FoodModels.Food;
 import Handlers.DataValidation;
 import Handlers.Intermediary;
+import Handlers.RecipeApiHandler;
 import UI.Renderers.FontRenderer;
 import Users.AdminUser;
 import Users.PremiumUser;
@@ -27,7 +28,7 @@ import java.util.ArrayList;
 public class Menu extends JFrame {
 
     private static final String LOGO_ICON_PATH = "src/UI/Resources/weightlifter.png";
-    private static final String ALREADY_EATEN_ICON_PATH = "src/UI/Resources/aprobado.png";
+    private static final String OPEN_RECIPE_ICON_PATH = "src/UI/Resources/libro.png";
     private static final String SHOW_FOOD_INFO_ICON_PATH = "src/UI/Resources/dieta.png";
     private static final String PROFILE_ICON_PATH = "src/UI/Resources/usuario.png";
     private static final String NEW_DIET_ICON_PATH = "src/UI/Resources/nueva-dieta.png";
@@ -254,14 +255,16 @@ public class Menu extends JFrame {
             }
 
             JButton ShowFoodInfo = getButton(SHOW_FOOD_INFO_ICON_PATH, "Show food info", rows);
-            JButton AlreadyEaten = getButton(ALREADY_EATEN_ICON_PATH, "Click if eaten", rows);
+            JButton AlreadyEaten = getButton(OPEN_RECIPE_ICON_PATH, "Open recipe", rows);
 
             ShowFoodInfo.addActionListener(e -> {
                 FoodInfo fi = new FoodInfo(food);
             });
 
             AlreadyEaten.addActionListener(e -> {
-                JOptionPane.showMessageDialog(null, "This feature will be added in version 2.0");
+                String response = RecipeApiHandler.searchRecipe(foodName);
+                String recipeURL = RecipeApiHandler.getRecipeUrl(response);
+                RecipeApiHandler.openBrowser(recipeURL);
             });
 
             ShowFoodInfo.setBounds(470, buttonY, 60, 60);

@@ -28,7 +28,7 @@ public class FileHandler {
     }
 
 
-        public static void saveInFile(JSONObject jsonObject, String fileName) {
+    public static void saveInFile(JSONObject jsonObject, String fileName) {
         try {
             JSONObject fileData;
             fileName = fileName.concat(".json");
