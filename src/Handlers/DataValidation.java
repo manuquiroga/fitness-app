@@ -12,7 +12,7 @@ import java.util.regex.Pattern;
 /**
  * This class provides data validation methods for various fields and user data.
  */
-public class DataValidation {
+public final class DataValidation {
     private static final int MIN_PASSWORD_CHARACTERS = 8;
     private static final int MIN_NAME_CHARACTERS = 6;
     private static final int MIN_AGE = 13;
