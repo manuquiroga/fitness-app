@@ -4,14 +4,14 @@ import Exceptions.*;
 import Users.User;
 
 import javax.swing.*;
-import java.awt.geom.Arc2D;
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ *
+ */
 public class DataValidation {
     private static final int MIN_PASSWORD_CHARACTERS = 8;
     private static final int MIN_NAME_CHARACTERS = 6;
@@ -59,6 +59,11 @@ public class DataValidation {
         return height < MAX_HEIGHT;
     }
 
+    /**
+     *
+     * @param email
+     * @return
+     */
     public static boolean email(String email) {
         String emailRegex = "^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$";
         Pattern emailPat = Pattern.compile(emailRegex, Pattern.CASE_INSENSITIVE);
@@ -181,7 +186,6 @@ public class DataValidation {
         return val;
     }
 
-    //TODO: change
     public static User getUserFromLogin(String email, String password){
         ArrayList<User> userList;
         try {
