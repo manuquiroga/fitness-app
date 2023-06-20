@@ -8,7 +8,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2910e345-db14-4f9f-b4c7-3856289f3311" name="Changes" comment="1 override" />
+    <list default="true" id="2910e345-db14-4f9f-b4c7-3856289f3311" name="Changes" comment="another simple javadoc change">
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -275,7 +279,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687273354768</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="another simple javadoc change">
+      <created>1687273503697</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1687273503697</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -290,7 +301,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="login ui test" />
     <MESSAGE value="Added and implemented the java-mail jar and lib. Added functions of sendMail, and DataValidation class for validations" />
     <MESSAGE value="Changed the welcome text method and set the log and sign buttons not focusable" />
     <MESSAGE value="Added logo" />
@@ -315,7 +325,8 @@
     <MESSAGE value="fixed all ezequielgarcia errors, added more documentation" />
     <MESSAGE value="javadoc documentation" />
     <MESSAGE value="1 override" />
-    <option name="LAST_COMMIT_MESSAGE" value="1 override" />
+    <MESSAGE value="another simple javadoc change" />
+    <option name="LAST_COMMIT_MESSAGE" value="another simple javadoc change" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
