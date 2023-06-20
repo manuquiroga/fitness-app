@@ -137,7 +137,7 @@ public class Intermediary {
             foodMap.removeByKey(id);
             refactorFoodIDs();
             joAux=foodToJSON();
-            FileHandler.rewriteFile(joAux, "food");
+            FileHandler.rewriteFile(joAux, "foods");
         }
     }
 
