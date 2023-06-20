@@ -305,7 +305,6 @@ public class Food implements IToJSON, Comparable, IFromJSON {
         }
     }
 
-
     //equals, hashCode, compareTo, toString
     /**
      * Overrides the equals method to compare two Food objects for equality.
@@ -326,6 +325,7 @@ public class Food implements IToJSON, Comparable, IFromJSON {
         }
         return rta;
     }
+
     /**
      * Overrides the compareTo method to compare two Food objects based on their calorie values.
      * Returns a positive integer if this Food has higher calories, a negative integer if it has lower calories,
@@ -349,6 +349,7 @@ public class Food implements IToJSON, Comparable, IFromJSON {
         }
         return rta;
     }
+
     /**
      * Returns the hash code value for the Food object.
      * This implementation always returns the same hash code (1) for all Food objects.
@@ -358,6 +359,7 @@ public class Food implements IToJSON, Comparable, IFromJSON {
     public int hashCode() {
         return 1;
     }
+
     /**
      * Returns a string representation of the Food object.
      * @return a string representation of the Food object

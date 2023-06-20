@@ -1,25 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="SCOPE_TYPE" value="8" />
+    <option name="CUSTOM_SCOPE_NAME" value="docs" />
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2910e345-db14-4f9f-b4c7-3856289f3311" name="Changes" comment="ezegarcia last commit">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Exceptions/WeakPasswordException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Exceptions/WeakPasswordException.java" afterDir="false" />
+    <list default="true" id="2910e345-db14-4f9f-b4c7-3856289f3311" name="Changes" comment="javadoc documentation">
       <change beforePath="$PROJECT_DIR$/src/FoodModels/Food.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FoodModels/Food.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FoodModels/FoodType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FoodModels/FoodType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Handlers/EmailHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Handlers/EmailHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/FoodInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/FoodInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/SignUp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/SignUp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Users/AdminUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/AdminUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Users/BasicUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/BasicUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Users/Objective.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/Objective.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Users/PhysicalActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/PhysicalActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Users/PremiumUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/PremiumUser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Users/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Users/UserData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/UserData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user.json" beforeDir="false" afterPath="$PROJECT_DIR$/user.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +31,9 @@
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="NamedScopeManager">
+    <scope name="docs" pattern="(!lib:*..*&amp;&amp;!src:*..*&amp;&amp;!test:*..*||src:Interfaces.*||src:Users.*||src:Handlers.*||src:FoodModels.*||src:Exceptions.*||src:Collections.*)&amp;&amp;!src:*" />
   </component>
   <component name="ProjectId" id="2QDCY1QdMTk1lxiFr2Om76azWa0" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -270,7 +265,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687211225416</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="javadoc documentation">
+      <created>1687272848432</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1687272848432</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -285,7 +287,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="gitignore" />
     <MESSAGE value="GenericTreeMap" />
     <MESSAGE value="login ui test" />
     <MESSAGE value="Added and implemented the java-mail jar and lib. Added functions of sendMail, and DataValidation class for validations" />
@@ -310,7 +311,8 @@
     <MESSAGE value="fixed existsEmail" />
     <MESSAGE value="error handling recipe api" />
     <MESSAGE value="fixed all ezequielgarcia errors, added more documentation" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed all ezequielgarcia errors, added more documentation" />
+    <MESSAGE value="javadoc documentation" />
+    <option name="LAST_COMMIT_MESSAGE" value="javadoc documentation" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

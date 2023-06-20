@@ -38,11 +38,13 @@ public abstract class User implements IToJSON, Comparable, IFromJSON {
         this.id = UUID.randomUUID();
         this.userData = userData;
     }
+
     /**
      * Constructs an empty User object.
      */
     public User() {
     }
+
     /**
      * Returns the name of the user.
      * @return the name of the user
@@ -50,6 +52,7 @@ public abstract class User implements IToJSON, Comparable, IFromJSON {
     public String getName() {
         return name;
     }
+
     /**
      * Returns the password of the user.
      * @return the password of the user
@@ -57,6 +60,7 @@ public abstract class User implements IToJSON, Comparable, IFromJSON {
     public String getPassword() {
         return password;
     }
+
     /**
      * Returns the email of the user.
      * @return the email of the user
@@ -64,6 +68,7 @@ public abstract class User implements IToJSON, Comparable, IFromJSON {
     public String getEmail() {
         return email;
     }
+
     /**
      * Returns the ID of the user.
      * @return the ID of the user
@@ -71,6 +76,7 @@ public abstract class User implements IToJSON, Comparable, IFromJSON {
     public UUID getId() {
         return id;
     }
+
     /**
      * Returns the user data associated with the user.
      * @return the user data
@@ -78,6 +84,7 @@ public abstract class User implements IToJSON, Comparable, IFromJSON {
     public UserData getUserData() {
         return userData;
     }
+
     /**
      * Sets the name of the user.
      * @param name the new name of the user
@@ -85,6 +92,7 @@ public abstract class User implements IToJSON, Comparable, IFromJSON {
     public void setName(String name) {
         this.name = name;
     }
+
     /**
      * Sets the password of the user.
      * @param password the new password of the user
@@ -92,6 +100,7 @@ public abstract class User implements IToJSON, Comparable, IFromJSON {
     public void setPassword(String password) {
         this.password = password;
     }
+
     /**
      * Sets the email of the user.
      * @param email the new email of the user
@@ -99,6 +108,7 @@ public abstract class User implements IToJSON, Comparable, IFromJSON {
     public void setEmail(String email) {
         this.email = email;
     }
+
     /**
      * Sets the user data associated with the user.
      * @param userData the new user data
@@ -106,6 +116,7 @@ public abstract class User implements IToJSON, Comparable, IFromJSON {
     public void setUserData(UserData userData) {
         this.userData = userData;
     }
+
     /**
      * Sets the ID of the user from a string representation.
      * @param id the string representation of the UUID to set as the ID

@@ -13,4 +13,6 @@ public interface IToJSON {
      * @throws JSONException if there is an error creating the JSON object
     */
     JSONObject toJSON() throws JSONException;
+
+    void fromJSON(JSONObject jo) throws JSONException;
 }

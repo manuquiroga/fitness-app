@@ -37,11 +37,13 @@ public class UserData implements IToJSON {
         setPhysicalActivity(physicalActivity);
         diet = new ArrayList<Food>();
     }
+
     /**
      * Constructs an empty UserData object.
      */
     public UserData() {
     }
+
     /**
      * Returns the diet of the user.
      * @return the diet as an ArrayList of Food objects
@@ -49,6 +51,7 @@ public class UserData implements IToJSON {
     public ArrayList<Food> getDiet() {
         return diet;
     }
+
     /**
      * Returns the age of the user.
      * @return the age of the user
@@ -56,6 +59,7 @@ public class UserData implements IToJSON {
     public int getAge() {
         return age;
     }
+
     /**
      * Returns the weight of the user.
      * @return the weight of the user
@@ -63,6 +67,7 @@ public class UserData implements IToJSON {
     public double getWeight() {
         return weight;
     }
+
     /**
      * Returns the objective of the user.
      * @return the objective of the user
@@ -70,6 +75,7 @@ public class UserData implements IToJSON {
     public Objective getObjective() {
         return objective;
     }
+
     /**
      * Returns the height of the user.
      * @return the height of the user
@@ -77,6 +83,7 @@ public class UserData implements IToJSON {
     public int getHeight() {
         return height;
     }
+
     /**
      * Returns the sex of the user.
      * @return the sex of the user
@@ -84,6 +91,7 @@ public class UserData implements IToJSON {
     public String getSex() {
         return sex;
     }
+
     /**
      * Returns the physical activity level of the user.
      * @return the physical activity level of the user
@@ -91,6 +99,7 @@ public class UserData implements IToJSON {
     public PhysicalActivity getPhysicalActivity() {
         return physicalActivity;
     }
+
     /**
      * Sets the age of the user.
      * @param age the new age of the user
@@ -98,6 +107,7 @@ public class UserData implements IToJSON {
     public void setAge(int age) {
         this.age = age;
     }
+
     /**
      * Sets the weight of the user.
      * @param weight the new weight of the user
@@ -105,6 +115,7 @@ public class UserData implements IToJSON {
     public void setWeight(double weight) {
         this.weight = weight;
     }
+
     /**
      * Sets the height of the user.
      * @param height the new height of the user
@@ -112,6 +123,7 @@ public class UserData implements IToJSON {
     public void setHeight(int height) {
         this.height = height;
     }
+
     /**
      * Sets the sex of the user.
      * @param sex the new sex of the user
@@ -119,6 +131,7 @@ public class UserData implements IToJSON {
     public void setSex(String sex) {
         this.sex = sex;
     }
+
     /**
      * Sets the diet of the user.
      * @param diet the new diet as an ArrayList of Food objects
@@ -126,6 +139,7 @@ public class UserData implements IToJSON {
     public void setDiet(ArrayList<Food> diet) {
         this.diet = diet;
     }
+
     /**
      * Sets the physical activity level of the user based on a string representation.
      * @param physicalActivity the string representation of the physical activity level
@@ -139,6 +153,7 @@ public class UserData implements IToJSON {
             this.physicalActivity = PhysicalActivity.ACTIVE;
         }
     }
+
     /**
      * Sets the objective of the user based on a string representation.
      * @param objective the string representation of the objective (lose weight, maintain weight, or gain weight)
@@ -152,6 +167,7 @@ public class UserData implements IToJSON {
             this.objective = Objective.GAIN_WEIGHT;
         }
     }
+
     /**
      * Returns a string representation of the UserData object.
      * @return a string representation of the UserData object
@@ -210,6 +226,8 @@ public class UserData implements IToJSON {
         jsonObject.put("diet", jsonArray);
         return jsonObject;
     }
+
+    @Override
     public void fromJSON (JSONObject jo) throws JSONException {
         setAge(jo.getInt("age"));
         setHeight(jo.getInt("height"));
