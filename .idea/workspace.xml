@@ -8,12 +8,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2910e345-db14-4f9f-b4c7-3856289f3311" name="Changes" comment="Added javadoc in documentation package">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/AdminMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/AdminMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/Home.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/Home.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user.json" beforeDir="false" afterPath="$PROJECT_DIR$/user.json" afterDir="false" />
-    </list>
+    <list default="true" id="2910e345-db14-4f9f-b4c7-3856289f3311" name="Changes" comment="Modified users json file" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -301,7 +296,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687276002574</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="Modified users json file">
+      <created>1687282316426</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1687282316426</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -316,7 +318,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added logo" />
     <MESSAGE value="Added equals, hashCode and compareTo methods to every class that need them" />
     <MESSAGE value="foods.json added (80 foods). fixed the login check data form (password was saved as an array, not as a String)" />
     <MESSAGE value="Added &quot;id&quot; key to foods.json foods, and modified other keys" />
@@ -341,7 +342,8 @@
     <MESSAGE value="another simple javadoc change" />
     <MESSAGE value="Added documentation package and README.md" />
     <MESSAGE value="Added javadoc in documentation package" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added javadoc in documentation package" />
+    <MESSAGE value="Modified users json file" />
+    <option name="LAST_COMMIT_MESSAGE" value="Modified users json file" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
