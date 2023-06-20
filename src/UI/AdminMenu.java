@@ -72,7 +72,8 @@ public class AdminMenu {
                         break;
                     case 5:
                         System.out.println("Search food by id");
-                        id = scanner.nextInt();
+                        input = scanner.next();
+                        id = Integer.parseInt(input);
                         Food food = intermediary.searchFood(id);
                         System.out.println(food.toString());
                         break;
@@ -94,6 +95,8 @@ public class AdminMenu {
             }catch (JSONException | FoodNotInMapException ex){
                 System.err.println("Error "+ex.getMessage());
             } catch (UserNotInMapException ex){
+                System.err.println("Error: "+ex.getMessage());
+            }catch (NumberFormatException ex){
                 System.err.println("Error: "+ex.getMessage());
             }
             System.out.println("If you want to continue enter yes");
