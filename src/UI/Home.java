@@ -20,14 +20,6 @@ public class Home extends JFrame implements ActionListener {
 
     public static void main(String[] args) {
 
-        /*UserData userData = new UserData(30, 70, "GAIN_WEIGHT", 170, "MALE", "NONE");
-        AdminUser admin = new AdminUser("admin", "Admin123", "admin@gmail.com", userData, "CEO");*/
-
-//        try {
-//            JSONHandler.userToFile(admin);
-//        } catch (JSONException e) {
-//            System.err.println(e.getMessage());
-//        }
 
         Intermediary intermediary = new Intermediary();
         ArrayList<User> users = JSONHandler.readUserFile();

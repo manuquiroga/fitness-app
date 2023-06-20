@@ -91,11 +91,9 @@ public class AdminMenu {
                         System.err.println("Option does not exist");
                         break;
                 }
-            }catch (JSONException ex){
+            }catch (JSONException | FoodNotInMapException ex){
                 System.err.println("Error "+ex.getMessage());
-            }catch (FoodNotInMapException ex){
-                System.err.println("Error "+ex.getMessage());
-            }catch (UserNotInMapException ex){
+            } catch (UserNotInMapException ex){
                 System.err.println("Error: "+ex.getMessage());
             }
             System.out.println("If you want to continue enter yes");
