@@ -13,7 +13,6 @@ import java.util.*;
 
 /**
  * This abstract class is the main class for users, where their important registration data and UserData are stored
- * @see UserData;
  */
 public abstract class User implements IToJSON, Comparable, IFromJSON {
 
@@ -25,8 +24,13 @@ public abstract class User implements IToJSON, Comparable, IFromJSON {
     private UUID id;
     private UserData userData;
 
-
-    //constructors:
+    /**
+     * Constructs a User object with the specified name, password, email, and user data.
+     * @param name the name of the user
+     * @param password the password of the user
+     * @param email the email of the user
+     * @param userData the user data associated with the user
+     */
     public User(String name, String password, String email, UserData userData) {
         this.name = name;
         this.password = password;
@@ -34,57 +38,90 @@ public abstract class User implements IToJSON, Comparable, IFromJSON {
         this.id = UUID.randomUUID();
         this.userData = userData;
     }
-
+    /**
+     * Constructs an empty User object.
+     */
     public User() {
     }
-
-    //Getters:
-
-
+    /**
+     * Returns the name of the user.
+     * @return the name of the user
+     */
     public String getName() {
         return name;
     }
-
+    /**
+     * Returns the password of the user.
+     * @return the password of the user
+     */
     public String getPassword() {
         return password;
     }
-
+    /**
+     * Returns the email of the user.
+     * @return the email of the user
+     */
     public String getEmail() {
         return email;
     }
-
+    /**
+     * Returns the ID of the user.
+     * @return the ID of the user
+     */
     public UUID getId() {
         return id;
     }
-
+    /**
+     * Returns the user data associated with the user.
+     * @return the user data
+     */
     public UserData getUserData() {
         return userData;
     }
-
-    //Setters
-
+    /**
+     * Sets the name of the user.
+     * @param name the new name of the user
+     */
     public void setName(String name) {
         this.name = name;
     }
-
+    /**
+     * Sets the password of the user.
+     * @param password the new password of the user
+     */
     public void setPassword(String password) {
         this.password = password;
     }
-
+    /**
+     * Sets the email of the user.
+     * @param email the new email of the user
+     */
     public void setEmail(String email) {
         this.email = email;
     }
-
+    /**
+     * Sets the user data associated with the user.
+     * @param userData the new user data
+     */
     public void setUserData(UserData userData) {
         this.userData = userData;
     }
-
-    public void setId(String id){
+    /**
+     * Sets the ID of the user from a string representation.
+     * @param id the string representation of the UUID to set as the ID
+     */
+    public void setId(String id) {
         this.id = UUID.fromString(id);
     }
 
     //equals, hashcode, compareTo, toString
 
+    /**
+     * Checks if the current User object is equal to another object.
+     * Two User objects are considered equal if they have the same ID.
+     * @param obj the object to compare
+     * @return true if the objects are equal, false otherwise
+     */
     @Override
     public boolean equals(Object obj)
     {
@@ -103,6 +140,13 @@ public abstract class User implements IToJSON, Comparable, IFromJSON {
         return rta;
     }
 
+    /**
+     * Compares the current User object to another object.
+     * The comparison is based on the age of the users.
+     * @param obj the object to compare
+     * @return a positive integer if the current object is greater, a negative integer if the current object is smaller,
+     * or 0 if the objects are equal
+     */
     @Override
     public int compareTo(Object obj)
     {
@@ -120,11 +164,19 @@ public abstract class User implements IToJSON, Comparable, IFromJSON {
         return rta;
     }
 
+    /**
+     * Returns the hash code value for the User object.
+     * @return the hash code value
+     */
     @Override
     public int hashCode() {
         return 1;
     }
 
+    /**
+     * Returns a string representation of the User object.
+     * @return a string representation of the object
+     */
     @Override
     public String toString() {
         return
@@ -249,36 +301,51 @@ public abstract class User implements IToJSON, Comparable, IFromJSON {
         } while(!dif);
         userData.setDiet(foodArrayList);
     }
-    public ArrayList<Food> getVegetarianFoods(){
+
+    /**
+     * Retrieves a list of vegetarian foods from the database.
+     * @return an ArrayList of Food objects that are vegetarian
+     */
+    public ArrayList<Food> getVegetarianFoods() {
         ArrayList<Food> allFoods = JSONHandler.readFoodFile();
 
         ArrayList<Food> vegetarianFoods = new ArrayList<>();
-        for (Food food:allFoods) {
-            if(food.isVegetarian()){
+        for (Food food : allFoods) {
+            if (food.isVegetarian()) {
                 vegetarianFoods.add(food);
             }
         }
 
         return vegetarianFoods;
     }
-    public ArrayList<Food> getVeganFoods(){
+
+    /**
+     * Retrieves a list of vegan foods from the database.
+     * @return an ArrayList of Food objects that are vegan
+     */
+    public ArrayList<Food> getVeganFoods() {
         ArrayList<Food> allFoods = JSONHandler.readFoodFile();
 
         ArrayList<Food> veganFoods = new ArrayList<>();
-        for (Food food:allFoods) {
-            if(food.isVegan()){
+        for (Food food : allFoods) {
+            if (food.isVegan()) {
                 veganFoods.add(food);
             }
         }
 
         return veganFoods;
     }
-    public ArrayList<Food> getCeliacFoods(){
+
+    /**
+     * Retrieves a list of celiac foods from the database.
+     * @return an ArrayList of Food objects that are celiac-friendly
+     */
+    public ArrayList<Food> getCeliacFoods() {
         ArrayList<Food> allFoods = JSONHandler.readFoodFile();
 
         ArrayList<Food> celiacFoods = new ArrayList<>();
-        for (Food food:allFoods) {
-            if(food.isCeliac()){
+        for (Food food : allFoods) {
+            if (food.isCeliac()) {
                 celiacFoods.add(food);
             }
         }
@@ -286,42 +353,67 @@ public abstract class User implements IToJSON, Comparable, IFromJSON {
         return celiacFoods;
     }
 
-    public void resetDiet(){
+    /**
+     * Resets the user's diet by clearing the list of foods.
+     */
+    public void resetDiet() {
         userData.setDiet(new ArrayList<>());
     }
-
-    public boolean hasDiet(){
+    /**
+     * Checks if the user has a diet.
+     * @return true if the user has a diet, false otherwise
+     */
+    public boolean hasDiet() {
         return (userData.getDiet().size() > 0);
     }
-
-    private ArrayList<Food> getBreakfastList(ArrayList<Food> allFoods){
+    /**
+     * Retrieves a list of breakfast foods from the given list of foods.
+     * @param allFoods the list of all foods
+     * @return an ArrayList of Food objects that are categorized as breakfast
+     */
+    private ArrayList<Food> getBreakfastList(ArrayList<Food> allFoods) {
         ArrayList<Food> breakfasts = new ArrayList<>();
-        for (Food food:allFoods) {
-            if(food.getFoodType().equals(FoodType.BREAKFAST)){
+        for (Food food : allFoods) {
+            if (food.getFoodType().equals(FoodType.BREAKFAST)) {
                 breakfasts.add(food);
             }
         }
         return breakfasts;
     }
-    private ArrayList<Food> getSnackList(ArrayList<Food> allFoods){
+    /**
+     * Retrieves a list of snack foods from the given list of foods.
+     * @param allFoods the list of all foods
+     * @return an ArrayList of Food objects that are categorized as snacks
+     */
+    private ArrayList<Food> getSnackList(ArrayList<Food> allFoods) {
         ArrayList<Food> snacks = new ArrayList<>();
-        for (Food food:allFoods) {
-            if(food.getFoodType().equals(FoodType.SNACK)){
+        for (Food food : allFoods) {
+            if (food.getFoodType().equals(FoodType.SNACK)) {
                 snacks.add(food);
             }
         }
         return snacks;
     }
-    private ArrayList<Food> getMealList(ArrayList<Food> allFoods){
+    /**
+     * Retrieves a list of meal foods from the given list of foods.
+     * @param allFoods the list of all foods
+     * @return an ArrayList of Food objects that are categorized as meals
+     */
+    private ArrayList<Food> getMealList(ArrayList<Food> allFoods) {
         ArrayList<Food> meals = new ArrayList<>();
-        for (Food food:allFoods) {
-            if(food.getFoodType().equals(FoodType.MEAL)){
+        for (Food food : allFoods) {
+            if (food.getFoodType().equals(FoodType.MEAL)) {
                 meals.add(food);
             }
         }
         return meals;
     }
-
+    /**
+     * Generates an array of random indices within the specified bounds.
+     * @param mealQ the quantity of random indices to generate
+     * @param bound the upper bound (exclusive) for the random indices
+     * @return an ArrayList of randomly generated indices
+     */
     private ArrayList<Integer> generateRandomIndexArray(int mealQ, int bound){
         Random random = new Random();
         ArrayList<Integer> generatedNumbers = new ArrayList<>();

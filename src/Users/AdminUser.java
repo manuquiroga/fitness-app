@@ -14,26 +14,56 @@ import java.util.List;
 public class AdminUser extends User {
 
     private String positionAtCompany;
+
+    /**
+     * Constructs an empty AdminUser object.
+     */
     public AdminUser() {
     }
 
-    public AdminUser(String name, String password, String email, UserData userData, String positionAtCompany ) {
+    /**
+     * Constructs an AdminUser object with the specified name, password, email, user data, and position at the company.
+     * @param name the name of the admin user
+     * @param password the password of the admin user
+     * @param email the email of the admin user
+     * @param userData the user data of the admin user
+     * @param positionAtCompany the position of the admin user at the company
+     */
+    public AdminUser(String name, String password, String email, UserData userData, String positionAtCompany) {
         super(name, password, email, userData);
-        this.positionAtCompany=positionAtCompany;
+        this.positionAtCompany = positionAtCompany;
     }
 
-    public String getAllUsers(Intermediary intermediary){
+    /**
+     * Returns a string representation of all users using the specified intermediary.
+     * @param intermediary the intermediary object to retrieve the user information from
+     * @return a string representation of all users
+     */
+    public String getAllUsers(Intermediary intermediary) {
         return intermediary.showMapUsers();
     }
 
-    public String getAllFoods(Intermediary intermediary){
+    /**
+     * Returns a string representation of all foods using the specified intermediary.
+     * @param intermediary the intermediary object to retrieve the food information from
+     * @return a string representation of all foods
+     */
+    public String getAllFoods(Intermediary intermediary) {
         return intermediary.showFoodMap();
     }
 
+    /**
+     * Returns the position of the admin user at the company.
+     * @return the position at the company
+     */
     public String getPositionAtCompany() {
         return positionAtCompany;
     }
 
+    /**
+     * Sets the position of the admin user at the company.
+     * @param positionAtCompany the position at the company
+     */
     public void setPositionAtCompany(String positionAtCompany) {
         this.positionAtCompany = positionAtCompany;
     }

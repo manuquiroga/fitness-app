@@ -9,7 +9,6 @@ import java.util.Properties;
 
 /**
  * The EmailHandler class provides functionality for sending emails using the SMTP protocol.
- * It utilizes the Gmail SMTP server for sending emails.
  * @see <a href=https://www.geeksforgeeks.org/send-email-using-java-program/> </a>
  */
 public class EmailHandler {
@@ -17,6 +16,12 @@ public class EmailHandler {
     private static final String SENDER_EMAIL = "nutribros.email@gmail.com";
     private static final String SENDER_APPLICATION_PASSWORD = "vzfhvkueoertdana";
 
+    /**
+     * Sends an email to the specified recipient with the given subject and body content.
+     * @param recipient the email address of the recipient
+     * @param subject the subject of the email
+     * @param body the body content of the email
+     */
     public static void send(String recipient, String subject, String body){
 
         //Email server properties

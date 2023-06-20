@@ -1,7 +1,7 @@
 package Exceptions;
 
 /**
- * he exception that is thrown when a password is considered weak.
+ * Custom exception that is thrown when a password is considered weak.
  */
 public class WeakPasswordException extends Exception {
 

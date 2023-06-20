@@ -38,13 +38,13 @@ public class FoodInfo extends JFrame {
         CaloriesLabel.setFont(TABLE_FONT);
         frame.add(CaloriesLabel);
 
-        JLabel ProteinsLabel = new JLabel("Proteins: " + food.getproteins_g()+ "g");
+        JLabel ProteinsLabel = new JLabel("Proteins: " + food.getProteins_g()+ "g");
         ProteinsLabel.setBounds(50, 120, 300, 30);
         ProteinsLabel.setForeground(WALTERWHITE);
         ProteinsLabel.setFont(TABLE_FONT);
         frame.add(ProteinsLabel);
 
-        JLabel FatsLabel = new JLabel("Fats: " + food.getfats_g()+ "g");
+        JLabel FatsLabel = new JLabel("Fats: " + food.getFats_g()+ "g");
         FatsLabel.setBounds(50, 150, 300, 30);
         FatsLabel.setForeground(WALTERWHITE);
         FatsLabel.setFont(TABLE_FONT);

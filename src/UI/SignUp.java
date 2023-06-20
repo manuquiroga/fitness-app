@@ -156,7 +156,7 @@ public class SignUp extends JFrame implements ActionListener{
                 User user = new BasicUser(name, password, email, userData);
                 JSONHandler.userToFile(user);
 
-                //SendEmail.send(email, "Welcome to Nutribros"), SendEmail.welcomeText(name));
+                EmailHandler.send(email, "Welcome to Nutribros", EmailHandler.welcomeText(name));
 
                 frame.dispose();
                 intermediary.addUserToMap(user);

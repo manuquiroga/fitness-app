@@ -4,9 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2910e345-db14-4f9f-b4c7-3856289f3311" name="Changes" comment="error handling recipe api">
+    <list default="true" id="2910e345-db14-4f9f-b4c7-3856289f3311" name="Changes" comment="ezegarcia last commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UI/AdminMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/AdminMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Exceptions/WeakPasswordException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Exceptions/WeakPasswordException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FoodModels/Food.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FoodModels/Food.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FoodModels/FoodType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FoodModels/FoodType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Handlers/EmailHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Handlers/EmailHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UI/FoodInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/FoodInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UI/SignUp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UI/SignUp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Users/AdminUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/AdminUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Users/BasicUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/BasicUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Users/Objective.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/Objective.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Users/PhysicalActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/PhysicalActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Users/PremiumUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/PremiumUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Users/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Users/UserData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/UserData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user.json" beforeDir="false" afterPath="$PROJECT_DIR$/user.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
