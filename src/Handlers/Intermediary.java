@@ -63,7 +63,7 @@ public class Intermediary {
     }
 
     /**
-     * deletes a user in the map of users and rewrites the user file.
+     * Deletes a user in the map of users and rewrites the user file.
      * @param user an object of the User class to be deleted.
      * @throws JSONException if the value is non-finite number or if the key is null
      */
@@ -77,7 +77,7 @@ public class Intermediary {
         }
     }
     /**
-     * deletes a user in the map of users and rewrites the user file.
+     * Deletes a user in the map of users and rewrites the user file.
      * @param email a string with the email of the user to be deleted.
      * @throws JSONException if the value is non-finite number or if the key is null
      */
@@ -91,7 +91,13 @@ public class Intermediary {
         }
     }
 
-    public String showMapUsers(){return userMap.toString();}
+    /**
+     * Returns a string representation of the userMap.
+     * @return a string representation of the userMap
+     */
+    public String showMapUsers(){
+        return userMap.toString();
+    }
 
     /**
      * Adds a Food object to the map of foods.
@@ -104,7 +110,7 @@ public class Intermediary {
     }
 
     /**
-     * deletes a food object in the map of foods and rewrites the foods file.
+     * Deletes a food object in the map of foods and rewrites the foods file.
      * @param food a food object to be deleted.
      * @throws JSONException if the value is non-finite number or if the key is null
      */
@@ -120,7 +126,7 @@ public class Intermediary {
     }
 
     /**
-     * deletes a food object in the map of foods and rewrites the foods file.
+     * Deletes a food object in the map of foods and rewrites the foods file.
      * @param id the if of the food object to be deleted.
      * @throws JSONException if the value is non-finite number or if the key is null
      */
@@ -183,7 +189,7 @@ public class Intermediary {
     }
 
     /**
-     * translates the map of users to a JSONObject.
+     * Translates the map of users to a JSONObject.
      * @return a JSONObject with all the users.
      * @throws JSONException if the value is non-finite number or if the key is null
      */
@@ -210,7 +216,7 @@ public class Intermediary {
         return jsonObject;
     }
     /**
-     * translates the map of foods to a JSONObject.
+     * Translates the map of foods to a JSONObject.
      * @return a JSONObject with all the foods.
      * @throws JSONException if the value is non-finite number or if the key is null
      */
@@ -226,7 +232,7 @@ public class Intermediary {
     }
 
     /**
-     * searches for a food object in the food map.
+     * Searches for a food object in the food map.
      * @param foodID the ID of the food to search for
      * @return An instance of the Food class with the information of the found meal.
      * @throws FoodNotInMapException If the meal does not exist in the map.
@@ -243,7 +249,7 @@ public class Intermediary {
     }
 
     /**
-     * searches for a user object in the user map.
+     * Searches for a user object in the user map.
      * @param email the email of the user to search for
      * @return An instance of the User class with the information of the found user.
      * @throws UserNotInMapException If the user does not exist in the map.
@@ -260,7 +266,7 @@ public class Intermediary {
     }
 
     /**
-     * adds a food object to the foods file.
+     * Adds a food object to the foods file.
      * @param food the food object to be added
      * @throws JSONException if the value is non-finite number or if the key is null
      */

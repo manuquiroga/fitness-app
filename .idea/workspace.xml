@@ -8,11 +8,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2910e345-db14-4f9f-b4c7-3856289f3311" name="Changes" comment="javadoc documentation">
-      <change beforePath="$PROJECT_DIR$/src/FoodModels/Food.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FoodModels/Food.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Users/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Users/UserData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Users/UserData.java" afterDir="false" />
-    </list>
+    <list default="true" id="2910e345-db14-4f9f-b4c7-3856289f3311" name="Changes" comment="1 override" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -272,7 +268,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687272848432</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="1 override">
+      <created>1687273354768</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1687273354768</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -287,7 +290,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="GenericTreeMap" />
     <MESSAGE value="login ui test" />
     <MESSAGE value="Added and implemented the java-mail jar and lib. Added functions of sendMail, and DataValidation class for validations" />
     <MESSAGE value="Changed the welcome text method and set the log and sign buttons not focusable" />
@@ -312,7 +314,8 @@
     <MESSAGE value="error handling recipe api" />
     <MESSAGE value="fixed all ezequielgarcia errors, added more documentation" />
     <MESSAGE value="javadoc documentation" />
-    <option name="LAST_COMMIT_MESSAGE" value="javadoc documentation" />
+    <MESSAGE value="1 override" />
+    <option name="LAST_COMMIT_MESSAGE" value="1 override" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
