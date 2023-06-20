@@ -221,7 +221,15 @@ public class Profile extends JFrame{
             String name = nameField.getText();
             String email = emailField.getText();
             String password = passwordField.getText();
-            DataValidation.checkData(name, email, password);
+
+            if(!(user.getEmail().equalsIgnoreCase(email.toLowerCase()))){
+                DataValidation.checkEmailRepeatedProfile(email);
+            }
+
+            DataValidation.checkNameProfile(name);
+            DataValidation.checkEmailFormatProfile(email);
+            DataValidation.checkPassProfile(password);
+
             aux.setName(name);
             aux.setEmail(email);
             aux.setPassword(password);

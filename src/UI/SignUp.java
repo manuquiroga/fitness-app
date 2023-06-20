@@ -157,7 +157,7 @@ public class SignUp extends JFrame implements ActionListener{
                 JSONHandler.userToFile(user);
 
                 //EmailHandler.send(email, "Welcome to Nutribros", EmailHandler.welcomeText(name));
-                //This method works but there's a common error which doesn't appear in all PCs but we comment it as to not have conflicts between versions
+                //This method works but there's a common error which doesn't appear in all PCs, but we comment it as to not have conflicts between versions
 
                 frame.dispose();
                 intermediary.addUserToMap(user);

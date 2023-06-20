@@ -217,6 +217,37 @@ public final class DataValidation {
         }
         return val;
     }
+
+    public static boolean checkNameProfile(String name) throws NameTooShortException {
+        if (!DataValidation.name(name)) {
+            throw new NameTooShortException("The name has to be at least " + DataValidation.getMinCharName() + " characters long");
+        }
+        return true;
+    }
+
+    public static boolean checkPassProfile(String password) throws WeakPasswordException {
+        if (!DataValidation.password(password)) {
+            throw new WeakPasswordException("Password needs to have minimum " +
+                    DataValidation.getMinCharPass() +
+                    " characters and contain at least 1 number and 1 uppercase");
+        }
+        return true;
+    }
+
+    public static boolean checkEmailFormatProfile(String email) throws IncorrectEmailFormatException {
+        if (!DataValidation.email(email)) {
+            throw new IncorrectEmailFormatException("The email format is wrong");
+        }
+        return true;
+    }
+
+    public static boolean checkEmailRepeatedProfile(String email) throws EmailInUseException {
+        if (DataValidation.existsEmail(email)) {
+            throw new EmailInUseException(email);
+        }
+        return true;
+    }
+
     /**
      * Checks if the text fields contain only digits.
      * @param fields the text fields to check
