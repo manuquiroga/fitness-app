@@ -8,7 +8,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2910e345-db14-4f9f-b4c7-3856289f3311" name="Changes" comment="Modified users json file" />
+    <list default="true" id="2910e345-db14-4f9f-b4c7-3856289f3311" name="Changes" comment="Modified users json file">
+      <change beforePath="$PROJECT_DIR$/jaf-1.1.1/LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jaf-1.1.1/README.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jaf-1.1.1/RELNOTES.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jaf-1.1.1/activation.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jaf-1.1.1/demo/CompViewer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jaf-1.1.1/demo/DCHTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jaf-1.1.1/demo/DCHTest2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jaf-1.1.1/demo/DHURL.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jaf-1.1.1/demo/FileView.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jaf-1.1.1/demo/JAFApp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jaf-1.1.1/demo/MCDump.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jaf-1.1.1/demo/MCTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jaf-1.1.1/demo/ODCHTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jaf-1.1.1/demo/PlainDCH.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jaf-1.1.1/demo/PrefTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jaf-1.1.1/demo/SimpleDCF.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jaf-1.1.1/demo/TextInternalizer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jaf-1.1.1/distributionREADME.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javax.mail.jar" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -37,16 +57,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/quiro/Documents/GitHub/tp-lab3&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/Users/usuario/Desktop/tp-lab3",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="Exceptions" />
