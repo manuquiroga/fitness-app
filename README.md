@@ -5,6 +5,5 @@
 All the necessary documentation is included in the "documentation" package. You will also find user and administrator manuals there, providing detailed instructions on how to use the application from both user and administrator perspectives.
 
 ## Future updates
-- The premium user can modify their diet.
-- The premium user can exclude meals that contain a specific ingredient will be added.
-- All users will have the ability to create combined type diets, such as celiac-vegan or celiac-vegetarian. 
+-Users will be able to create combined diets, such as celiac-vegan or celiac-vegetarian.
+-They will also have the option to modify their diet and exclude specific meals based on a specific ingredient.
